@@ -42,7 +42,7 @@
     />
     <link
       rel="stylesheet"
-      href="..../assets/css/animate.css"
+      href="../assets/css/animate.css"
     />
     <link
       rel="stylesheet"
