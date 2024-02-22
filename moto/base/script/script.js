@@ -1,8 +1,6 @@
 // Inicializar el mapa
 var mymap = L.map('mapid').setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
 
-
-
  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
      maxZoom: 19,
      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
