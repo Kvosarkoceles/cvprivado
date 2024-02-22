@@ -1,4 +1,7 @@
-<?php include '/plantillas/head.php'; ?>
+<?php
+    // Incluir el pie de página
+    include '/plantillas/head.php';
+?>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <nav
       class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
