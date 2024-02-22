@@ -117,16 +117,16 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="<?php echo base_url(); ?>/base/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>base/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url(); ?>/base/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>base/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?php echo base_url(); ?>/base/dist/js/adminlte.min.js"></script>
+    <script src="<?php echo base_url(); ?>base/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo base_url(); ?>/base/dist/js/demo.js"></script>
+    <script src="<?php echo base_url(); ?>base/dist/js/demo.js"></script>
 
-    <script src="<?php echo base_url(); ?>nave/base/leafletjs/leaflet.js"></script>
-    <script src="<?php echo base_url(); ?>nave/base/script/script.js"></script>
+    <script src="<?php echo base_url(); ?>base/leafletjs/leaflet.js"></script>
+    <script src="<?php echo base_url(); ?>base/script/script.js"></script>
 
 </body>
 
