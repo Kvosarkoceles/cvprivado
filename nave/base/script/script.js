@@ -10,4 +10,4 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var marker = L.marker([51.5, -0.09]).addTo(mymap); // coordenadas del marcador
 
 // Añadir un popup al marcador
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+marker.bindPopup("<b>Hello world!</b>").openPopup();
