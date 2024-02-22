@@ -30,4 +30,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+/moto/application/config/config.php
 moto/application/config/config.php
