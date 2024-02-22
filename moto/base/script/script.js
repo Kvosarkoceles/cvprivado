@@ -31,7 +31,7 @@ function onLocationError(e) {
 
 
 // Añadir un marcador en una ubicación específica
-var marker = L.marker([51.5, -0.09]).addTo(mymap); // coordenadas del marcador
+// var marker = L.marker([51.5, -0.09]).addTo(mymap); // coordenadas del marcador
 
-// Añadir un popup al marcador
-marker.bindPopup("<b>Hello world!</b>").openPopup();
+// // Añadir un popup al marcador
+// marker.bindPopup("<b>Hello world!</b>").openPopup();
