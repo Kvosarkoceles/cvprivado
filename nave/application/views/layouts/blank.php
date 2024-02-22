@@ -85,7 +85,7 @@
   <div class="content-wrapper">
    
   mapa
-    
+  <div id="map"></div>
   </div>
   <!-- /.content-wrapper -->
 
