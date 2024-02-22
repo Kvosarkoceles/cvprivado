@@ -115,5 +115,29 @@
 <script src="<?php echo base_url(); ?>nave/base/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>nave/base/dist/js/demo.js"></script>
+
+
+<script>
+        // Inicializar y agregar el mapa
+        function initMap() {
+            // Coordenadas de ubicación (por ejemplo, el centro de la ciudad de París)
+            var paris = {lat: 48.8566, lng: 2.3522};
+            
+            // Crear un nuevo mapa en el elemento div con el id "map"
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 12,           // Nivel de zoom
+                    center: paris      // Centro del mapa
+                }
+            );
+            
+            // Agregar un marcador en la ubicación
+            var marker = new google.maps.Marker({
+                position: paris,    // Coordenadas de la ubicación
+                map: map,           // Mapa al que se agregará el marcador
+                title: 'París'     // Título del marcador (opcional)
+            });
+        }
+    </script>
 </body>
 </html>
