@@ -1,1 +1,1 @@
-# curriculum.github.io
+# xochihua.mx
