@@ -35,3 +35,12 @@ function onLocationError(e) {
 
 // // Añadir un popup al marcador
 // marker.bindPopup("<b>Hello world!</b>").openPopup();
+
+
+
+// Configurar opciones de geolocalización
+mymap.locate({setView: true, maxZoom: 16});
+
+// Asociar funciones de manejo de eventos
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
