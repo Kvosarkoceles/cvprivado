@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Blank Page</title>
-
+  <!-- mapa -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -82,9 +83,8 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-   
-  mapa
+  <div class="content-wrapper"> 
+
   <div id="map"></div>
   </div>
   <!-- /.content-wrapper -->
