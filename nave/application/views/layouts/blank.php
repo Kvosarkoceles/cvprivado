@@ -16,7 +16,12 @@
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+   
+   
+     <style>
 
+     #map { height: 180px; }
+     </style>
 
 
   <!-- Google Font: Source Sans Pro -->
@@ -98,8 +103,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-      <div id="map"></div>
+    <div id="map"></div>
     </div>
     <!-- /.content-wrapper -->
 
