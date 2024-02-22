@@ -68,7 +68,7 @@
 </head>
 <body>
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-<script src="dist/L.Control.HtmlLegend.js"></script>
+<script src="<?php echo base_url(); ?>nave/base/openmap/dist/L.Control.HtmlLegend.js"></script>
 <div id="map" style="position: absolute; top: 0; left:0; bottom:0; right: 0;"></div>
 
 <script>
