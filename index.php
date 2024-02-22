@@ -293,5 +293,5 @@
     </section>
     <?php
     // Incluir el pie de página
-    include 'footer.php';
+    include '/plantillas/footer.php';
 ?>
