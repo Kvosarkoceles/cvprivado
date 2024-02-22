@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Mapa con Leaflet</title>
+    <title>Mapa</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/leafletjs/leaflet.css">
 </head>
