@@ -34,7 +34,7 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 
-		$this->load->view('/layouts/blank');
+		$this->load->view('/layouts/mapa');
 	}
 
 
