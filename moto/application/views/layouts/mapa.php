@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mapa con Leaflet</title>
 
+<!-- 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/style.css"> -->
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/style.css">
+
+
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/leafletjs/leaflet.css">
 
     <!-- Google Font: Source Sans Pro -->
