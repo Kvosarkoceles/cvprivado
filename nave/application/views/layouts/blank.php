@@ -115,7 +115,7 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>
+
   <!-- jQuery -->
   <script src="<?php echo base_url(); ?>nave/base/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
