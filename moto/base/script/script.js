@@ -10,6 +10,22 @@ var mymap = L.map('mapid').setView([51.505, -0.09], 25); // coordenadas iniciale
 
 
 
+ 
+// Función para mostrar la ubicación del usuario
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(mymap);
+}
+
+// Función para manejar errores de geolocalización
+function onLocationError(e) {
+    alert(e.message);
+}
+
 
 // Añadir el mapa base de OpenStreetMap
 
