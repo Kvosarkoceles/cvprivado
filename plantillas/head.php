@@ -38,38 +38,38 @@
     />
     <link
       rel="stylesheet"
-      href="/assets/css/open-iconic-bootstrap.min.css"
+      href="..../assets/css/open-iconic-bootstrap.min.css"
     />
     <link
       rel="stylesheet"
-      href="/assets/css/animate.css"
+      href="..../assets/css/animate.css"
     />
     <link
       rel="stylesheet"
-      href="/assets/css/owl.carousel.min.css"
+      href="../assets/css/owl.carousel.min.css"
     />
     <link
       rel="stylesheet"
-      href="/assets/css/owl.theme.default.min.css"
+      href="../assets/css/owl.theme.default.min.css"
     />
     <link
       rel="stylesheet"
-      href="/assets/css/magnific-popup.css"
+      href="../assets/css/magnific-popup.css"
     />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+    <link rel="stylesheet" href="../assets/css/aos.css" />
     <link
       rel="stylesheet"
-      href="/assets/css/ionicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/assets/css/flaticon.css"
+      href="../assets/css/ionicons.min.css"
     />
     <link
       rel="stylesheet"
-      href="/assets/css/icomoon.css"
+      href="../assets/css/flaticon.css"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="..../assets/css/icomoon.css"
+    />
+    <link rel="stylesheet" href="..../assets/css/style.css" />
     
     <!-- Google tag (gtag.js) -->
     <script
