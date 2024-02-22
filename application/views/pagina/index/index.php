@@ -30,7 +30,7 @@
                       >Contáctame</a
                     >
                     <a
-                      href="/about.html"
+                      href="/about"
                       class="btn btn-white btn-outline-white py-3 px-4"
                       >Conóceme</a
                     >
@@ -70,7 +70,7 @@
                       >Contáctame</a
                     >
                     <a
-                      href="/about.html"
+                      href="/about"
                       class="btn btn-white btn-outline-white py-3 px-4"
                       >Conóceme</a
                     >
