@@ -85,11 +85,15 @@ function informacion() {
     method: "POST",
     data: data,
     success: function (response) {   
-      var htmlElements = $.parseHTML(response);
-      var infowindowContent = $(htmlElements).find('.infowindow').html();
+  
       var strSinEspacios = response.replace(/\s/g, "");
 
-            console.log(strSinEspacios);   
+      var htmlElements = $.parseHTML(strSinEspacios);
+      var infowindowContent = $(htmlElements).find('.infowindow').html();
+
+
+
+            console.log(typeof htmlElements);   
       
     },
     error: function (xhr, status, error) {   
