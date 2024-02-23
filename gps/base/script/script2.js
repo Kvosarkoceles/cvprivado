@@ -72,7 +72,7 @@ setInterval(start, 10000);
 function informacion() {
   var data = {
     id_disp:1970000012,
-    lgw_id: 133, 
+    lwg_id: 133, 
     dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
   };
