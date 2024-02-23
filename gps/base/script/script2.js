@@ -92,6 +92,29 @@ function informacion() {
 
       var htmlSinScripts = infowindowContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 
+
+      // Expresiones regulares para extraer los valores
+var velocidadMatch = htmlSinScripts.match(/Velocidad<\/label>\s*<span>(.*?)<\/span>/);
+var ignicionMatch = htmlSinScripts.match(/Ignición:<\/label>\s*(.*?)\s*<\/div>/);
+var inmovilizadorMatch = htmlSinScripts.match(/Inmovilizador:<\/label>\s*(.*?)\s*<\/div>/);
+var tensionMatch = htmlSinScripts.match(/<i class="fa fa-battery-three-quarters fa-fw"><\/i>\s*(.*?)\s*<\/div>/);
+var batteryMatch = htmlSinScripts.match(/<img width="20" src="img\/icons\/battery.svg"><\/label>\s*(.*?)\s*<\/div>/);
+
+// Extraer los valores de las coincidencias
+var velocidad = velocidadMatch ? velocidadMatch[1].trim() : 'N/A';
+var ignicion = ignicionMatch ? ignicionMatch[1].trim() : 'N/A';
+var inmovilizador = inmovilizadorMatch ? inmovilizadorMatch[1].trim() : 'N/A';
+var tension = tensionMatch ? tensionMatch[1].trim() : 'N/A';
+var battery = batteryMatch ? batteryMatch[1].trim() : 'N/A';
+
+
+console.log("Velocidad:", velocidad);
+console.log("Ignición:", ignicion);
+console.log("Inmovilizador:", inmovilizador);
+console.log("Tensión:", tension);
+console.log("Battery:", battery);
+
+
 console.log(htmlSinScripts);
 
 
