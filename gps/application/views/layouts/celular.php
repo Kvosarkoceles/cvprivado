@@ -33,10 +33,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>posiciones" class="nav-link">Posiciones</a>
+                    <a href="<?php echo base_url(); ?>celular/posiciones" class="nav-link">Posiciones</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>viajes" class="nav-link">Viajes</a>
+                    <a href="<?php echo base_url(); ?>celular/viajes" class="nav-link">Viajes</a>
                 </li>
             </ul>
 
