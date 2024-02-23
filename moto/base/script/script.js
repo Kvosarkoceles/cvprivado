@@ -26,8 +26,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // alert(datosVehiculos);
 start();
 function start() {
+// alert("datosVehiculos");
+eliminarTodosLosMarcadores();
 
-  alert("start");
   $.ajax({
     url: url,
     method: "POST",
@@ -36,7 +37,7 @@ function start() {
       var objeto = JSON.parse(response);      
     
     console.log(response);
-
+   
     L.marker([objeto[0].latitude, objeto[0].longitude])
     .addTo(mymap)
     .bindPopup(
@@ -68,9 +69,15 @@ function start() {
 }
 
 
+setInterval(start, 10000);
 
-
-
+function eliminarTodosLosMarcadores() {
+  mymap.eachLayer(function (layer) {
+    if (layer instanceof L.Marker) {
+        mymap.removeLayer(layer);
+    }
+});
+}
 // Función para mostrar la ubicación del usuario
 // function onLocationFound(e) {
 //   var radius = e.accuracy / 2;
