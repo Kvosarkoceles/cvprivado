@@ -118,7 +118,7 @@
     <script src="<?php echo base_url(); ?>base/dist/js/demo.js"></script>
 
     <script src="<?php echo base_url(); ?>base/leafletjs/leaflet.js"></script>
-    <script src="<?php echo base_url(); ?>base/script/script.js"></script>
+    <script src="<?php echo base_url(); ?>base/script/script3.js"></script>
 
 </body>
 
