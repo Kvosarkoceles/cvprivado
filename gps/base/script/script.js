@@ -28,7 +28,7 @@ start();
 function start() {
 // alert("datosVehiculos");
 eliminarTodosLosMarcadores();
-muestralocalizacion();
+
   $.ajax({
     url: url,
     method: "POST",
@@ -58,7 +58,7 @@ muestralocalizacion();
         objeto[1].veic_rotulo
     );
 
-
+    muestralocalizacion();
       //console.log(response); // Manejar la respuesta aquí
       // alert("datosVehiculos" +datosVehiculos);
     },
