@@ -99,7 +99,7 @@ function muestralocalizacion() {
 
 // Asociar funciones de manejo de eventos de geolocalización
 function onLocationFound(e) {
-  alert(e);
+ 
   var radius = e.accuracy / 2;
 
   L.marker(e.latlng)
