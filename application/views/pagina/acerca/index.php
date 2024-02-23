@@ -58,7 +58,7 @@
                 </p>
                 <p>
                   <a
-                    href="/assets/archivos/Miguel-Angel-Mendoza-Enriquez.pdf"
+                  href="/assets/archivos/CVMiguelMendoza.pdf"
                     class="btn btn-primary py-3 px-3"
                     download="Miguel-Angel-Mendoza-Enriquez.pdf"
                     >Download CV</a
