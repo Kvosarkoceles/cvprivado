@@ -32,7 +32,7 @@ $.ajax({
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);      
-      alert(response);
+    
     console.log(response);
 
     L.marker([objeto[0].latitude, objeto[0].longitude])
