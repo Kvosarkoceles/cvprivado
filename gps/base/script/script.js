@@ -28,6 +28,7 @@ start();
 function start() {
 // alert("datosVehiculos");
 eliminarTodosLosMarcadores();
+muestralocalizacion();
   $.ajax({
     url: url,
     method: "POST",
@@ -90,8 +91,8 @@ function eliminarTodosLosMarcadores() {
 
 // }
 // Configurar opciones de geolocalización
-mymap.locate({ setView: true, maxZoom: 16 });
-
+// mymap.locate({ setView: true, maxZoom: 16 });
+function muestralocalizacion() {
 // Manejar el evento de ubicación encontrada
 function onLocationFound(e) {
   var radius = e.accuracy / 2;
@@ -113,6 +114,8 @@ function onLocationError(e) {
 // Asociar funciones de manejo de eventos de geolocalización
 mymap.on('locationfound', onLocationFound);
 mymap.on('locationerror', onLocationError);
+}
+
 
 
 
