@@ -33,8 +33,14 @@ class Skills extends CI_Controller
 
 	public function index()
 	{
+		$data  = array(
+			'namePae' => "sarkoceles.com.mx | Habilidades",
+			'slidersDesactivados' => "sarkoceles.com.mx"
+			
+		);
+		
 
-		$this->load->view('/layouts/header');
+		$this->load->view('/layouts/header',$data);
 		$this->load->view('/layouts/nav');
 		$this->load->view('/pagina/skills/index');
 		$this->load->view('/layouts/footer');
