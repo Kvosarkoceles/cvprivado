@@ -14,7 +14,7 @@
 	          <li class="nav-item"><a href="<?php echo base_url(); ?>services" class="nav-link"><span>Servicios</span></a></li>
 	          <li class="nav-item"><a href="<?php echo base_url(); ?>skills" class="nav-link"><span>Habilidades</span></a></li>
               <li class="nav-item"><a href="<?php echo base_url(); ?>fotos" class="nav-link"><span>Fotografia</span></a></li>
-	          
+	          <li class="nav-item"><a href="<?php echo base_url(); ?>gps" class="nav-link"><span>GPSTrack</span></a></li>
 	          
 	        </ul>
 	      </div>
