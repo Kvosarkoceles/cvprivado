@@ -89,7 +89,7 @@ function informacion() {
       var infowindowContent = $(htmlElements).find('.infowindow').html();
       var strSinEspacios = response.replace(/\s/g, "");
 
-            console.log(typeof strSinEspacios);   
+            console.log(strSinEspacios);   
       
     },
     error: function (xhr, status, error) {   
