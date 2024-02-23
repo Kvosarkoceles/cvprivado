@@ -21,7 +21,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/dist/css/adminlte.min.css">
      <!-- Global site tag (gtag.js) - Google Analytics -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-55CCXNPDVR"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKX94EJELJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -30,7 +30,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-55CCXNPDVR');
+        gtag('config', 'G-NKX94EJELJ');
     </script>
 </head>
 
