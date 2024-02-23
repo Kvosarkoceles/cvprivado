@@ -98,10 +98,6 @@ function muestralocalizacion() {
 
 
 // Asociar funciones de manejo de eventos de geolocalización
-mymap.on('locationfound', onLocationFound);
-mymap.on('locationerror', onLocationError);
-}
-
 function onLocationFound(e) {
   alert(e);
   var radius = e.accuracy / 2;
@@ -113,12 +109,17 @@ function onLocationFound(e) {
 
   L.circle(e.latlng, radius).addTo(mymap);
 }
-
-// Manejar el evento de error de geolocalización
 function onLocationError(e) {
   alert(e.message);
   start();
 }
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+}
+
+
+// Manejar el evento de error de geolocalización
+
 
 
 // Función para manejar errores de geolocalización
