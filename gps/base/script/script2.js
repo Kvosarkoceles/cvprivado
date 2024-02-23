@@ -32,7 +32,7 @@ function start() {  // alert("datosVehiculos");
     success: function (response) {
       var objeto = JSON.parse(response);
       addMarker(objeto[1].latitude,objeto[1].longitude,objeto[1].PlacaVeic,objeto[1].veic_rotulo,velocidad);
-   
+      centrarMapaEnMarcador(objeto[1].latitude,objeto[1].longitude);
       muestralocalizacion();
      
     },
@@ -105,6 +105,10 @@ function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {
        vel
    );
 
+}
+
+function centrarMapaEnMarcador(latitud, longitud) {
+  mymap.setView([latitud, longitud], 13);
 }
 
 function eliminarTodosLosMarcadores() {
