@@ -115,7 +115,7 @@ console.log("Tensión:", tension);
 console.log("Battery:", battery);
 
 
-
+console.log(htmlSinScripts);
 
 
     
