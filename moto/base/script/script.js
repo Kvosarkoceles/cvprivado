@@ -10,29 +10,8 @@ var data = {
 // URL a la que se enviará la solicitud
 var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getCars";
 
-var datosVehiculos = [
-    {"typeD":"veic","vehiculoTipo":"450","ID_disp":"741852963","settings":"null","latitude":"19.31063","longitude":"-99.25656","origen":"GPS","radio":null,"evento":"EMG","evento_id":"1","modo":"","saida1":"0","curso":"0","veloc":"0","ignicao":"1","CorVeic":"#008000","PlacaVeic":"Xiaomi","veic_rotulo":"Poco X3 5G"},
-    {"typeD":"veic","vehiculoTipo":"546","ID_disp":"1970000012","settings":"null","latitude":"19.30923","longitude":"-99.26009","origen":"GPS","radio":null,"evento":"STT","evento_id":"9","modo":"0","saida1":"0","curso":"0.00","veloc":"0","ignicao":"0","CorVeic":"#000000","PlacaVeic":"06KFU7","veic_rotulo":"Lithium - 06KFU7"}
-  ];
-// Realizar la solicitud AJAX utilizando jQuery
-$.ajax({
-  url: url,
-  method: "POST",
-  data: data,
-  success: function (response) {
-    //   alert("response" +response); 
-    // datosVehiculos = response;
-    // console.log(response); // Manejar la respuesta aquí
-    // alert("datosVehiculos" +datosVehiculos); 
 
 
-  },
-  error: function (xhr, status, error) {
-  
-
-    console.error(status, error); // Manejar cualquier error aquí
-  },
-});
 
 // Inicializar el mapa
 var mymap = L.map("mapid").setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
@@ -44,19 +23,47 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(mymap);
 
 
-// alert("vehiculo"); 
 // alert(datosVehiculos);
 
 
-$.each(datosVehiculos, function(index, vehiculo) {  
+$.ajax({
+    url: url,
+    method: "POST",
+    data: data,
+    success: function (response) {
+      var objeto = JSON.parse(response);      
+      alert(response);
+    console.log(response);
 
-    var latitud = parseFloat(vehiculo.latitude);
-    var longitud = parseFloat(vehiculo.longitude);
+    L.marker([objeto[0].latitude, objeto[0].longitude])
+    .addTo(mymap)
+    .bindPopup(
+      "<b>Placa:</b> " +
+      objeto[0].PlacaVeic +
+        "<br>" +
+        "<b>Rótulo:</b> " +
+        objeto[0].veic_rotulo
+    );
 
-    // Crear marcador y añadirlo al mapa
-    L.marker([latitud, longitud]).addTo(mymap)
-      .bindPopup('<b>Placa:</b> ' + vehiculo.PlacaVeic + '<br>' + '<b>Rótulo:</b> ' + vehiculo.veic_rotulo);
+    L.marker([objeto[1].latitude, objeto[1].longitude])
+    .addTo(mymap)
+    .bindPopup(
+      "<b>Placa:</b> " +
+      objeto[1].PlacaVeic +
+        "<br>" +
+        "<b>Rótulo:</b> " +
+        objeto[1].veic_rotulo
+    );
+
+
+      //console.log(response); // Manejar la respuesta aquí
+      // alert("datosVehiculos" +datosVehiculos);
+    },
+    error: function (xhr, status, error) {
+      console.error(status, error); // Manejar cualquier error aquí
+    },
   });
+
 
 
 // Función para mostrar la ubicación del usuario
@@ -89,5 +96,4 @@ function onLocationError(e) {
 mymap.locate({ setView: true, maxZoom: 16 });
 
 // Asociar funciones de manejo de eventos
-mymap.on("locationfound", onLocationFound);
-mymap.on("locationerror", onLocationError);
+
