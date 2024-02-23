@@ -45,6 +45,8 @@ function onLocationFound(e) {
     .openPopup();
 
   L.circle(e.latlng, radius).addTo(mymap);
+
+alert(alert(e.latlng));
 }
 
 // Función para manejar errores de geolocalización
