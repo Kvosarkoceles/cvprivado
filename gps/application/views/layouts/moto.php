@@ -130,7 +130,7 @@
     <script src="<?php echo base_url(); ?>base/dist/js/demo.js"></script>
 
     <script src="<?php echo base_url(); ?>base/leafletjs/leaflet.js"></script>
-    <script src="<?php echo base_url(); ?>base/script/script2.js"></script>
+    <script src="<?php echo base_url(); ?>base/script/moto.js"></script>
 
 </body>
 
