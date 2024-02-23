@@ -95,7 +95,10 @@ function informacion() {
 
       // Expresiones regulares para extraer los valores
 var velocidadMatch = htmlSinScripts.match(/Velocidad<\/label>\s*<span>(.*?)<\/span>/);
-var ignicionMatch = htmlSinScripts.match(/Ignición:<\/label>\s*(.*?)\s*<\/div>/);
+var ignicionMatch = htmlSinScripts.match(/<label class="ignicion">Ignición: <\/label>\s*(.*?)\s*$/);
+
+
+
 var inmovilizadorMatch = htmlSinScripts.match(/Inmovilizador:<\/label>\s*(.*?)\s*<\/div>/);
 var tensionMatch = htmlSinScripts.match(/<i class="fa fa-battery-three-quarters fa-fw"><\/i>\s*(.*?)\s*<\/div>/);
 var batteryMatch = htmlSinScripts.match(/<img width="20" src="img\/icons\/battery.svg"><\/label>\s*(.*?)\s*<\/div>/);
