@@ -17,11 +17,14 @@ $.ajax({
   data: data,
   success: function (response) {
     console.log(response); // Manejar la respuesta aquí
-    alert(response);
+    alert(response); 
+
+
   },
   error: function (xhr, status, error) {
     alert(status);
     alert(error);
+
     console.error(status, error); // Manejar cualquier error aquí
   },
 });
@@ -34,6 +37,21 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(mymap);
+
+var datosVehiculos = [
+    {"typeD":"veic","vehiculoTipo":"450","ID_disp":"741852963","settings":"null","latitude":"19.31063","longitude":"-99.25656","origen":"GPS","radio":null,"evento":"EMG","evento_id":"1","modo":"","saida1":"0","curso":"0","veloc":"0","ignicao":"1","CorVeic":"#008000","PlacaVeic":"Xiaomi","veic_rotulo":"Poco X3 5G"},
+    {"typeD":"veic","vehiculoTipo":"546","ID_disp":"1970000012","settings":"null","latitude":"19.30923","longitude":"-99.26009","origen":"GPS","radio":null,"evento":"STT","evento_id":"9","modo":"0","saida1":"0","curso":"0.00","veloc":"0","ignicao":"0","CorVeic":"#000000","PlacaVeic":"06KFU7","veic_rotulo":"Lithium - 06KFU7"}
+  ];
+  
+$.each(datosVehiculos, function(index, vehiculo) {
+    var latitud = parseFloat(vehiculo.latitude);
+    var longitud = parseFloat(vehiculo.longitude);
+
+    // Crear marcador y añadirlo al mapa
+    L.marker([latitud, longitud]).addTo(mymap)
+      .bindPopup('<b>Placa:</b> ' + vehiculo.PlacaVeic + '<br>' + '<b>Rótulo:</b> ' + vehiculo.veic_rotulo);
+  });
+
 
 // Función para mostrar la ubicación del usuario
 function onLocationFound(e) {
