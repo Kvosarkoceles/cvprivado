@@ -21,7 +21,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // alert(datosVehiculos);
 var velocidad = "";
-informacion();
+ informacion();
 start();
 function start() {  // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
@@ -70,7 +70,7 @@ function start() {  // alert("datosVehiculos");
 
 setInterval(start, 10000);
 
-function informacion() {
+async function informacion() {
   var data = {
     id_disp: 1970000012,
     lwg_id: 133,
