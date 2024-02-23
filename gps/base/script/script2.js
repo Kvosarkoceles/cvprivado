@@ -21,7 +21,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // alert(datosVehiculos);
 var velocidad = "";
- informacion();
+await informacion();
 start();
 function start() {  // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
