@@ -85,8 +85,12 @@ function informacion() {
     method: "POST",
     data: data,
     success: function (response) {
+      var htmlString =response;
+      var htmlElements = $.parseHTML(htmlString);
+      var infowindowContent = $(htmlElements).find('.infowindow').html();
+
             console.log(response);   
-      alert( typeof response);
+      alert( infowindowContent);
     },
     error: function (xhr, status, error) {   
       
