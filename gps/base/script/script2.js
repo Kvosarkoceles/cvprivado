@@ -38,25 +38,25 @@ eliminarTodosLosMarcadores();
     
     console.log(response);
    
-    L.marker([objeto[0].latitude, objeto[0].longitude])
-    .addTo(mymap)
-    .bindPopup(
-      "<b>Placa:</b> " +
-      objeto[0].PlacaVeic +
-        "<br>" +
-        "<b>Rótulo:</b> " +
-        objeto[0].veic_rotulo
-    );
-
-    // L.marker([objeto[1].latitude, objeto[1].longitude])
+    // L.marker([objeto[0].latitude, objeto[0].longitude])
     // .addTo(mymap)
     // .bindPopup(
     //   "<b>Placa:</b> " +
-    //   objeto[1].PlacaVeic +
+    //   objeto[0].PlacaVeic +
     //     "<br>" +
     //     "<b>Rótulo:</b> " +
-    //     objeto[1].veic_rotulo
+    //     objeto[0].veic_rotulo
     // );
+
+    L.marker([objeto[1].latitude, objeto[1].longitude])
+    .addTo(mymap)
+    .bindPopup(
+      "<b>Placa:</b> " +
+      objeto[1].PlacaVeic +
+        "<br>" +
+        "<b>Rótulo:</b> " +
+        objeto[1].veic_rotulo
+    );
 
     muestralocalizacion();
       //console.log(response); // Manejar la respuesta aquí
