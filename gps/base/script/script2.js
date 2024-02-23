@@ -86,7 +86,7 @@ function informacion() {
     data: data,
     success: function (response) {
             console.log(response);   
-      alert("datosVehiculos" +response);
+      alert( typeof response);
     },
     error: function (xhr, status, error) {   
       
