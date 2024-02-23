@@ -37,7 +37,17 @@ class Celular extends CI_Controller
 		$this->load->view('/layouts/celular');
 	}
 
+	public function posiciones()
+	{
 
+		$this->load->view('/layouts/celular');
+	}
+
+	public function viajes()
+	{
+
+		$this->load->view('/layouts/celular');
+	}
 
 	
 
