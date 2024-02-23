@@ -34,7 +34,7 @@ function start() {  // alert("datosVehiculos");
 
       // console.log(response);
       console.log("informacion");
-    
+      informacion();
       // L.marker([objeto[0].latitude, objeto[0].longitude])
       // .addTo(mymap)
       // .bindPopup(
