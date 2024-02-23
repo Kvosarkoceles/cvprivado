@@ -93,7 +93,7 @@ function eliminarTodosLosMarcadores() {
 // Configurar opciones de geolocalización
 // mymap.locate({ setView: true, maxZoom: 16 });
 function muestralocalizacion() {
-  alert("AAAA");
+ 
 // Manejar el evento de ubicación encontrada
 
 
