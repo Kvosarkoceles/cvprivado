@@ -21,8 +21,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // alert(datosVehiculos);
 var velocidad = "";
-await informacion();
-start();
+informacion();
+// start();
 function start() {  // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
   $.ajax({
@@ -31,36 +31,10 @@ function start() {  // alert("datosVehiculos");
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-
-      // console.log(response);
-      console.log("informacion");
-      informacion();
-      // L.marker([objeto[0].latitude, objeto[0].longitude])
-      // .addTo(mymap)
-      // .bindPopup(
-      //   "<b>Placa:</b> " +
-      //   objeto[0].PlacaVeic +
-      //     "<br>" +
-      //     "<b>Rótulo:</b> " +
-      //     objeto[0].veic_rotulo
-      // );
-
-      L.marker([objeto[1].latitude, objeto[1].longitude])
-        .addTo(mymap)
-        .bindPopup(
-          "<b>Placa:</b> " +
-            objeto[1].PlacaVeic +
-            "<br>" +
-            "<b>Rótulo:</b> " +
-            objeto[1].veic_rotulo +
-            "<br>" +
-            "<b>Velocidad:</b> " +
-            velocidad
-        );
-
+      addMarker(objeto[1].latitude,objeto[1].longitude,objeto[1].PlacaVeic,objeto[1].veic_rotulo,velocidad);
+   
       muestralocalizacion();
-      //console.log(response); // Manejar la respuesta aquí
-      // alert("datosVehiculos" +datosVehiculos);
+     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -71,6 +45,7 @@ function start() {  // alert("datosVehiculos");
 setInterval(start, 10000);
 
 async function informacion() {
+  console.log("informacion funcion" + velocidad);
   var data = {
     id_disp: 1970000012,
     lwg_id: 133,
@@ -81,7 +56,7 @@ async function informacion() {
   var url =
     "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getInfo/1970000012";
 
-  $.ajax({
+ await $.ajax({
     url: url,
     method: "POST",
     data: data,
@@ -112,6 +87,24 @@ async function informacion() {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
+
+  start();
+}
+
+function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {  
+   L.marker([latitude,longitude])
+   .addTo(mymap)
+   .bindPopup(
+     "<b>Placa:</b> " +
+       PlacaVeic +
+       "<br>" +
+       "<b>Rótulo:</b> " +
+       veic_rotulo +
+       "<br>" +
+       "<b>Velocidad:</b> " +
+       vel
+   );
+
 }
 
 function eliminarTodosLosMarcadores() {
