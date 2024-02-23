@@ -34,7 +34,14 @@ class Resume extends CI_Controller
 	public function index()
 	{
 
-		$this->load->view('/layouts/header');
+		$data  = array(
+			'namePae' => "sarkoceles.com.mx | experiencia",
+			'slidersDesactivados' => "sarkoceles.com.mx"
+			
+		);
+		
+
+		$this->load->view('/layouts/header',$data);
 		$this->load->view('/layouts/nav');
 		$this->load->view('/pagina/resume/index');
 		$this->load->view('/layouts/footer');
