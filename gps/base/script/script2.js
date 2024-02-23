@@ -89,6 +89,12 @@ function informacion() {
       var tempDiv = document.createElement("div");
       tempDiv.innerHTML = response;
       var infowindowContent = tempDiv.querySelector('.infowindow').innerHTML;
+
+      var htmlSinScripts = infowindowContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
+console.log(htmlSinScripts);
+
+
       console.log(typeof infowindowContent);
       // console.log(response);
     },
