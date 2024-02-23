@@ -71,33 +71,28 @@ setInterval(start, 10000);
 
 function informacion() {
   var data = {
-    id_disp:1970000012,
-    lwg_id: 133, 
+    id_disp: 1970000012,
+    lwg_id: 133,
     dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
   };
 
-  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getInfo/1970000012";
-
+  var url =
+    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getInfo/1970000012";
 
   $.ajax({
     url: url,
     method: "POST",
     data: data,
-    success: function (response) {   
-  
-      var strSinEspacios = response.replace(/\s/g, "");
-
-      var htmlElements = $.parseHTML(strSinEspacios);
-      var infowindowContent = $(htmlElements).find('.infowindow').html();
-
-
-
-            console.log(response);   
-      
+    success: function (response) {
+      // Crear un elemento div temporal
+      var tempDiv = document.createElement("div");
+      tempDiv.innerHTML = response;
+      var infowindowContent = tempDiv.querySelector('.infowindow').innerHTML;
+      console.log(infowindowContent);
+      // console.log(response);
     },
-    error: function (xhr, status, error) {   
-      
+    error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
