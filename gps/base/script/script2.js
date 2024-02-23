@@ -21,7 +21,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // alert(datosVehiculos);
 start();
-var velocidad="";
+var velocidad = "";
 function start() {
   // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
@@ -103,7 +103,7 @@ function informacion() {
       );
 
       // Extraer los valores de las coincidencias
-      var velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
+     this.velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
 
       console.log("Velocidad:", velocidad);
 
