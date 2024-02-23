@@ -13,7 +13,7 @@ var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getCars";
 // Realizar la solicitud AJAX utilizando jQuery
 $.ajax({
   url: url,
-  method: "GET",
+  method: "POST",
   data: data,
   success: function (response) {
     console.log(response); // Manejar la respuesta aquí
@@ -46,7 +46,6 @@ function onLocationFound(e) {
 
   L.circle(e.latlng, radius).addTo(mymap);
 
-alert(alert(e.latlng));
 }
 
 // Función para manejar errores de geolocalización
