@@ -108,7 +108,7 @@ function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
-  mymap.setView([latitud, longitud], 13);
+  mymap.setView([latitud, longitud], 17);
 }
 
 function eliminarTodosLosMarcadores() {
