@@ -88,8 +88,8 @@ function informacion() {
       var htmlString =response;
       var htmlElements = $.parseHTML(htmlString);
       var infowindowContent = $(htmlElements).find('.infowindow').html();
-            console.log(infowindowContent);   
-      alert( infowindowContent);
+            console.log(htmlElements);   
+      
     },
     error: function (xhr, status, error) {   
       
