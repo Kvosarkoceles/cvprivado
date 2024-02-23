@@ -27,15 +27,9 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-        
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>              
-         
-
-            <!-- Right navbar links -->
-           
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
         </nav>
         <!-- /.navbar -->
 
@@ -54,8 +48,8 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">Veiculos</li>
                         <li class="nav-item">
-                           
-                     
+
+
 
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto" class="nav-link">
