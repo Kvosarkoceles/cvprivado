@@ -91,6 +91,9 @@ function informacion() {
       alert("datosVehiculos" +response);
     },
     error: function (xhr, status, error) {
+      alert("datosVehiculos" +error);
+      alert("datosVehiculos" +status);
+      
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
