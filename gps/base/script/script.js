@@ -94,7 +94,15 @@ function eliminarTodosLosMarcadores() {
 // mymap.locate({ setView: true, maxZoom: 16 });
 function muestralocalizacion() {
 // Manejar el evento de ubicación encontrada
+
+
+// Asociar funciones de manejo de eventos de geolocalización
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+}
+
 function onLocationFound(e) {
+  alert(e);
   var radius = e.accuracy / 2;
 
   L.marker(e.latlng)
@@ -110,13 +118,6 @@ function onLocationError(e) {
   alert(e.message);
   start();
 }
-
-// Asociar funciones de manejo de eventos de geolocalización
-mymap.on('locationfound', onLocationFound);
-mymap.on('locationerror', onLocationError);
-}
-
-
 
 
 // Función para manejar errores de geolocalización
