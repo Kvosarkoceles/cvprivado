@@ -33,8 +33,14 @@ class Acerca extends CI_Controller
 
 	public function index()
 	{
+		$data  = array(
+			'namePae' => "sarkoceles.com.mx | acerca",
+			'slidersDesactivados' => "sarkoceles.com.mx"
+			
+		);
+		
 
-		$this->load->view('/layouts/header');
+		$this->load->view('/layouts/header',$data);
 		$this->load->view('/layouts/nav');
 		$this->load->view('/pagina/acerca/index');
 		$this->load->view('/layouts/footer');

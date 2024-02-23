@@ -34,7 +34,14 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 
-		$this->load->view('/layouts/header');
+		$data  = array(
+			'namePae' => "sarkoceles.com.mx",
+			'slidersDesactivados' => "sarkoceles.com.mx"
+			
+		);
+
+		$namePae =
+		$this->load->view('/layouts/header', $data);
 		$this->load->view('/layouts/nav');
 		$this->load->view('/pagina/index/index');
 		$this->load->view('/layouts/footer');
