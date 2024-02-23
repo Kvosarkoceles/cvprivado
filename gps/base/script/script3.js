@@ -48,15 +48,15 @@ eliminarTodosLosMarcadores();
         objeto[0].veic_rotulo
     );
 
-    L.marker([objeto[1].latitude, objeto[1].longitude])
-    .addTo(mymap)
-    .bindPopup(
-      "<b>Placa:</b> " +
-      objeto[1].PlacaVeic +
-        "<br>" +
-        "<b>Rótulo:</b> " +
-        objeto[1].veic_rotulo
-    );
+    // L.marker([objeto[1].latitude, objeto[1].longitude])
+    // .addTo(mymap)
+    // .bindPopup(
+    //   "<b>Placa:</b> " +
+    //   objeto[1].PlacaVeic +
+    //     "<br>" +
+    //     "<b>Rótulo:</b> " +
+    //     objeto[1].veic_rotulo
+    // );
 
     muestralocalizacion();
       //console.log(response); // Manejar la respuesta aquí
