@@ -33,10 +33,18 @@ class Portafolio extends CI_Controller
 
 	public function index()
 	{
+		$data  = array(
+			'namePae' => "sarkoceles.com.mx | Fotos",
+			'slidersDesactivados' => "sarkoceles.com.mx"
+			
+		);
+		
+
+	
 
 	/* 	$this->load->view('/layouts/header');
 		$this->load->view('/layouts/nav'); */
-		$this->load->view('/pagina/portafolio/index');
+		$this->load->view('/pagina/portafolio/index',$data);
 	/* 	$this->load->view('/layouts/footer'); */
 		
 	}
