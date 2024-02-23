@@ -58,7 +58,7 @@ eliminarTodosLosMarcadores();
         objeto[1].veic_rotulo+
         "<br>" +
         "<b>Rótulo:</b> " +
-        objeto[0].veic_rotulo
+        objeto[0].ignicao
     );
 
     muestralocalizacion();
