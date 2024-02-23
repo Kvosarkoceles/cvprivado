@@ -28,7 +28,7 @@ start();
 function start() {
 // alert("datosVehiculos");
 eliminarTodosLosMarcadores();
-
+onLocationFound();
   $.ajax({
     url: url,
     method: "POST",
