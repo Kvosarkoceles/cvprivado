@@ -24,9 +24,11 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 
 // alert(datosVehiculos);
+start();
+function start() {
 
-
-$.ajax({
+  alert("start");
+  $.ajax({
     url: url,
     method: "POST",
     data: data,
@@ -63,6 +65,9 @@ $.ajax({
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
+}
+
+
 
 
 
