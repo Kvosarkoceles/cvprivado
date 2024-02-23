@@ -86,7 +86,7 @@ function informacion() {
     data: data,
     success: function (response) {
       var htmlString =response;
-      var htmlElements = $.parseHTML(htmlString);
+      var htmlElements = $.parseHTML(response);
       var infowindowContent = $(htmlElements).find('.infowindow').html();
             console.log(htmlElements);   
       
