@@ -20,7 +20,7 @@ $.ajax({
   method: "POST",
   data: data,
   success: function (response) {
-      alert("response" +response); 
+    //   alert("response" +response); 
     // datosVehiculos = response;
     // console.log(response); // Manejar la respuesta aquí
     // alert("datosVehiculos" +datosVehiculos); 
@@ -49,7 +49,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 
 $.each(datosVehiculos, function(index, vehiculo) {  
-    alert("vehiculo"); 
+
     var latitud = parseFloat(vehiculo.latitude);
     var longitud = parseFloat(vehiculo.longitude);
 
