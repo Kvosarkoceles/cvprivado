@@ -103,8 +103,8 @@ function informacion() {
       );
 
       // Extraer los valores de las coincidencias
-     this.velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
-
+      velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
+      alert(velocidad);
       console.log("Velocidad:", velocidad);
 
       // console.log(response);
