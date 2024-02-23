@@ -101,7 +101,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" id="mapid">
-            aqui va el mapa
+            
         </div>
         <!-- /.content-wrapper -->
 
