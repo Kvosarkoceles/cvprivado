@@ -107,6 +107,7 @@ function onLocationFound(e) {
 // Manejar el evento de error de geolocalización
 function onLocationError(e) {
   alert(e.message);
+  start();
 }
 
 // Asociar funciones de manejo de eventos de geolocalización
