@@ -34,7 +34,7 @@ class Celular extends CI_Controller
 	public function index()
 	{
 
-		$this->load->view('/layouts/mapa');
+		$this->load->view('/layouts/celular');
 	}
 
 
