@@ -95,7 +95,7 @@ function informacion() {
 console.log(htmlSinScripts);
 
 
-      console.log(typeof infowindowContent);
+    
       // console.log(response);
     },
     error: function (xhr, status, error) {
