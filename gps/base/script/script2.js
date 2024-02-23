@@ -85,14 +85,10 @@ function informacion() {
     method: "POST",
     data: data,
     success: function (response) {
-      var objeto = JSON.parse(response);
-
-      console.log(response);   
+            console.log(response);   
       alert("datosVehiculos" +response);
     },
-    error: function (xhr, status, error) {
-      alert("datosVehiculos" +error);
-      alert("datosVehiculos" +status);
+    error: function (xhr, status, error) {   
       
       console.error(status, error); // Manejar cualquier error aquí
     },
