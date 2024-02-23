@@ -89,7 +89,7 @@ function informacion() {
       var tempDiv = document.createElement("div");
       tempDiv.innerHTML = response;
       var infowindowContent = tempDiv.querySelector('.infowindow').innerHTML;
-      console.log(infowindowContent);
+      console.log(typeof infowindowContent);
       // console.log(response);
     },
     error: function (xhr, status, error) {
