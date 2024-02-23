@@ -63,7 +63,7 @@
                     download="Miguel-Angel-Mendoza-Enriquez.pdf"
                     >Download CV</a
                   > -->
-                  <a href="/assets/archivos/CVMiguelMendoza.pdf"
+                  <a href="https://sarkoceles.com.mx/curriculum/"
    class="btn btn-primary py-3 px-3"
    target="_blank">
    Ver CV
