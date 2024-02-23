@@ -66,14 +66,14 @@
                      
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>" class="nav-link">
+                            <a href="<?php echo base_url(); ?>moto" class="nav-link">
                                 <i class="fa-solid fa-motorcycle"></i>
                                 <p> Moto</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>" class="nav-link">
+                            <a href="<?php echo base_url(); ?>celular" class="nav-link">
                                 <i class="fa-solid fa-mobile-retro"></i>
                                 <p> Celular</p>
                             </a>
