@@ -28,7 +28,6 @@ start();
 function start() {
 // alert("datosVehiculos");
 eliminarTodosLosMarcadores();
-onLocationFound();
   $.ajax({
     url: url,
     method: "POST",
@@ -79,22 +78,47 @@ function eliminarTodosLosMarcadores() {
 });
 }
 // Función para mostrar la ubicación del usuario
+// function onLocationFound(e) {
+//   var radius = e.accuracy / 2;
+
+//   L.marker(e.latlng)
+//     .addTo(mymap)
+//     .bindPopup("You are within " + radius + " meters from this point")
+//     .openPopup();
+
+//   L.circle(e.latlng, radius).addTo(mymap);
+
+// }
+// Configurar opciones de geolocalización
+mymap.locate({ setView: true, maxZoom: 16 });
+
+// Manejar el evento de ubicación encontrada
 function onLocationFound(e) {
   var radius = e.accuracy / 2;
 
   L.marker(e.latlng)
     .addTo(mymap)
-    .bindPopup("You are within " + radius + " meters from this point")
+    .bindPopup("Estás dentro de " + radius + " metros de este punto")
     .openPopup();
 
   L.circle(e.latlng, radius).addTo(mymap);
-
 }
 
-// Función para manejar errores de geolocalización
+// Manejar el evento de error de geolocalización
 function onLocationError(e) {
   alert(e.message);
 }
+
+// Asociar funciones de manejo de eventos de geolocalización
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+
+
+
+// Función para manejar errores de geolocalización
+// function onLocationError(e) {
+//   alert(e.message);
+// }
 
 // Añadir el mapa base de OpenStreetMap
 
