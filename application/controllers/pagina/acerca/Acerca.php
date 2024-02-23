@@ -37,8 +37,7 @@ class Acerca extends CI_Controller
 			'namePae' => "sarkoceles.com.mx | acerca",
 			'slidersDesactivados' => "sarkoceles.com.mx"
 			
-		);
-		
+		);	
 
 		$this->load->view('/layouts/header',$data);
 		$this->load->view('/layouts/nav');
