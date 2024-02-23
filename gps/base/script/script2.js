@@ -93,7 +93,7 @@ function informacion() {
 
 
 
-            console.log(typeof htmlElements);   
+            console.log(typeof infowindowContent);   
       
     },
     error: function (xhr, status, error) {   
