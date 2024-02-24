@@ -8,8 +8,8 @@ var data = {
 };
 var data2 = {
   lgw_id: 133,
-  ID_disp: T,
-  group: T,
+  ID_disp: "T",
+  group: "T",
   getDevices: true, 
 };
 // URL a la que se enviará la solicitud
