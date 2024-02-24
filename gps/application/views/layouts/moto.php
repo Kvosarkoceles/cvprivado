@@ -78,16 +78,16 @@
                      
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>moto" class="nav-link">
-                                <i class="fa-solid fa-motorcycle"></i>
-                                <p> Moto</p>
+                            <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">
+                                <i></i>
+                                <p> Posiciones</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>celular" class="nav-link">
-                                <i class="fa-solid fa-mobile-retro"></i>
-                                <p> Celular</p>
+                            <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">
+                                <i ></i>
+                                <p> Viajes</p>
                             </a>
                         </li>
 
@@ -107,7 +107,7 @@
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.2.0
+                <b>Version</b> 1.2.1
             </div>
             <strong>Copyright &copy; 2024 <a href="https://sarkoceles.com.mx">sarkoceles</a>.</strong> All rights reserved.
         </footer>
