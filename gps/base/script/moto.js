@@ -6,10 +6,15 @@ var data = {
   dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
   db: "awsdev",
 };
-
+var data2 = {
+  lgw_id: 133,
+  ID_disp: T,
+  group: T,
+  getDevices: true, 
+};
 // URL a la que se enviará la solicitud
 var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getCars";
-
+var url2 = "https://demo.imovit.net/plataforma/lib/php/fastQuerys.php?getDevices";
 // Inicializar el mapa
 var mymap = L.map("mapid").setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
 
@@ -25,6 +30,20 @@ informacion();
 // start();
 function start() {  // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
+  $.ajax({
+    url: url2,
+    method: "POST",
+    data: data2,
+    success: function (response) {
+      alert(response);
+     
+    },
+    error: function (xhr, status, error) {
+      console.error(status, error); // Manejar cualquier error aquí
+    },
+  });
+
+
   $.ajax({
     url: url,
     method: "POST",
