@@ -149,8 +149,8 @@ var contentOutsideParentheses = matches[1].trim().replace(recortar, "").trim();
 console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
 console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
 
-  datos.lable=matches[1].trim();
-  datos.placa=matches[1].trim();
+  datos.lable=contentInsideParentheses;
+  datos.placa=contentOutsideParentheses;
   // console.log(datos);
   if (matchesVel && matchesVel.length > 1) {
     // Eliminar espacios en blanco al principio y al final
