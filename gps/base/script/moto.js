@@ -113,7 +113,7 @@ async function informacion() {
       var valuesArray = Object.values($html );
 
 // Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
-var primerElemento = valuesArray[0];
+var primerElemento = valuesArray[0].innerText;
 
 console.log("primerElemento: ", primerElemento)
 
