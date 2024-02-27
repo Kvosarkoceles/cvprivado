@@ -144,7 +144,7 @@ if (matches && matches.length > 1) {
   contentInsideParentheses = matchesInsideParentheses[1];
 }
 
-var contentOutsideParentheses = matches[1].trim().replace(regex, "").trim();
+var contentOutsideParentheses = matches[1].trim().replace(recortar, "").trim();
 // Imprimir resultados
 console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
 console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
