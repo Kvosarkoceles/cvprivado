@@ -50,44 +50,44 @@ async function informacion() {
   var data = {
     id_disp: 1970000012,
     lwg_id: 133,
-    dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
+    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
   };
 
   var url =
     "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getInfo/1970000012";
 
-//  await $.ajax({
-//     url: url,
-//     method: "POST",
-//     data: data,
-//     success: function (response) {
-//       // Crear un elemento div temporal
-//       var tempDiv = document.createElement("div");
-//       tempDiv.innerHTML = response;
-//       var infowindowContent = tempDiv.querySelector(".infowindow").innerHTML;
+ await $.ajax({
+    url: url,
+    method: "POST",
+    data: data,
+    success: function (response) {
+      // Crear un elemento div temporal
+      var tempDiv = document.createElement("div");
+      tempDiv.innerHTML = response;
+      var infowindowContent = tempDiv.querySelector(".infowindow").innerHTML;
 
-//       var htmlSinScripts = infowindowContent.replace(
-//         /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
-//         ""
-//       );
+      var htmlSinScripts = infowindowContent.replace(
+        /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+        ""
+      );
 
-//       // Expresiones regulares para extraer los valores
-//       var velocidadMatch = htmlSinScripts.match(
-//         /Velocidad<\/label>\s*<span>(.*?)<\/span>/
-//       );
+      // Expresiones regulares para extraer los valores
+      var velocidadMatch = htmlSinScripts.match(
+        /Velocidad<\/label>\s*<span>(.*?)<\/span>/
+      );
 
-//       // Extraer los valores de las coincidencias
-//       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
-//       // alert(velocidad);
-//       console.log("Velocidad:", velocidad);
+      // Extraer los valores de las coincidencias
+      velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
+      // alert(velocidad);
+      console.log("Velocidad:", velocidad);
 
-//       // console.log(response);
-//     },
-//     error: function (xhr, status, error) {
-//       console.error(status, error); // Manejar cualquier error aquí
-//     },
-//   });
+      // console.log(response);
+    },
+    error: function (xhr, status, error) {
+      console.error(status, error); // Manejar cualquier error aquí
+    },
+  });
 
   start();
 }
