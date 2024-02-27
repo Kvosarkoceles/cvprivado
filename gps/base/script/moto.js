@@ -128,7 +128,7 @@ var datos =
 }
 // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
 var placaAndLabel = /expand_more(.*?)Velocidad/;
-var velocidad_Limitador = /expand_more(.*?)Velocidad/;
+var velocidad_Limitador = /Velocidad(.*?)Ignición/;
 // Buscar coincidencias en el string
 var matches = primerElemento.match(placaAndLabel);
 
