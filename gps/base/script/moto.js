@@ -83,6 +83,11 @@ async function informacion() {
         /Velocidad<\/label>\s*<span>(.*?)<\/span>/
       );
 
+      var inicionMatch = htmlSinScripts.match(
+        /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
+      );
+
+
       // Extraer los valores de las coincidencias
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
@@ -96,21 +101,21 @@ async function informacion() {
 
       var jsonString = htmlSinScripts.replace(/\s/g, '');
 
-      console.log("jsonString:", jsonString);
+      console.log("inicionMatch:", inicionMatch);
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
    
-      // Crear un elemento jQuery a partir del HTML recibido
-      var $html = $(infowindowContent);
+      // // Crear un elemento jQuery a partir del HTML recibido
+      // var $html = $(infowindowContent);
       
-      // Encontrar el elemento que contiene el estado de la ignición
-      var ignicionElement = $html.find('.ignicion').next('div');
+      // // Encontrar el elemento que contiene el estado de la ignición
+      // var ignicionElement = $html.find('.ignicion').next('div');
       
-      // Obtener el estado de la ignición
-      var estadoIgnicion = ignicionElement.text().trim();
+      // // Obtener el estado de la ignición
+      // var estadoIgnicion = ignicionElement.text().trim();
       
-      // Imprimir el estado de la ignición
-      console.log("Estado de la ignicionElement:", ignicionElement);
+      // // Imprimir el estado de la ignición
+      // console.log("Estado de la ignicionElement:", ignicionElement);
 
 
 
