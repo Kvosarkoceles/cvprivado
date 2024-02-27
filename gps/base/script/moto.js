@@ -151,48 +151,18 @@ console.log(textoModificadoscript);
 
 console.log("textoModificadoscript", textoModificadoscript);
 
-var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
-console.log(textoModificado);
-
-
-// Dividir el texto en líneas
-var lineas = textoModificado.split('|');
-
-// Objeto JSON
-var jsonObject = {};
-
-$.each(lineas, function(index, linea) {
-  // Dividir la línea en elementos utilizando el separador |
-  var elementos = linea.split('|');
-  // Tomar el primer elemento como la clave y los elementos restantes como el valor
-  var clave = elementos.shift();
-  var valor = elementos.join('|');
-  // Agregar al objeto JSON
-  jsonObject[clave] = valor;
-});
-
-// Imprimir el objeto JSON en la consola
-console.log(jsonObject);
+// var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
+// console.log(textoModificado);
 
 
 
-      // Encontrar el elemento que contiene el estado de la ignición
-      var ignicionElement = $html.find('.ignicion').next('div');
-      
-      // Obtener el estado de la ignición
-      var estadoIgnicion = ignicionElement.text().trim();
-      
-      // Imprimir el estado de la ignición
-      // console.log("Estado de la ignicionElement:", ignicionElement);
 
 
 
-      // Obtener el texto dentro del elemento encontrado
-      // console.log(typeof infowindowContent);
-      var estadoIgnicion = infowindowContent;
 
-      // Imprimir el estado de la ignición
-      // console.log("Estado de la ignición:", estadoIgnicion);
+
+
+     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
