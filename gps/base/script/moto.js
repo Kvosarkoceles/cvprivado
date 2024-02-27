@@ -101,7 +101,7 @@ async function informacion() {
       var estadoIgnicion = ignicionElement.text().trim();
       
       // Imprimir el estado de la ignición
-      console.log("Estado de la ignición:", estadoIgnicion);
+      console.log("Estado de la ignicionElement:", ignicionElement);
 
 
 
