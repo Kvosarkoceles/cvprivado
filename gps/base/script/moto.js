@@ -117,7 +117,7 @@ var primerElemento = valuesArray[0];
 
 console.log("primerElemento: ", primerElemento)
 
-
+console.log("primerElemento tipo: ", typeof primerElemento)
 
       var keys = Object.keys($html);
 
