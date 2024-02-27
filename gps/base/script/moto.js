@@ -136,7 +136,21 @@ var matchesVel = primerElemento.match(velocidad_Limitador);
 // Si hay coincidencias, obtener el valor entre paréntesis
 if (matches && matches.length > 1) {
  // Eliminar espacios en blanco al principio y al final
+ var recortar = /\(([^)]+)\)/;
+
+ var matchesInsideParentheses = matches[1].trim().match(recortar);
+ var contentInsideParentheses = "";
+ if (matchesInsideParentheses && matchesInsideParentheses.length > 1) {
+  contentInsideParentheses = matchesInsideParentheses[1];
+}
+
+var contentOutsideParentheses = dataString.replace(regex, "").trim();
+// Imprimir resultados
+console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
+console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
+
   datos.lable=matches[1].trim();
+  datos.placa=matches[1].trim();
   // console.log(datos);
   if (matchesVel && matchesVel.length > 1) {
     // Eliminar espacios en blanco al principio y al final
