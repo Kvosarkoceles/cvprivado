@@ -119,17 +119,23 @@ console.log("primerElemento: ", primerElemento)
 
 
 console.log("primerElemento: ", typeof primerElemento)
+var datos = 
+{
+  placa:"",
+  lable:"",
 
+}
 // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
-var regex = /expand_more(.*?)Velocidad/;
+var placaAndLabel = /expand_more(.*?)Velocidad/;
 // Buscar coincidencias en el string
-var matches = primerElemento.match(regex);
+var matches = primerElemento.match(placaAndLabel);
 
 
 // Si hay coincidencias, obtener el valor entre paréntesis
 if (matches && matches.length > 1) {
-  var valor = matches[1].trim(); // Eliminar espacios en blanco al principio y al final
-  console.log(valor); // Imprimir el valor en la consola
+ // Eliminar espacios en blanco al principio y al final
+  datos.lable=matches[1].trim();
+  console.log(datos); // Imprimir el valor en la consola
 } else {
   console.log("No se encontró ningún valor entre 'expand_more' y 'Velocidad'.");
 }
