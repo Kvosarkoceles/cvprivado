@@ -154,6 +154,28 @@ console.log("textoModificadoscript", textoModificadoscript);
 var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
 console.log(textoModificado);
 
+
+// Dividir el texto en líneas
+var lineas = textoModificado.split('|');
+
+// Objeto JSON
+var jsonObject = {};
+
+$.each(lineas, function(index, linea) {
+  // Dividir la línea en elementos utilizando el separador |
+  var elementos = linea.split('|');
+  // Tomar el primer elemento como la clave y los elementos restantes como el valor
+  var clave = elementos.shift();
+  var valor = elementos.join('|');
+  // Agregar al objeto JSON
+  jsonObject[clave] = valor;
+});
+
+// Imprimir el objeto JSON en la consola
+console.log(jsonObject);
+
+
+
       // Encontrar el elemento que contiene el estado de la ignición
       var ignicionElement = $html.find('.ignicion').next('div');
       
