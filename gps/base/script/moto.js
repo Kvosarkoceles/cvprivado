@@ -23,8 +23,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var velocidad = "";
 informacion();
 // start();
-function start() {  // alert("datosVehiculos");
-  eliminarTodosLosMarcadores(); 
+function start() {
+  // alert("datosVehiculos");
+  eliminarTodosLosMarcadores();
 
   $.ajax({
     url: url,
@@ -32,10 +33,15 @@ function start() {  // alert("datosVehiculos");
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      addMarker(objeto[1].latitude,objeto[1].longitude,objeto[1].PlacaVeic,objeto[1].veic_rotulo,velocidad);
-      centrarMapaEnMarcador(objeto[1].latitude,objeto[1].longitude);
+      addMarker(
+        objeto[1].latitude,
+        objeto[1].longitude,
+        objeto[1].PlacaVeic,
+        objeto[1].veic_rotulo,
+        velocidad
+      );
+      centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
       muestralocalizacion();
-     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -57,7 +63,7 @@ async function informacion() {
   var url =
     "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getInfo/1970000012";
 
- await $.ajax({
+  await $.ajax({
     url: url,
     method: "POST",
     data: data,
@@ -83,15 +89,28 @@ async function informacion() {
       console.log("Velocidad:", velocidad);
 
       //  console.log(response);
-       // Buscar el elemento que contiene el estado de la ignición
-var ignicionElement = $('.col-xs-6 label.ignicion + span');
+      // Buscar el elemento que contiene el estado de la ignición
+   
+      // Crear un elemento jQuery a partir del HTML recibido
+      var $html = $(infowindowContent);
+      
+      // Encontrar el elemento que contiene el estado de la ignición
+      var ignicionElement = $html.find('.ignicion').next('div');
+      
+      // Obtener el estado de la ignición
+      var estadoIgnicion = ignicionElement.text().trim();
+      
+      // Imprimir el estado de la ignición
+      console.log("Estado de la ignición:", estadoIgnicion);
 
-// Obtener el texto dentro del elemento encontrado
-console.log(typeof infowindowContent);
-var estadoIgnicion = infowindowContent;
 
-// Imprimir el estado de la ignición
-console.log("Estado de la ignición:", estadoIgnicion);
+
+      // Obtener el texto dentro del elemento encontrado
+      console.log(typeof infowindowContent);
+      var estadoIgnicion = infowindowContent;
+
+      // Imprimir el estado de la ignición
+      console.log("Estado de la ignición:", estadoIgnicion);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -101,20 +120,19 @@ console.log("Estado de la ignición:", estadoIgnicion);
   start();
 }
 
-function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {  
-   L.marker([latitude,longitude])
-   .addTo(mymap)
-   .bindPopup(
-     "<b>Placa:</b> " +
-       PlacaVeic +
-       "<br>" +
-       "<b>Rótulo:</b> " +
-       veic_rotulo +
-       "<br>" +
-       "<b>Velocidad:</b> " +
-       vel
-   );
-
+function addMarker(latitude, longitude, PlacaVeic, veic_rotulo, vel) {
+  L.marker([latitude, longitude])
+    .addTo(mymap)
+    .bindPopup(
+      "<b>Placa:</b> " +
+        PlacaVeic +
+        "<br>" +
+        "<b>Rótulo:</b> " +
+        veic_rotulo +
+        "<br>" +
+        "<b>Velocidad:</b> " +
+        vel
+    );
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
