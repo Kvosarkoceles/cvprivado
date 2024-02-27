@@ -1,9 +1,14 @@
 <?php
-// application/controllers/Api.php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Api extends CI_Controller {
+
+    public function __construct() {
+        parent::__construct();
+        // Cargar el modelo si es necesario
+        // $this->load->model('api_model');
+        $this->load->library('output');
+    }
 
     public function receive_json() {
         // Obtener el JSON de la solicitud
@@ -22,10 +27,9 @@ class Api extends CI_Controller {
         );
         
         // Establecer el tipo de contenido de la respuesta como JSON
-        $this->output->set_content_type('application/json');
-        
-        // Enviar la respuesta JSON
-        $this->output->set_output(json_encode($response));
+        $this->output
+             ->set_content_type('application/json')
+             ->set_output(json_encode($response));
     }
 
 }
