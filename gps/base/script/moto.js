@@ -86,15 +86,13 @@ async function informacion() {
       // Extraer los valores de las coincidencias
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
-      var inicionMatch = htmlSinScripts.match(
-        /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
-      );
+
 
       // Extraer los valores de las coincidencias
      
 
 
-      console.log("inicionMatch:", inicionMatch);
+      console.log("htmlSinScripts:", htmlSinScripts);
 
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
