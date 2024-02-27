@@ -118,6 +118,7 @@ var primerElemento = valuesArray[0].innerText;
 console.log("primerElemento: ", primerElemento)
 
 
+console.log("primerElemento: ", typeof primerElemento)
 
 
 
