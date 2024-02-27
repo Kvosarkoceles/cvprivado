@@ -117,39 +117,18 @@ var primerElemento = valuesArray[0];
 
 console.log("primerElemento: ", primerElemento)
 
-console.log("primerElemento tipo: ", typeof primerElemento)
-var personaJSON = JSON.stringify(primerElemento);
-console.log("personaJSON",personaJSON);
-
-
-var jsonprimerElemento= JSON.stringify(primerElemento);
-
-console.log("jsonprimerElemento", jsonprimerElemento);
-
-
-
-var miDiv = document.getElementById("miDiv");
 
 
 
 
-      var keys = Object.keys($html);
+
+
 
 // Imprimir las llaves
 
 
 var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
 console.log('infowindowinnerText', infowindowinnerText);
-
-
-
-
-
-
-// var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
-// console.log(textoModificado);
-
-
 
 
 
