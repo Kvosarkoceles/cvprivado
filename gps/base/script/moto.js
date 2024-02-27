@@ -87,7 +87,7 @@ async function informacion() {
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
       var inicionMatch = htmlSinScripts.match(
-        /Ignición: <\/label>\s*<span>(.*?)<\/span>/
+        /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
       );
 
       // Extraer los valores de las coincidencias
