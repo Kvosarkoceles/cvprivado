@@ -108,7 +108,7 @@ async function informacion() {
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
 
-      console.log('$html ' ,$html);
+      console.log('$html ' ,$html.0.outerText);
       var keys = Object.keys($html);
 
 // Imprimir las llaves
