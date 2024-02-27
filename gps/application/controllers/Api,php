@@ -1,7 +1,6 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
 /** access library REST_Controller, remember is library is a REST Server resource*/
-require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . '.libraries/REST_Controller.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
