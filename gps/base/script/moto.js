@@ -142,10 +142,12 @@ var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
 console.log('infowindowinnerText', infowindowinnerText);
 
 
-var textoModificadoscript = infowindowinnerText.replace(
-  /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
-  ""
-);
+
+
+var textoModificadoscript = infowindowinnerText.replace(/\$\(\s*function\s*\(\)\s*{[\s\S]*?}\s*\);?/g, '');
+
+console.log(textoModificadoscript);
+
 
 console.log("textoModificadoscript", textoModificadoscript);
 
