@@ -140,7 +140,8 @@ console.log(keys);
 
 var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
 console.log('infowindowinnerText', infowindowinnerText);
-
+var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
+console.log(textoModificado);
 
       // Encontrar el elemento que contiene el estado de la ignición
       var ignicionElement = $html.find('.ignicion').next('div');
