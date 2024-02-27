@@ -20,7 +20,12 @@ class Api extends CI_Controller {
             'status' => 'success',
             'message' => 'JSON received successfully'
         );
-        $this->output->set_content_type('application/json')->set_output(json_encode($response));
+        
+        // Establecer el tipo de contenido de la respuesta como JSON
+        $this->output->set_content_type('application/json');
+        
+        // Enviar la respuesta JSON
+        $this->output->set_output(json_encode($response));
     }
 
 }
