@@ -92,8 +92,11 @@ async function informacion() {
      
 
 
-      console.log("htmlSinScripts:", htmlSinScripts);
+    
 
+      var jsonString = htmlSinScripts.replace(/\s/g, '');
+
+      console.log("jsonString:", jsonString);
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
    
