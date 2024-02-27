@@ -119,12 +119,13 @@ console.log("primerElemento: ", primerElemento)
 
 console.log("primerElemento tipo: ", typeof primerElemento)
 
-var inicionMatch = primerElemento.match(
-  /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
-);
+
+var jsonprimerElemento= JSON.stringify(primerElemento);
+
+console.log(jsonprimerElemento);
 
 
-console.log("Ignicion: ", Ignicion)
+
 
 
       var keys = Object.keys($html);
