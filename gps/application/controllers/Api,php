@@ -1,36 +1,149 @@
-<?php
+<?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
+/** access library REST_Controller, remember is library is a REST Server resource*/
+require APPPATH . 'libraries/REST_Controller.php';
 
-class Api extends CI_Controller {
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
-    public function __construct() {
+class Api extends REST_Controller {
+
+    public function __construct()
+    {
         parent::__construct();
-        // Cargar el modelo si es necesario
-        // $this->load->model('api_model');
-        $this->load->library('output');
+             
     }
 
-    public function receive_json() {
-        // Obtener el JSON de la solicitud
-        $json_data = file_get_contents('php://input');
-        
-        // Decodificar el JSON en un array asociativo
-        $data = json_decode($json_data, true);
-        
-        // Procesar los datos (por ejemplo, almacenarlos en la base de datos)
-        // Aquí puedes agregar la lógica según tus necesidades
+    public function index_get()
+    {
+        $id = $this->input->get('id');
 
-        // Enviar una respuesta JSON de confirmación
-        $response = array(
-            'status' => 'success',
-            'message' => 'JSON received successfully'
+        if(!empty($id)) {
+
+            $data = $this->use->get_by_id($id)->result();
+
+            if($data) {
+                $res['error'] = false;
+                $res['message'] = 'success get data by id';
+                $res['data'] = $data;    
+                
+            }else {
+                $res['error'] = true;
+                $res['message'] = 'failed get data';
+            }
+
+        }else {
+
+            $data = $this->use->get_all()->result();
+
+            if($data) {
+                $res['error'] = false;
+                $res['message'] = 'success get all data';
+                $res['data'] = $data;
+
+            } else {
+                $res['error'] = true;
+                $res['message'] = 'failed get data';
+            }
+
+        }
+        $this->response($res, 200);        
+    }
+
+    public function index_post()
+    {
+        $id = $this->input->post('id');
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $user = $this->input->post('user');
+        $password = $this->input->post('password');
+        $email = $this->input->post('email');
+
+        $data = array(
+            'id' => $id,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'user' => $user,
+            'password' => $password,
+            'email' => $email
         );
-        
-        // Establecer el tipo de contenido de la respuesta como JSON
-        $this->output
-             ->set_content_type('application/json')
-             ->set_output(json_encode($response));
+
+        $insert = $this->use->save($data);
+
+        if($insert) {
+            $res['error'] = false;
+            $res['message'] = 'insert success';
+            $res['data'] = $data;
+        } else {
+            $res['error'] = true;
+            $res['message'] = 'insert failed';
+            $res['data'] = null;
+        }
+
+        $this->response($res, 200);        
     }
 
+    // public function index_put()
+    // {
+    //     $id = $this->input->get('id');
+
+    //     $first_name = $this->put('first_name');
+    //     $last_name = $this->put('last_name');
+    //     $user = $this->put('user');
+    //     $password = $this->put('password');
+    //     $email = $this->put('email');
+
+    //     $data = array(
+    //         'first_name' => $first_name,
+    //         'last_name' => $last_name,
+    //         'user' => $user,
+    //         'password' => $password,
+    //         'email' => $email
+    //     );
+
+    //     if(!empty($id)) {
+    //        $update = $this->use->edit($id, $data);
+
+    //        if($update) {
+    //             $res['error'] = false;
+    //             $res['message'] = 'update success';
+    //             $res['data'] = $data;
+    //        } else {
+    //             $res['error'] = true;
+    //             $res['message'] = 'update failed';
+    //             $res['data'] = null;
+    //        }
+    //     } else {
+    //         $res['error'] = true;
+    //         $res['message'] = 'update failed';
+    //         $res['data'] = null;
+    //     }
+
+    //     $this->response($res, 200);        
+    // }
+
+    // public function index_delete()
+    // {
+    //     $id = $this->input->get('id');
+
+    //     if(!empty($id)) {
+
+    //         $delete = $this->use->delete($id);
+
+    //         if($delete) {
+    //             $res['error'] = false;
+    //             $res['message'] = 'delete success';
+                
+    //        } else {
+    //             $res['error'] = true;
+    //             $res['message'] = 'delete failed';
+                
+    //        }
+    //     } else {
+    //         $res['error'] = true;
+    //         $res['message'] = 'delete failed';
+    //     }
+
+    //     $this->response($res, 200);        
+    // }
 }
-?>
