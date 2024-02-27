@@ -122,7 +122,7 @@ console.log("primerElemento tipo: ", typeof primerElemento)
 
 var jsonprimerElemento= JSON.stringify(primerElemento);
 
-console.log(jsonprimerElemento);
+console.log("jsonprimerElemento", jsonprimerElemento);
 
 
 
