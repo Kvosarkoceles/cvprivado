@@ -82,7 +82,15 @@ async function informacion() {
       // alert(velocidad);
       console.log("Velocidad:", velocidad);
 
-       console.log(response);
+      //  console.log(response);
+       // Buscar el elemento que contiene el estado de la ignición
+var ignicionElement = $('.col-xs-6 label.ignicion + span');
+
+// Obtener el texto dentro del elemento encontrado
+var estadoIgnicion = response.text().trim();
+
+// Imprimir el estado de la ignición
+console.log("Estado de la ignición:", estadoIgnicion);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
