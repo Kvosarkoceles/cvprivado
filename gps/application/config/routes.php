@@ -59,3 +59,5 @@ $route['resume'] = 'pagina/resume/resume';
 $route['services'] = 'pagina/services/services';
 $route['skills'] = 'pagina/skills/skills';
 $route['fotos'] = 'pagina/portafolio/portafolio';
+
+$route['api/receive_json'] = 'api/receive_json';

@@ -1,0 +1,27 @@
+<?php
+// application/controllers/Api.php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Api extends CI_Controller {
+
+    public function receive_json() {
+        // Obtener el JSON de la solicitud
+        $json_data = file_get_contents('php://input');
+        
+        // Decodificar el JSON en un array asociativo
+        $data = json_decode($json_data, true);
+        
+        // Procesar los datos (por ejemplo, almacenarlos en la base de datos)
+        // Aquí puedes agregar la lógica según tus necesidades
+
+        // Enviar una respuesta JSON de confirmación
+        $response = array(
+            'status' => 'success',
+            'message' => 'JSON received successfully'
+        );
+        $this->output->set_content_type('application/json')->set_output(json_encode($response));
+    }
+
+}
+?>
