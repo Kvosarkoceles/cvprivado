@@ -87,100 +87,95 @@ async function informacion() {
         /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
       );
 
-
       // Extraer los valores de las coincidencias
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
 
-
       // Extraer los valores de las coincidencias
-     
 
-
-    
-
-      var jsonString = htmlSinScripts.replace(/\s/g, '');
+      var jsonString = htmlSinScripts.replace(/\s/g, "");
 
       // console.log("inicionMatch:", inicionMatch);
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
-   
+
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
 
-      console.log('$html ' ,$html);
+      console.log("$html ", $html);
 
-      var valuesArray = Object.values($html );
+      var valuesArray = Object.values($html);
 
-// Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
-var primerElemento = valuesArray[0].innerText;
+      // Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
+      var primerElemento = valuesArray[0].innerText;
 
-console.log("primerElemento: ", primerElemento)
+      console.log("primerElemento: ", primerElemento);
 
+      console.log("primerElemento: ", typeof primerElemento);
+      var datos = {
+        placa: "",
+        lable: "",
+        velocidad: "",
+        ultimoReporte: "",
+      };
+      // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
+      var placaAndLabel = /expand_more(.*?)Velocidad/;
+      var velocidad_Limitador = /Velocidad(.*?)Ignición/;
+      var UltimoReporte_Limitador = /UltimoReporte(.*?)UltimaPosición/;
 
-console.log("primerElemento: ", typeof primerElemento)
-var datos = 
-{
-  placa:"",
-  lable:"",
-  velocidad:"",
+      // Buscar coincidencias en el string
+      var matches = primerElemento.match(placaAndLabel);
 
-}
-// Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
-var placaAndLabel = /expand_more(.*?)Velocidad/;
-var velocidad_Limitador = /Velocidad(.*?)Ignición/;
-// Buscar coincidencias en el string
-var matches = primerElemento.match(placaAndLabel);
+      var matchesVel = primerElemento.match(velocidad_Limitador);
+      var matchesUltimoReport = primerElemento.match(UltimoReporte_Limitador);
+      // Si hay coincidencias, obtener el valor entre paréntesis
+      if (matches && matches.length > 1) {
+        var recortar = /\(([^)]+)\)/;
+        var matchesInsideParentheses = matches[1].trim().match(recortar);
+        var contentInsideParentheses = "";
+        if (matchesInsideParentheses && matchesInsideParentheses.length > 1) {
+          contentInsideParentheses = matchesInsideParentheses[1];
+        }
+        var contentOutsideParentheses = matches[1]
+          .trim()
+          .replace(recortar, "")
+          .trim();    
 
-var matchesVel = primerElemento.match(velocidad_Limitador);
-// Si hay coincidencias, obtener el valor entre paréntesis
-if (matches && matches.length > 1) {
- // Eliminar espacios en blanco al principio y al final
- var recortar = /\(([^)]+)\)/;
-
- var matchesInsideParentheses = matches[1].trim().match(recortar);
- var contentInsideParentheses = "";
- if (matchesInsideParentheses && matchesInsideParentheses.length > 1) {
-  contentInsideParentheses = matchesInsideParentheses[1];
-}
-
-var contentOutsideParentheses = matches[1].trim().replace(recortar, "").trim();
-// Imprimir resultados
-// console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
-// console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
-
-  datos.lable=contentInsideParentheses;
-  datos.placa=contentOutsideParentheses;
-  // console.log(datos);
-  if (matchesVel && matchesVel.length > 1) {
-    // Eliminar espacios en blanco al principio y al final
-     datos.velocidad=matchesVel[1].trim();
-     console.log(datos); // Imprimir el valor en la consola
-   } else {
-     console.log("No se encontró ningún valor entre 'expand_more' y 'Velocidad'.");
-   }
-
-   // Imprimir el valor en la consola
-} else {
-  console.log("No se encontró ningún valor entre 'expand_more' y 'Velocidad'.");
-}
-
-
-
-
-// Imprimir las llaves
-
-
-var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
-console.log('infowindowinnerText', infowindowinnerText);
-
-
-
-
-
-
-
+        datos.lable = contentInsideParentheses;
+        datos.placa = contentOutsideParentheses;
+        // console.log(datos);
      
+
+        // Imprimir el valor en la consola
+      } else {
+        console.log(
+          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
+        );
+      }
+
+
+      if (matchesVel && matchesVel.length > 1) {       
+        datos.velocidad = matchesVel[1].trim();
+        console.log(datos); // Imprimir el valor en la consola
+      } else {
+        console.log(
+          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
+        );
+      }
+
+
+      if (matchesUltimoReport && matchesUltimoReport.length > 1) {       
+        datos.ultimoReporte = matchesUltimoReport[1].trim();
+        console.log(datos); // Imprimir el valor en la consola
+      } else {
+        console.log(
+          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
+        );
+      }
+      // Imprimir las llaves
+
+      // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
+      // // console.log('infowindowinnerText', infowindowinnerText);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
