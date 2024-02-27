@@ -118,6 +118,8 @@ var primerElemento = valuesArray[0];
 console.log("primerElemento: ", primerElemento)
 
 console.log("primerElemento tipo: ", typeof primerElemento)
+var personaJSON = JSON.stringify(primerElemento);
+console.log("personaJSON",personaJSON);
 
 
 var jsonprimerElemento= JSON.stringify(primerElemento);
