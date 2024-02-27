@@ -109,6 +109,16 @@ async function informacion() {
       var $html = $(jsonString);
 
       console.log('$html ' ,$html);
+
+      var valuesArray = Object.values($html );
+
+// Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
+var primerElemento = valuesArray[0];
+
+console.log("primerElemento: ", primerElemento)
+
+
+
       var keys = Object.keys($html);
 
 // Imprimir las llaves
