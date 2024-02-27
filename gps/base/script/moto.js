@@ -87,7 +87,8 @@ async function informacion() {
 var ignicionElement = $('.col-xs-6 label.ignicion + span');
 
 // Obtener el texto dentro del elemento encontrado
-var estadoIgnicion = response.trim();
+console.log(typeof response);
+var estadoIgnicion = response;
 
 // Imprimir el estado de la ignición
 console.log("Estado de la ignición:", estadoIgnicion);
