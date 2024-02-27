@@ -46,7 +46,7 @@ function start() {  // alert("datosVehiculos");
 setInterval(start, 10000);
 
 async function informacion() {
-  console.log("informacion funcion" + velocidad);
+  // console.log("informacion funcion" + velocidad);
   var data = {
     id_disp: 1970000012,
     lwg_id: 133,
