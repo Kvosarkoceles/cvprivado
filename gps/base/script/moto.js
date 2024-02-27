@@ -112,6 +112,7 @@ async function informacion() {
       var keys = Object.keys($html);
 
 // Imprimir las llaves
+console.log("LLaves: ");
 console.log(keys);
       
       // Encontrar el elemento que contiene el estado de la ignición
