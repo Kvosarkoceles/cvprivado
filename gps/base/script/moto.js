@@ -82,7 +82,7 @@ async function informacion() {
       // alert(velocidad);
       console.log("Velocidad:", velocidad);
 
-      // console.log(response);
+       console.log(response);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
