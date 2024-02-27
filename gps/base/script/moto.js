@@ -108,7 +108,7 @@ async function informacion() {
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
 
-      console.log('$html ' ,$html );
+      console.log('$html ' ,$html.innerText );
       
       // Encontrar el elemento que contiene el estado de la ignición
       var ignicionElement = $html.find('.ignicion').next('div');
