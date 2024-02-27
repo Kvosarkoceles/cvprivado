@@ -146,8 +146,8 @@ if (matches && matches.length > 1) {
 
 var contentOutsideParentheses = matches[1].trim().replace(recortar, "").trim();
 // Imprimir resultados
-console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
-console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
+// console.log("Contenido dentro de paréntesis:", contentInsideParentheses);
+// console.log("Contenido fuera de paréntesis:", contentOutsideParentheses);
 
   datos.lable=contentInsideParentheses;
   datos.placa=contentOutsideParentheses;
