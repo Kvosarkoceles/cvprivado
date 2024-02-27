@@ -126,6 +126,9 @@ console.log(jsonprimerElemento);
 
 
 
+var miDiv = document.getElementById("miDiv");
+
+
 
 
       var keys = Object.keys($html);
@@ -134,6 +137,11 @@ console.log(jsonprimerElemento);
 console.log("LLaves: ");
 console.log(keys);
       
+
+var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
+console.log('infowindowinnerText', infowindowinnerText);
+
+
       // Encontrar el elemento que contiene el estado de la ignición
       var ignicionElement = $html.find('.ignicion').next('div');
       
