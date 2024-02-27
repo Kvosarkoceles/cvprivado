@@ -123,7 +123,7 @@ var datos =
 {
   placa:"",
   lable:"",
-  velodicad:"",
+  velocidad:"",
 
 }
 // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -137,7 +137,7 @@ var matchesVel = primerElemento.match(velocidad_Limitador);
 if (matches && matches.length > 1) {
  // Eliminar espacios en blanco al principio y al final
   datos.lable=matches[1].trim();
-  console.log(datos);
+  // console.log(datos);
   if (matchesVel && matchesVel.length > 1) {
     // Eliminar espacios en blanco al principio y al final
      datos.velocidad=matchesVel[1].trim();
