@@ -123,19 +123,30 @@ var datos =
 {
   placa:"",
   lable:"",
+  velodicad:"",
 
 }
 // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
 var placaAndLabel = /expand_more(.*?)Velocidad/;
+var velocidad_Limitador = /expand_more(.*?)Velocidad/;
 // Buscar coincidencias en el string
 var matches = primerElemento.match(placaAndLabel);
 
-
+var matchesVel = primerElemento.match(velocidad_Limitador);
 // Si hay coincidencias, obtener el valor entre paréntesis
 if (matches && matches.length > 1) {
  // Eliminar espacios en blanco al principio y al final
   datos.lable=matches[1].trim();
-  console.log(datos); // Imprimir el valor en la consola
+  console.log(datos);
+  if (matchesVel && matchesVel.length > 1) {
+    // Eliminar espacios en blanco al principio y al final
+     datos.velocidad=matchesVel[1].trim();
+     console.log(datos); // Imprimir el valor en la consola
+   } else {
+     console.log("No se encontró ningún valor entre 'expand_more' y 'Velocidad'.");
+   }
+
+   // Imprimir el valor en la consola
 } else {
   console.log("No se encontró ningún valor entre 'expand_more' y 'Velocidad'.");
 }
