@@ -83,16 +83,32 @@ async function informacion() {
         /Velocidad<\/label>\s*<span>(.*?)<\/span>/
       );
 
+      var inicionMatch = htmlSinScripts.match(
+        /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
+      );
+
 
       // Extraer los valores de las coincidencias
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
 
+
+      // Extraer los valores de las coincidencias
+     
+
+
+    
+
       var jsonString = htmlSinScripts.replace(/\s/g, '');
 
+      // console.log("inicionMatch:", inicionMatch);
+      //  console.log(response);
+      // Buscar el elemento que contiene el estado de la ignición
+   
+      // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
 
- 
+      console.log('$html ' ,$html);
 
       var valuesArray = Object.values($html );
 
