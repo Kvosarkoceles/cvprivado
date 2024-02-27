@@ -144,12 +144,7 @@ console.log('infowindowinnerText', infowindowinnerText);
 
 
 
-var textoModificadoscript = infowindowinnerText.replace(/\$\(\s*function\s*\(\)\s*{[\s\S]*?}\s*\);?/g, '');
 
-console.log(textoModificadoscript);
-
-
-console.log("textoModificadoscript", textoModificadoscript);
 
 // var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
 // console.log(textoModificado);
