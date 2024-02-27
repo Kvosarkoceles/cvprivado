@@ -91,10 +91,10 @@ async function informacion() {
       );
 
       // Extraer los valores de las coincidencias
-      inicion = inicionMatch ? inicionMatch[1].trim() : "N/A";
+     
 
 
-      console.log("inicion:", inicion);
+      console.log("inicionMatch:", inicionMatch);
 
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
