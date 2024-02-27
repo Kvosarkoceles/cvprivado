@@ -83,94 +83,43 @@ async function informacion() {
         /Velocidad<\/label>\s*<span>(.*?)<\/span>/
       );
 
-      var inicionMatch = htmlSinScripts.match(
-        /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
-      );
-
-
       // Extraer los valores de las coincidencias
       velocidad = velocidadMatch ? velocidadMatch[1].trim() : "N/A";
       // alert(velocidad);
 
+      var jsonString = htmlSinScripts.replace(/\s/g, "");
 
-      // Extraer los valores de las coincidencias
-     
+      var $html = $(jsonString);
+      // Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
+      var primerElemento = valuesArray[0];
 
+ 
+
+      var jsonprimerElemento = JSON.stringify(primerElemento);
 
     
 
-      var jsonString = htmlSinScripts.replace(/\s/g, '');
-
-      // console.log("inicionMatch:", inicionMatch);
-      //  console.log(response);
-      // Buscar el elemento que contiene el estado de la ignición
-   
-      // Crear un elemento jQuery a partir del HTML recibido
-      var $html = $(jsonString);
-
-      console.log('$html ' ,$html);
-
-      var valuesArray = Object.values($html );
-
-// Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
-var primerElemento = valuesArray[0];
-
-console.log("primerElemento: ", primerElemento)
-
-console.log("primerElemento tipo: ", typeof primerElemento)
-
-
-var jsonprimerElemento= JSON.stringify(primerElemento);
-
-console.log(jsonprimerElemento);
-
-
-
-var miDiv = document.getElementById("miDiv");
-
-
-
+      var miDiv = document.getElementById("miDiv");
 
       var keys = Object.keys($html);
 
-// Imprimir las llaves
-console.log("LLaves: ");
-console.log(keys);
-      
+      // Imprimir las llaves
 
-var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
-console.log('infowindowinnerText', infowindowinnerText);
+      var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
+      console.log("infowindowinnerText", infowindowinnerText);
 
+      var textoModificadoscript = infowindowinnerText.replace(
+        /\$\(\s*function\s*\(\)\s*{[\s\S]*?}\s*\);?/g,
+        ""
+      );
 
+      console.log(textoModificadoscript);
 
+      console.log("textoModificadoscript", textoModificadoscript);
 
-var textoModificadoscript = infowindowinnerText.replace(/\$\(\s*function\s*\(\)\s*{[\s\S]*?}\s*\);?/g, '');
+      var textoModificado = infowindowinnerText.replace(/\s+/g, "|");
+      console.log(textoModificado);
 
-console.log(textoModificadoscript);
-
-
-console.log("textoModificadoscript", textoModificadoscript);
-
-var textoModificado = infowindowinnerText.replace(/\s+/g, '|');
-console.log(textoModificado);
-
-      // Encontrar el elemento que contiene el estado de la ignición
-      var ignicionElement = $html.find('.ignicion').next('div');
-      
-      // Obtener el estado de la ignición
-      var estadoIgnicion = ignicionElement.text().trim();
-      
-      // Imprimir el estado de la ignición
-      // console.log("Estado de la ignicionElement:", ignicionElement);
-
-
-
-      // Obtener el texto dentro del elemento encontrado
-      // console.log(typeof infowindowContent);
-      var estadoIgnicion = infowindowContent;
-
-      // Imprimir el estado de la ignición
-      // console.log("Estado de la ignición:", estadoIgnicion);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
