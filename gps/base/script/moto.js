@@ -119,6 +119,14 @@ console.log("primerElemento: ", primerElemento)
 
 console.log("primerElemento tipo: ", typeof primerElemento)
 
+var inicionMatch = primerElemento.match(
+  /Ignicion: <\/label>\s*<span>(.*?)<\/span>/
+);
+
+
+console.log("Ignicion: ", Ignicion)
+
+
       var keys = Object.keys($html);
 
 // Imprimir las llaves
