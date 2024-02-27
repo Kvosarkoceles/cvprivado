@@ -101,14 +101,14 @@ async function informacion() {
 
       var jsonString = htmlSinScripts.replace(/\s/g, '');
 
-      console.log("inicionMatch:", inicionMatch);
+      // console.log("inicionMatch:", inicionMatch);
       //  console.log(response);
       // Buscar el elemento que contiene el estado de la ignición
    
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
 
-      console.log('$html ' ,$html.innerText );
+      console.log('$html ' ,$html );
       
       // Encontrar el elemento que contiene el estado de la ignición
       var ignicionElement = $html.find('.ignicion').next('div');
@@ -117,16 +117,16 @@ async function informacion() {
       var estadoIgnicion = ignicionElement.text().trim();
       
       // Imprimir el estado de la ignición
-      console.log("Estado de la ignicionElement:", ignicionElement);
+      // console.log("Estado de la ignicionElement:", ignicionElement);
 
 
 
       // Obtener el texto dentro del elemento encontrado
-      console.log(typeof infowindowContent);
+      // console.log(typeof infowindowContent);
       var estadoIgnicion = infowindowContent;
 
       // Imprimir el estado de la ignición
-      console.log("Estado de la ignición:", estadoIgnicion);
+      // console.log("Estado de la ignición:", estadoIgnicion);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
