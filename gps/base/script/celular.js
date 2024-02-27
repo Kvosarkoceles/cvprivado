@@ -3,9 +3,10 @@ var data = {
   lgw_id: 133,
   codcliente: 87,
   lgw_codcliente_criacao: "",
-  dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
+  dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
   db: "awsdev",
 };
+
 
 // URL a la que se enviará la solicitud
 var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getCars";
@@ -34,7 +35,7 @@ function start() {  // alert("datosVehiculos");
       addMarker(objeto[0].latitude,objeto[0].longitude,objeto[0].PlacaVeic,objeto[0].veic_rotulo,velocidad);
       centrarMapaEnMarcador(objeto[0].latitude,objeto[0].longitude);
       muestralocalizacion();
-     
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -91,7 +92,7 @@ async function informacion() {
   start();
 }
 
-function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {  
+function addMarker(latitude,longitude,PlacaVeic,veic_rotulo,vel) {
    L.marker([latitude,longitude])
    .addTo(mymap)
    .bindPopup(

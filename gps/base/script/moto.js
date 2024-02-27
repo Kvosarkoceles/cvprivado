@@ -3,7 +3,7 @@ var data = {
   lgw_id: 133,
   codcliente: 87,
   lgw_codcliente_criacao: "",
-  dbip: "imovit-test.cx0btphnat72.us-east-1.rds.amazonaws.com",
+  dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
   db: "awsdev",
 };
 var data2 = {
