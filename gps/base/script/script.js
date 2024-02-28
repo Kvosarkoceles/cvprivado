@@ -36,7 +36,7 @@ eliminarTodosLosMarcadores();
     success: function (response) {
       var objeto = JSON.parse(response);      
     
-    console.log(response);
+    // console.log(response);
    
     console.log(typeof objeto[0].latitude , objeto[0].latitude, "latitude");
     L.marker([objeto[0].latitude, objeto[0].longitude])
