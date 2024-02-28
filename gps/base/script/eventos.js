@@ -46,7 +46,11 @@ async function viajes() {
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
         var posicion = [item.latitude, item.longitude];
+
         var resultado = mismaPosicion(posicionInicial, posicion);
+
+        console.log(posicionInicial)
+        console.log(posicion)
         console.log(resultado); // Mostrará true
 
         var numeroEntero = parseInt(item.veloc, 10);
