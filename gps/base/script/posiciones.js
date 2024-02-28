@@ -53,12 +53,9 @@ async function viajes() {
 
         var numeroEntero = parseInt(item.veloc, 10);
 
-        if (numeroEntero > 0) {
-          // alert(typeof numeroEntero + numeroEntero);
-          addMarker(posicion);
-        } else {
-          console.log(typeof numeroEntero , numeroEntero);
-        }
+        if (numeroEntero > 0) {         
+          posicionArray.push(posicion);        
+        } 
 
   
 
