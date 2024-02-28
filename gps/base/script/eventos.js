@@ -110,7 +110,7 @@ function addMarker(data) {
         data.fin +
         "<br>" +
         "<b>stop: </b> " +
-        stop
+        data.stop
     );
 }
 
