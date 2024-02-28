@@ -9,8 +9,73 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // alert(datosVehiculos);
 
 // informacion();
-viajes();
+init();
 
+function init() {
+  var data = [
+    {
+      latitude: "19.32613",
+      longitude: "-99.24781",
+      stop: "01:53:07",
+      origen: "GPS",
+      veloc: "0",
+    },
+    {
+      latitude: "19.32613",
+      longitude: "-99.24791",
+      stop: "03:53:07",
+      origen: "GPS",
+      veloc: "0",
+    },
+    {
+      latitude: "19.30931",
+      longitude: "-99.26008",
+      stop: "01:53:07",
+      origen: "GPS",
+      data_gps_br: "2024-02-15 05:53:07",
+      veloc: "0",
+    },
+    {
+      latitude: "19.3086",
+      longitude: "-99.25982",
+      stop: "01:53:07",
+      origen: "GPS",
+      data_gps_br: "2024-02-15 05:53:07",
+      veloc: "0",
+    },
+    {
+      latitude: "19.32612",
+      longitude: "-99.24782",
+      stop: "01:53:07",
+      origen: "GPS",
+      data_gps_br: "2024-02-15 05:53:07",
+      veloc: "0",
+    },
+    {
+      latitude: "19.33424",
+      longitude: "-99.21823",
+      stop: "01:53:07",
+      origen: "GPS",
+      data_gps_br: "2024-02-15 05:53:07",
+      veloc: "0",
+    },
+    {
+      latitude: "19.30922",
+      longitude: "-99.25997",
+      stop: "01:53:07",
+      origen: "GPS",
+      data_gps_br: "2024-02-15 05:53:07",
+      veloc: "0",
+    },
+  ];
+
+  $.each(data, function (index, item) {
+    // var coords = item.latitude + "," + item.longitude;
+    // var posicion = [item.latitude, item.longitude];  
+    console.log(item);
+   
+  });
+}
 // setInterval(start, 10000);
 
 async function viajes() {
@@ -33,9 +98,9 @@ async function viajes() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-     console.log("positions: ", objeto.positions);
+      console.log("positions: ", objeto.positions);
 
-     var posicionClean = [];
+      var posicionClean = [];
 
       var coordinates = [];
 
@@ -53,8 +118,7 @@ async function viajes() {
         var resultado = mismaPosicion(posicionInicial, posicion);
         if (resultado) {
           // console.log(resultado);
-          
-        }else {
+        } else {
           posicionClean.push(item);
           posicionInicial = posicion;
         }
