@@ -65,6 +65,8 @@ async function viajes() {
           } else {
             posicion.acionamento_id = item.acionamento_id;
           }
+
+          posicion.stop = stop(posicion);
           posicionArray.push(posicion);
          
           addMarker(posicion);
