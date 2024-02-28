@@ -117,7 +117,8 @@ async function informacion() {
         lable: "",
         velocidad: "",
         ultimoReporte: "",
-        conductor:""
+        conductor:"",
+        velocidadmaxima:"" ,
       };
       
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -125,6 +126,8 @@ async function informacion() {
       var velocidad_Limitador = /Velocidad(.*?)Ignición/;
       var UltimoReporte_Limitador = /UltimoReporte(.*?)UltimaPosición/;
       var conductor_Limitador = /Conductor(.*?)VerPosiciones/;
+      var vel_max_Limitador = /Velocidadmaxima(.*?)VelocidadPromedio/;
+  
     
 
       // Buscar coincidencias en el string
@@ -132,6 +135,7 @@ async function informacion() {
       var matchesVel = primerElemento.match(velocidad_Limitador);
       var matchesUltimoReport = primerElemento.match(UltimoReporte_Limitador);
       var matchesConductor = primerElemento.match(conductor_Limitador);
+      var matchesVelMax = primerElemento.match(vel_max_Limitador);
       // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
@@ -156,21 +160,24 @@ async function informacion() {
       } else {
         dataVeiculo.velocidad = "";      
       }
-
       // matchesUltimoReport
       if (matchesUltimoReport && matchesUltimoReport.length > 1) {       
         dataVeiculo.ultimoReporte = matchesUltimoReport[1].trim();        
       } else {
         dataVeiculo.ultimoReporte = "";     
       }
-
       // Conductor
-
       if (matchesConductor && matchesConductor.length > 1) {       
         dataVeiculo.conductor = matchesConductor[1].trim();        
       } else {
         dataVeiculo.conductor = "";     
       }
+         // VelMax
+         if (matchesVelMax && matchesVelMax.length > 1) {       
+          dataVeiculo.velocidadmaxima = matchesVelMax[1].trim();        
+        } else {
+          dataVeiculo.velocidadmaxima = "";     
+        }
       // Imprimir las llaves
 console.log(dataVeiculo);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
