@@ -49,13 +49,14 @@ async function viajes() {
           longitude: item.longitude,
           veloc: item.veloc,
           acionamento_id: "",
+          inicio: item.data_gps_br,
+          fin: "",
         };
 
         if (item.tab === "ev") {
-       
+          posicion.fin = item.data_gps_br;
           alert(item.acionamento_id);
           if (item.acionamento_id === "68") {
-            
             posicion.acionamento_id = "Modo detenido";
           } else {
             posicion.acionamento_id = item.acionamento_id;
@@ -63,6 +64,7 @@ async function viajes() {
           posicionArray.push(posicion);
           addMarker(posicion);
         } else {
+          posicion.fin = item.data_gps_br;
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
         }
@@ -85,11 +87,11 @@ async function viajes() {
 
 function addMarker(data) {
   var myIcon = L.icon({
-    iconUrl: "../red-dot.png", 
-    shadowUrl: "../marker-shadow.png", 
+    iconUrl: "../red-dot.png",
+    shadowUrl: "../marker-shadow.png",
   });
 
-  L.marker([data.latitude, data.longitude], {icon: myIcon})
+  L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup("<b>Alerta: </b> " + data.acionamento_id);
 }
