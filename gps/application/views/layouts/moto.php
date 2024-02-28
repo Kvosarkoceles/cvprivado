@@ -62,7 +62,7 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <div>
-                    <div style='margin-bottom: 5px; text-align: center; color: white;'>
+                    <div style='margin-bottom: 5px; margin-top: 5px; text-align: center; color: white;'>
                         <span style='font-weight: bold;'>Lithium-06KFU7</span>
                     </div>
 
