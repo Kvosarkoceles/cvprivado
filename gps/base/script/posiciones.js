@@ -1,4 +1,4 @@
-var mymap = L.map("mapid").setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
+var mymap = L.map("mapid").setView([19.31399, -99.25856], 25); // coordenadas iniciales y nivel de zoom
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -7,30 +7,10 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(mymap);
 
 // alert(datosVehiculos);
-var velocidad = "";
-var dataVeiculo;
+
 // informacion();
 posiciones();
-function start() {
-  // alert("datosVehiculos");
-  eliminarTodosLosMarcadores();
 
-  // $.ajax({
-  //   url: url,
-  //   method: "POST",
-  //   data: data,
-  //   success: function (response) {
-  //     var objeto = JSON.parse(response);
-  //     console.log("objeto: ", objeto);
-  //     addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
-  //     centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
-  //     muestralocalizacion();
-  //   },
-  //   error: function (xhr, status, error) {
-  //     console.error(status, error); // Manejar cualquier error aquí
-  //   },
-  // });
-}
 
 // setInterval(start, 10000);
 
@@ -78,12 +58,10 @@ async function posiciones() {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
-  start();
+
 }
 
 function addMarker(data) { 
-  console.log(data);
-  console.log(data.latitude, data.longitude);
   L.marker([data.latitude, data.longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
@@ -112,28 +90,7 @@ function eliminarTodosLosMarcadores() {
 // }
 // Configurar opciones de geolocalización
 // mymap.locate({ setView: true, maxZoom: 16 });
-function muestralocalizacion() {
-  // Manejar el evento de ubicación encontrada
 
-  // Asociar funciones de manejo de eventos de geolocalización
-  function onLocationFound(e) {
-    alert(e);
-    var radius = e.accuracy / 2;
-
-    L.marker(e.latlng)
-      .addTo(mymap)
-      .bindPopup("Estás dentro de " + radius + " metros de este punto")
-      .openPopup();
-
-    L.circle(e.latlng, radius).addTo(mymap);
-  }
-  function onLocationError(e) {
-    alert(e.message);
-    start();
-  }
-  mymap.on("locationfound", onLocationFound);
-  mymap.on("locationerror", onLocationError);
-}
 
 // Manejar el evento de error de geolocalización
 
