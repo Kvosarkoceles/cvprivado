@@ -54,7 +54,7 @@ async function posiciones() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      console.log("objeto: ", typeof objeto);
+      // console.log("objeto: ", typeof objeto);
 
       objeto.forEach(function (json) {
         var json_string = JSON.stringify(json);
@@ -62,8 +62,8 @@ async function posiciones() {
         alert(json_string);
       });
 
-      // Imprimir las llaves
-      console.log(objeto);
+      // // Imprimir las llaves
+      // console.log(objeto);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
