@@ -37,9 +37,7 @@ function start() {
       addMarker(
         objeto[1].latitude,
         objeto[1].longitude,
-        objeto[1].PlacaVeic,
-        objeto[1].veic_rotulo,
-        velocidad
+        dataVeiculo
       );
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
       muestralocalizacion();
@@ -175,18 +173,22 @@ console.log(dataVeiculo);
   start();
 }
 
-function addMarker(latitude, longitude, PlacaVeic, veic_rotulo, vel) {
+function addMarker(latitude, longitude, dataVeiculo) {
   L.marker([latitude, longitude])
     .addTo(mymap)
     .bindPopup(
       "<b>Placa:</b> " +
-        PlacaVeic +
+      dataVeiculo.placa +
         "<br>" +
         "<b>Rótulo:</b> " +
-        veic_rotulo +
+        vdataVeiculo.lable +
         "<br>" +
         "<b>Velocidad:</b> " +
-        vel
+        dataVeiculo.velocidad
+        +
+        "<br>" +
+        "<b>Ultimo Reporte:</b> " +
+        dataVeiculo.ultimoReporte
     );
 }
 
