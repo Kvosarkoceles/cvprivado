@@ -37,7 +37,7 @@ async function viajes() {
 
       var coordinates = [];
 
-      var posicionArray = []
+      var posicionArray = [];
       var posicion = {
         latitude: "",
         longitude: "",
@@ -47,7 +47,7 @@ async function viajes() {
 
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
-        
+
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;
         posicion.ignicao = item.ignicao;
@@ -61,20 +61,16 @@ async function viajes() {
           coordinates.push(coords);
           posicionArray.concatpush(posicion);
         }
-
-        
-
       });
 
-      console.log("coordinates", coordinates);
+      console.log("posicionArray", posicionArray);
 
-      $.each(posicionArray, function(index, element) {
-        console.log("element: ",element);
-        addMarker(element);
-      
-    });
+      // $.each(coordinates, function (index, element) {
+      //   console.log("element: ", element);
+      //   addMarker(element);
+      // });
 
-     
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
