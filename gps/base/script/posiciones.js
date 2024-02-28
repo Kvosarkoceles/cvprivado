@@ -57,11 +57,11 @@ async function viajes() {
         //   coordinates.push(posicion);
         // }
 var isInArrat =  $.inArray(coords, coordinates);
-console.log(isInArrat);
+// console.log(isInArrat);
         if (isInArrat === 0) {
           coordinates.push(coords);
           posicionArray.push(posicion);
-          console.log(posicion);
+          // console.log(posicion);
         }
       });
 
