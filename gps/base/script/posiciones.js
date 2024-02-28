@@ -63,6 +63,7 @@ async function viajes() {
         if (numeroEntero > 0) {
           // alert(typeof numeroEntero + numeroEntero);
           posicionArray.push(posicion);
+          addMarker(posicion);
         
         } else{
           // alert(typeof numeroEntero + numeroEntero);
