@@ -48,7 +48,7 @@ async function viajes() {
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;
         posicion.ignicao = item.ignicao;
-        posicion.rigen = item.origen;
+        posicion.origen = item.origen;
 
         if ($.inArray(posicion, coordinates) === -1) {
           coordinates.push(posicion);
