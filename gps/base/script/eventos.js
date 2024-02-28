@@ -35,6 +35,8 @@ async function viajes() {
       var objeto = JSON.parse(response);
      console.log("positions: ", objeto.positions);
 
+     var posicionClean = [];
+
       var coordinates = [];
 
       var posicionArray = [];
@@ -51,6 +53,7 @@ async function viajes() {
         var resultado = mismaPosicion(posicionInicial, posicion);
         if (resultado) {
           // console.log(resultado);
+          posicionClean.push(item);
         }else {
           posicionInicial = posicion;
         }
@@ -95,7 +98,7 @@ async function viajes() {
       // console.log("posicionArray", posicionArray);
       console.log("coordinates", coordinates);
       console.log("posicionArray", posicionArray);
-
+      console.log("posicionClean", posicionClean);
       // $.each(coordinates, function (index, element) {
       //   console.log("element: ", element);
       //   addMarker(element);
