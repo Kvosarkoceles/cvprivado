@@ -33,7 +33,7 @@ async function viajes() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-       console.log("objeto: ",  objeto);    
+       console.log("positions: ",  objeto.positions);    
 
      
     },
