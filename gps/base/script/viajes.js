@@ -14,19 +14,18 @@ posiciones();
 
 // setInterval(start, 10000);
 
-async function posiciones() {
+async function viajes() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-24 00:00:00",
-    f2: "2024-02-24 23:59:59",
-    lgw_id: 133,
-    db: "awsdev",
+    f1: "2024-02-25 19:03:40",
+    f2: "2024-02-25 19:37:33",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
+    db: awsdev,
+    lgw_id: 133,
   };
 
-  var url =
-    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getPositionsFast";
+  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
 
   await $.ajax({
     url: url,
@@ -34,23 +33,7 @@ async function posiciones() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      // console.log("objeto: ", typeof objeto);
-      var posicion = { 
-        latitude:"",
-        longitude:"",
-        ignicao:"",
-        origen:""
-       }
-
-
-       
-      objeto.forEach(function (json) {      
-        posicion.latitude=json.latitude;
-        posicion.longitude=json.longitude;
-        posicion.ignicao=json.ignicao;
-        posicion.rigen=json.origen;    
-         addMarker(posicion);
-      });
+       console.log("objeto: ",  objeto);    
 
      
     },
