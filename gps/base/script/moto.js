@@ -181,7 +181,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
       dataVeiculo.placa +
         "<br>" +
         "<b>Rótulo:</b> " +
-        vdataVeiculo.lable +
+        dataVeiculo.lable +
         "<br>" +
         "<b>Velocidad:</b> " +
         dataVeiculo.velocidad
