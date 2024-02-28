@@ -11,21 +11,21 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // informacion();
 viajes();
 
-
 // setInterval(start, 10000);
 
 async function viajes() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-27 00:00:00",
+    f1: "2024-02-26 00:00:00",
     f2: "2024-02-27 23:59:59",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
     lgw_id: 133,
   };
 
-  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
+  var url =
+    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
 
   await $.ajax({
     url: url,
@@ -33,48 +33,40 @@ async function viajes() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-       console.log("positions: ",  objeto.positions);    
+      console.log("positions: ", objeto.positions);
 
-     
-       var coordinates = [];
+      var coordinates = [];
 
-       $.each(objeto.positions, function(index, item) {
-           var coords = item.latitude + "," + item.longitude;
-           if ($.inArray(coords, coordinates) === -1) {
-               coordinates.push(coords);
-           }
-       });
-
-       console.log(coordinates);
-
-       var posicion = { 
-        latitude:"",
-        longitude:"",
-        ignicao:"",
-        origen:""
-       }
-
-
-       
-       coordinates.forEach(function (json) {      
-        posicion.latitude=json.latitude;
-        posicion.longitude=json.longitude;
-        posicion.ignicao=json.ignicao;
-        posicion.rigen=json.origen;   
-        console.log(posicion); 
-        //  addMarker(posicion);
+      $.each(objeto.positions, function (index, item) {
+        var coords = item.latitude + "," + item.longitude;
+        if ($.inArray(coords, coordinates) === -1) {
+          coordinates.push(coords);
+        }
       });
 
+      console.log(coordinates);
+
+      var posicion = {
+        latitude: "",
+        longitude: "",
+        ignicao: "",
+        origen: "",
+      };
+
+     
+
+     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
-
 }
 
-function addMarker(data) { 
-  L.marker([data.latitude, data.longitude]).addTo(mymap).bindPopup("<b>ignicao: </b> "+ data.ignicao);
+function addMarker(data) {
+  L.marker([data.latitude, data.longitude])
+    .addTo(mymap)
+    .bindPopup("<b>ignicao: </b> " + data.ignicao);
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
@@ -102,7 +94,6 @@ function eliminarTodosLosMarcadores() {
 // }
 // Configurar opciones de geolocalización
 // mymap.locate({ setView: true, maxZoom: 16 });
-
 
 // Manejar el evento de error de geolocalización
 
