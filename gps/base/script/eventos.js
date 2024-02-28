@@ -127,10 +127,10 @@ function stop(data) {
   console.log(data);
   
 
-  alert("data: "+ data);
+  alert("data: "+ data.inicio + " "+ data.fin);
   // Fechas proporcionadas
-  var fecha1 = new Date(date1);
-  var fecha2 = new Date(date2);
+  var fecha1 = new Date(data.inicio);
+  var fecha2 = new Date(data.fin);
   console.log(date1);
   console.log(date2);
   // Calcula la diferencia en milisegundos
