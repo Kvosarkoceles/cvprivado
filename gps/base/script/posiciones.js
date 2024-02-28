@@ -83,9 +83,8 @@ async function posiciones() {
 }
 
 function addMarker(data) { 
-  console.log(typeof data.latitude);
-  console.log(typeof data.latitude);
-  console.log(data.latitude, data.latitude);
+  
+  console.log(data.latitude, data.longitud);
   // L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
