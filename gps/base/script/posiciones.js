@@ -59,7 +59,7 @@ async function viajes() {
 
         if ($.inArray(coords, coordinates) === -1) {
           coordinates.push(coords);
-          posicionArray.concatpush(posicion);
+          posicionArray.push(posicion);
         }
       });
 
