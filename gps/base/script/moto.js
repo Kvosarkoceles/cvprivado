@@ -118,7 +118,7 @@ async function informacion() {
         velocidadmedia: "",
         ignicion: "",
         recorrido: "",
-        detenido,
+        detenido:"",
       };
 
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
