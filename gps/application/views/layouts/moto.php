@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/dist/css/adminlte.min.css">
-     <!-- Global site tag (gtag.js) - Google Analytics -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKX94EJELJ"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKX94EJELJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -39,16 +39,15 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">Posiciones</a>
-                </li>              
+                </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">Viajes</a>
-                </l
-            </ul>
+                    </l </ul>
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
+                    <!-- Right navbar links -->
+                    <ul class="navbar-nav ml-auto">
 
-            </ul>
+                    </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -62,14 +61,59 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                aqui va la info del resumen
+                <div>
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Placa:</span> " +
+                        dataVeiculo.placa +
+                        "&nbsp;&nbsp;" +
+                        "<span style='font-weight: bold;'>Rótulo:</span> " +
+                        dataVeiculo.lable +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Conductor:</span> " +
+                        dataVeiculo.conductor +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Último Reporte:</span> " +
+                        dataVeiculo.ultimoReporte +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Velocidad:</span> " +
+                        dataVeiculo.velocidad +
+                        "&nbsp;&nbsp;" +
+                        "<span style='font-weight: bold;'>Ignición:</span> " +
+                        dataVeiculo.ignicion +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Vel. Máx.:</span> " +
+                        dataVeiculo.velocidadmaxima +
+                        "&nbsp;&nbsp;" +
+                        "<span style='font-weight: bold;'>Vel. Med.:</span> " +
+                        dataVeiculo.velocidadmedia +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Recorrido:</span> " +
+                        dataVeiculo.recorrido +
+                        "&nbsp;&nbsp;" +
+                        "<span style='font-weight: bold;'>Tiempo detenido:</span> " +
+                        dataVeiculo.detenido +
+                        "</div>" +
+                    "<div style='margin-bottom: 5px;'>" +
+                        "<span style='font-weight: bold;'>Movimiento:</span> " +
+                        dataVeiculo.movimiento +
+                        "&nbsp;&nbsp;" +
+                        "<span style='font-weight: bold;'>Odómetro:</span> " +
+                        dataVeiculo.odometro +
+                        " km" +
+                        "</div>"
+                </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">Veiculos</li>
                         <li class="nav-item">
-                           
-                     
+
+
 
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">
@@ -78,11 +122,11 @@
                             </a>
                         </li>
 
-                     
+
 
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">
-                                <i ></i>
+                                <i></i>
                                 <p> Viajes</p>
                             </a>
                         </li>
