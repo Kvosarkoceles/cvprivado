@@ -62,6 +62,8 @@ async function posiciones() {
         origen:""
        }
 
+
+       
       objeto.forEach(function (json) {      
         posicion.latitude=json.latitude;
         posicion.longitude=json.longitude;
@@ -70,10 +72,7 @@ async function posiciones() {
          addMarker(posicion);
       });
 
-      // // Imprimir las llaves
-      // console.log(objeto);
-      // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
-      // // console.log('infowindowinnerText', infowindowinnerText);
+     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -83,9 +82,10 @@ async function posiciones() {
   start();
 }
 
-function addMarker(data) {
-  alert(data);
-  console.log(data);
+function addMarker(data) { 
+  console.log(typeof data.latitude);
+  console.log(typeof data.latitude);
+  console.log(data.latitude, data.latitude);
   // L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
