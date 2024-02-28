@@ -128,7 +128,8 @@ function stop(date1, date2) {
   // Fechas proporcionadas
   var fecha1 = new Date(date1);
   var fecha2 = new Date(date2);
-
+  console.log(date1);
+  console.log(date2);
   // Calcula la diferencia en milisegundos
   var diferencia_ms = Math.abs(fecha2 - fecha1);
 
