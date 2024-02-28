@@ -50,14 +50,9 @@ async function viajes() {
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;       
         posicion.origen = item.veloc;   
-        // posicionArray.push(posicion);
+    alert(item.veloc);
 
-        if(item.veloc !== 0){
-         console.log(0)
-        }else{
-          // addMarker(posicion);
-          console.log(1)
-        }
+    
         
       
       });
