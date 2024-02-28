@@ -57,9 +57,10 @@ async function posiciones() {
       // console.log("objeto: ", typeof objeto);
 
       objeto.forEach(function (json) {
+        console.log(json.longitude);
         var json_string = JSON.stringify(json);
-        console.log(json_string);
-        alert(json_string);
+        // console.log(json_string);
+        // alert(json_string);
       });
 
       // // Imprimir las llaves
