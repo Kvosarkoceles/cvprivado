@@ -44,7 +44,7 @@ async function viajes() {
         }
       });
 
-      console.log(coordinates);
+      console.log("coordinates", coordinates);
 
       var posicion = {
         latitude: "",
