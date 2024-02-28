@@ -34,13 +34,9 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      
-
-      console.log(objeto[0].latitude , objeto[0].longitude, "latitude and longitude");
-
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
-      muestralocalizacion();
+     
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -100,14 +96,11 @@ async function informacion() {
 
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
-     
 
       var valuesArray = Object.values($html);
 
       // Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
       var primerElemento = valuesArray[0].innerText;
-
-     
 
       dataVeiculo = {
         placa: "",
@@ -229,7 +222,7 @@ async function informacion() {
         dataVeiculo.odometro = "";
       }
       // Imprimir las llaves
-      
+
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
@@ -239,11 +232,7 @@ async function informacion() {
   });
 
   start();
- 
 }
-
-
-
 
 function addMarker(latitude, longitude, dataVeiculo) {
   L.marker([latitude, longitude])
@@ -273,12 +262,13 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<b>Recorrido:</b> " +
         dataVeiculo.recorrido +
         "<b>   Tiempo detenido:</b> " +
-        dataVeiculo.detenido+
+        dataVeiculo.detenido +
         "<br>" +
         "<b>Movimiento:</b> " +
-        dataVeiculo.movimiento +     
+        dataVeiculo.movimiento +
         "<b>   Odometro:</b> " +
-        dataVeiculo.odometro + " km"
+        dataVeiculo.odometro +
+        " km"
     );
 }
 
@@ -307,28 +297,6 @@ function eliminarTodosLosMarcadores() {
 // }
 // Configurar opciones de geolocalización
 // mymap.locate({ setView: true, maxZoom: 16 });
-function muestralocalizacion() {
-  // Manejar el evento de ubicación encontrada
-
-  // Asociar funciones de manejo de eventos de geolocalización
-  function onLocationFound(e) {
-    alert(e);
-    var radius = e.accuracy / 2;
-
-    L.marker(e.latlng)
-      .addTo(mymap)
-      .bindPopup("Estás dentro de " + radius + " metros de este punto")
-      .openPopup();
-
-    L.circle(e.latlng, radius).addTo(mymap);
-  }
-  function onLocationError(e) {
-    alert(e.message);
-    start();
-  }
-  mymap.on("locationfound", onLocationFound);
-  mymap.on("locationerror", onLocationError);
-}
 
 // Manejar el evento de error de geolocalización
 
