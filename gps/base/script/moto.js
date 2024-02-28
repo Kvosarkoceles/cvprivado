@@ -247,37 +247,33 @@ function addMarker(latitude, longitude, dataVeiculo) {
   L.marker([latitude, longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
-      "<b>Placa:</b> " +
-        dataVeiculo.placa +
-        "<b>   Rótulo:</b> " +
-        dataVeiculo.lable +
-        "<br>" +
-        "<b>Conductor:</b> " +
-        dataVeiculo.conductor +
-        "<br>" +
-        "<b>Ultimo Reporte:</b> " +
-        dataVeiculo.ultimoReporte +
-        "<br>" +
-        "<b>Velocidad:</b> " +
-        dataVeiculo.velocidad +
-        "<b>   Ignicion:</b> " +
-        dataVeiculo.ignicion +
-        "<br>" +
-        "<b>Vel.Max.:</b> " +
-        dataVeiculo.velocidadmaxima +
-        "<b>   Vel. Med.:</b> " +
-        dataVeiculo.velocidadmedia +
-        "<br>" +
-        "<b>Recorrido:</b> " +
-        dataVeiculo.recorrido +
-        "<b>   Tiempo detenido:</b> " +
-        dataVeiculo.detenido +
-        "<br>" +
-        "<b>Movimiento:</b> " +
-        dataVeiculo.movimiento +
-        "<b>   Odometro:</b> " +
-        dataVeiculo.odometro +
-        " km"
+      "<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Placa:</span> " + dataVeiculo.placa + "&nbsp;&nbsp;" +
+    "<span style='font-weight: bold;'>Rótulo:</span> " + dataVeiculo.lable +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Conductor:</span> " + dataVeiculo.conductor +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Último Reporte:</span> " + dataVeiculo.ultimoReporte +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Velocidad:</span> " + dataVeiculo.velocidad + "&nbsp;&nbsp;" +
+    "<span style='font-weight: bold;'>Ignición:</span> " + dataVeiculo.ignicion +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Vel. Máx.:</span> " + dataVeiculo.velocidadmaxima + "&nbsp;&nbsp;" +
+    "<span style='font-weight: bold;'>Vel. Med.:</span> " + dataVeiculo.velocidadmedia +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Recorrido:</span> " + dataVeiculo.recorrido + "&nbsp;&nbsp;" +
+    "<span style='font-weight: bold;'>Tiempo detenido:</span> " + dataVeiculo.detenido +
+"</div>" +
+"<div style='margin-bottom: 5px;'>" +
+    "<span style='font-weight: bold;'>Movimiento:</span> " + dataVeiculo.movimiento + "&nbsp;&nbsp;" +
+    "<span style='font-weight: bold;'>Odómetro:</span> " + dataVeiculo.odometro + " km" +
+"</div>"
+
     );
 }
 
