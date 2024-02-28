@@ -90,7 +90,7 @@ async function viajes() {
 }
 
 function addMarker(data) {
-  stop(data);
+ var stop =  stop(data);
 
   var myIcon = L.icon({
     iconUrl: "../red-dot.png",
@@ -109,7 +109,10 @@ function addMarker(data) {
         data.inicio +
         "<br>" +
         "<b>Fin: </b> " +
-        data.fin
+        data.fin+
+        "<br>" +
+        "<b>stop: </b> " +
+        stop
     );
 }
 
