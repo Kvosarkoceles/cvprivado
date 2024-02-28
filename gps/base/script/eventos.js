@@ -21,21 +21,6 @@ function init() {
       veloc: "0",
     },
     {
-      latitude: "19.32613",
-      longitude: "-99.24791",
-      stop: "03:53:07",
-      origen: "GPS",
-      veloc: "0",
-    },
-    {
-      latitude: "19.30931",
-      longitude: "-99.26008",
-      stop: "01:53:07",
-      origen: "GPS",
-      data_gps_br: "2024-02-15 05:53:07",
-      veloc: "0",
-    },
-    {
       latitude: "19.3086",
       longitude: "-99.25982",
       stop: "01:53:07",
