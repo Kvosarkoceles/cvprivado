@@ -21,7 +21,7 @@ async function viajes() {
     f1: "2024-02-25 19:03:40",
     f2: "2024-02-25 19:37:33",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
-    db: awsdev,
+    db: "awsdev",
     lgw_id: 133,
   };
 
