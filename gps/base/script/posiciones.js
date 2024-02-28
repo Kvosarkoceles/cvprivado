@@ -58,7 +58,7 @@ async function viajes() {
       console.log("coordinates", coordinates);
 
       $.each(coordinates, function(index, element) {
-        console.log(element);
+        console.log("element: ",element);
       
     });
 
