@@ -34,11 +34,7 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      addMarker(
-        objeto[1].latitude,
-        objeto[1].longitude,
-        dataVeiculo
-      );
+      addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
       muestralocalizacion();
     },
@@ -117,18 +113,16 @@ async function informacion() {
         lable: "",
         velocidad: "",
         ultimoReporte: "",
-        conductor:"",
-        velocidadmaxima:"" ,
+        conductor: "",
+        velocidadmaxima: "",
       };
-      
+
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
       var placaAndLabel = /expand_more(.*?)Velocidad/;
       var velocidad_Limitador = /Velocidad(.*?)Ignición/;
       var UltimoReporte_Limitador = /UltimoReporte(.*?)UltimaPosición/;
       var conductor_Limitador = /Conductor(.*?)VerPosiciones/;
       var vel_max_Limitador = /Velocidadmaxima(.*?)VelocidadPromedio/;
-  
-    
 
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
@@ -147,39 +141,39 @@ async function informacion() {
         var contentOutsideParentheses = matches[1]
           .trim()
           .replace(recortar, "")
-          .trim();    
+          .trim();
         dataVeiculo.lable = contentInsideParentheses;
         dataVeiculo.placa = contentOutsideParentheses;
       } else {
         dataVeiculo.lable = "";
-        dataVeiculo.placa = "";    
+        dataVeiculo.placa = "";
       }
       // velocidad
-      if (matchesVel && matchesVel.length > 1) {       
-        dataVeiculo.velocidad = matchesVel[1].trim();        
+      if (matchesVel && matchesVel.length > 1) {
+        dataVeiculo.velocidad = matchesVel[1].trim();
       } else {
-        dataVeiculo.velocidad = "";      
+        dataVeiculo.velocidad = "";
       }
       // matchesUltimoReport
-      if (matchesUltimoReport && matchesUltimoReport.length > 1) {       
-        dataVeiculo.ultimoReporte = matchesUltimoReport[1].trim();        
+      if (matchesUltimoReport && matchesUltimoReport.length > 1) {
+        dataVeiculo.ultimoReporte = matchesUltimoReport[1].trim();
       } else {
-        dataVeiculo.ultimoReporte = "";     
+        dataVeiculo.ultimoReporte = "";
       }
       // Conductor
-      if (matchesConductor && matchesConductor.length > 1) {       
-        dataVeiculo.conductor = matchesConductor[1].trim();        
+      if (matchesConductor && matchesConductor.length > 1) {
+        dataVeiculo.conductor = matchesConductor[1].trim();
       } else {
-        dataVeiculo.conductor = "";     
+        dataVeiculo.conductor = "";
       }
-         // VelMax
-         if (matchesVelMax && matchesVelMax.length > 1) {       
-          dataVeiculo.velocidadmaxima = matchesVelMax[1].trim();        
-        } else {
-          dataVeiculo.velocidadmaxima = "";     
-        }
+      // VelMax
+      if (matchesVelMax && matchesVelMax.length > 1) {
+        dataVeiculo.velocidadmaxima = matchesVelMax[1].trim();
+      } else {
+        dataVeiculo.velocidadmaxima = "";
+      }
       // Imprimir las llaves
-console.log(dataVeiculo);
+      console.log(dataVeiculo);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
@@ -196,7 +190,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
     .addTo(mymap)
     .bindPopup(
       "<b>Placa:</b> " +
-      dataVeiculo.placa +
+        dataVeiculo.placa +
         "<br>" +
         "<b>Rótulo:</b> " +
         dataVeiculo.lable +
