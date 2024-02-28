@@ -55,21 +55,19 @@ async function posiciones() {
     success: function (response) {
       var objeto = JSON.parse(response);
       // console.log("objeto: ", typeof objeto);
+      var posicion = { 
+        latitude:"",
+        longitude:"",
+        ignicao:"",
+        origen:""
+       }
 
-      objeto.forEach(function (json) {
-       
-         console.log(json.latitude);
-         console.log(json.longitude);
-         console.log(json.ignicao);
-         console.log(json.origen);
-
-        
-         addMarker(json.latitude, json.longitude);
-         
-         ;
-        var json_string = JSON.stringify(json);
-        // console.log(json_string);
-        // alert(json_string);
+      objeto.forEach(function (json) {      
+        posicion.latitude=json.latitude;
+        posicion.longitude=json.longitude;
+        posicion.ignicao=json.ignicao;
+        posicion.rigen=json.origen;    
+         addMarker(posicion);
       });
 
       // // Imprimir las llaves
@@ -85,9 +83,10 @@ async function posiciones() {
   start();
 }
 
-function addMarker(latitude, longitude) {
-  alert(latitude, longitude);
-  L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
+function addMarker(data) {
+  alert(data);
+  console.log(data);
+  // L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
