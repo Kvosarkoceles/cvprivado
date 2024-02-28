@@ -90,8 +90,8 @@ async function viajes() {
 }
 
 function addMarker(data) {
-  stop(posicion);
-  
+  stop(data);
+
   var myIcon = L.icon({
     iconUrl: "../red-dot.png",
     shadowUrl: "../marker-shadow.png",
