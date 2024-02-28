@@ -63,14 +63,11 @@
             <div class="sidebar">
                 <div>
                     <div style='margin-bottom: 5px;'>
-                        <span style='font-weight: bold;'>Placa:</span>
-                        dataVeiculo.placa
-                        <span style='font-weight: bold;'>Rótulo:</span>
-                        dataVeiculo.lable
+                        <span style='font-weight: bold;'>Placa:</span>06KFU7
+                        <span style='font-weight: bold;'>Rótulo:</span>Lithium-06KFU7
                     </div>
                     <div style='margin-bottom: 5px;'>
-                        <span style='font-weight: bold;'>Conductor:</span>
-                        dataVeiculo.conductor
+                        <span style='font-weight: bold;'>Conductor:</span>MIGUELMENDOZA                       
                     </div>
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Último Reporte:</span>
