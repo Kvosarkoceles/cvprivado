@@ -127,7 +127,7 @@ function stop(data) {
   console.log(data);
   
 
-  alert("data: "+ data.inicio + " "+ data.fin);
+  console.log("data: ", data.inicio , " ", data.fin);
   // Fechas proporcionadas
   var fecha1 = new Date(data.inicio);
   var fecha2 = new Date(data.fin);
