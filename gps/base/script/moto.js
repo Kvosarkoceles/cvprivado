@@ -273,7 +273,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<b>Movimiento:</b> " +
         dataVeiculo.movimiento +     
         "<b>Odometro:</b> " +
-        dataVeiculo.odometro
+        dataVeiculo.odometro + " km"
     );
 }
 
