@@ -39,10 +39,7 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">Posiciones</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>moto/eventos" class="nav-link">Eventos</a>
-                </li>
+                </li>              
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">Viajes</a>
                 </l
