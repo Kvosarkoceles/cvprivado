@@ -39,7 +39,7 @@ async function viajes() {
 
       var posicionArray = [];
 
-      var inicio =objeto.positions[0];
+      var inicio =objeto.positions[0].data_gps_br;
       $.each(objeto.positions, function (index, item) {
         console.log(inicio);
         var coords = item.latitude + "," + item.longitude;
@@ -59,7 +59,7 @@ async function viajes() {
 
         if (item.tab === "ev") {
           posicion.fin = item.data_gps_br;
-          alert(item.acionamento_id);
+          // alert(item.acionamento_id);
           if (item.acionamento_id === "68") {
             posicion.acionamento_id = "Modo detenido";
           } else {
