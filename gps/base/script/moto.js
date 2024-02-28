@@ -200,23 +200,21 @@ function addMarker(latitude, longitude, dataVeiculo) {
     .addTo(mymap)
     .bindPopup(
       "<b>Placa:</b> " +
-        dataVeiculo.placa +       
+        dataVeiculo.placa +
         "<b>   Rótulo:</b> " +
         dataVeiculo.lable +
         "<br>" +
-        "<b>Ultimo Conductor:</b> " +
-        dataVeiculo.conductor+
-        "<br>" +
-
-        "<b>Velocidad:</b> " +
-        dataVeiculo.velocidad +
+        "<b>Conductor:</b> " +
+        dataVeiculo.conductor +
         "<br>" +
         "<b>Ultimo Reporte:</b> " +
         dataVeiculo.ultimoReporte +
         "<br>" +
-        
-        "<b>Velocidad Maxima:</b> " +
-        dataVeiculo.velocidadmaxima+
+        "<b>Velocidad:</b> " +
+        dataVeiculo.velocidad +
+        "<br>" +
+        "<b>Vel.Max.:</b> " +
+        dataVeiculo.velocidadmaxima +
         "<br>" +
         "<b>Velocidad Media:</b> " +
         dataVeiculo.velocidadmedia
