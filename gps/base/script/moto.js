@@ -34,7 +34,9 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      console.log("objeto: ", objeto);
+
+      console.log(typeof objeto[0].latitude , objeto[0].latitude, "latitude");
+
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
       muestralocalizacion();
@@ -236,45 +238,10 @@ async function informacion() {
   });
 
   start();
-  posiciones();
+ 
 }
 
-async function posiciones() {
-  // console.log("informacion funcion" + velocidad);
-  var data = { 
-    ID_disp: 1970000012,
-    f1: "2024-02-24 00:00:00",
-    f2: "2024-02-24 23:59:59",
-    lgw_id: 133,
-    db: "awsdev",
-    dbip: 'imovit.cx0btphnat72.us-east-1.rds.amazonaws.com'
-  };
 
-  var url =
-    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getPositionsFast";
-
-  await $.ajax({
-    url: url,
-    method: "POST",
-    data: data,
-    success: function (response) {
-     
-      var objeto = JSON.parse(response);
-      console.log("objeto: ", typeof objeto);
-
-   
-      // Imprimir las llaves
-      console.log(objeto);
-      // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
-      // // console.log('infowindowinnerText', infowindowinnerText);
-    },
-    error: function (xhr, status, error) {
-      console.error(status, error); // Manejar cualquier error aquí
-    },
-  });
-
-  start();
-}
 
 
 function addMarker(latitude, longitude, dataVeiculo) {
