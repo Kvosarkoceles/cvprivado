@@ -38,51 +38,32 @@ async function viajes() {
       var coordinates = [];
 
       var posicionArray = [];
-      
-     
 
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
 
-       
-
-
-
-          
-           
-
         var numeroEntero = parseInt(item.veloc, 10);
-        
 
         var posicion = {
           latitude: item.latitude,
-          longitude: item.longitude,     
+          longitude: item.longitude,
           veloc: item.veloc,
-          acionamento_id:item.acionamento_id
+          acionamento_id: "",
         };
 
         if (item.tab === "ev") {
           // alert(typeof numeroEntero + numeroEntero);
           if (item.acionamento_id === 68) {
-           posicion.acionamento_id="Modo detenido";
-          } 
+            posicion.acionamento_id = "Modo detenido";
+          } else {
+            posicion.acionamento_id = item.acionamento_id;
+          }
           posicionArray.push(posicion);
           addMarker(posicion);
-        
-        } else{
+        } else {
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
-         
-        
-        } 
-
-        
-
-  
-
-    
-        
-      
+        }
       });
 
       console.log("posicionArray", posicionArray);
@@ -93,8 +74,6 @@ async function viajes() {
       //   console.log("element: ", element);
       //   addMarker(element);
       // });
-
-
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
