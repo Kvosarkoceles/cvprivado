@@ -65,10 +65,12 @@
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                         <span style='font-weight: bold;'>Lithium-06KFU7</span>
                     </div>
-
-                    <div style='margin-bottom: 5px;'>
+                    
+                    <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                         <span style='font-weight: bold;'>Conductor:</span>MIGUELMENDOZA
                     </div>
+
+                  
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Último Reporte:</span>
                         dataVeiculo.ultimoReporte
