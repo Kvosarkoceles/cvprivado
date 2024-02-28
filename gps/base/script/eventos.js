@@ -48,9 +48,14 @@ async function viajes() {
         var posicion = [item.latitude, item.longitude];
 
         var resultado = mismaPosicion(posicionInicial, posicion);
+        if (resultado) {
+          console.log(resultado);
+        }else {
+          posicionInicial = posicion;
+        }
 
-        console.log(posicionInicial)
-        console.log(posicion)
+        console.log(posicionInicial);
+        console.log(posicion);
         console.log(resultado); // Mostrará true
 
         var numeroEntero = parseInt(item.veloc, 10);
