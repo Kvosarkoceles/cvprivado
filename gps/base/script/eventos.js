@@ -94,7 +94,7 @@ function addMarker(data) {
     shadowUrl: "../marker-shadow.png",
   });
 
-  stop(data.latitude, data.longitude);
+  stop(data);
 
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
@@ -122,11 +122,11 @@ function eliminarTodosLosMarcadores() {
   });
 }
 
-function stop(date1, date2) {
-  console.log(date1);
-  console.log(date2);
+function stop(data) {
+  console.log(data);
+  
 
-  alert(date1, date2);
+  alert("data: "+ data);
   // Fechas proporcionadas
   var fecha1 = new Date(date1);
   var fecha2 = new Date(date2);
