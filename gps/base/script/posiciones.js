@@ -39,21 +39,26 @@ async function viajes() {
 
       var posicionArray = [];
       
-      var posicion = {
-        latitude: "",
-        longitude: "",     
-        veloc: "",
-      };
+     
 
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
 
-        posicion.latitude = item.latitude;
-        posicion.longitude = item.longitude;      
+       
+
+
+
+          
            
 
         var numeroEntero = parseInt(item.veloc, 10);
-        posicion.veloc = numeroEntero;
+        
+
+        var posicion = {
+          latitude: item.latitude,
+          longitude: item.longitude,     
+          veloc: item.veloc,
+        };
 
         if (numeroEntero > 0) {
           // alert(typeof numeroEntero + numeroEntero);
