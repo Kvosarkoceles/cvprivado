@@ -84,11 +84,11 @@ async function viajes() {
 
 function addMarker(data) {
   var myIcon = L.icon({
-    iconUrl: "red-dot.png",
+    iconUrl: "../red-dot.png",
     iconSize: [38, 95],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76],
-    shadowUrl: "red-dot.png",
+    shadowUrl: "../red-dot.png",
     shadowSize: [68, 95],
     shadowAnchor: [22, 94],
   });
