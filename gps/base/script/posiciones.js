@@ -44,16 +44,12 @@ async function viajes() {
         origen: "",
       };
 
-
       $.each(objeto.positions, function (index, item) {
+        posicion.latitude = item.latitude;
+        posicion.longitude = item.longitude;
+        posicion.ignicao = item.ignicao;
+        posicion.rigen = item.origen;
 
-        posicion.latitude=item.latitude;
-        posicion.longitude=item.longitude;
-        posicion.ignicao=item.ignicao;
-        posicion.rigen=item.origen;    
-
-
-        
         if ($.inArray(posicion, coordinates) === -1) {
           coordinates.push(posicion);
         }
@@ -61,15 +57,10 @@ async function viajes() {
 
       console.log("coordinates", coordinates);
 
-      $.each(coordinates, function(index, value){
-        console.log(value); // Imprime el valor en la consola del navegador
-        // Para imprimir en el documento HTML
-        
+      $.each(coordinates, function(index, element) {
+        console.log(element);
+      
     });
-
-
- 
-     
 
      
     },
