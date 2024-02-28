@@ -98,7 +98,11 @@ function addMarker(data) {
 
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
-    .bindPopup("<b>Alerta: </b> " + data.acionamento_id);
+    .bindPopup(
+      "<b>Alerta: </b> " + data.acionamento_id + "<br>" +
+      "<b>Inicio: </b> " + data.inicio + "<br>" +
+      "<b>Fin: </b> " + data.fin
+    );
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
