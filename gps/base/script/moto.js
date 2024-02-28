@@ -34,6 +34,7 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
+      console.log("objeto: ", objeto);
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
       muestralocalizacion();
@@ -272,7 +273,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<br>" +
         "<b>Movimiento:</b> " +
         dataVeiculo.movimiento +     
-        "<b>Odometro:</b> " +
+        "<b>   Odometro:</b> " +
         dataVeiculo.odometro + " km"
     );
 }
