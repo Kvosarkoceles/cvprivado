@@ -34,8 +34,9 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
+      
 
-      console.log(typeof objeto[0].latitude , objeto[0].latitude, "latitude");
+      console.log(typeof objeto[0].latitude , objeto[0].longitude, "latitude and longitude");
 
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
