@@ -212,7 +212,13 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.ultimoReporte +
         "<br>" +
         "<b>Ultimo Conductor:</b> " +
-        dataVeiculo.conductor
+        dataVeiculo.conductor+
+        "<br>" +
+        "<b>Velocidad Maxima:</b> " +
+        dataVeiculo.velocidadmaxima+
+        "<br>" +
+        "<b>Velocidad Media:</b> " +
+        dataVeiculo.velocidadmedia
     );
 }
 
