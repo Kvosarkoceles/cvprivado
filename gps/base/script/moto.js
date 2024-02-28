@@ -237,8 +237,8 @@ async function informacion() {
 function addMarker(latitude, longitude, dataVeiculo) {
 
   var myIcon = L.icon({
-    iconUrl: "../546.svg",
-    shadowUrl: "../marker-shadow.png",
+    iconUrl: "546.svg",
+    shadowUrl: "marker-shadow.png",
   });
 
 
