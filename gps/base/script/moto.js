@@ -115,6 +115,7 @@ async function informacion() {
         ultimoReporte: "",
         conductor: "",
         velocidadmaxima: "",
+        velocidadmedia: "",
       };
 
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -123,6 +124,7 @@ async function informacion() {
       var UltimoReporte_Limitador = /UltimoReporte(.*?)UltimaPosición/;
       var conductor_Limitador = /Conductor(.*?)VerPosiciones/;
       var vel_max_Limitador = /Velocidadmaxima(.*?)VelocidadPromedio/;
+      var vel_media_Limitador = /VelocidadPromedio(.*?)DintanciaRecorrida/;
 
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
@@ -130,6 +132,7 @@ async function informacion() {
       var matchesUltimoReport = primerElemento.match(UltimoReporte_Limitador);
       var matchesConductor = primerElemento.match(conductor_Limitador);
       var matchesVelMax = primerElemento.match(vel_max_Limitador);
+      var matchesVelMedia = primerElemento.match(vel_media_Limitador);
       // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
@@ -171,6 +174,13 @@ async function informacion() {
         dataVeiculo.velocidadmaxima = matchesVelMax[1].trim();
       } else {
         dataVeiculo.velocidadmaxima = "";
+      }
+
+      // VelMedia
+      if (matchesVelMedia && matchesVelMedia.length > 1) {
+        dataVeiculo.velocidadmedia = matchesVelMedia[1].trim();
+      } else {
+        dataVeiculo.velocidadmedia = "";
       }
       // Imprimir las llaves
       console.log(dataVeiculo);
