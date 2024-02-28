@@ -51,7 +51,7 @@ async function viajes() {
         posicion.longitude = item.longitude;       
         posicion.origen = item.veloc;   
 
-        var numeroEntero = parseInt(strNumero, 10);
+        var numeroEntero = parseInt(item.veloc, 10);
 
 
     alert(typeof numeroEntero + numeroEntero);
