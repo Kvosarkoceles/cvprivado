@@ -32,7 +32,7 @@ function start() {
   // });
 }
 
-setInterval(start, 10000);
+// setInterval(start, 10000);
 
 async function posiciones() {
   // console.log("informacion funcion" + velocidad);
@@ -86,6 +86,7 @@ async function posiciones() {
 }
 
 function addMarker(latitude, longitude) {
+  alert(atitude, longitude);
   L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
