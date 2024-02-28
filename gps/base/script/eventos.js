@@ -52,7 +52,7 @@ async function viajes() {
         };
 
         if (item.tab === "ev") {
-      alert(typeof item.acionamento_id + item.acionamento_id);
+          alert(typeof item.acionamento_id + item.acionamento_id);
           if (item.acionamento_id === "68") {
             alert("Modo detenido");
             posicion.acionamento_id = "Modo detenido";
@@ -83,7 +83,17 @@ async function viajes() {
 }
 
 function addMarker(data) {
-  L.marker([data.latitude, data.longitude])
+  var myIcon = L.icon({
+    iconUrl: "my-icon.png",
+    iconSize: [38, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+    shadowUrl: "my-icon-shadow.png",
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94],
+  });
+
+  L.marker([data.latitude, data.longitude], {icon: myIcon})
     .addTo(mymap)
     .bindPopup("<b>Alerta: </b> " + data.acionamento_id);
 }
