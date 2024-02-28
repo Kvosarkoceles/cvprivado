@@ -201,7 +201,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
     .bindPopup(
       "<b>Placa:</b> " +
         dataVeiculo.placa +       
-        "<b>Rótulo:</b> " +
+        "<b>   Rótulo:</b> " +
         dataVeiculo.lable +
         "<br>" +
         "<b>Velocidad:</b> " +
