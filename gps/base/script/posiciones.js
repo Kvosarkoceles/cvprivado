@@ -50,7 +50,7 @@ async function viajes() {
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;       
         posicion.origen = item.veloc;   
-    alert(item.veloc);
+    alert(typeof item.veloc + item.veloc);
 
     
         
