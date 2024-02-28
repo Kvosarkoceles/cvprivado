@@ -9,23 +9,24 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // alert(datosVehiculos);
 
 // informacion();
-viajes();
+posiciones();
 
 
 // setInterval(start, 10000);
 
-async function viajes() {
+async function posiciones() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-27 00:00:00",
-    f2: "2024-02-27 23:59:59",
-    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
-    db: "awsdev",
+    f1: "2024-02-24 00:00:00",
+    f2: "2024-02-24 23:59:59",
     lgw_id: 133,
+    db: "awsdev",
+    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
   };
 
-  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
+  var url =
+    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getPositionsFast";
 
   await $.ajax({
     url: url,
@@ -33,7 +34,23 @@ async function viajes() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-       console.log("objeto: ",  objeto);    
+      // console.log("objeto: ", typeof objeto);
+      var posicion = { 
+        latitude:"",
+        longitude:"",
+        ignicao:"",
+        origen:""
+       }
+
+
+       
+      objeto.forEach(function (json) {      
+        posicion.latitude=json.latitude;
+        posicion.longitude=json.longitude;
+        posicion.ignicao=json.ignicao;
+        posicion.rigen=json.origen;    
+         addMarker(posicion);
+      });
 
      
     },

@@ -6,14 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MOTO-GPS | Moto</title>
 
-    <!-- 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/style.css"> -->
-
-
-
-
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/leafletjs/leaflet.css">
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
