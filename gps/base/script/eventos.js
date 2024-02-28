@@ -156,10 +156,7 @@ function addMarker(data) {
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
-      "<b>"+data.PlacaVeic +"</b> " +  
-      "<br>" +     
-        "<b>Origen: </b> " +
-        data.origen +
+      "<b>"+data.PlacaVeic + " - " + data.origen + "</b> " +       
         "<br>" +       
         "<b>Tiempo en posicion: </b> " +
         data.stop
