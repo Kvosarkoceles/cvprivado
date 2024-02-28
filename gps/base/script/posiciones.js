@@ -36,6 +36,17 @@ async function viajes() {
        console.log("positions: ",  objeto.positions);    
 
      
+       var coordinates = [];
+
+       $.each(objeto.positions, function(index, item) {
+           var coords = item.latitude + "," + item.longitude;
+           if ($.inArray(coords, coordinates) === -1) {
+               coordinates.push(coords);
+           }
+       });
+
+       console.log(coordinates);
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
