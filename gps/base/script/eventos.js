@@ -140,10 +140,7 @@ function stop(data) {
   var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
 
   // Muestra la diferencia
- var stoper = "Diferencia: " +
-  horas +
-  " horas, " +
-  minutos +
+ var stoper = "Diferencia: " +horas+ " horas, " +minutos+
   " minutos, " +
   segundos +
   " segundos.";
@@ -159,7 +156,7 @@ function stop(data) {
       " segundos."
   );
 
-  alert("stoper " ,stoper);
+  alert("stoper " +stoper);
   return stoper;
 }
 // Función para mostrar la ubicación del usuario
