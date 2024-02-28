@@ -249,7 +249,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<br>" +
         "<b>Recorrido:</b> " +
         dataVeiculo.recorrido +       
-        "<b>Tiempo detenido:</b> " +
+        "<b>   Tiempo detenido:</b> " +
         dataVeiculo.detenido
     );
 }
