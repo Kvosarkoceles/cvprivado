@@ -38,6 +38,7 @@ async function viajes() {
       var coordinates = [];
 
       var posicionArray = [];
+      
       var posicion = {
         latitude: "",
         longitude: "",     
@@ -48,18 +49,24 @@ async function viajes() {
         var coords = item.latitude + "," + item.longitude;
 
         posicion.latitude = item.latitude;
-        posicion.longitude = item.longitude;       
+        posicion.longitude = item.longitude;      
            
 
         var numeroEntero = parseInt(item.veloc, 10);
-        posicion.origen = numeroEntero;
+        posicion.veloc = numeroEntero;
+
+        if (numeroEntero > 0) {
+          // alert(typeof numeroEntero + numeroEntero);
+          posicionArray.push(posicion);
+        
+        } else{
+          // alert(typeof numeroEntero + numeroEntero);
+          coordinates.push(posicion);
+        
+        } 
 
         
-        if (numeroEntero > 0) {         
-          posicionArray.push(posicion);        
-        } else {         
-                
-        }
+
   
 
     
@@ -68,6 +75,7 @@ async function viajes() {
       });
 
       console.log("posicionArray", posicionArray);
+      console.log("coordinates", coordinates);
       //  console.log("posicionArray", posicionArray);
 
       // $.each(coordinates, function (index, element) {
