@@ -1,4 +1,4 @@
-var mymap = L.map("mapid").setView([19.31399, -99.25856], 25); // coordenadas iniciales y nivel de zoom
+var mymap = L.map("mapid").setView([19.31399, -99.25856], 19); // coordenadas iniciales y nivel de zoom
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
