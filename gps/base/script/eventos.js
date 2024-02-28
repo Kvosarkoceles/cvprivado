@@ -65,6 +65,7 @@ async function viajes() {
             posicion.acionamento_id = item.acionamento_id;
           }
           posicionArray.push(posicion);
+          stop(posicion);
           addMarker(posicion);
         } else {
           // posicion.fin = item.data_gps_br;
@@ -94,7 +95,7 @@ function addMarker(data) {
     shadowUrl: "../marker-shadow.png",
   });
 
-  stop(data);
+ 
 
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
