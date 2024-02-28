@@ -244,7 +244,7 @@ async function posiciones() {
   var data = { 
     ID_disp: 1970000012,
     f1: "2024-02-24 00:00:00",
-    f2: "2024-02-27 23:59:59",
+    f2: "2024-02-24 23:59:59",
     lgw_id: 133,
     db: "awsdev",
     dbip: 'imovit.cx0btphnat72.us-east-1.rds.amazonaws.com'
