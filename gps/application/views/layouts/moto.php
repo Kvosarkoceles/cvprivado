@@ -77,12 +77,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>moto/eventos" class="nav-link">
-                                <i ></i>
-                                <p> Eventos</p>
-                            </a>
-                        </li>
+                     
 
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">
