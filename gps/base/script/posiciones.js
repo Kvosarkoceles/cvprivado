@@ -1,4 +1,3 @@
-
 var mymap = L.map("mapid").setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -11,7 +10,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var velocidad = "";
 var dataVeiculo;
 // informacion();
- posiciones();
+posiciones();
 function start() {
   // alert("datosVehiculos");
   eliminarTodosLosMarcadores();
@@ -35,17 +34,15 @@ function start() {
 
 setInterval(start, 10000);
 
-
-
 async function posiciones() {
   // console.log("informacion funcion" + velocidad);
-  var data = { 
+  var data = {
     ID_disp: 1970000012,
     f1: "2024-02-24 00:00:00",
     f2: "2024-02-24 23:59:59",
     lgw_id: 133,
     db: "awsdev",
-    dbip: 'imovit.cx0btphnat72.us-east-1.rds.amazonaws.com'
+    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
   };
 
   var url =
@@ -56,11 +53,15 @@ async function posiciones() {
     method: "POST",
     data: data,
     success: function (response) {
-     
       var objeto = JSON.parse(response);
       console.log("objeto: ", typeof objeto);
 
-   
+      objeto.forEach(function (json) {
+        var json_string = JSON.stringify(json);
+        console.log(json_string);
+        alert(json_string);
+      });
+
       // Imprimir las llaves
       console.log(objeto);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
@@ -74,13 +75,8 @@ async function posiciones() {
   start();
 }
 
-
 function addMarker(latitude, longitude) {
-  L.marker([latitude, longitude])
-    .addTo(mymap)
-    .bindPopup(
-      "<b>Placa:</b> "        
-    );
+  L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
