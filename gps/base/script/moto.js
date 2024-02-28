@@ -116,8 +116,9 @@ async function informacion() {
         conductor: "",
         velocidadmaxima: "",
         velocidadmedia: "",
-        ignicion:"",
-        recorrido:""
+        ignicion: "",
+        recorrido: "",
+        detenido,
       };
 
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -129,7 +130,8 @@ async function informacion() {
       var vel_media_Limitador = /VelocidadPromedio(.*?)DintanciaRecorrida/;
       var ignicion_Limitador = /Ignición:(.*?)Inmovilizador/;
       var recorrido_Limitador = /DintanciaRecorrida(.*?)TiempoDetenido/;
-       
+      var detenido_Limitador = /TiempoDetenido(.*?)Tiempoenmovimiento/;
+
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
       var matchesVel = primerElemento.match(velocidad_Limitador);
@@ -138,7 +140,9 @@ async function informacion() {
       var matchesVelMax = primerElemento.match(vel_max_Limitador);
       var matchesVelMedia = primerElemento.match(vel_media_Limitador);
       var matchesignicion = primerElemento.match(ignicion_Limitador);
-      var matchesrecorrido= primerElemento.match(recorrido_Limitador);
+      var matchesrecorrido = primerElemento.match(recorrido_Limitador);
+      var matchesdetenido = primerElemento.match(detenido_Limitador);
+
       // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
@@ -187,18 +191,24 @@ async function informacion() {
       } else {
         dataVeiculo.velocidadmedia = "";
       }
-       // ignicion
-       if (matchesignicion && matchesignicion.length > 1) {
+      // ignicion
+      if (matchesignicion && matchesignicion.length > 1) {
         dataVeiculo.ignicion = matchesignicion[1].trim();
       } else {
         dataVeiculo.ignicion = "";
       }
-         // recorrido
-         if (matchesrecorrido && matchesrecorrido.length > 1) {
-          dataVeiculo.recorrido = matchesrecorrido[1].trim();
-        } else {
-          dataVeiculo.recorrido = "";
-        }
+      // recorrido
+      if (matchesrecorrido && matchesrecorrido.length > 1) {
+        dataVeiculo.recorrido = matchesrecorrido[1].trim();
+      } else {
+        dataVeiculo.recorrido = "";
+      }
+      // detenido
+      if (matchesdetenido && matchesdetenido.length > 1) {
+        dataVeiculo.detenido = matchesdetenido[1].trim();
+      } else {
+        dataVeiculo.detenido = "";
+      }
       // Imprimir las llaves
       console.log(dataVeiculo);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
@@ -233,12 +243,15 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.ignicion +
         "<br>" +
         "<b>Vel.Max.:</b> " +
-        dataVeiculo.velocidadmaxima +       
+        dataVeiculo.velocidadmaxima +
         "<b>   Vel. Med.:</b> " +
         dataVeiculo.velocidadmedia +
         "<br>" +
         "<b>Recorrido:</b> " +
-        dataVeiculo.recorrido
+        dataVeiculo.recorrido +
+        "<br>" +
+        "<b>Tiempo detenido:</b> " +
+        dataVeiculo.detenido
     );
 }
 
