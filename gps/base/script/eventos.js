@@ -58,6 +58,7 @@ async function viajes() {
           latitude: item.latitude,
           longitude: item.longitude,     
           veloc: item.veloc,
+          acionamento_id:item.acionamento_id
         };
 
         if (item.tab === "ev") {
@@ -101,7 +102,7 @@ async function viajes() {
 function addMarker(data) {
   L.marker([data.latitude, data.longitude])
     .addTo(mymap)
-    .bindPopup("<b>velocidad: </b> " + data.veloc);
+    .bindPopup("<b>Alerta: </b> " + data.acionamento_id);
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
