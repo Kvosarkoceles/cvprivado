@@ -204,15 +204,17 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<b>   Rótulo:</b> " +
         dataVeiculo.lable +
         "<br>" +
+        "<b>Ultimo Conductor:</b> " +
+        dataVeiculo.conductor+
+        "<br>" +
+
         "<b>Velocidad:</b> " +
         dataVeiculo.velocidad +
         "<br>" +
         "<b>Ultimo Reporte:</b> " +
         dataVeiculo.ultimoReporte +
         "<br>" +
-        "<b>Ultimo Conductor:</b> " +
-        dataVeiculo.conductor+
-        "<br>" +
+        
         "<b>Velocidad Maxima:</b> " +
         dataVeiculo.velocidadmaxima+
         "<br>" +
