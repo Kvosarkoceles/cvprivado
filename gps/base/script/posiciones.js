@@ -59,6 +59,7 @@ async function viajes() {
 
       $.each(coordinates, function(index, element) {
         console.log("element: ",element);
+        addMarker(element);
       
     });
 
