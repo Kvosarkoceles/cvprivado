@@ -118,7 +118,9 @@ async function informacion() {
         velocidadmedia: "",
         ignicion: "",
         recorrido: "",
-        detenido:"",
+        detenido: "",
+        movimiento: "",
+        odometro: "",
       };
 
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -131,6 +133,8 @@ async function informacion() {
       var ignicion_Limitador = /Ignición:(.*?)Inmovilizador/;
       var recorrido_Limitador = /DintanciaRecorrida(.*?)TiempoDetenido/;
       var detenido_Limitador = /TiempoDetenido(.*?)Tiempoenmovimiento/;
+      var movimiento_Limitador = /Tiempoenmovimiento(.*?)Odometro/;
+      var odometro_Limitador = /Odometro(.*?)ConsumoCombustible/;
 
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
@@ -142,6 +146,8 @@ async function informacion() {
       var matchesignicion = primerElemento.match(ignicion_Limitador);
       var matchesrecorrido = primerElemento.match(recorrido_Limitador);
       var matchesdetenido = primerElemento.match(detenido_Limitador);
+      var matchesmovimiento = primerElemento.match(movimiento_Limitador);
+      var matchesodometro = primerElemento.match(odometro_Limitador);
 
       // lable y placa
       if (matches && matches.length > 1) {
@@ -209,6 +215,18 @@ async function informacion() {
       } else {
         dataVeiculo.detenido = "";
       }
+      // movimiento
+      if (matchesmovimiento && matchesmovimiento.length > 1) {
+        dataVeiculo.movimiento = matchesmovimiento[1].trim();
+      } else {
+        dataVeiculo.movimiento = "";
+      }
+      // odometro
+      if (matchesodometro && matchesodometro.length > 1) {
+        dataVeiculo.odometro = matchesodometro[1].trim();
+      } else {
+        dataVeiculo.odometro = "";
+      }
       // Imprimir las llaves
       console.log(dataVeiculo);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
@@ -248,9 +266,15 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.velocidadmedia +
         "<br>" +
         "<b>Recorrido:</b> " +
-        dataVeiculo.recorrido +       
+        dataVeiculo.recorrido +
         "<b>   Tiempo detenido:</b> " +
-        dataVeiculo.detenido
+        dataVeiculo.detenido+
+        "<br>" +
+        "<b>Movimiento:</b> " +
+        dataVeiculo.movimiento +
+        "<br>" +
+        "<b>Odometro:</b> " +
+        dataVeiculo.odometro
     );
 }
 
