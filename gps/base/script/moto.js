@@ -271,8 +271,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.detenido+
         "<br>" +
         "<b>Movimiento:</b> " +
-        dataVeiculo.movimiento +
-        "<br>" +
+        dataVeiculo.movimiento +     
         "<b>Odometro:</b> " +
         dataVeiculo.odometro
     );
