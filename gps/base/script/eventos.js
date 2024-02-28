@@ -52,7 +52,7 @@ async function viajes() {
         };
 
         if (item.tab === "ev") {
-        a
+       
           if (item.acionamento_id === "68") {
             
             posicion.acionamento_id = "Modo detenido";
