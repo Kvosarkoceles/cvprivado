@@ -53,8 +53,9 @@ async function viajes() {
         var resultado = mismaPosicion(posicionInicial, posicion);
         if (resultado) {
           // console.log(resultado);
-          posicionClean.push(item);
+          
         }else {
+          posicionClean.push(item);
           posicionInicial = posicion;
         }
 
