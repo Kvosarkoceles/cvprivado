@@ -116,6 +116,7 @@ async function informacion() {
         conductor: "",
         velocidadmaxima: "",
         velocidadmedia: "",
+        ignicion:""
       };
 
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
@@ -125,6 +126,8 @@ async function informacion() {
       var conductor_Limitador = /Conductor(.*?)VerPosiciones/;
       var vel_max_Limitador = /Velocidadmaxima(.*?)VelocidadPromedio/;
       var vel_media_Limitador = /VelocidadPromedio(.*?)DintanciaRecorrida/;
+      var ignicion_Limitador = /Ignición:(.*?)Inmovilizador/;
+    
 
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
@@ -133,6 +136,7 @@ async function informacion() {
       var matchesConductor = primerElemento.match(conductor_Limitador);
       var matchesVelMax = primerElemento.match(vel_max_Limitador);
       var matchesVelMedia = primerElemento.match(vel_media_Limitador);
+      var matchesignicion = primerElemento.match(ignicion_Limitador);
       // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
@@ -175,12 +179,17 @@ async function informacion() {
       } else {
         dataVeiculo.velocidadmaxima = "";
       }
-
       // VelMedia
       if (matchesVelMedia && matchesVelMedia.length > 1) {
         dataVeiculo.velocidadmedia = matchesVelMedia[1].trim();
       } else {
         dataVeiculo.velocidadmedia = "";
+      }
+       // ignicion
+       if (matchesignicion && matchesignicion.length > 1) {
+        dataVeiculo.ignicion = matchesignicion[1].trim();
+      } else {
+        dataVeiculo.ignicion = "";
       }
       // Imprimir las llaves
       console.log(dataVeiculo);
