@@ -63,6 +63,9 @@ async function viajes() {
 
         if (item.tab === "ev") {
           // alert(typeof numeroEntero + numeroEntero);
+          if (item.acionamento_id === 68) {
+           posicion.acionamento_id="Modo detenido";
+          } 
           posicionArray.push(posicion);
           addMarker(posicion);
         
