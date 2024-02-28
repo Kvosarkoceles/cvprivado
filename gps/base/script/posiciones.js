@@ -86,7 +86,7 @@ async function posiciones() {
 }
 
 function addMarker(latitude, longitude) {
-  alert(atitude, longitude);
+  alert(latitude, longitude);
   L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
