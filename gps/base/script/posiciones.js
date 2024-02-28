@@ -47,6 +47,24 @@ async function viajes() {
 
        console.log(coordinates);
 
+       var posicion = { 
+        latitude:"",
+        longitude:"",
+        ignicao:"",
+        origen:""
+       }
+
+
+       
+       coordinates.forEach(function (json) {      
+        posicion.latitude=json.latitude;
+        posicion.longitude=json.longitude;
+        posicion.ignicao=json.ignicao;
+        posicion.rigen=json.origen;   
+        console.log(posicion); 
+        //  addMarker(posicion);
+      });
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
