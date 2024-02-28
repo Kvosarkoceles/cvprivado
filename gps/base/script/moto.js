@@ -97,17 +97,14 @@ async function informacion() {
 
       // Crear un elemento jQuery a partir del HTML recibido
       var $html = $(jsonString);
-
-      console.log("$html ", $html);
+     
 
       var valuesArray = Object.values($html);
 
       // Obtener el primer elemento del array (correspondiente al primer valor del objeto JSON)
       var primerElemento = valuesArray[0].innerText;
 
-      console.log("primerElemento: ", primerElemento);
-
-      console.log("primerElemento: ", typeof primerElemento);
+     
 
       dataVeiculo = {
         placa: "",
@@ -229,7 +226,7 @@ async function informacion() {
         dataVeiculo.odometro = "";
       }
       // Imprimir las llaves
-      console.log(dataVeiculo);
+      
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
@@ -239,6 +236,7 @@ async function informacion() {
   });
 
   start();
+  posiciones();
 }
 
 async function posiciones() {
