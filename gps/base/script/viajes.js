@@ -9,7 +9,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // alert(datosVehiculos);
 
 // informacion();
-posiciones();
+viajes();
 
 
 // setInterval(start, 10000);
