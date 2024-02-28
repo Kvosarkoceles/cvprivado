@@ -235,7 +235,16 @@ async function informacion() {
 }
 
 function addMarker(latitude, longitude, dataVeiculo) {
-  L.marker([latitude, longitude])
+
+  var myIcon = L.icon({
+    iconUrl: "../546.svg",
+    shadowUrl: "../marker-shadow.png",
+  });
+
+
+
+
+  L.marker([latitude, longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
       "<b>Placa:</b> " +
