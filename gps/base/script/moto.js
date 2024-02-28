@@ -221,6 +221,8 @@ function addMarker(latitude, longitude, dataVeiculo) {
         "<br>" +
         "<b>Velocidad:</b> " +
         dataVeiculo.velocidad +
+        "<b>   Ignicion:</b> " +
+        dataVeiculo.ignicion +
         "<br>" +
         "<b>Vel.Max.:</b> " +
         dataVeiculo.velocidadmaxima +       
