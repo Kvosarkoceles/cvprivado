@@ -78,14 +78,13 @@ async function posiciones() {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
-
   start();
 }
 
 function addMarker(data) { 
   console.log(data);
-  console.log(data.latitude, data.longitud);
-  // L.marker([latitude, longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
+  console.log(data.latitude, data.longitude);
+  L.marker([data.latitude, data.longitude]).addTo(mymap).bindPopup("<b>Placa:</b> ");
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
