@@ -153,16 +153,12 @@ function addMarker(data) {
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
-      "<b>Alerta: </b> " +
-        data.acionamento_id +
-        "<br>" +
-        "<b>Inicio: </b> " +
-        data.inicio +
-        "<br>" +
-        "<b>Fin: </b> " +
-        data.fin +
-        "<br>" +
-        "<b>stop: </b> " +
+      "<b>Posicion</b> " +  
+      "<br>" +     
+        "<b>Origen: </b> " +
+        data.origen +
+        "<br>" +       
+        "<b>Tiempo en posicion: </b> " +
         data.stop
     );
 }
