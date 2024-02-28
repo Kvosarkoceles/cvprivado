@@ -49,20 +49,12 @@ async function viajes() {
 
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;       
-        posicion.origen = item.veloc;
-
-        // if ($.inArray(posicion, coordinates) === -1) {
-        //   coordinates.push(posicion);
-        // }
-var isInArrat =  $.inArray(coords, coordinates);
-console.log("isInArrat", isInArrat);
-        // if (isInArrat !== -1) {
-        //   coordinates.push(coords);
-        //   posicionArray.push(posicion);
-        //   console.log(posicion);
-        // }
+        posicion.origen = item.veloc;   
+        posicionArray.push(posicion);
+        addMarker(posicion);
+      
       });
-
+      console.log("posicionArray", posicionArray);
       //  console.log("posicionArray", posicionArray);
 
       // $.each(coordinates, function (index, element) {
