@@ -117,18 +117,21 @@ async function informacion() {
         lable: "",
         velocidad: "",
         ultimoReporte: "",
+        conductor:""
       };
       
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
       var placaAndLabel = /expand_more(.*?)Velocidad/;
       var velocidad_Limitador = /Velocidad(.*?)Ignición/;
       var UltimoReporte_Limitador = /UltimoReporte(.*?)UltimaPosición/;
+      var conductor_Limitador = /Conductor(.*?)VerPosiciones/;
+    
 
       // Buscar coincidencias en el string
       var matches = primerElemento.match(placaAndLabel);
-
       var matchesVel = primerElemento.match(velocidad_Limitador);
       var matchesUltimoReport = primerElemento.match(UltimoReporte_Limitador);
+      var matchesConductor = primerElemento.match(conductor_Limitador);
       // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
@@ -154,11 +157,19 @@ async function informacion() {
         dataVeiculo.velocidad = "";      
       }
 
-
+      // matchesUltimoReport
       if (matchesUltimoReport && matchesUltimoReport.length > 1) {       
         dataVeiculo.ultimoReporte = matchesUltimoReport[1].trim();        
       } else {
         dataVeiculo.ultimoReporte = "";     
+      }
+
+      // Conductor
+
+      if (matchesConductor && matchesConductor.length > 1) {       
+        dataVeiculo.conductor = matchesConductor[1].trim();        
+      } else {
+        dataVeiculo.conductor = "";     
       }
       // Imprimir las llaves
 console.log(dataVeiculo);
@@ -184,11 +195,13 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.lable +
         "<br>" +
         "<b>Velocidad:</b> " +
-        dataVeiculo.velocidad
-        +
+        dataVeiculo.velocidad +
         "<br>" +
         "<b>Ultimo Reporte:</b> " +
-        dataVeiculo.ultimoReporte
+        dataVeiculo.ultimoReporte +
+        "<br>" +
+        "<b>Ultimo Conductor:</b> " +
+        dataVeiculo.conductor
     );
 }
 
