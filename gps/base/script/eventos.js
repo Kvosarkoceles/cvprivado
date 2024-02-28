@@ -124,9 +124,9 @@ function eliminarTodosLosMarcadores() {
 }
 
 function stop(data) {
-  console.log(data);
-  
+  console.log(data);  
   console.log("data: ", data.inicio , " ", data.fin);
+  
   // Fechas proporcionadas
   var fecha1 = new Date(data.inicio);
   var fecha2 = new Date(data.fin);
@@ -160,6 +160,7 @@ function stop(data) {
       " segundos."
   );
 
+  alert("stoper " ,stoper);
   return stoper;
 }
 // Función para mostrar la ubicación del usuario
