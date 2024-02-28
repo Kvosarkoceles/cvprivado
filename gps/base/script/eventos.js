@@ -126,7 +126,6 @@ function eliminarTodosLosMarcadores() {
 function stop(data) {
   console.log(data);
   
-
   console.log("data: ", data.inicio , " ", data.fin);
   // Fechas proporcionadas
   var fecha1 = new Date(data.inicio);
