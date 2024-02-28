@@ -41,14 +41,14 @@ async function viajes() {
         latitude: "",
         longitude: "",
         ignicao: "",
-        origen: "",
+        veloc: "",
       };
 
       $.each(objeto.positions, function (index, item) {
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;
         posicion.ignicao = item.ignicao;
-        posicion.origen = item.origen;
+        posicion.origen = item.veloc;
 
         if ($.inArray(posicion, coordinates) === -1) {
           coordinates.push(posicion);
@@ -74,7 +74,7 @@ async function viajes() {
 function addMarker(data) {
   L.marker([data.latitude, data.longitude])
     .addTo(mymap)
-    .bindPopup("<b>ignicao: </b> " + data.ignicao);
+    .bindPopup("<b>velocidad: </b> " + data.veloc);
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
