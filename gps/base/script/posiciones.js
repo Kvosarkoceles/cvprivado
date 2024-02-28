@@ -37,6 +37,7 @@ async function viajes() {
 
       var coordinates = [];
 
+      var posicionArray = []
       var posicion = {
         latitude: "",
         longitude: "",
@@ -45,19 +46,29 @@ async function viajes() {
       };
 
       $.each(objeto.positions, function (index, item) {
+        var coords = item.latitude + "," + item.longitude;
+        
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;
         posicion.ignicao = item.ignicao;
         posicion.origen = item.veloc;
 
-        if ($.inArray(posicion, coordinates) === -1) {
-          coordinates.push(posicion);
+        // if ($.inArray(posicion, coordinates) === -1) {
+        //   coordinates.push(posicion);
+        // }
+
+        if ($.inArray(coords, coordinates) === -1) {
+          coordinates.push(coords);
+          posicionArray.concatpush(posicion);
         }
+
+        
+
       });
 
       console.log("coordinates", coordinates);
 
-      $.each(coordinates, function(index, element) {
+      $.each(posicionArray, function(index, element) {
         console.log("element: ",element);
         addMarker(element);
       
