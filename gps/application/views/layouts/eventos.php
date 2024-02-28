@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MOTO-GPS | Moto</title>
 
+    <!-- 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/style.css"> -->
+
+
+
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>base/leafletjs/leaflet.css">
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -41,11 +48,8 @@
                     <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">Posiciones</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>moto/eventos" class="nav-link">Eventos</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">Viajes</a>
-                </l
+                </li>
             </ul>
 
             <!-- Right navbar links -->
@@ -81,18 +85,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>moto/eventos" class="nav-link">
-                                <i ></i>
-                                <p> Eventos</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">
                                 <i ></i>
                                 <p> Viajes</p>
                             </a>
                         </li>
+
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -131,7 +130,7 @@
     <script src="<?php echo base_url(); ?>base/dist/js/demo.js"></script>
 
     <script src="<?php echo base_url(); ?>base/leafletjs/leaflet.js"></script>
-    <script src="<?php echo base_url(); ?>base/script/moto.js"></script>
+    <script src="<?php echo base_url(); ?>base/script/eventos.js"></script>
 
 </body>
 

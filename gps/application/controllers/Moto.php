@@ -44,6 +44,12 @@ class Moto extends CI_Controller
 		$this->load->view('/layouts/posiciones');
 	}
 
+	public function eventos()
+	{
+
+		$this->load->view('/layouts/eventos');
+	}
+
 	public function viajes()
 	{
 
