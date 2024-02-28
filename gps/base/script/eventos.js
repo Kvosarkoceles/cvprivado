@@ -40,8 +40,14 @@ async function viajes() {
       var posicionArray = [];
 
       var inicio = objeto.positions[0].data_gps_br;
+
+      var posicionInicial = [37.7749, -122.4194];
+
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
+        var posicion = [item.latitude, item.longitude];
+        var resultado = mismaPosicion(posicionInicial, posicion);
+        console.log(resultado); // Mostrará true
 
         var numeroEntero = parseInt(item.veloc, 10);
 
@@ -126,6 +132,13 @@ function eliminarTodosLosMarcadores() {
   });
 }
 
+function mismaPosicion(coordenadas1, coordenadas2) {
+  // Verifica si las coordenadas son iguales
+  return (
+    coordenadas1[0] === coordenadas2[0] && coordenadas1[1] === coordenadas2[1]
+  );
+}
+
 function stop(a, b) {
   var fecha1 = new Date(a);
   var fecha2 = new Date(b);
@@ -135,10 +148,7 @@ function stop(a, b) {
   var minutos = Math.floor((diferencia_ms % (1000 * 60 * 60)) / (1000 * 60));
   var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
 
-
-
-
-  return horas +":" +minutos+ ":" + segundos;
+  return horas + ":" + minutos + ":" + segundos;
 }
 // function stop(data) {
 //   console.log(data);
