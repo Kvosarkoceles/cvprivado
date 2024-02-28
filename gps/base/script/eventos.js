@@ -140,10 +140,9 @@ function stop(data) {
   var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
 
   // Muestra la diferencia
- var stoper = "Diferencia: " +horas+ " horas, " +minutos+
-  " minutos, " +
-  segundos +
-  " segundos.";
+ var stoper = horas+ " : " +minutos+
+  " : " +
+  segundos;
 
 
   console.log(
