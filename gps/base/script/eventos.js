@@ -91,7 +91,8 @@ async function viajes() {
 
 function addMarker(data) {
  var stop =  stop(data);
-
+console.log("Stop: ");
+console.log(stop);
   var myIcon = L.icon({
     iconUrl: "../red-dot.png",
     shadowUrl: "../marker-shadow.png",
@@ -160,7 +161,7 @@ function stop(data) {
       " segundos."
   );
 
-  alert("stoper " +stoper);
+  // alert("stoper " +stoper);
   return stoper;
 }
 // Función para mostrar la ubicación del usuario
