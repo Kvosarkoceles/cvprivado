@@ -17,8 +17,8 @@ async function viajes() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-25 00:03:40",
-    f2: "2024-02-25 19:37:33",
+    f1: "2024-02-25 00:00:00",
+    f2: "2024-02-25 23:59:59",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
     lgw_id: 133,
