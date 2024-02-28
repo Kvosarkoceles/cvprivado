@@ -127,7 +127,18 @@ function eliminarTodosLosMarcadores() {
 }
 
 function stop(a, b) {
-  return "A" + "B";
+  var fecha1 = new Date(a);
+  var fecha2 = new Date(b);
+  var diferencia_ms = Math.abs(fecha2 - fecha1);
+
+  var horas = Math.floor(diferencia_ms / (1000 * 60 * 60));
+  var minutos = Math.floor((diferencia_ms % (1000 * 60 * 60)) / (1000 * 60));
+  var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
+
+
+
+
+  return horas +":" +minutos+ ":" + segundos;
 }
 // function stop(data) {
 //   console.log(data);
