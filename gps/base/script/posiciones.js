@@ -57,9 +57,16 @@ async function posiciones() {
       // console.log("objeto: ", typeof objeto);
 
       objeto.forEach(function (json) {
-        console.log(json);
-        // console.log(json.longitude);
-        // console.log(json.longitude);
+       
+         console.log(json.latitude);
+         console.log(json.longitude);
+         console.log(json.ignicao);
+         console.log(json.origen);
+
+        
+         addMarker(json.latitude, json.longitude);
+         
+         ;
         var json_string = JSON.stringify(json);
         // console.log(json_string);
         // alert(json_string);
