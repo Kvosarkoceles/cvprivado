@@ -39,7 +39,7 @@ async function viajes() {
 
       var posicionArray = [];
 
-      var inicio =objeto.positions[0].data_gps_br;
+      var inicio = objeto.positions[0].data_gps_br;
       $.each(objeto.positions, function (index, item) {
         console.log(inicio);
         var coords = item.latitude + "," + item.longitude;
@@ -54,8 +54,6 @@ async function viajes() {
           inicio: inicio,
           fin: "",
         };
-
-
 
         if (item.tab === "ev") {
           posicion.fin = item.data_gps_br;
@@ -96,12 +94,19 @@ function addMarker(data) {
     shadowUrl: "../marker-shadow.png",
   });
 
+  stop(data.latitude, data.longitude);
+
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
-      "<b>Alerta: </b> " + data.acionamento_id + "<br>" +
-      "<b>Inicio: </b> " + data.inicio + "<br>" +
-      "<b>Fin: </b> " + data.fin
+      "<b>Alerta: </b> " +
+        data.acionamento_id +
+        "<br>" +
+        "<b>Inicio: </b> " +
+        data.inicio +
+        "<br>" +
+        "<b>Fin: </b> " +
+        data.fin
     );
 }
 
@@ -115,6 +120,42 @@ function eliminarTodosLosMarcadores() {
       mymap.removeLayer(layer);
     }
   });
+}
+
+function stop(date1, date2) {
+  // Fechas proporcionadas
+  var fecha1 = new Date(date1);
+  var fecha2 = new Date(date2);
+
+  // Calcula la diferencia en milisegundos
+  var diferencia_ms = Math.abs(fecha2 - fecha1);
+
+  // Convierte la diferencia de milisegundos a horas, minutos y segundos
+  var horas = Math.floor(diferencia_ms / (1000 * 60 * 60));
+  var minutos = Math.floor((diferencia_ms % (1000 * 60 * 60)) / (1000 * 60));
+  var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
+
+  // Muestra la diferencia
+ var stoper = "Diferencia: " +
+  horas +
+  " horas, " +
+  minutos +
+  " minutos, " +
+  segundos +
+  " segundos.";
+
+
+  console.log(
+    "Diferencia: " +
+      horas +
+      " horas, " +
+      minutos +
+      " minutos, " +
+      segundos +
+      " segundos."
+  );
+
+  return stoper;
 }
 // Función para mostrar la ubicación del usuario
 // function onLocationFound(e) {
