@@ -53,6 +53,7 @@ async function viajes() {
 
         if (item.tab === "ev") {
        
+          alert(item.acionamento_id);
           if (item.acionamento_id === "68") {
             
             posicion.acionamento_id = "Modo detenido";
