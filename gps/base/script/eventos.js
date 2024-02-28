@@ -66,7 +66,7 @@ async function viajes() {
             posicion.acionamento_id = item.acionamento_id;
           }
 
-          posicion.stop = stop(posicion);
+          posicion.stop = stop(posicion.inicio, posicion.fin);
           posicionArray.push(posicion);
          
           addMarker(posicion);
