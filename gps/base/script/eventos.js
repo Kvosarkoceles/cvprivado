@@ -33,7 +33,7 @@ async function viajes() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      console.log("positions: ", objeto.positions);
+      // console.log("positions: ", objeto.positions);
 
       var coordinates = [];
 
@@ -41,7 +41,7 @@ async function viajes() {
 
       var inicio = objeto.positions[0].data_gps_br;
       $.each(objeto.positions, function (index, item) {
-        console.log(inicio);
+      
         var coords = item.latitude + "," + item.longitude;
 
         var numeroEntero = parseInt(item.veloc, 10);
@@ -53,6 +53,7 @@ async function viajes() {
           acionamento_id: "",
           inicio: inicio,
           fin: "",
+          stop:""
         };
 
         if (item.tab === "ev") {
@@ -74,9 +75,9 @@ async function viajes() {
         }
       });
 
-      console.log("posicionArray", posicionArray);
-      console.log("coordinates", coordinates);
-      //  console.log("posicionArray", posicionArray);
+      // console.log("posicionArray", posicionArray);
+       console.log("coordinates", coordinates);
+        console.log("posicionArray", posicionArray);
 
       // $.each(coordinates, function (index, element) {
       //   console.log("element: ", element);
@@ -90,9 +91,7 @@ async function viajes() {
 }
 
 function addMarker(data) {
- var stop =  stop(data);
-console.log("Stop: ");
-console.log(stop);
+
   var myIcon = L.icon({
     iconUrl: "../red-dot.png",
     shadowUrl: "../marker-shadow.png",
