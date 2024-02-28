@@ -63,7 +63,7 @@ console.log(isInArrat);
         }
       });
 
-      // console.log("posicionArray", posicionArray);
+       console.log("posicionArray", posicionArray);
 
       // $.each(coordinates, function (index, element) {
       //   console.log("element: ", element);
