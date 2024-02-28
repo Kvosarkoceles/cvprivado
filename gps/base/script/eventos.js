@@ -53,6 +53,8 @@ async function viajes() {
           fin: "",
         };
 
+
+
         if (item.tab === "ev") {
           posicion.fin = item.data_gps_br;
           alert(item.acionamento_id);
@@ -64,7 +66,7 @@ async function viajes() {
           posicionArray.push(posicion);
           addMarker(posicion);
         } else {
-          posicion.fin = item.data_gps_br;
+          // posicion.fin = item.data_gps_br;
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
         }
