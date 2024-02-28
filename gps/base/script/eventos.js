@@ -41,7 +41,7 @@ async function viajes() {
 
       var inicio = objeto.positions[0].data_gps_br;
 
-      var posicionInicial = [37.7749, -122.4194];
+      var posicionInicial = ["37.7749", "-122.4194"];
 
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
