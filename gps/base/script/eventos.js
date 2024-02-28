@@ -39,7 +39,7 @@ async function viajes() {
 
       var posicionArray = [];
 
-      var inicio =objeto [0];
+      var inicio =objeto.positions[0];
       $.each(objeto.positions, function (index, item) {
         console.log(inicio);
         var coords = item.latitude + "," + item.longitude;
