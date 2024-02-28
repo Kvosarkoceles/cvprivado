@@ -53,8 +53,13 @@ async function viajes() {
 
         var numeroEntero = parseInt(item.veloc, 10);
 
+        if (numeroEntero > 0) {
+          alert(typeof numeroEntero + numeroEntero);
+        } else {
+          console.log(typeof numeroEntero , numeroEntero);
+        }
 
-    alert(typeof numeroEntero + numeroEntero);
+  
 
     
         
