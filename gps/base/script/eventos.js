@@ -21,14 +21,6 @@ function init() {
       veloc: "0",
     },
     {
-      latitude: "19.3086",
-      longitude: "-99.25982",
-      stop: "01:53:07",
-      origen: "GPS",
-      data_gps_br: "2024-02-15 05:53:07",
-      veloc: "0",
-    },
-    {
       latitude: "19.32612",
       longitude: "-99.24782",
       stop: "01:53:07",
@@ -56,10 +48,9 @@ function init() {
 
   $.each(data, function (index, item) {
     // var coords = item.latitude + "," + item.longitude;
-    // var posicion = [item.latitude, item.longitude];  
+    // var posicion = [item.latitude, item.longitude];
     console.log(item);
     addMarker(item);
-   
   });
 }
 // setInterval(start, 10000);
