@@ -14,6 +14,7 @@ init();
 function init() {
   var data = [
     {
+      PlacaVeic:"06KFU7",
       latitude: "19.32613",
       longitude: "-99.24781",
       stop: "01:53:07",
@@ -21,6 +22,7 @@ function init() {
       veloc: "0",
     },
     {
+      PlacaVeic:"06KFU7",
       latitude: "19.33424",
       longitude: "-99.21823",
       stop: "01:53:07",
@@ -29,6 +31,7 @@ function init() {
       veloc: "0",
     },
     {
+      PlacaVeic:"06KFU7",
       latitude: "19.30922",
       longitude: "-99.25997",
       stop: "01:53:07",
