@@ -223,9 +223,8 @@ function addMarker(latitude, longitude, dataVeiculo) {
         dataVeiculo.velocidad +
         "<br>" +
         "<b>Vel.Max.:</b> " +
-        dataVeiculo.velocidadmaxima +
-        "<br>" +
-        "<b>Velocidad Media:</b> " +
+        dataVeiculo.velocidadmaxima +       
+        "<b>Vel. Med.:</b> " +
         dataVeiculo.velocidadmedia
     );
 }
