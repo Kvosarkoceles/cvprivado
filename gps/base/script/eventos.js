@@ -17,7 +17,7 @@ async function viajes() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-21 00:00:00",
+    f1: "2024-02-15 00:00:00",
     f2: "2024-02-27 23:59:59",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
@@ -84,10 +84,8 @@ async function viajes() {
 
 function addMarker(data) {
   var myIcon = L.icon({
-    iconUrl: "../red-dot.png",
- 
-    shadowUrl: "../red-dot.png",
- 
+    iconUrl: "../red-dot.png", 
+    shadowUrl: "../marker-shadow.png", 
   });
 
   L.marker([data.latitude, data.longitude], {icon: myIcon})
