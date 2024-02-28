@@ -282,7 +282,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
-  mymap.setView([latitud, longitud], 17);
+  mymap.setView([latitud, longitud], 19);
 }
 
 function eliminarTodosLosMarcadores() {
