@@ -60,15 +60,15 @@ async function viajes() {
           veloc: item.veloc,
         };
 
-        if (numeroEntero > 0) {
+        if (item.tab === "ev") {
           // alert(typeof numeroEntero + numeroEntero);
           posicionArray.push(posicion);
-         
+          addMarker(posicion);
         
         } else{
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
-          addMarker(posicion);
+         
         
         } 
 
