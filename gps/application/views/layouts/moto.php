@@ -63,8 +63,7 @@
             <div class="sidebar">
                 <div>
                     <div style='margin-bottom: 5px;'>
-                        <span style='font-weight: bold;'>Placa:</span>06KFU7
-                        <span style='font-weight: bold;'>Rótulo:</span>Lithium-06KFU7
+                        <span style='font-weight: bold;'>Lithium-06KFU7</span>                       
                     </div>
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Conductor:</span>MIGUELMENDOZA                       
