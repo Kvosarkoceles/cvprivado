@@ -21,6 +21,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // alert(datosVehiculos);
 var velocidad = "";
+var dataVeiculo;
 informacion();
 // start();
 function start() {
@@ -112,12 +113,14 @@ async function informacion() {
       console.log("primerElemento: ", primerElemento);
 
       console.log("primerElemento: ", typeof primerElemento);
-      var datos = {
+
+      dataVeiculo = {
         placa: "",
         lable: "",
         velocidad: "",
         ultimoReporte: "",
       };
+      
       // Expresión regular para encontrar el valor entre "expand_more" y "Velocidad"
       var placaAndLabel = /expand_more(.*?)Velocidad/;
       var velocidad_Limitador = /Velocidad(.*?)Ignición/;
@@ -128,7 +131,7 @@ async function informacion() {
 
       var matchesVel = primerElemento.match(velocidad_Limitador);
       var matchesUltimoReport = primerElemento.match(UltimoReporte_Limitador);
-      // Si hay coincidencias, obtener el valor entre paréntesis
+      // lable y placa
       if (matches && matches.length > 1) {
         var recortar = /\(([^)]+)\)/;
         var matchesInsideParentheses = matches[1].trim().match(recortar);
@@ -140,40 +143,27 @@ async function informacion() {
           .trim()
           .replace(recortar, "")
           .trim();    
-
-        datos.lable = contentInsideParentheses;
-        datos.placa = contentOutsideParentheses;
-        // console.log(datos);
-     
-
-        // Imprimir el valor en la consola
+        dataVeiculo.lable = contentInsideParentheses;
+        dataVeiculo.placa = contentOutsideParentheses;
       } else {
-        console.log(
-          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
-        );
+        dataVeiculo.lable = "";
+        dataVeiculo.placa = "";    
       }
-
-
+      // velocidad
       if (matchesVel && matchesVel.length > 1) {       
-        datos.velocidad = matchesVel[1].trim();
-        console.log(datos); // Imprimir el valor en la consola
+        dataVeiculo.velocidad = matchesVel[1].trim();        
       } else {
-        console.log(
-          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
-        );
+        dataVeiculo.velocidad = "";      
       }
 
 
       if (matchesUltimoReport && matchesUltimoReport.length > 1) {       
-        datos.ultimoReporte = matchesUltimoReport[1].trim();
-        console.log(datos); // Imprimir el valor en la consola
+        dataVeiculo.ultimoReporte = matchesUltimoReport[1].trim();        
       } else {
-        console.log(
-          "No se encontró ningún valor entre 'expand_more' y 'Velocidad'."
-        );
+        dataVeiculo.ultimoReporte = "";     
       }
       // Imprimir las llaves
-
+console.log(dataVeiculo);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
