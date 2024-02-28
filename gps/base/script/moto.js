@@ -200,8 +200,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
     .addTo(mymap)
     .bindPopup(
       "<b>Placa:</b> " +
-        dataVeiculo.placa +
-        "<br>" +
+        dataVeiculo.placa +       
         "<b>Rótulo:</b> " +
         dataVeiculo.lable +
         "<br>" +
