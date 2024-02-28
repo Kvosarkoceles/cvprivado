@@ -54,9 +54,9 @@ async function viajes() {
           posicionInicial = posicion;
         }
 
-        console.log(posicionInicial);
-        console.log(posicion);
-        console.log(resultado); // Mostrará true
+        // console.log(posicionInicial);
+        // console.log(posicion);
+        console.log(posicionInicial, posicion, resultado); // Mostrará true
 
         var numeroEntero = parseInt(item.veloc, 10);
 
