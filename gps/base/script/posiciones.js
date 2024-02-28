@@ -49,14 +49,17 @@ async function viajes() {
 
         posicion.latitude = item.latitude;
         posicion.longitude = item.longitude;       
-        posicion.origen = item.veloc;   
+           
 
         var numeroEntero = parseInt(item.veloc, 10);
+        posicion.origen = numeroEntero;
 
+        
         if (numeroEntero > 0) {         
           posicionArray.push(posicion);        
-        } 
-
+        } else {         
+                
+        }
   
 
     
