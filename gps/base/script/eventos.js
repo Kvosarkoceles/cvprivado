@@ -41,7 +41,6 @@ async function viajes() {
 
       var inicio = objeto.positions[0].data_gps_br;
       $.each(objeto.positions, function (index, item) {
-      
         var coords = item.latitude + "," + item.longitude;
 
         var numeroEntero = parseInt(item.veloc, 10);
@@ -53,7 +52,7 @@ async function viajes() {
           acionamento_id: "",
           inicio: inicio,
           fin: "",
-          stop:""
+          stop: "",
         };
 
         if (item.tab === "ev") {
@@ -68,7 +67,7 @@ async function viajes() {
 
           posicion.stop = stop(posicion.inicio, posicion.fin);
           posicionArray.push(posicion);
-         
+
           addMarker(posicion);
         } else {
           // posicion.fin = item.data_gps_br;
@@ -78,8 +77,8 @@ async function viajes() {
       });
 
       // console.log("posicionArray", posicionArray);
-       console.log("coordinates", coordinates);
-        console.log("posicionArray", posicionArray);
+      console.log("coordinates", coordinates);
+      console.log("posicionArray", posicionArray);
 
       // $.each(coordinates, function (index, element) {
       //   console.log("element: ", element);
@@ -93,13 +92,10 @@ async function viajes() {
 }
 
 function addMarker(data) {
-
   var myIcon = L.icon({
     iconUrl: "../red-dot.png",
     shadowUrl: "../marker-shadow.png",
   });
-
- 
 
   L.marker([data.latitude, data.longitude], { icon: myIcon })
     .addTo(mymap)
@@ -111,7 +107,7 @@ function addMarker(data) {
         data.inicio +
         "<br>" +
         "<b>Fin: </b> " +
-        data.fin+
+        data.fin +
         "<br>" +
         "<b>stop: </b> " +
         stop
@@ -130,41 +126,43 @@ function eliminarTodosLosMarcadores() {
   });
 }
 
-function stop(data) {
-  console.log(data);  
-  console.log("data: ", data.inicio , " ", data.fin);
-  
-  // Fechas proporcionadas
-  var fecha1 = new Date(data.inicio);
-  var fecha2 = new Date(data.fin);
- 
-  // Calcula la diferencia en milisegundos
-  var diferencia_ms = Math.abs(fecha2 - fecha1);
-
-  // Convierte la diferencia de milisegundos a horas, minutos y segundos
-  var horas = Math.floor(diferencia_ms / (1000 * 60 * 60));
-  var minutos = Math.floor((diferencia_ms % (1000 * 60 * 60)) / (1000 * 60));
-  var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
-
-  // Muestra la diferencia
- var stoper = horas+ ":" +minutos+
-  ":" +
-  segundos;
-
-
-  console.log(
-    "Diferencia: " +
-      horas +
-      " horas, " +
-      minutos +
-      " minutos, " +
-      segundos +
-      " segundos."
-  );
-
-  // alert("stoper " +stoper);
-  return stoper;
+function stop(a, b) {
+  return "A" + "B";
 }
+// function stop(data) {
+//   console.log(data);
+//   console.log("data: ", data.inicio , " ", data.fin);
+
+//   // Fechas proporcionadas
+//   var fecha1 = new Date(data.inicio);
+//   var fecha2 = new Date(data.fin);
+
+//   // Calcula la diferencia en milisegundos
+//   var diferencia_ms = Math.abs(fecha2 - fecha1);
+
+//   // Convierte la diferencia de milisegundos a horas, minutos y segundos
+//   var horas = Math.floor(diferencia_ms / (1000 * 60 * 60));
+//   var minutos = Math.floor((diferencia_ms % (1000 * 60 * 60)) / (1000 * 60));
+//   var segundos = Math.floor((diferencia_ms % (1000 * 60)) / 1000);
+
+//   // Muestra la diferencia
+//  var stoper = horas+ ":" +minutos+
+//   ":" +
+//   segundos;
+
+//   console.log(
+//     "Diferencia: " +
+//       horas +
+//       " horas, " +
+//       minutos +
+//       " minutos, " +
+//       segundos +
+//       " segundos."
+//   );
+
+//   // alert("stoper " +stoper);
+//   return stoper;
+// }
 // Función para mostrar la ubicación del usuario
 // function onLocationFound(e) {
 //   var radius = e.accuracy / 2;
