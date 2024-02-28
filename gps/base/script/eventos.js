@@ -39,7 +39,9 @@ async function viajes() {
 
       var posicionArray = [];
 
+      var inicio =objeto [0];
       $.each(objeto.positions, function (index, item) {
+        console.log(inicio);
         var coords = item.latitude + "," + item.longitude;
 
         var numeroEntero = parseInt(item.veloc, 10);
@@ -49,7 +51,7 @@ async function viajes() {
           longitude: item.longitude,
           veloc: item.veloc,
           acionamento_id: "",
-          inicio: item.data_gps_br,
+          inicio: inicio,
           fin: "",
         };
 
