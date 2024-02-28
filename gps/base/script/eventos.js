@@ -59,6 +59,7 @@ async function viajes() {
 
         if (item.tab === "ev") {
           posicion.fin = item.data_gps_br;
+          inicio = item.data_gps_br;
           // alert(item.acionamento_id);
           if (item.acionamento_id === "68") {
             posicion.acionamento_id = "Modo detenido";
