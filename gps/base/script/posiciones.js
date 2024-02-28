@@ -58,7 +58,7 @@ async function viajes() {
         // }
 var isInArrat =  $.inArray(coords, coordinates);
 console.log(isInArrat);
-        if (isInArrat === -1) {
+        if (isInArrat === 0) {
           coordinates.push(coords);
           posicionArray.push(posicion);
           console.log(posicion);
