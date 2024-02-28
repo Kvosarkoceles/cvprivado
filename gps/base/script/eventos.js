@@ -73,6 +73,7 @@ function init() {
     // var coords = item.latitude + "," + item.longitude;
     // var posicion = [item.latitude, item.longitude];  
     console.log(item);
+    addMarker(item);
    
   });
 }
