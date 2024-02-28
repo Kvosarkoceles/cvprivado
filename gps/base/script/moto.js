@@ -259,12 +259,12 @@ async function posiciones() {
     data: data,
     success: function (response) {
      
-
-      console.log("response: ", typeof response);
+      var objeto = JSON.parse(response);
+      console.log("objeto: ", typeof objeto);
 
    
       // Imprimir las llaves
-      console.log(response);
+      console.log(objeto);
       // var infowindowinnerText = tempDiv.querySelector(".infowindow").innerText;
       // // console.log('infowindowinnerText', infowindowinnerText);
     },
