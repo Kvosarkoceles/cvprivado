@@ -613,8 +613,8 @@ async function getPosiciones() {
             '<table class="table table-hover">' +
             '<tbody>' +
             '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion('+posicion.latitude+','+posicion.longitude+')">' +
-            '<td>Latitude, 1280890890</td>' +
-            '<td>Longitude, -89980800</td>' +
+            '<td>Latitude,'+posicion.latitude+'</td>' +
+            '<td>Longitude, '+posicion.longitude+'/td>' +
             '</tr>' +
             '</tbody>' +
             '</table>' +
