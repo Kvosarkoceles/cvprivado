@@ -320,56 +320,49 @@ function posiciones() {
 
   // Agregar un nuevo <tr> a la tabla con un atributo data-widget y un texto dentro del <td>
   var newRow = $(
-    
-    
-   
-
-
-    '<tr data-widget="expandable-table" aria-expanded="false">'+
-    '<td>'+
-    '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>'+
-    '</tr>'+
-    '<tr class="expandable-body d-none">'+
-    '<td>'+
-        '<div class="p-0" style="">'+
-            '<table class="table table-hover">'+
-                '<tbody>'+
-                  '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">'+
-                        '<td>'+
-                           ' Lat:'+
-                       ' </td>'+
-                        '<td>898908098</td>'+
-                    '</tr>'+
-                   '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td>'+
-                            'Lat:'+
-                        '</td>'+
-                        '<td>898908098</td>'+
-                    '</tr>'+
-                    '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td>'+
-                            'Lat:'+
-                      '</td>'+
-                       '<td>898908098</td>'+
-                    '</tr>'+
-                    '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td>'+
-                            'Lat:'+
-                        '</td>'+
-                        '<td>898908098</td>'+
-                    '</tr>'+
-                    '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td>'+
-                            'Lat:'+
-                        '</td>'+
-                        '<td>898908098</td>'+
-                    '</tr>'+
-                '</tbody>'+
-            '</table>'+
-        '</div>'+
-    '</td>'+
-'</tr>'
-);
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>' +
+    '</tr>' +
+    '<tr class="expandable-body d-none">' +
+    '<td>' +
+    '<div class="p-0" style="">' +
+    '<table class="table table-hover">' +
+    '<tbody>' +
+    '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
+    '<td>Latitude, 1280890890</td>' +
+    '<td>Longitude, -89980800</td>' +
+    '</tr>' +   
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '</tbody>' +
+    '</table>' +
+    '</div>' +
+    '</td>' +
+    '</tr>'
+  );
 
   // Agregar el nuevo <tr> a la tabla
   $('#tablaPosiciones tbody').append(newRow);
@@ -440,6 +433,59 @@ function agrearTablaDePosiciones() {
 
   // Agregar el contenido al div con id "informe"
   $("#informe").html(contenido);
+}
+
+
+
+function addPosicionTable(params) {
+ 
+  var newRow = $(
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>' +
+    '</tr>' +
+    '<tr class="expandable-body d-none">' +
+    '<td>' +
+    '<div class="p-0" style="">' +
+    '<table class="table table-hover">' +
+    '<tbody>' +
+    '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
+    '<td>Latitude, 1280890890</td>' +
+    '<td>Longitude, -89980800</td>' +
+    '</tr>' +   
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '<tr data-widget="expandable-table" aria-expanded="false">' +
+    '<td>' +
+    'Lat:' +
+    '</td>' +
+    '<td>898908098</td>' +
+    '</tr>' +
+    '</tbody>' +
+    '</table>' +
+    '</div>' +
+    '</td>' +
+    '</tr>'
+  );
+
+  // Agregar el nuevo <tr> a la tabla
+  $('#tablaPosiciones tbody').append(newRow);
 }
 function verUbicacion() {
 
@@ -577,7 +623,10 @@ async function getPosiciones() {
         } else {
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
+          
           addMarkerposicion(posicion);
+
+          addPosicionTable(posicion);
 
         }
 
