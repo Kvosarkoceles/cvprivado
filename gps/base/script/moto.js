@@ -319,53 +319,53 @@ function posiciones() {
 
 
   // Agregar un nuevo <tr> a la tabla con un atributo data-widget y un texto dentro del <td>
-  var newRow = $(
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>' +
-    '</tr>' +
-    '<tr class="expandable-body d-none">' +
-    '<td>' +
-    '<div class="p-0" style="">' +
-    '<table class="table table-hover">' +
-    '<tbody>' +
-    '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
-    '<td>Latitude, 1280890890</td>' +
-    '<td>Longitude, -89980800</td>' +
-    '</tr>' +   
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '</tbody>' +
-    '</table>' +
-    '</div>' +
-    '</td>' +
-    '</tr>'
-  );
+  // var newRow = $(
+  //   '<tr data-widget="expandable-table" aria-expanded="false">' +
+  //   '<td>' +
+  //   '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>' +
+  //   '</tr>' +
+  //   '<tr class="expandable-body d-none">' +
+  //   '<td>' +
+  //   '<div class="p-0" style="">' +
+  //   '<table class="table table-hover">' +
+  //   '<tbody>' +
+  //   '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
+  //   '<td>Latitude, 1280890890</td>' +
+  //   '<td>Longitude, -89980800</td>' +
+  //   '</tr>' +   
+  //   '<tr data-widget="expandable-table" aria-expanded="false">' +
+  //   '<td>' +
+  //   'Lat:' +
+  //   '</td>' +
+  //   '<td>898908098</td>' +
+  //   '</tr>' +
+  //   '<tr data-widget="expandable-table" aria-expanded="false">' +
+  //   '<td>' +
+  //   'Lat:' +
+  //   '</td>' +
+  //   '<td>898908098</td>' +
+  //   '</tr>' +
+  //   '<tr data-widget="expandable-table" aria-expanded="false">' +
+  //   '<td>' +
+  //   'Lat:' +
+  //   '</td>' +
+  //   '<td>898908098</td>' +
+  //   '</tr>' +
+  //   '<tr data-widget="expandable-table" aria-expanded="false">' +
+  //   '<td>' +
+  //   'Lat:' +
+  //   '</td>' +
+  //   '<td>898908098</td>' +
+  //   '</tr>' +
+  //   '</tbody>' +
+  //   '</table>' +
+  //   '</div>' +
+  //   '</td>' +
+  //   '</tr>'
+  // );
 
-  // Agregar el nuevo <tr> a la tabla
-  $('#tablaPosiciones tbody').append(newRow);
+  // // Agregar el nuevo <tr> a la tabla
+  // $('#tablaPosiciones tbody').append(newRow);
 
 
 
@@ -378,67 +378,67 @@ function centrarPosicion() {
   alert("centrarPosicion");
 }
 
-function agrearTablaDePosiciones() {
+// function agrearTablaDePosiciones() {
 
-  var contenido = `
-        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row">
-                <div class="col-sm-12 col-md-6"></div>
-                <div class="col-sm-12 col-md-6"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
-                        <thead>
-                            <tr>
-                                <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Contenido de la tabla -->
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th rowspan="1" colspan="1">Rendering engine</th>
-                                <th rowspan="1" colspan="1">Browser</th>
-                                <th rowspan="1" colspan="1">Platform(s)</th>
-                                <th rowspan="1" colspan="1">Engine version</th>
-                                <th rowspan="1" colspan="1">CSS grade</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-5">
-                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-                </div>
-                <div class="col-sm-12 col-md-7">
-                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                        <ul class="pagination">
-                            <li class="paginate_button page-item previous disabled" id="example2_previous">
-                                <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                            </li>
-                            <!-- Otros elementos de paginación -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+//   var contenido = `
+//         <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+//             <div class="row">
+//                 <div class="col-sm-12 col-md-6"></div>
+//                 <div class="col-sm-12 col-md-6"></div>
+//             </div>
+//             <div class="row">
+//                 <div class="col-sm-12">
+//                     <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+//                         <thead>
+//                             <tr>
+//                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th>
+//                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th>
+//                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th>
+//                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th>
+//                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>
+//                             </tr>
+//                         </thead>
+//                         <tbody>
+//                             <!-- Contenido de la tabla -->
+//                         </tbody>
+//                         <tfoot>
+//                             <tr>
+//                                 <th rowspan="1" colspan="1">Rendering engine</th>
+//                                 <th rowspan="1" colspan="1">Browser</th>
+//                                 <th rowspan="1" colspan="1">Platform(s)</th>
+//                                 <th rowspan="1" colspan="1">Engine version</th>
+//                                 <th rowspan="1" colspan="1">CSS grade</th>
+//                             </tr>
+//                         </tfoot>
+//                     </table>
+//                 </div>
+//             </div>
+//             <div class="row">
+//                 <div class="col-sm-12 col-md-5">
+//                     <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+//                 </div>
+//                 <div class="col-sm-12 col-md-7">
+//                     <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+//                         <ul class="pagination">
+//                             <li class="paginate_button page-item previous disabled" id="example2_previous">
+//                                 <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+//                             </li>
+//                             <!-- Otros elementos de paginación -->
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     `;
 
-  // Agregar el contenido al div con id "informe"
-  $("#informe").html(contenido);
-}
+//   // Agregar el contenido al div con id "informe"
+//   $("#informe").html(contenido);
+// }
 
 
 
-function addPosicionTable(params) {
- 
+function addPosicionTable() {
+
   var newRow = $(
     '<tr data-widget="expandable-table" aria-expanded="false">' +
     '<td>' +
@@ -452,7 +452,7 @@ function addPosicionTable(params) {
     '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
     '<td>Latitude, 1280890890</td>' +
     '<td>Longitude, -89980800</td>' +
-    '</tr>' +   
+    '</tr>' +
     '<tr data-widget="expandable-table" aria-expanded="false">' +
     '<td>' +
     'Lat:' +
@@ -484,8 +484,10 @@ function addPosicionTable(params) {
     '</tr>'
   );
 
-  // Agregar el nuevo <tr> a la tabla
-  $('#tablaPosiciones tbody').append(newRow);
+
+
+  // alert(newRow);  // Agregar el nuevo <tr> a la tabla
+   $('#tablaPosiciones tbody').append(newRow);
 }
 function verUbicacion() {
 
@@ -598,17 +600,7 @@ async function getPosiciones() {
 
       $.each(objeto.positions, function (index, item) {
         var coords = item.latitude + "," + item.longitude;
-
-
-
-
-
-
-
-
         var numeroEntero = parseInt(item.veloc, 10);
-
-
         var posicion = {
           latitude: item.latitude,
           longitude: item.longitude,
@@ -618,27 +610,20 @@ async function getPosiciones() {
         if (numeroEntero > 0) {
           // alert(typeof numeroEntero + numeroEntero);
           posicionArray.push(posicion);
-
-
         } else {
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
-          
+
           addMarkerposicion(posicion);
 
-          addPosicionTable(posicion);
 
         }
-
-
-
-
-
-
-
-
       });
 
+      addPosicionTable();
+      addPosicionTable();
+      addPosicionTable();
+      addPosicionTable();
       console.log("posicionArray", posicionArray);
       console.log("coordinates", coordinates);
       //  console.log("posicionArray", posicionArray);
