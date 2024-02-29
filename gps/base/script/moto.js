@@ -273,10 +273,13 @@ function addMarker(latitude, longitude, dataVeiculo) {
       dataVeiculo.velocidad +
       "</div>" +
       "<div style='margin-bottom: 5px; text-align: center;'>" +
-      "<button onclick='posiciones()'>Posiciones</button>" +
+      "<button onclick='posiciones()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
       "</div>"
 
     );
+
+
+
 }
 
 
