@@ -65,33 +65,26 @@
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                         <span style='font-weight: bold;'>Lithium-06KFU7</span>
                     </div>
-
-                   
-
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Conductor:</span>
                     </div>
-
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
-                    MIGUELMENDOZA
+                        MIGUELMENDOZA
                     </div>
-
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Ultimo Reporte:</span>
                     </div>
-
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         2024-02-28 17:37:27
                     </div>
-
-
-                    <div style='margin-bottom: 5px;'>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Velocidad:</span>
-                        dataVeiculo.velocidad
-                        &nbsp;&nbsp;
-                        <span style='font-weight: bold;'>Ignición:</span>
-                        dataVeiculo.ignicion
                     </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        0,00Km/h
+                    </div>
+
+                
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Vel. Máx.:</span>
                         dataVeiculo.velocidadmaxima
