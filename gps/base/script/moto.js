@@ -59,7 +59,7 @@ function start() {
   });
 }
 
-setInterval(start, 10000);
+var intervalID = setInterval(start, 10000);
 
 async function informacion() {
   // console.log("informacion funcion" + velocidad);
@@ -281,7 +281,9 @@ function addMarker(latitude, longitude, dataVeiculo) {
 
 
 function posiciones() {
+  clearInterval(intervalID);
   eliminarTodosLosMarcadores();
+
 }
 
 function getPosiciones(){
