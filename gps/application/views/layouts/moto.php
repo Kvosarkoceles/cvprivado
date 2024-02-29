@@ -125,20 +125,7 @@
                                 <td style='color: white;'>00:00:00</td>
                             </tr>
                         </table>
-                    </div>
-
-
-
-                 
-                   
-                    <div style='margin-bottom: 5px;'>
-                        <span style='font-weight: bold;'>Movimiento:</span>
-                        dataVeiculo.movimiento
-                        &nbsp;&nbsp;
-                        <span style='font-weight: bold;'>Odómetro:</span>
-                        dataVeiculo.odometro
-                        " km"
-                    </div>
+                    </div>                  
                 </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
