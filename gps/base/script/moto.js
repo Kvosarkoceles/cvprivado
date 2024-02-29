@@ -273,12 +273,16 @@ function addMarker(latitude, longitude, dataVeiculo) {
       dataVeiculo.velocidad +
       "</div>" +     
       "<div style='margin-bottom: 5px; text-align: center;'>" +
-      "<button onclick='miFuncion()'>Posiciones</button>" +
+      "<button onclick='posiciones()'>Posiciones</button>" +
       "</div>"
   
     );
 }
 
+
+function posiciones() {
+  alert("posiciones");
+}
 function centrarMapaEnMarcador(latitud, longitud) {
   mymap.setView([latitud, longitud], 19);
 }

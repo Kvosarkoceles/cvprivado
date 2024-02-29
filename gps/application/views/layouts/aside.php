@@ -21,10 +21,7 @@
                     </div>
                     <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
                         
-                    </div>
-                    <div style='margin-bottom: 5px; text-align: left; color: white;  margin-top: 15px;  text-align: center;'>
-                        <span style='font-weight: bold;'>Ultimo Reporte</span>
-                    </div>
+                    </div>                 
                     <div style='margin-bottom: 5px; color: white; '>
                         <table style="width: 100%; text-align: left;">
                             <tr>
@@ -38,9 +35,7 @@
                         </table>
                     </div>
 
-                    <div style='margin-bottom: 5px; text-align: left; color: white;  margin-top: 15px;  text-align: center;'>
-                        <span style='font-weight: bold;'>Resumen del dia</span>
-                    </div>
+                    
                            
 
                     <div style='margin-bottom: 5px; color: white;'>
@@ -87,27 +82,7 @@
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-header">Mapas</li>
-                        <li class="nav-item">
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">
-                                <i></i>
-                                <p> Posiciones</p>
-                            </a>
-                        </li>
-
-
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">
-                                <i></i>
-                                <p> Viajes</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+         
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
