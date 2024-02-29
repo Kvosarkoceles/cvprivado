@@ -111,7 +111,18 @@
                     </div>
 
 
-
+                    <div style='margin-bottom: 5px; color: white;'>
+                        <table style="width: 100%; text-align: left;">
+                            <tr>
+                                <td style='font-weight: bold; color: white;'>Detenido:</td>
+                                <td style='font-weight: bold; color: white;'>Movimiento:</td>
+                            </tr>
+                            <tr>
+                                <td style='color: white;'>00:00:00</td>
+                                <td style='color: white;'>00:00:00</td>
+                            </tr>
+                        </table>
+                    </div>
 
 
 
