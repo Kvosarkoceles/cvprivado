@@ -271,11 +271,11 @@ function addMarker(latitude, longitude, dataVeiculo) {
       "<div style='margin-bottom: 5px;'>" +
       "<span style='font-weight: bold;'>Velocidad:</span> " +
       dataVeiculo.velocidad +
-      "</div>" +     
+      "</div>" +
       "<div style='margin-bottom: 5px; text-align: center;'>" +
       "<button onclick='posiciones()'>Posiciones</button>" +
       "</div>"
-  
+
     );
 }
 
@@ -293,14 +293,15 @@ async function getPosiciones() {
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-02-27 00:00:00",
-    f2: "2024-02-27 23:59:59",
+    f1: "2024-02-24 00:00:00",
+    f2: "2024-02-25 23:59:59",
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
     lgw_id: 133,
   };
 
-  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
+  var url =
+    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
 
   await $.ajax({
     url: url,
@@ -308,15 +309,69 @@ async function getPosiciones() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-       console.log("objeto: ",  objeto);    
+      console.log("positions: ", objeto);
 
-     
+      var coordinates = [];
+
+      var posicionArray = [];
+
+
+
+      $.each(objeto.positions, function (index, item) {
+        var coords = item.latitude + "," + item.longitude;
+
+
+
+
+
+
+
+
+        var numeroEntero = parseInt(item.veloc, 10);
+
+
+        var posicion = {
+          latitude: item.latitude,
+          longitude: item.longitude,
+          veloc: item.veloc,
+        };
+
+        if (numeroEntero > 0) {
+          // alert(typeof numeroEntero + numeroEntero);
+          posicionArray.push(posicion);
+
+
+        } else {
+          // alert(typeof numeroEntero + numeroEntero);
+          coordinates.push(posicion);
+          addMarker(posicion);
+
+        }
+
+
+
+
+
+
+
+
+      });
+
+      console.log("posicionArray", posicionArray);
+      console.log("coordinates", coordinates);
+      //  console.log("posicionArray", posicionArray);
+
+      // $.each(coordinates, function (index, element) {
+      //   console.log("element: ", element);
+      //   addMarker(element);
+      // });
+
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
-
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
