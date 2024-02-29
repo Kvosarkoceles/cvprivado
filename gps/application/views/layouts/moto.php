@@ -66,7 +66,7 @@
                         <span style='font-weight: bold;'>Lithium-06KFU7</span>
                     </div>
                     <div style='margin-bottom: 5px; text-align: center; color: white;'>
-                        <span style='font-weight: bold;'>2.976,3 km</span>
+                        2.976,3 km
                     </div>
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Conductor:</span>
