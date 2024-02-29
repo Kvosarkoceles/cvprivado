@@ -281,8 +281,13 @@ function addMarker(latitude, longitude, dataVeiculo) {
 
 
 function posiciones() {
-  alert("posiciones");
+  eliminarTodosLosMarcadores();
 }
+
+function getPosiciones(){
+  alert("getPosiciones");
+}
+
 function centrarMapaEnMarcador(latitud, longitud) {
   mymap.setView([latitud, longitud], 19);
 }
