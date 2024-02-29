@@ -301,7 +301,7 @@ function posiciones() {
   mymap.setZoom(15);
   var posicionesCard = document.getElementById('posicionesCard');
   // Mostrar el botón
-  posicionesCard.style.display = 'posicionesCard';
+  posicionesCard.style.display = 'block';
 
 
   var informe = document.getElementById('informe');
