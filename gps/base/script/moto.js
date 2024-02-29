@@ -19,7 +19,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(mymap);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(mymap);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', { foo: 'bar' }).addTo(mymap);
 // alert(datosVehiculos);
 var velocidad = "";
 var dataVeiculo;
@@ -289,21 +289,34 @@ function posiciones() {
   eliminarTodosLosMarcadores();
   var button = document.getElementById('myUbicacion');
 
-// Cambia el estilo de visualización para mostrar el botón
-button.style.display = 'block';
+  // Cambia el estilo de visualización para mostrar el botón
+  button.style.display = 'block';
   getPosiciones();
- 
+
   mymap.setZoom(15);
+
+  var informe = document.getElementById('informe');
+
+  // Mostrar el botón
+  informe.style.display = 'block';
+
 }
 
 
 function verUbicacion() {
-  
+
   start();
   intervalID = setInterval(start, 10000);
 
   var button = document.getElementById('myUbicacion');
   button.style.display = 'none';
+
+  var informe = document.getElementById('informe');
+
+  // Mostrar el botón
+  button.style.display = 'none';
+
+
 }
 async function getPosiciones() {
   // console.log("informacion funcion" + velocidad);
