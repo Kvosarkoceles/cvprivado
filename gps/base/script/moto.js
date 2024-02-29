@@ -293,7 +293,7 @@ function posiciones() {
   clearInterval(intervalID);
   eliminarTodosLosMarcadores();
   $('#tablaPosiciones tbody').empty();
-  
+
   var button = document.getElementById('myUbicacion');
 
   // Cambia el estilo de visualización para mostrar el botón
@@ -326,7 +326,7 @@ function posiciones() {
 
 
     '<tr data-widget="expandable-table" aria-expanded="false">'+
-    '<td>'+
+    '<td onclick="verUbicacion()">'+
     '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>'+
     '</tr>'+
     '<tr class="expandable-body d-none">'+
