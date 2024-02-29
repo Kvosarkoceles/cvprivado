@@ -70,15 +70,15 @@
                         <span style='font-weight: bold;'>Conductor:</span> MIGUELMENDOZA
                     </div>
 
-                    <div style='margin-bottom: 5px; text-align: center; color: white;'>
-                        <span style='font-weight: bold;'>Ultimo Reporte:</span>  
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        <span style='font-weight: bold;'>Ultimo Reporte:</span>
                     </div>
 
-                    <div style='margin-bottom: 5px; text-align: center; color: white;'>
-                        2024-02-2817:37:27
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        2024-02-28 17:37:27
                     </div>
 
-                 
+
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Velocidad:</span>
                         dataVeiculo.velocidad
