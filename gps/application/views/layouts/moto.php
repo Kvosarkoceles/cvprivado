@@ -132,9 +132,6 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">Mapas</li>
                         <li class="nav-item">
-
-
-
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">
                                 <i></i>
