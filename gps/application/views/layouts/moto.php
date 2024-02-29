@@ -71,9 +71,12 @@
                     </div>
 
                     <div style='margin-bottom: 5px; text-align: center; color: white;'>
-                        <span style='font-weight: bold;'>ltimo Reporte:</span>  2024-02-2817:37:27
+                        <span style='font-weight: bold;'>Ultimo Reporte:</span>  
                     </div>
 
+                    <div style='margin-bottom: 5px; text-align: center; color: white;'>
+                        2024-02-2817:37:27
+                    </div>
 
                  
                     <div style='margin-bottom: 5px;'>
