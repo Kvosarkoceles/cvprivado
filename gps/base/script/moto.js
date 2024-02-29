@@ -326,7 +326,7 @@ function posiciones() {
 
 
     '<tr data-widget="expandable-table" aria-expanded="false">'+
-    '<td  onclick="centrarPosicion()">'+
+    '<td>'+
     '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>'+
     '</tr>'+
     '<tr class="expandable-body d-none">'+
@@ -335,7 +335,7 @@ function posiciones() {
             '<table class="table table-hover">'+
                 '<tbody>'+
                   '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td>'+
+                        '<td onclick="centrarPosicion()">'+
                            ' Lat:'+
                        ' </td>'+
                         '<td>898908098</td>'+
