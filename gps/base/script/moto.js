@@ -256,7 +256,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
     shadowUrl: "marker-shadow.png",
   });
 
-  L.marker([latitude, longitude], { icon: myIcon })
+  L.marker([latitude, longitude])
     .addTo(mymap)
     .bindPopup(
       "<div style='margin-bottom: 5px; text-align: center;'>" +
