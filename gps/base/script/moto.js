@@ -304,8 +304,12 @@ function posiciones() {
   // Elimina todo el contenido dentro del div
   divInforme.innerHTML = '';
 
-  1
+  agrearTablaDePosiciones();
 
+}
+
+function agrearTablaDePosiciones() {
+  // alert("agrearTablaDePosiciones");
 }
 
 
@@ -322,7 +326,73 @@ function verUbicacion() {
   // Mostrar el botón
   button.style.display = 'none';
 
+  mostrarUltimoReporte();
+}
+function mostrarUltimoReporte() {
+  
+  var contenido = `
+  <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
+      <span style='font-weight: bold;' id="label"></span>
+  </div>
+  <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
+  </div>
+  <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
+      <span style='font-weight: bold;'>Conductor:</span>
+  </div>
+  <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
+  </div>
+  <div style='margin-bottom: 5px; color: white; '>
+      <table style="width: 100%; text-align: left;">
+          <tr>
+              <td style='font-weight: bold; color: white;'>Fecha:</td>
+              <td style='font-weight: bold; color: white;'>Hora:</td>
+          </tr>
+          <tr>
+              <td style='color: white;' id="fecha"></td>
+              <td style='color: white;' id="hora"></td>
+          </tr>
+      </table>
+  </div>
+  <div style='margin-bottom: 5px; color: white;'>
+      <table style="width: 100%; text-align: left;">
+          <tr>
+              <td style='font-weight: bold; color: white;'>Velocidad:</td>
+              <td style='font-weight: bold; color: white;'>Recorrido:</td>
+          </tr>
+          <tr>
+              <td style='color: white;' id="velocidad"></td>
+              <td style='color: white;' id="recorrido"></td>
+          </tr>
+      </table>
+  </div>
+  <div style='margin-bottom: 5px; color: white;'>
+      <table style="width: 100%; text-align: left;">
+          <tr>
+              <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
+              <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
+          </tr>
+          <tr>
+              <td style='color: white;' id="velMed"></td>
+              <td style='color: white;' id="velMax"></td>
+          </tr>
+      </table>
+  </div>
+  <div style='margin-bottom: 5px; color: white;'>
+      <table style="width: 100%; text-align: left;">
+          <tr>
+              <td style='font-weight: bold; color: white;'>Detenido:</td>
+              <td style='font-weight: bold; color: white;'>Movimiento:</td>
+          </tr>
+          <tr>
+              <td style='color: white;' id="detenido"></td>
+              <td style='color: white;' id="movimiento"></td>
+          </tr>
+      </table>
+  </div>
+`;
 
+  // Agregar el contenido al div con id "informe"
+  $("#informe").html(contenido);
 }
 async function getPosiciones() {
   // console.log("informacion funcion" + velocidad);
