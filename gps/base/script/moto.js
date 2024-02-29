@@ -34,6 +34,22 @@ function start() {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
+      var fecha = dataVeiculo.ultimoReporte.substring(0, 10);
+      var hora = dataVeiculo.ultimoReporte.substring(11);
+
+      $('#label').text(dataVeiculo.lable);
+      $('#odometro').text(dataVeiculo.odometro + " km");
+      $('#conductor').text(dataVeiculo.conductor);
+      $('#fecha').text(fecha);
+      $('#hora').text(hora);
+      $('#recorrido').text(dataVeiculo.recorrido);
+      $('#velMed').text(dataVeiculo.velocidadmedia);
+      $('#velMax').text(dataVeiculo.velocidadmaxima);
+      $('#velocidad').text(dataVeiculo.velocidad);
+
+      $('#detenido').text(dataVeiculo.detenido);
+      $('#movimiento').text(dataVeiculo.movimiento);
+
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
     },
@@ -242,50 +258,24 @@ function addMarker(latitude, longitude, dataVeiculo) {
   L.marker([latitude, longitude], { icon: myIcon })
     .addTo(mymap)
     .bindPopup(
+      "<div style='margin-bottom: 5px; text-align: center;'>" +
+      "<span style='font-weight: bold; text-align: center;'>" +
+      dataVeiculo.ignicion +
+      "</span>" +
+      "</div>" +
+      "<div style='margin-bottom: 5px; text-align: center;'>" +
+      "<span style='font-weight: bold; text-align: center;'>" +
+      dataVeiculo.placa +
+      "</span>" +
+      "</div>" +
       "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Placa:</span> " +
-        dataVeiculo.placa +
-        "&nbsp;&nbsp;" +
-        "<span style='font-weight: bold;'>Rótulo:</span> " +
-        dataVeiculo.lable +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Conductor:</span> " +
-        dataVeiculo.conductor +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Último Reporte:</span> " +
-        dataVeiculo.ultimoReporte +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Velocidad:</span> " +
-        dataVeiculo.velocidad +
-        "&nbsp;&nbsp;" +
-        "<span style='font-weight: bold;'>Ignición:</span> " +
-        dataVeiculo.ignicion +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Vel. Máx.:</span> " +
-        dataVeiculo.velocidadmaxima +
-        "&nbsp;&nbsp;" +
-        "<span style='font-weight: bold;'>Vel. Med.:</span> " +
-        dataVeiculo.velocidadmedia +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Recorrido:</span> " +
-        dataVeiculo.recorrido +
-        "&nbsp;&nbsp;" +
-        "<span style='font-weight: bold;'>Tiempo detenido:</span> " +
-        dataVeiculo.detenido +
-        "</div>" +
-        "<div style='margin-bottom: 5px;'>" +
-        "<span style='font-weight: bold;'>Movimiento:</span> " +
-        dataVeiculo.movimiento +
-        "&nbsp;&nbsp;" +
-        "<span style='font-weight: bold;'>Odómetro:</span> " +
-        dataVeiculo.odometro +
-        " km" +
-        "</div>"
+      "<span style='font-weight: bold;'>Velocidad:</span> " +
+      dataVeiculo.velocidad +
+      "</div>" +     
+      "<div style='margin-bottom: 5px; text-align: center;'>" +
+      "<button onclick='miFuncion()'>Posiciones</button>" +
+      "</div>"
+  
     );
 }
 
