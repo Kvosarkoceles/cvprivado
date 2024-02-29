@@ -65,6 +65,9 @@
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                         <span style='font-weight: bold;'>Lithium-06KFU7</span>
                     </div>
+                    <div style='margin-bottom: 5px; text-align: center; color: white;'>
+                        <span style='font-weight: bold;'>2.976,3 km</span>
+                    </div>
                     <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Conductor:</span>
                     </div>
@@ -127,13 +130,7 @@
 
 
                  
-                    <div style='margin-bottom: 5px;'>
-                        <span style='font-weight: bold;'>Recorrido:</span>
-                        dataVeiculo.recorrido
-                        &nbsp;&nbsp;
-                        <span style='font-weight: bold;'>Tiempo detenido:</span>
-                        dataVeiculo.detenido
-                    </div>
+                   
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Movimiento:</span>
                         dataVeiculo.movimiento
