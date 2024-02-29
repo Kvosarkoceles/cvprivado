@@ -76,13 +76,25 @@
                     </div>
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         2024-02-28 17:37:27
-                    </div>
-                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
-                        <span style='font-weight: bold;'>Velocidad:</span>
-                    </div>
+                    </div>                  
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         0,00Km/h
                     </div>
+
+                    <div style='margin-bottom: 5px; color: white;'>
+                        <table style="width: 100%; text-align: left;">
+                            <tr>
+                                <td style='font-weight: bold; color: white;'>Velocidad:</td>
+                                <td style='font-weight: bold; color: white;'>Recorrido:</td>
+                            </tr>
+                            <tr>
+                                <td style='color: white;'>0,00Km/h</td>
+                                <td style='color: white;'>0,00Km/h</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
 
 
                     <div style='margin-bottom: 5px; color: white;'>
@@ -103,12 +115,7 @@
 
 
 
-                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
-                        <span style='font-weight: bold;'>Recorrido:</span>
-                    </div>
-                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
-                        0,00Km/h
-                    </div>
+                 
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Recorrido:</span>
                         dataVeiculo.recorrido
