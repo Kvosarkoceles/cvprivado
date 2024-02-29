@@ -614,7 +614,7 @@ async function getPosiciones() {
             '<tbody>' +
             '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion('+posicion.latitude+','+posicion.longitude+')">' +
             '<td>Latitude,'+posicion.latitude+'</td>' +
-            '<td>Longitude, '+posicion.longitude+'/td>' +
+            '<td>Longitude, '+posicion.longitude+'</td>' +
             '</tr>' +
             '</tbody>' +
             '</table>' +
