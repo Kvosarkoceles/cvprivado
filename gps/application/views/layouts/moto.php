@@ -68,7 +68,7 @@
 
                    
 
-                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                    <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Conductor:</span>
                     </div>
 
