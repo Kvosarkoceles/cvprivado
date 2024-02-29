@@ -83,14 +83,23 @@
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         0,00Km/h
                     </div>
-
-                
-                    <div style='margin-bottom: 5px;'>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Vel. Máx.:</span>
-                        dataVeiculo.velocidadmaxima
-                        &nbsp;&nbsp;
+                    </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        0,00Km/h
+                    </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Vel. Med.:</span>
-                        dataVeiculo.velocidadmedia
+                    </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        0,00Km/h
+                    </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        <span style='font-weight: bold;'>Recorrido:</span>
+                    </div>
+                    <div style='margin-bottom: 5px; text-align: left; color: white;'>
+                        0,00Km/h
                     </div>
                     <div style='margin-bottom: 5px;'>
                         <span style='font-weight: bold;'>Recorrido:</span>
