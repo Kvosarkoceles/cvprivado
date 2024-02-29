@@ -283,11 +283,40 @@ function addMarker(latitude, longitude, dataVeiculo) {
 function posiciones() {
   clearInterval(intervalID);
   eliminarTodosLosMarcadores();
+  getPosiciones();
 
 }
 
-function getPosiciones(){
-  alert("getPosiciones");
+
+
+async function getPosiciones() {
+  // console.log("informacion funcion" + velocidad);
+  var data = {
+    ID_disp: 1970000012,
+    f1: "2024-02-27 00:00:00",
+    f2: "2024-02-27 23:59:59",
+    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
+    db: "awsdev",
+    lgw_id: 133,
+  };
+
+  var url = "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
+
+  await $.ajax({
+    url: url,
+    method: "POST",
+    data: data,
+    success: function (response) {
+      var objeto = JSON.parse(response);
+       console.log("objeto: ",  objeto);    
+
+     
+    },
+    error: function (xhr, status, error) {
+      console.error(status, error); // Manejar cualquier error aquí
+    },
+  });
+
 }
 
 function centrarMapaEnMarcador(latitud, longitud) {
