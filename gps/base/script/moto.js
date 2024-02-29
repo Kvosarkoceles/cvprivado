@@ -326,7 +326,7 @@ function posiciones() {
 
 
     '<tr data-widget="expandable-table" aria-expanded="false">'+
-    '<td onclick="verUbicacion()">'+
+    '<td  onclick="centrarPosicion()">'+
     '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>'+
     '</tr>'+
     '<tr class="expandable-body d-none">'+
@@ -381,7 +381,9 @@ function posiciones() {
 }
 
 
-
+function centrarPosicion() {
+  alert("centrarPosicion");
+}
 
 function agrearTablaDePosiciones() {
 
