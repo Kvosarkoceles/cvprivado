@@ -27,6 +27,11 @@ informacion();
 // start();
 function start() {
   // alert("datosVehiculos");
+  var posicionesCard = document.getElementById('posicionesCard');
+
+  // Mostrar el botón
+  posicionesCard.style.display = 'none';
+
   eliminarTodosLosMarcadores();
 
   $.ajax({
@@ -36,7 +41,7 @@ function start() {
     success: function (response) {
       var objeto = JSON.parse(response);
       var fecha = dataVeiculo.ultimoReporte.substring(0, 10);
-      var hora = dataVeiculo.ultimoReporte.substring(11);
+      var hora = dataVeiculo.ultimoReporte.substring(10);
 
       $('#label').text(dataVeiculo.lable);
       $('#odometro').text(dataVeiculo.odometro + " km");
@@ -294,6 +299,10 @@ function posiciones() {
   getPosiciones();
 
   mymap.setZoom(15);
+  var posicionesCard = document.getElementById('posicionesCard');
+  // Mostrar el botón
+  posicionesCard.style.display = 'posicionesCard';
+
 
   var informe = document.getElementById('informe');
   // Mostrar el botón
@@ -304,7 +313,68 @@ function posiciones() {
   // Elimina todo el contenido dentro del div
   divInforme.innerHTML = '';
 
-  agrearTablaDePosiciones();
+  // agrearTablaDePosiciones();
+
+
+  // Agregar un nuevo <tr> a la tabla con un atributo data-widget y un texto dentro del <td>
+  var newRow = $(
+    
+    
+   
+
+
+    '<tr data-widget="expandable-table" aria-expanded="false">'+
+    '<td>'+
+    '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>10:48:07</td>'+
+    '</tr>'+
+    '<tr class="expandable-body d-none">'+
+    '<td>'+
+        '<div class="p-0" style="">'+
+            '<table class="table table-hover">'+
+                '<tbody>'+
+                  '<tr data-widget="expandable-table" aria-expanded="false">'+
+                        '<td>'+
+                           ' Lat:'+
+                       ' </td>'+
+                        '<td>898908098</td>'+
+                    '</tr>'+
+                   '<tr data-widget="expandable-table" aria-expanded="false">'+
+                        '<td>'+
+                            'Lat:'+
+                        '</td>'+
+                        '<td>898908098</td>'+
+                    '</tr>'+
+                    '<tr data-widget="expandable-table" aria-expanded="false">'+
+                        '<td>'+
+                            'Lat:'+
+                      '</td>'+
+                       '<td>898908098</td>'+
+                    '</tr>'+
+                    '<tr data-widget="expandable-table" aria-expanded="false">'+
+                        '<td>'+
+                            'Lat:'+
+                        '</td>'+
+                        '<td>898908098</td>'+
+                    '</tr>'+
+                    '<tr data-widget="expandable-table" aria-expanded="false">'+
+                        '<td>'+
+                            'Lat:'+
+                        '</td>'+
+                        '<td>898908098</td>'+
+                    '</tr>'+
+                '</tbody>'+
+            '</table>'+
+        '</div>'+
+    '</td>'+
+'</tr>'
+);
+
+  // Agregar el nuevo <tr> a la tabla
+  $('#tablaPosiciones tbody').append(newRow);
+
+
+
+
 
 }
 
@@ -312,7 +382,7 @@ function posiciones() {
 
 
 function agrearTablaDePosiciones() {
-  
+
   var contenido = `
         <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
             <div class="row">
@@ -383,7 +453,7 @@ function verUbicacion() {
   mostrarUltimoReporte();
 }
 function mostrarUltimoReporte() {
-  
+
   var contenido = `
   <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
       <span style='font-weight: bold;' id="label"></span>
