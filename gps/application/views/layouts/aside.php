@@ -68,7 +68,7 @@
                 </table>
             </div>
         </div>
-        <div id="posicionesCard" style="overflow-y: auto; max-height: 300px;"> 
+        <div id="posicionesCard" style="overflow-y: auto; max-height: 500px;"> 
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Posiciones</h3>
