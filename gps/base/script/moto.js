@@ -11,7 +11,7 @@ var data = {
 var url = "https://demo.imovit.net/plataforma/DeviceTrackerWS/wsapi/getCars";
 // var url2 = "https://demo.imovit.net/plataforma/lib/php/fastQuerys.php?getDevices";
 // Inicializar el mapa
-var mymap = L.map("mapid").setView([51.505, -0.09], 25); // coordenadas iniciales y nivel de zoom
+var mymap = L.map("mapid").setView([19.3910844, -99.473292], 15); // coordenadas iniciales y nivel de zoom
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -19,6 +19,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(mymap);
 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(mymap);
 // alert(datosVehiculos);
 var velocidad = "";
 var dataVeiculo;
@@ -286,12 +287,24 @@ function addMarker(latitude, longitude, dataVeiculo) {
 function posiciones() {
   clearInterval(intervalID);
   eliminarTodosLosMarcadores();
-  getPosiciones();
+  var button = document.getElementById('myUbicacion');
 
+// Cambia el estilo de visualización para mostrar el botón
+button.style.display = 'block';
+  getPosiciones();
+ 
+  mymap.setZoom(15);
 }
 
 
+function verUbicacion() {
+  
+  start();
+  intervalID = setInterval(start, 10000);
 
+  var button = document.getElementById('myUbicacion');
+  button.style.display = 'none';
+}
 async function getPosiciones() {
   // console.log("informacion funcion" + velocidad);
   var data = {
@@ -386,7 +399,7 @@ function addMarkerposicion(data) {
 
 
 function centrarMapaEnMarcador(latitud, longitud) {
-  mymap.setView([latitud, longitud], 19);
+  mymap.setView([latitud, longitud], 15);
 }
 
 function eliminarTodosLosMarcadores() {

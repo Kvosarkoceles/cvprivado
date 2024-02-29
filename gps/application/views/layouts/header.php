@@ -38,10 +38,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>moto/posiciones" class="nav-link">Posiciones</a>
+                    <a href="<?php echo base_url(); ?>" class="nav-link">Posiciones</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url(); ?>moto/viajes" class="nav-link">Viajes</a>
+                    <a href="<?php echo base_url(); ?>" class="nav-link">Viajes</a>
                 </li>
             </ul>
 
