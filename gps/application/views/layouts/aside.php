@@ -67,6 +67,8 @@
                     </tr>
                 </table>
             </div>
+        </div>
+        <div id="boton_menu">
             <div style='margin-bottom: 5px; color: white;' id="boton">
                 <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
             </div>

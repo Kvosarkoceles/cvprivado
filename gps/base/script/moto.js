@@ -296,9 +296,15 @@ function posiciones() {
   mymap.setZoom(15);
 
   var informe = document.getElementById('informe');
-
   // Mostrar el botón
   informe.style.display = 'block';
+
+  var divInforme = document.getElementById('informe');
+
+// Elimina todo el contenido dentro del div
+divInforme.innerHTML = '';
+
+  alert("oculto");
 
 }
 
