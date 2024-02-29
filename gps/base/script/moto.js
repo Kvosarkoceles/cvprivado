@@ -292,6 +292,8 @@ function addMarker(latitude, longitude, dataVeiculo) {
 function posiciones() {
   clearInterval(intervalID);
   eliminarTodosLosMarcadores();
+  $('#tablaPosiciones tbody').empty();
+  
   var button = document.getElementById('myUbicacion');
 
   // Cambia el estilo de visualización para mostrar el botón
