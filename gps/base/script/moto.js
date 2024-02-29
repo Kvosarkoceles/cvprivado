@@ -334,8 +334,8 @@ function posiciones() {
         '<div class="p-0" style="">'+
             '<table class="table table-hover">'+
                 '<tbody>'+
-                  '<tr data-widget="expandable-table" aria-expanded="false">'+
-                        '<td onclick="centrarPosicion()">'+
+                  '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">'+
+                        '<td>'+
                            ' Lat:'+
                        ' </td>'+
                         '<td>898908098</td>'+
