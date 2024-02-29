@@ -83,6 +83,23 @@
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         0,00Km/h
                     </div>
+
+
+                    <div style='margin-bottom: 5px; color: white;'>
+                        <table style="width: 100%; text-align: left;">
+                            <tr>
+                                <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
+                                <td style='color: white;'>0,00Km/h</td>
+                            </tr>
+                            <tr>
+                                <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
+                                <td style='color: white;'>0,00Km/h</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Vel. Máx.:</span>
                     </div>
@@ -95,6 +112,8 @@
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         0,00Km/h
                     </div>
+
+
                     <div style='margin-bottom: 5px; text-align: left; color: white;'>
                         <span style='font-weight: bold;'>Recorrido:</span>
                     </div>
