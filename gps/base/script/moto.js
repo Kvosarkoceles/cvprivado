@@ -344,7 +344,7 @@ async function getPosiciones() {
         } else {
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
-          addMarker(posicion);
+          addMarkerposicion(posicion);
 
         }
 
@@ -373,6 +373,14 @@ async function getPosiciones() {
     },
   });
 }
+
+
+function addMarkerposicion(data) {
+  L.marker([data.latitude, data.longitude])
+    .addTo(mymap)
+    .bindPopup("<b>velocidad: </b> " + data.veloc);
+}
+
 
 function centrarMapaEnMarcador(latitud, longitud) {
   mymap.setView([latitud, longitud], 19);
