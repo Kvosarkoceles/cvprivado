@@ -8,18 +8,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div>
+        <div id="informe">
             <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                 <span style='font-weight: bold;' id="label"></span>
             </div>
             <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
-
             </div>
             <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
                 <span style='font-weight: bold;'>Conductor:</span>
             </div>
             <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
-
             </div>
             <div style='margin-bottom: 5px; color: white; '>
                 <table style="width: 100%; text-align: left;">
@@ -33,10 +31,6 @@
                     </tr>
                 </table>
             </div>
-
-
-
-
             <div style='margin-bottom: 5px; color: white;'>
                 <table style="width: 100%; text-align: left;">
                     <tr>
@@ -49,10 +43,6 @@
                     </tr>
                 </table>
             </div>
-
-
-
-
             <div style='margin-bottom: 5px; color: white;'>
                 <table style="width: 100%; text-align: left;">
                     <tr>
@@ -65,8 +55,6 @@
                     </tr>
                 </table>
             </div>
-
-
             <div style='margin-bottom: 5px; color: white;'>
                 <table style="width: 100%; text-align: left;">
                     <tr>
@@ -79,13 +67,9 @@
                     </tr>
                 </table>
             </div>
-
             <div style='margin-bottom: 5px; color: white;' id="boton">
-                <button onclick='verUbicacion()'  id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
-
+                <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
             </div>
-
-
         </div>
         <!-- Sidebar Menu -->
 
