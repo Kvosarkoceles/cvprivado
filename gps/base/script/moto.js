@@ -57,7 +57,7 @@ function start() {
       $('#movimiento').text(dataVeiculo.movimiento);
 
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
-      centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude);
+      centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude,15);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -374,8 +374,12 @@ function posiciones() {
 }
 
 
-function centrarPosicion() {
-  alert("centrarPosicion");
+function centrarPosicion(lat, lot) {
+ 
+ centrarMapaEnMarcador(lat, lot, 20);
+
+ 
+  
 }
 
 // function agrearTablaDePosiciones() {
@@ -453,30 +457,6 @@ function addPosicionTable() {
     '<td>Latitude, 1280890890</td>' +
     '<td>Longitude, -89980800</td>' +
     '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
-    '<tr data-widget="expandable-table" aria-expanded="false">' +
-    '<td>' +
-    'Lat:' +
-    '</td>' +
-    '<td>898908098</td>' +
-    '</tr>' +
     '</tbody>' +
     '</table>' +
     '</div>' +
@@ -484,10 +464,10 @@ function addPosicionTable() {
     '</tr>'
   );
 
-
+  return newRow;
 
   // alert(newRow);  // Agregar el nuevo <tr> a la tabla
-   $('#tablaPosiciones tbody').append(newRow);
+  // $('#tablaPosiciones tbody').append(newRow);
 }
 function verUbicacion() {
 
@@ -596,6 +576,10 @@ async function getPosiciones() {
 
       var posicionArray = [];
 
+      var vartabla = "";
+      var vartabla2 = "";
+
+      var filas = '';
 
 
       $.each(objeto.positions, function (index, item) {
@@ -605,6 +589,7 @@ async function getPosiciones() {
           latitude: item.latitude,
           longitude: item.longitude,
           veloc: item.veloc,
+          date: item.data_gps_br
         };
 
         if (numeroEntero > 0) {
@@ -613,17 +598,54 @@ async function getPosiciones() {
         } else {
           // alert(typeof numeroEntero + numeroEntero);
           coordinates.push(posicion);
-
           addMarkerposicion(posicion);
 
+          var fila = 
+            '<tr data-widget="expandable-table" aria-expanded="false">' +
+            '<td>' +
+            '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
+            posicion.date
+            + '</td>' +
+            '</tr>' +
+            '<tr class="expandable-body d-none">' +
+            '<td>' +
+            '<div class="p-0" style="">' +
+            '<table class="table table-hover">' +
+            '<tbody>' +
+            '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion('+posicion.latitude+','+posicion.longitude+')">' +
+            '<td>Latitude, 1280890890</td>' +
+            '<td>Longitude, -89980800</td>' +
+            '</tr>' +
+            '</tbody>' +
+            '</table>' +
+            '</div>' +
+            '</td>' +
+            '</tr>'
+          ;
+
+
+
+          filas += fila;
+          // vartabla.add(addPosicionTable())
+
+
+          // vartabla= addPosicionTable();
 
         }
       });
+//  console.log(filas);
+      // console.log(filas);
+      //  alert(typeof vartabla);
+      // console.log(vartabla);
+       $('#tablaPosiciones tbody').append(filas);
+      // Recorrer el arreglo de objetos con jQuery
+      // $.each(coordinates, function (index, obj) {
+      //   // console.log(index + ': x = ' + obj.latitude + ', y = ' + obj.longitude);
 
-      addPosicionTable();
-      addPosicionTable();
-      addPosicionTable();
-      addPosicionTable();
+
+      // });
+
+
       console.log("posicionArray", posicionArray);
       console.log("coordinates", coordinates);
       //  console.log("posicionArray", posicionArray);
@@ -649,8 +671,8 @@ function addMarkerposicion(data) {
 }
 
 
-function centrarMapaEnMarcador(latitud, longitud) {
-  mymap.setView([latitud, longitud], 15);
+function centrarMapaEnMarcador(latitud, longitud, zoom) {
+  mymap.setView([latitud, longitud], zoom);
 }
 
 function eliminarTodosLosMarcadores() {
