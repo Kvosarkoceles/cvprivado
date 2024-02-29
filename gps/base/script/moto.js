@@ -301,10 +301,10 @@ function posiciones() {
 
   var divInforme = document.getElementById('informe');
 
-// Elimina todo el contenido dentro del div
-divInforme.innerHTML = '';
+  // Elimina todo el contenido dentro del div
+  divInforme.innerHTML = '';
 
-  alert("oculto");
+  1
 
 }
 
