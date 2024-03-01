@@ -57,7 +57,7 @@ function start() {
       $('#movimiento').text(dataVeiculo.movimiento);
 
       addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
-      centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude,15);
+      centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude, 15);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -375,11 +375,11 @@ function posiciones() {
 
 
 function centrarPosicion(lat, lot) {
- 
- centrarMapaEnMarcador(lat, lot, 20);
 
- 
-  
+  centrarMapaEnMarcador(lat, lot, 20);
+
+
+
 }
 
 // function agrearTablaDePosiciones() {
@@ -572,6 +572,8 @@ async function getPosiciones() {
       var objeto = JSON.parse(response);
       console.log("positions: ", objeto);
 
+      var posicionesSinRepeticion = [];
+
       var coordinates = [];
 
       var posicionArray = [];
@@ -580,6 +582,12 @@ async function getPosiciones() {
       var vartabla2 = "";
 
       var filas = '';
+
+      var latitude = objeto.positions[0].latitude;
+      var longitude = objeto.positions[0].longitude;
+      posicionesSinRepeticion.push(objeto.positions[0]);
+
+      var posicionInicial = [latitude, longitude];
 
 
       $.each(objeto.positions, function (index, item) {
@@ -592,15 +600,28 @@ async function getPosiciones() {
           date: item.data_gps_br
         };
 
-        if (numeroEntero > 0) {
-          // alert(typeof numeroEntero + numeroEntero);
-          posicionArray.push(posicion);
-        } else {
-          // alert(typeof numeroEntero + numeroEntero);
-          coordinates.push(posicion);
+        var posicionse = [item.latitude, item.longitude];
+        if (item.tab === "ev") {
+          posicionesSinRepeticion.push(item);
           addMarkerposicion(posicion);
+        } else {
+          if (!mismaPosicion(posicionse, posicionInicial)) {
+            posicionesSinRepeticion.push(item);
+          }
+        }
 
-          var fila = 
+      });
+
+
+      $.each(posicionesSinRepeticion, function (index, item) {    
+        if (item.tab === "ev") {         
+          var posicion = {
+            latitude: item.latitude,
+            longitude: item.longitude,
+            veloc: item.veloc,
+            date: item.data_gps_br
+          };
+          var fila =
             '<tr data-widget="expandable-table" aria-expanded="false">' +
             '<td>' +
             '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
@@ -612,50 +633,27 @@ async function getPosiciones() {
             '<div class="p-0" style="">' +
             '<table class="table table-hover">' +
             '<tbody>' +
-            '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion('+posicion.latitude+','+posicion.longitude+')">' +
-            '<td>Latitude '+posicion.latitude+'</td>' +
-            '<td>Longitude'+posicion.longitude+'</td>' +
+            '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + posicion.latitude + ',' + posicion.longitude + ')">' +
+            '<td>Latitude ' + posicion.latitude + '</td>' +
+            '<td>Longitude' + posicion.longitude + '</td>' +
             '</tr>' +
             '</tbody>' +
             '</table>' +
             '</div>' +
             '</td>' +
             '</tr>'
-          ;
+            ;
 
-
-
-          filas += fila;
-          // vartabla.add(addPosicionTable())
-
-
-          // vartabla= addPosicionTable();
-
+            filas += fila;
         }
+       
+
+
+
+       
+
       });
-//  console.log(filas);
-      // console.log(filas);
-      //  alert(typeof vartabla);
-      // console.log(vartabla);
-       $('#tablaPosiciones tbody').append(filas);
-      // Recorrer el arreglo de objetos con jQuery
-      // $.each(coordinates, function (index, obj) {
-      //   // console.log(index + ': x = ' + obj.latitude + ', y = ' + obj.longitude);
-
-
-      // });
-
-
-      console.log("posicionArray", posicionArray);
-      console.log("coordinates", coordinates);
-      //  console.log("posicionArray", posicionArray);
-
-      // $.each(coordinates, function (index, element) {
-      //   console.log("element: ", element);
-      //   addMarker(element);
-      // });
-
-
+      $('#tablaPosiciones tbody').append(filas);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -663,6 +661,13 @@ async function getPosiciones() {
   });
 }
 
+
+function mismaPosicion(coordenadas1, coordenadas2) {
+  // Verifica si las coordenadas son iguales
+  return (
+    coordenadas1[0] === coordenadas2[0] && coordenadas1[1] === coordenadas2[1]
+  );
+}
 
 function addMarkerposicion(data) {
   L.marker([data.latitude, data.longitude])
