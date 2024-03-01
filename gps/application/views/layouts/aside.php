@@ -68,7 +68,7 @@
                 </table>
             </div>
         </div>
-        <div id="posicionesCard" style="overflow-y: auto; max-height: 500px;">
+        <div id="posicionesCard" style="overflow-y: auto; max-height: 400px; margin-top: 15px;">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Posiciones</h3>
@@ -86,14 +86,14 @@
             </div>
         </div>
         <!-- Sidebar Menu -->
-        <div id="botones" style="position: fixed; top: 500px;">
+        <div id="botones" style="position: fixed; top: 500px; float: right;">
             <div id="boton_menu" style="margin-top: 15px;">
-                <div style='margin-bottom: 5px; color: white;' id="boton">
+                <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
                     <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
                 </div>
             </div>
             <div id="boton_menu" style="margin-top: 15px;">
-                <div style='margin-bottom: 5px; color: white;' id="boton">
+                <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
                     <button onclick='posiciones()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: block;">Posiciones</button>
                 </div>
             </div>

@@ -565,12 +565,29 @@ function mostrarUltimoReporte() {
   // Agregar el contenido al div con id "informe"
   $("#informe").html(contenido);
 }
+
+var fechaFormateada = "";
+var fechaFormateada2 = ""; // Los meses van de 0 a 11, por eso se suma 1
+
+
+function fecha() {
+  var fecha = new Date(); // Obtiene la fecha actual
+  var dia = fecha.getDate();
+  var mes = fecha.getMonth() + 1; // Los meses van de 0 a 11, por eso se suma 1
+  var año = fecha.getFullYear();
+
+  // Formatear la fecha como dd/mm/yyyy
+  fechaFormateada = dia + '-' + mes + '-' + año + " " + "00:00:00";
+  fechaFormateada2 = dia + '-' + mes + '-' + año + " " + "23:59:59";
+  
+}
 async function getPosiciones() {
+  fecha();
   // console.log("informacion funcion" + velocidad);
   var data = {
     ID_disp: 1970000012,
-    f1: "2024-01-20 00:00:00",
-    f2: "2024-02-29 23:59:59",
+    f1: fechaFormateada,
+    f2: fechaFormateada2,
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
     lgw_id: 133,
@@ -598,77 +615,83 @@ async function getPosiciones() {
 
       var filas = '';
 
-      var latitude = objeto.positions[0].latitude;
-      var longitude = objeto.positions[0].longitude;
-      posicionesSinRepeticion.push(objeto.positions[0]);
+      if (objeto.positions.length != 0) {
+        var latitude = objeto.positions[0].latitude;
+        var longitude = objeto.positions[0].longitude;
+        posicionesSinRepeticion.push(objeto.positions[0]);
 
-      var posicionInicial = [latitude, longitude];
-
-
-      $.each(objeto.positions, function (index, item) {
-        var coords = item.latitude + "," + item.longitude;
-        var numeroEntero = parseInt(item.veloc, 10);
-        var posicion = {
-          latitude: item.latitude,
-          longitude: item.longitude,
-          veloc: item.veloc,
-          date: item.data_gps_br
-        };
-
-        var posicionse = [item.latitude, item.longitude];
-        if (item.tab === "ev") {
-          posicionesSinRepeticion.push(item);
-          addMarkerposicion(posicion);
-        } else {
-          if (!mismaPosicion(posicionse, posicionInicial)) {
-            posicionesSinRepeticion.push(item);
-          }
-        }
-
-      });
+        var posicionInicial = [latitude, longitude];
 
 
-      $.each(posicionesSinRepeticion, function (index, item) {
-        if (item.tab === "ev") {
+
+
+        $.each(objeto.positions, function (index, item) {
+          var coords = item.latitude + "," + item.longitude;
+          var numeroEntero = parseInt(item.veloc, 10);
           var posicion = {
             latitude: item.latitude,
             longitude: item.longitude,
             veloc: item.veloc,
             date: item.data_gps_br
           };
-          var fila =
-            '<tr data-widget="expandable-table" aria-expanded="false">' +
-            '<td>' +
-            '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
-            posicion.date
-            + '</td>' +
-            '</tr>' +
-            '<tr class="expandable-body d-none">' +
-            '<td>' +
-            '<div class="p-0" style="">' +
-            '<table class="table table-hover">' +
-            '<tbody>' +
-            '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + posicion.latitude + ',' + posicion.longitude + ')">' +
-            '<td>Latitude ' + posicion.latitude + '</td>' +
-            '<td>Longitude' + posicion.longitude + '</td>' +
-            '</tr>' +
-            '</tbody>' +
-            '</table>' +
-            '</div>' +
-            '</td>' +
-            '</tr>'
-            ;
 
-          filas += fila;
-        }
+          var posicionse = [item.latitude, item.longitude];
+          if (item.tab === "ev") {
+            posicionesSinRepeticion.push(item);
+            addMarkerposicion(posicion);
+          } else {
+            if (!mismaPosicion(posicionse, posicionInicial)) {
+              posicionesSinRepeticion.push(item);
+            }
+          }
+        });
 
 
+        $.each(posicionesSinRepeticion, function (index, item) {
+          if (item.tab === "ev") {
+            var posicion = {
+              latitude: item.latitude,
+              longitude: item.longitude,
+              veloc: item.veloc,
+              date: item.data_gps_br
+            };
+            var fila =
+              '<tr data-widget="expandable-table" aria-expanded="false">' +
+              '<td>' +
+              '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
+              posicion.date
+              + '</td>' +
+              '</tr>' +
+              '<tr class="expandable-body d-none">' +
+              '<td>' +
+              '<div class="p-0" style="">' +
+              '<table class="table table-hover">' +
+              '<tbody>' +
+              '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + posicion.latitude + ',' + posicion.longitude + ')">' +
+              '<td>Latitude ' + posicion.latitude + '</td>' +
+              '<td>Longitude' + posicion.longitude + '</td>' +
+              '</tr>' +
+              '</tbody>' +
+              '</table>' +
+              '</div>' +
+              '</td>' +
+              '</tr>'
+              ;
+
+            filas += fila;
+          }
 
 
 
 
-      });
-      $('#tablaPosiciones tbody').append(filas);
+
+
+        });
+        $('#tablaPosiciones tbody').append(filas);
+      }else{
+        alert("Vehículo sin movimiento");
+        verUbicacion();
+      }
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
