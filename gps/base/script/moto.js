@@ -298,6 +298,13 @@ function posiciones() {
 
   // Cambia el estilo de visualización para mostrar el botón
   button.style.display = 'block';
+
+  var button = document.getElementById('myPosiciones');
+
+  // Cambia el estilo de visualización para mostrar el botón
+  button.style.display = 'none';
+
+
   getPosiciones();
 
   mymap.setZoom(15);
@@ -474,13 +481,21 @@ function verUbicacion() {
   start();
   intervalID = setInterval(start, 10000);
 
-  var button = document.getElementById('myUbicacion');
-  button.style.display = 'none';
+  // var button = document.getElementById('myUbicacion');
+  // button.style.display = 'none';
+  // var button = document.getElementById('myPosiciones');
+  // button.style.display = 'block';
+
+
+
 
   var informe = document.getElementById('informe');
 
-  // Mostrar el botón
+  var button = document.getElementById('myUbicacion');
   button.style.display = 'none';
+  var button = document.getElementById('myPosiciones');
+  button.style.display = 'block';
+
 
   mostrarUltimoReporte();
 }
@@ -613,8 +628,8 @@ async function getPosiciones() {
       });
 
 
-      $.each(posicionesSinRepeticion, function (index, item) {    
-        if (item.tab === "ev") {         
+      $.each(posicionesSinRepeticion, function (index, item) {
+        if (item.tab === "ev") {
           var posicion = {
             latitude: item.latitude,
             longitude: item.longitude,
@@ -644,13 +659,13 @@ async function getPosiciones() {
             '</tr>'
             ;
 
-            filas += fila;
+          filas += fila;
         }
-       
 
 
 
-       
+
+
 
       });
       $('#tablaPosiciones tbody').append(filas);

@@ -68,7 +68,7 @@
                 </table>
             </div>
         </div>
-        <div id="posicionesCard" style="overflow-y: auto; max-height: 500px;"> 
+        <div id="posicionesCard" style="overflow-y: auto; max-height: 500px;">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Posiciones</h3>
@@ -77,7 +77,7 @@
                 <div class="card-body p-0">
                     <table class="table table-hover" id="tablaPosiciones">
                         <tbody>
-                          
+
 
                         </tbody>
                     </table>
@@ -85,14 +85,21 @@
                 <!-- /.card-body -->
             </div>
         </div>
-        <div id="boton_menu" style="margin-top: 15px;">
-            <div style='margin-bottom: 5px; color: white;' id="boton">
-                <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+        <!-- Sidebar Menu -->
+        <div id="botones" style="position: fixed; top: 500px;">
+            <div id="boton_menu" style="margin-top: 15px;">
+                <div style='margin-bottom: 5px; color: white;' id="boton">
+                    <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+                </div>
+            </div>
+            <div id="boton_menu" style="margin-top: 15px;">
+                <div style='margin-bottom: 5px; color: white;' id="boton">
+                    <button onclick='posiciones()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: block;">Posiciones</button>
+                </div>
             </div>
         </div>
-        <!-- Sidebar Menu -->
-
         <!-- /.sidebar-menu -->
     </div>
+
     <!-- /.sidebar -->
 </aside>
