@@ -689,7 +689,7 @@ async function getPosiciones() {
         });
         $('#tablaPosiciones tbody').append(filas);
       }else{
-        alert("Vehículo sin movimiento");
+        alert("Vehículo Inmovilizado");
         verUbicacion();
       }
     },
