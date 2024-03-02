@@ -279,7 +279,7 @@ function addMarker(latitude, longitude, dataVeiculo) {
       dataVeiculo.velocidad +
       "</div>" +
       "<div style='margin-bottom: 5px; text-align: center;'>" +
-      "<button onclick='posiciones()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
+      "<button onclick='posicionesDate()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
       "</div>"
 
     );
@@ -304,8 +304,8 @@ function posiciones() {
   // Cambia el estilo de visualización para mostrar el botón
   button.style.display = 'none';
 
-
-  getPosiciones();
+  fecha();
+  getPosiciones(fechaFormateada, fechaFormateada2);
 
   mymap.setZoom(15);
   var posicionesCard = document.getElementById('posicionesCard');
@@ -339,7 +339,7 @@ function posiciones() {
   //   '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion()">' +
   //   '<td>Latitude, 1280890890</td>' +
   //   '<td>Longitude, -89980800</td>' +
-  //   '</tr>' +   
+  //   '</tr>' +
   //   '<tr data-widget="expandable-table" aria-expanded="false">' +
   //   '<td>' +
   //   'Lat:' +
@@ -383,7 +383,7 @@ function posiciones() {
 
 function centrarPosicion(lat, lot) {
 
-  centrarMapaEnMarcador(lat, lot, 20);
+  centrarMapaEnMarcador(lat, lot, 17);
 
 
 
@@ -579,15 +579,15 @@ function fecha() {
   // Formatear la fecha como dd/mm/yyyy
   fechaFormateada = dia + '-' + mes + '-' + año + " " + "00:00:00";
   fechaFormateada2 = dia + '-' + mes + '-' + año + " " + "23:59:59";
-  
+
 }
-async function getPosiciones() {
-  fecha();
-  // console.log("informacion funcion" + velocidad);
+// fecha();
+
+async function getPosiciones(date1, date2) {
   var data = {
     ID_disp: 1970000012,
-    f1: fechaFormateada,
-    f2: fechaFormateada2,
+    f1: date1,
+    f2: date2,
     dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
     db: "awsdev",
     lgw_id: 133,
@@ -616,15 +616,11 @@ async function getPosiciones() {
       var filas = '';
 
       if (objeto.positions.length != 0) {
+        clearInterval(intervalID);
         var latitude = objeto.positions[0].latitude;
         var longitude = objeto.positions[0].longitude;
         posicionesSinRepeticion.push(objeto.positions[0]);
-
         var posicionInicial = [latitude, longitude];
-
-
-
-
         $.each(objeto.positions, function (index, item) {
           var coords = item.latitude + "," + item.longitude;
           var numeroEntero = parseInt(item.veloc, 10);
@@ -634,7 +630,6 @@ async function getPosiciones() {
             veloc: item.veloc,
             date: item.data_gps_br
           };
-
           var posicionse = [item.latitude, item.longitude];
           if (item.tab === "ev") {
             posicionesSinRepeticion.push(item);
@@ -645,8 +640,6 @@ async function getPosiciones() {
             }
           }
         });
-
-
         $.each(posicionesSinRepeticion, function (index, item) {
           if (item.tab === "ev") {
             var posicion = {
@@ -687,10 +680,33 @@ async function getPosiciones() {
 
 
         });
+        var posicionesCard = document.getElementById('posicionesCard');
+        // Mostrar el botón
+        posicionesCard.style.display = 'block';
+        var divInforme = document.getElementById('informe');
+
+        // Elimina todo el contenido dentro del div
+        divInforme.innerHTML = '';
+
         $('#tablaPosiciones tbody').append(filas);
-      }else{
+      } else {
         alert("Vehículo Inmovilizado");
+
+        // mostrar ultima posicion en mapa
         verUbicacion();
+        // mostrar botones con funcion
+
+        //  mostrar informacion de la moveTo
+
+
+        $("#datePosiciones").css("display", "block");
+        // $("#myUbicacion").css("display", "block");
+        $("#myPosiciones").click(function () {
+          posicionesDate();
+        });
+
+        // $("#myPosiciones").css("display", "block");
+        // verUbicacion();
       }
     },
     error: function (xhr, status, error) {
@@ -713,7 +729,55 @@ function addMarkerposicion(data) {
     .bindPopup("<b>velocidad: </b> " + data.veloc);
 }
 
+function posicionesDate() {
 
+  var inputValue = $("#reservationtime").val();
+  // alert(inputValue);
+  var dates = inputValue.split(" - ");
+  var date1 = convertirFormatoFecha(dates[0]);
+  var date2 = convertirFormatoFecha(dates[1]);
+
+  alert("posicionesDate");
+  alert("date1 " + date1);
+  alert("date2 " + date2);
+  // "2024-02-25 23:59:59"
+  getPosiciones(date1, date2);
+
+}
+
+
+function convertirFormatoFecha(fecha) {
+  // Dividir la fecha y la hora
+  var partes = fecha.split(" ");
+  var fechaParte = partes[0];
+  var horaParte = partes[1];
+
+  // Dividir el mes, día y año
+  var fechaSplit = fechaParte.split("/");
+  var mes = fechaSplit[0];
+  var dia = fechaSplit[1];
+  var año = fechaSplit[2];
+  // alert("mes " +mes);
+  // Obtener la hora y los minutos
+  var horaSplit = horaParte.split(":");
+  var hora = parseInt(horaSplit[0]);
+  var minutos = horaSplit[1];
+
+  // Convertir la hora a formato de 24 horas si es necesario
+  if (partes[2] === "PM" && hora !== 12) {
+    hora += 12;
+  } else if (partes[2] === "AM" && hora === 12) {
+    hora = 0;
+  }
+
+  // Formatear la hora con dos dígitos
+  hora = ("0" + hora).slice(-2);
+  // "2024-02-25 23:59:59"
+  // Convertir a formato deseado
+  var fechaFormateada = año + "-" + mes + "-" + dia + " " + hora + ":" + minutos + ":00";
+
+  return fechaFormateada;
+}
 function centrarMapaEnMarcador(latitud, longitud, zoom) {
   mymap.setView([latitud, longitud], zoom);
 }
