@@ -65,7 +65,7 @@ function start() {
   });
 }
 
-var intervalID = setInterval(start, 10000);
+ var intervalID = setInterval(start, 10000);
 
 async function informacion() {
   // console.log("informacion funcion" + velocidad);
@@ -490,7 +490,7 @@ function verUbicacion() {
 
 
   var informe = document.getElementById('informe');
-
+  informe.style.display = 'block';
   var button = document.getElementById('myUbicacion');
   button.style.display = 'none';
   var button = document.getElementById('myPosiciones');
@@ -498,6 +498,10 @@ function verUbicacion() {
 
 
   mostrarUltimoReporte();
+
+        
+        
+
 }
 function mostrarUltimoReporte() {
 
@@ -603,9 +607,9 @@ async function getPosiciones(date1, date2) {
     success: function (response) {
       var objeto = JSON.parse(response);
       console.log("positions: ", objeto);
-
+      $('#tablaPosiciones tbody').empty();
       var posicionesSinRepeticion = [];
-
+      var markers = [];
       var coordinates = [];
 
       var posicionArray = [];
@@ -615,7 +619,8 @@ async function getPosiciones(date1, date2) {
 
       var filas = '';
 
-      if (objeto.positions.length != 0) {
+      if (objeto.positions.length > 1) {
+       
         clearInterval(intervalID);
         var latitude = objeto.positions[0].latitude;
         var longitude = objeto.positions[0].longitude;
@@ -687,8 +692,27 @@ async function getPosiciones(date1, date2) {
 
         // Elimina todo el contenido dentro del div
         divInforme.innerHTML = '';
+        if(posicionesSinRepeticion.length > 1) {
 
-        $('#tablaPosiciones tbody').append(filas);
+          alert("Vehículo con recorrido")
+          alert(posicionesSinRepeticion.length )
+          console.log(posicionesSinRepeticion)
+          
+          $('#tablaPosiciones tbody').append(filas);
+          alert("cambiar botot a ver ubucacion")
+          
+  var button = document.getElementById('myUbicacion');
+  button.style.display = 'block';
+  var button = document.getElementById('myPosiciones');
+  button.style.display = 'none';
+
+        }else {          
+          // $('#tablaPosiciones tbody').append(filas);
+          verUbicacion();         
+        }
+
+        
+
       } else {
         alert("Vehículo Inmovilizado");
 
@@ -730,6 +754,13 @@ function addMarkerposicion(data) {
 }
 
 function posicionesDate() {
+  // clearInterval(intervalID);
+  
+  var ventanainforme = document.getElementById('informe');
+
+  // Cambia el estilo de visualización para mostrar el botón
+  ventanainforme.style.display = 'none';
+
 
   var inputValue = $("#reservationtime").val();
   // alert(inputValue);
@@ -737,9 +768,9 @@ function posicionesDate() {
   var date1 = convertirFormatoFecha(dates[0]);
   var date2 = convertirFormatoFecha(dates[1]);
 
-  alert("posicionesDate");
-  alert("date1 " + date1);
-  alert("date2 " + date2);
+  // alert("posicionesDate");
+  // alert("date1 " + date1);
+  // alert("date2 " + date2);
   // "2024-02-25 23:59:59"
   getPosiciones(date1, date2);
 

@@ -99,98 +99,101 @@
 
       <!-- Sidebar -->
       <div class="sidebar">
-        <div id="informe">
-          <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
-            <span style='font-weight: bold;' id="label"></span>
-          </div>
-          <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
-          </div>
-          <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
-            <span style='font-weight: bold;'>Conductor:</span>
-          </div>
-          <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
-          </div>
-          <div style='margin-bottom: 5px; color: white; '>
-            <table style="width: 100%; text-align: left;">
-              <tr>
-                <td style='font-weight: bold; color: white;'>Fecha:</td>
-                <td style='font-weight: bold; color: white;'>Hora:</td>
-              </tr>
-              <tr>
-                <td style='color: white;' id="fecha"></td>
-                <td style='color: white;' id="hora"></td>
-              </tr>
-            </table>
-          </div>
-          <div style='margin-bottom: 5px; color: white;'>
-            <table style="width: 100%; text-align: left;">
-              <tr>
-                <td style='font-weight: bold; color: white;'>Velocidad:</td>
-                <td style='font-weight: bold; color: white;'>Recorrido:</td>
-              </tr>
-              <tr>
-                <td style='color: white;' id="velocidad"></td>
-                <td style='color: white;' id="recorrido"></td>
-              </tr>
-            </table>
-          </div>
-          <div style='margin-bottom: 5px; color: white;'>
-            <table style="width: 100%; text-align: left;">
-              <tr>
-                <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
-                <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
-              </tr>
-              <tr>
-                <td style='color: white;' id="velMed"></td>
-                <td style='color: white;' id="velMax"></td>
-              </tr>
-            </table>
-          </div>
-          <div style='margin-bottom: 5px; color: white;'>
-            <table style="width: 100%; text-align: left;">
-              <tr>
-                <td style='font-weight: bold; color: white;'>Detenido:</td>
-                <td style='font-weight: bold; color: white;'>Movimiento:</td>
-              </tr>
-              <tr>
-                <td style='color: white;' id="detenido"></td>
-                <td style='color: white;' id="movimiento"></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div id="posicionesCard" style="overflow-y: auto; max-height: 400px; margin-top: 15px;">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Posiciones</h3>
+
+        <div style="height: 400px; max-height: 400px;" id="Areainformes">
+          <div id="informe" style="height: 400px; display: bloc;">
+            <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
+              <span style='font-weight: bold;' id="label"></span>
             </div>
-            <!-- ./card-header -->
-            <div class="card-body p-0">
-              <table class="table table-hover" id="tablaPosiciones">
-                <tbody>
-
-
-                </tbody>
+            <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
+            </div>
+            <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
+              <span style='font-weight: bold;'>Conductor:</span>
+            </div>
+            <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
+            </div>
+            <div style='margin-bottom: 5px; color: white; '>
+              <table style="width: 100%; text-align: left;">
+                <tr>
+                  <td style='font-weight: bold; color: white;'>Fecha:</td>
+                  <td style='font-weight: bold; color: white;'>Hora:</td>
+                </tr>
+                <tr>
+                  <td style='color: white;' id="fecha"></td>
+                  <td style='color: white;' id="hora"></td>
+                </tr>
               </table>
             </div>
-            <!-- /.card-body -->
-          </div>
-        </div>
-        <!-- Sidebar Menu -->
-        <div id="botones" style="position: fixed; top: 500px; float: right;">
-          <div id="boton_menu" style="margin-top: 15px;">
-            <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
-              <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+            <div style='margin-bottom: 5px; color: white;'>
+              <table style="width: 100%; text-align: left;">
+                <tr>
+                  <td style='font-weight: bold; color: white;'>Velocidad:</td>
+                  <td style='font-weight: bold; color: white;'>Recorrido:</td>
+                </tr>
+                <tr>
+                  <td style='color: white;' id="velocidad"></td>
+                  <td style='color: white;' id="recorrido"></td>
+                </tr>
+              </table>
+            </div>
+            <div style='margin-bottom: 5px; color: white;'>
+              <table style="width: 100%; text-align: left;">
+                <tr>
+                  <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
+                  <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
+                </tr>
+                <tr>
+                  <td style='color: white;' id="velMed"></td>
+                  <td style='color: white;' id="velMax"></td>
+                </tr>
+              </table>
+            </div>
+            <div style='margin-bottom: 5px; color: white;'>
+              <table style="width: 100%; text-align: left;">
+                <tr>
+                  <td style='font-weight: bold; color: white;'>Detenido:</td>
+                  <td style='font-weight: bold; color: white;'>Movimiento:</td>
+                </tr>
+                <tr>
+                  <td style='color: white;' id="detenido"></td>
+                  <td style='color: white;' id="movimiento"></td>
+                </tr>
+              </table>
             </div>
           </div>
-          <div id="boton_menu" style="margin-top: 15px;">
-            <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
-              <button onclick='posicionesDate()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: block;">Posiciones</button>
+          <div id="posicionesCard" style=" max-height: 400px; margin-top: 15px; height: 400px; display: none; ">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Posiciones</h3>
+              </div>
+              <!-- ./card-header -->
+              <div class="card-body p-0">
+                <table class="table table-hover" id="tablaPosiciones">
+                  <tbody>
+
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
           </div>
         </div>
 
-        <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
+
+        <div id="fechasFormulario" style="max-height: 100px; margin-top: 15px; height: 100px;">
+          <div class="form-group" style="display: bloc;" id="datePosiciones">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="far fa-clock"></i></span>
+              </div>
+              <input type="text" class="form-control float-right" id="reservationtime">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white; height: 400px;'>
           <div class="form-group" style="display: bkoc;" id="datePosiciones">
             <label>Fechas</label>
 
@@ -202,7 +205,22 @@
             </div>
 
           </div>
-        </div>
+        </div> -->
+
+        <div id="botones">
+          <div id="boton_menu" style="margin-top: 15px;">
+            <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
+              <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+            </div>
+          </div>
+          <div id="boton_menu" style="margin-top: 15px;">
+            <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
+              <button onclick='posicionesDate()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: block;">Posiciones</button>
+            </div>
+          </div>
+        </div> 
+
+
         <!-- /.sidebar-menu -->
       </div>
 
