@@ -585,7 +585,7 @@ function fecha() {
   fechaFormateada2 = dia + '-' + mes + '-' + año + " " + "23:59:59";
 
 }
-// fecha();
+
 
 async function getPosiciones(date1, date2) {
   var data = {
@@ -606,7 +606,7 @@ async function getPosiciones(date1, date2) {
     data: data,
     success: function (response) {
       var objeto = JSON.parse(response);
-      console.log("positions: ", objeto);
+      // console.log("positions: ", objeto);
       $('#tablaPosiciones tbody').empty();
       var posicionesSinRepeticion = [];
       var markers = [];
@@ -639,6 +639,7 @@ async function getPosiciones(date1, date2) {
           if (item.tab === "ev") {
             posicionesSinRepeticion.push(item);
             addMarkerposicion(posicion);
+            console.log(posicion);
           } else {
             if (!mismaPosicion(posicionse, posicionInicial)) {
               posicionesSinRepeticion.push(item);
