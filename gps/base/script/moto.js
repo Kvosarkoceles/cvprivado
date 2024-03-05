@@ -640,33 +640,34 @@ async function getPosiciones(date1, date2) {
           if (item.tab === "ev") {
             posicionesSinRepeticion.push(item);
             addMarkerposicion(posicion);
-            var fila =
-              '<tr data-widget="expandable-table" aria-expanded="false">' +
-              '<td>' +
-              '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
-              posicion.date
-              + '</td>' +
-              '</tr>' +
-              '<tr class="expandable-body d-none">' +
-              '<td>' +
-              '<div class="p-0" style="">' +
-              '<table class="table table-hover">' +
-              '<tbody>' +
-              '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + posicion.latitude + ',' + posicion.longitude + ')">' +
-              '<td>Latitude ' + posicion.latitude + '</td>' +
-              '<td>Longitude' + posicion.longitude + '</td>' +
-              '</tr>' +
-              '</tbody>' +
-              '</table>' +
-              '</div>' +
-              '</td>' +
-              '</tr>'
-              ;
 
-            filas += fila;
-            console.log(posicion);
           } else {
             if (!mismaPosicion(posicionse, posicionInicial)) {
+              var fila =
+                '<tr data-widget="expandable-table" aria-expanded="false">' +
+                '<td>' +
+                '<i class="expandable-table-caret fas fa-caret-right fa-fw"></i>' +
+                posicion.date
+                + '</td>' +
+                '</tr>' +
+                '<tr class="expandable-body d-none">' +
+                '<td>' +
+                '<div class="p-0" style="">' +
+                '<table class="table table-hover">' +
+                '<tbody>' +
+                '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + posicion.latitude + ',' + posicion.longitude + ')">' +
+                '<td>Latitude ' + posicion.latitude + '</td>' +
+                '<td>Longitude' + posicion.longitude + '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</div>' +
+                '</td>' +
+                '</tr>'
+                ;
+
+              filas += fila;
+              console.log(posicion);
               posicionesSinRepeticion.push(item);
             }
           }
