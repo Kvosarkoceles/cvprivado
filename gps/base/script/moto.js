@@ -724,12 +724,12 @@ async function getPosiciones(date1, date2) {
         divInforme.innerHTML = '';
         if (posicionesSinRepeticion.length > 1) {
 
-          alert("Vehículo con recorrido")
-          alert(posicionesSinRepeticion.length)
+          // alert("Vehículo con recorrido")
+          // alert(posicionesSinRepeticion.length)
           console.log(posicionesSinRepeticion)
 
           $('#tablaPosiciones tbody').append(filas);
-          alert("cambiar botot a ver ubucacion")
+          // alert("cambiar botot a ver ubucacion")
 
           var button = document.getElementById('myUbicacion');
           button.style.display = 'block';
