@@ -308,3 +308,15 @@ function calcularDistanciaRecorrida(datos) {
     }
     return distanciaTotal;
 }
+
+function centrarPosicion(lat, lot) {
+
+    centrarMapaEnMarcador(lat, lot, 17);
+  
+  
+  
+  }
+
+  function centrarMapaEnMarcador(latitud, longitud, zoom) {
+    mymap.setView([latitud, longitud], zoom);
+  }
