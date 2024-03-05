@@ -1,0 +1,112 @@
+[
+    {
+        "tab": "pos",
+        "latitude": "19.30925",
+        "longitude": "-99.26008",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-27 01:37:30",
+        "veloc": "0",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.30925",
+        "longitude": "-99.26008",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-27 03:37:30",
+        "veloc": "0",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.30925",
+        "longitude": "-99.26008",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-27 05:37:30",
+        "veloc": "0",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "ev",
+        "latitude": "19.31261",
+        "longitude": "-99.25962",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 17:54:59",
+        "veloc": "0",
+        "acionamento": "UP",
+        "acionamento_id": "68"
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.3123",
+        "longitude": "-99.25988",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 17:58:08",
+        "veloc": "13",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.31082",
+        "longitude": "-99.25929",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 17:59:08",
+        "veloc": "12",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.30941",
+        "longitude": "-99.25981",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 18:00:08",
+        "veloc": "6",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "ev",
+        "latitude": "19.30926",
+        "longitude": "-99.26006",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 18:03:08",
+        "veloc": "0",
+        "acionamento": "UP",
+        "acionamento_id": "68"
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.30917",
+        "longitude": "-99.26008",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-02-29 20:03:31",
+        "veloc": "0",
+        "acionamento": "",
+        "acionamento_id": ""
+    },
+    {
+        "tab": "pos",
+        "latitude": "19.30934",
+        "longitude": "-99.26011",
+        "radio": null,
+        "origen": "GPS",
+        "data_gps_br": "2024-03-05 09:25:52",
+        "veloc": "0",
+        "acionamento": "",
+        "acionamento_id": ""
+    }
+]

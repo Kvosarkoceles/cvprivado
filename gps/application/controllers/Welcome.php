@@ -26,27 +26,14 @@ class Welcome extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
-		
 	}
 
 
 	public function index()
 	{
-		// $this->load->view('/layouts/header');
-		// $this->load->view('/layouts/aside');
-		// $this->load->view('/layouts/moto');
-		// $this->load->view('/layouts/footer');
-
-		$this->load->view('/layouts/fecha');
-		
+		$this->load->view('/layouts/header');
+		$this->load->view('/layouts/aside');
+		$this->load->view('/layouts/mapa');
+		$this->load->view('/layouts/footer');
 	}
-
-
-
-	
-
-
-
-	
 }

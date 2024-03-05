@@ -284,8 +284,6 @@ function addMarker(latitude, longitude, dataVeiculo) {
 
     );
 
-
-
 }
 
 

@@ -1,4 +1,3 @@
-<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?php echo base_url(); ?>" class="brand-link">
@@ -8,96 +7,157 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div id="informe">
-            <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
-                <span style='font-weight: bold;' id="label"></span>
-            </div>
-            <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
-            </div>
-            <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
-                <span style='font-weight: bold;'>Conductor:</span>
-            </div>
-            <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
-            </div>
-            <div style='margin-bottom: 5px; color: white; '>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style='font-weight: bold; color: white;'>Fecha:</td>
-                        <td style='font-weight: bold; color: white;'>Hora:</td>
-                    </tr>
-                    <tr>
-                        <td style='color: white;' id="fecha"></td>
-                        <td style='color: white;' id="hora"></td>
-                    </tr>
-                </table>
-            </div>
-            <div style='margin-bottom: 5px; color: white;'>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style='font-weight: bold; color: white;'>Velocidad:</td>
-                        <td style='font-weight: bold; color: white;'>Recorrido:</td>
-                    </tr>
-                    <tr>
-                        <td style='color: white;' id="velocidad"></td>
-                        <td style='color: white;' id="recorrido"></td>
-                    </tr>
-                </table>
-            </div>
-            <div style='margin-bottom: 5px; color: white;'>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
-                        <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
-                    </tr>
-                    <tr>
-                        <td style='color: white;' id="velMed"></td>
-                        <td style='color: white;' id="velMax"></td>
-                    </tr>
-                </table>
-            </div>
-            <div style='margin-bottom: 5px; color: white;'>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style='font-weight: bold; color: white;'>Detenido:</td>
-                        <td style='font-weight: bold; color: white;'>Movimiento:</td>
-                    </tr>
-                    <tr>
-                        <td style='color: white;' id="detenido"></td>
-                        <td style='color: white;' id="movimiento"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div id="posicionesCard" style="overflow-y: auto; max-height: 400px; margin-top: 15px;">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Posiciones</h3>
+
+        <div style="height: 400px; max-height: 400px;" id="Areainformes">
+            <div id="informe" style="height: 400px; display: bloc;">
+                <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
+                    <span style='font-weight: bold;' id="label"></span>
                 </div>
-                <!-- ./card-header -->
-                <div class="card-body p-0">
-                    <table class="table table-hover" id="tablaPosiciones">
-                        <tbody>
-
-
-                        </tbody>
+                <div style='margin-bottom: 5px; text-align: center; color: white;' id="odometro">
+                </div>
+                <div style='margin-bottom: 5px; margin-top: 15px; text-align: left; color: white;'>
+                    <span style='font-weight: bold;'>Conductor:</span>
+                </div>
+                <div style='margin-bottom: 5px; text-align: left; color: white;' id="conductor">
+                </div>
+                <div style='margin-bottom: 5px; color: white; '>
+                    <table style="width: 100%; text-align: left;">
+                        <tr>
+                            <td style='font-weight: bold; color: white;'>Fecha:</td>
+                            <td style='font-weight: bold; color: white;'>Hora:</td>
+                        </tr>
+                        <tr>
+                            <td style='color: white;' id="fecha"></td>
+                            <td style='color: white;' id="hora"></td>
+                        </tr>
                     </table>
                 </div>
-                <!-- /.card-body -->
-            </div>
-        </div>
-        <!-- Sidebar Menu -->
-        <div id="botones" style="position: fixed; top: 500px; float: right;">
-            <div id="boton_menu" style="margin-top: 15px;">
-                <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
-                    <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+                <div style='margin-bottom: 5px; color: white;'>
+                    <table style="width: 100%; text-align: left;">
+                        <tr>
+                            <td style='font-weight: bold; color: white;'>Velocidad:</td>
+                            <td style='font-weight: bold; color: white;'>Recorrido:</td>
+                        </tr>
+                        <tr>
+                            <td style='color: white;' id="velocidad"></td>
+                            <td style='color: white;' id="recorrido"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style='margin-bottom: 5px; color: white;'>
+                    <table style="width: 100%; text-align: left;">
+                        <tr>
+                            <td style='font-weight: bold; color: white;'>Vel. Med.:</td>
+                            <td style='font-weight: bold; color: white;'>Vel. Máx.:</td>
+                        </tr>
+                        <tr>
+                            <td style='color: white;' id="velMed"></td>
+                            <td style='color: white;' id="velMax"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style='margin-bottom: 5px; color: white;'>
+                    <table style="width: 100%; text-align: left;">
+                        <tr>
+                            <td style='font-weight: bold; color: white;'>Detenido:</td>
+                            <td style='font-weight: bold; color: white;'>Movimiento:</td>
+                        </tr>
+                        <tr>
+                            <td style='color: white;' id="detenido"></td>
+                            <td style='color: white;' id="movimiento"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div id="boton_menu" style="margin-top: 15px;">
-                <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
-                    <button onclick='posiciones()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: block;">Posiciones</button>
+            <div id="posicionesCard" style=" max-height: 200px; margin-top: 15px; height: 400px; display: none; ">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Posiciones</h3>
+                    </div>
+                    <!-- ./card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-hover" id="tablaPosiciones">
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
                 </div>
             </div>
+            <div id="posicionesSelect" style="max-height: 100px; height: 100px; color: white;">
+                <div class="form-group">
+                    <label>Posiciones</label>
+                    <select id="filtroTiempo" class="custom-select">
+                        <option value="hoy">Hoy</option>
+                        <option value="ayer">Ayer</option>
+                        <option value="semana-actual">Semana Actual</option>
+                        <option value="mes-actual">Mes Actual</option>
+                        <option value="ultimos-7-dias">Últimos 7 días</option>
+                        <option value="ultimos-30-dias">Últimos 30 días</option>
+                        <option value="personalizado">Personalizado</option>
+                    </select>
+                </div>
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <div class="card card-info">
+                        <div class="card-header" style="text-align: center;">
+                            <h3 class="card-title">Posiciones</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Fecha Inicial</label>
+                                    <div class="col-sm-8">
+                                        <input type="datetime-local" value="2024-07-23T11:00" min="2024-03-23T11:00" max="2024-11-23T11:00" step="3600">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-4 col-form-label">Fecha Final</label>
+                                    <div class="col-sm-8">
+                                        <input type="datetime-local" value="2024-07-23T11:00" min="2024-03-23T11:00" max="2024-11-23T11:00" step="3600">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <!-- <button onclick='cerrarModal()' id="cerrar" type="button" class="btn btn-block btn-primary">cerrar</button> -->
+                                <button onclick='enviarPosiciones()' type="button" class="btn btn-info">Sign in</button>
+                                <button onclick='cerrarModal()' type="button" class="btn btn-default float-right">Cancel</button>
+                            </div>
+                            <!-- /.card-footer -->
+                        </form>
+                    </div>
+                    <!-- <button class="close-button">Cerrar</button> -->
+                </div>
+            </div>
+
+            <div id="botones" style="max-height: 100px; margin-top: 10px; height: 100px; ">
+                <div id="boton_menu" style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
+                        <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
+                    </div>
+                </div>
+                <div id="boton_menu" style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
+                        <button onclick='posiciones()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: bloc;">Posiciones</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+
+
+
+
+
+
         <!-- /.sidebar-menu -->
     </div>
 
