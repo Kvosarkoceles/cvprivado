@@ -640,8 +640,6 @@ async function getPosiciones(date1, date2) {
           if (item.tab === "ev") {
             posicionesSinRepeticion.push(item);
             addMarkerposicion(posicion);
-
-          } else {
             if (!mismaPosicion(posicionse, posicionInicial)) {
               var fila =
                 '<tr data-widget="expandable-table" aria-expanded="false">' +
@@ -668,6 +666,10 @@ async function getPosiciones(date1, date2) {
 
               filas += fila;
               console.log(posicion);
+            }
+
+          } else {
+            if (!mismaPosicion(posicionse, posicionInicial)) {
               posicionesSinRepeticion.push(item);
             }
           }
