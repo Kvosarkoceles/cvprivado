@@ -10,20 +10,10 @@ var filas = '';
 
 
 function posiciones() {
-
-    // console.log(posicionesFull)
-
     var resultadoFiltrado = recorrerEntreFechas(posicionesFull, dateInicial, dateFinal);
-
-    // console.log("dateInicial:" + dateInicial);
-    // console.log("dateFinal:" + dateFinal);
-    // console.log("resultadoFiltrado:");
-    // console.log(resultadoFiltrado);
     eliminarTodosLosMarcadores();
     eliminarPolilineas();
-    cealPosi(resultadoFiltrado);
-    console.log("posicionesRutas");
-    console.log(posicionesRutas);
+    cealPosi(resultadoFiltrado);      
     $.each(posicionesRutas, function (index, item) {
         // console.log("posicionesRutas");
         // console.log(index);
@@ -35,23 +25,13 @@ function posiciones() {
             const distancia = distanciaRecorrida.toFixed(2);
             addTablaInfo(item[0], item[item.length - 1], velMax, distancia, item, index);
         }
-    });
-
+    });  
     $('#tablaPosiciones tbody').append(filas);
-    // alert("cambiar botot a ver ubucacion")
-
-
-    var informe = document.getElementById('informe');
+       var informe = document.getElementById('informe');
     informe.style.display = 'none';
 
     var posicionesCard = document.getElementById('posicionesCard');
-    posicionesCard.style.display = 'block';
-
-
-    var button = document.getElementById('myUbicacion');
-    button.style.display = 'block';
-    var button = document.getElementById('myPosiciones');
-    button.style.display = 'block';
+    posicionesCard.style.display = 'block';   
 
 }
 let polylines = [];
@@ -260,6 +240,7 @@ function addMarkerposicionRuta(data, tipo, distancia) {
 function cealPosi(datos) {
     let subArrays = [];
     let subArray = [];
+    posicionesRutas = [];
     for (let i = 0; i < datos.length; i++) {
         if (datos[i].ignicao === "0") {
             if (subArray.length > 0) {
@@ -277,7 +258,7 @@ function cealPosi(datos) {
 }
 
 function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, ruta) {
-
+   
 
     const data = {
         posicionInicial: {
@@ -371,9 +352,6 @@ function calcularVelocidadMaxima(posiciones) {
     return velocidadMaxima;
 }
 
-
-
-
 function calcularDistanciaEntrePuntos(lat1, lon1, lat2, lon2) {
     const radioTierra = 6371; // Radio de la Tierra en kilómetros
     const dLat = deg2rad(lat2 - lat1);
@@ -424,3 +402,40 @@ function verRuta(params) {
     dibujarPolilineasRuta(posicionesRutas[params]);
 
 }
+
+
+function limpiarTabla() {
+
+    $('#filtroTiempo').off('change');
+    var cardBody = document.querySelector(".card-body.p-0");    
+    cardBody.innerHTML = '<table class="table table-hover tablaPosiciones" id="tablaPosiciones"><tbody id="bodyTablaPosiciones"></tbody></table>';
+    posicionesRutas =[];
+    filas="";
+    console.log(posicionesRutas);
+    posiciones();
+    $('#filtroTiempo').change(function() {
+        // Obtener el valor seleccionado
+        var seleccionado = $(this).val();
+        if (seleccionado!= "personalizado") {
+            limpiarTabla();
+            // alert("Seleccionado: " + seleccionado);
+        }
+       
+        // Mostrar un alerta con el valor seleccionado
+        
+
+    });
+}
+
+$(document).ready(function() {
+    $('#boton1').hide();
+    $('#boton2').hide();
+    // Seleccionar el botón por su ID
+    $('#boton3').text('Viajes');
+    $('#tituloTabla').text('Viajes');
+    $('#posicionesSelect label').text('Selecionar');
+    $('#boton3').click(function() {
+        // Cambiar la función a mostrarPosiciones()
+        limpiarTabla();
+    });
+});

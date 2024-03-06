@@ -72,12 +72,12 @@
             <div id="posicionesCard" style=" max-height: 200px; margin-top: 15px; height: 400px; display: none; ">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Posiciones</h3>
+                        <h3 class="card-title" id="tituloTabla">Posiciones</h3>
                     </div>
                     <!-- ./card-header -->
                     <div class="card-body p-0">
-                        <table class="table table-hover" id="tablaPosiciones">
-                            <tbody>
+                        <table class="table table-hover tablaPosiciones" id="tablaPosiciones">
+                            <tbody id="bodyTablaPosiciones">
 
 
                             </tbody>
@@ -86,20 +86,7 @@
                     <!-- /.card-body -->
                 </div>
             </div>
-            <div id="posicionesSelect" style="max-height: 100px; height: 100px; color: white;">
-                <div class="form-group">
-                    <label>Posiciones</label>
-                    <select id="filtroTiempo" class="custom-select">
-                        <option value="hoy">Hoy</option>
-                        <option value="ayer">Ayer</option>
-                        <option value="semana-actual">Semana Actual</option>
-                        <option value="mes-actual">Mes Actual</option>
-                        <option value="ultimos-7-dias">Últimos 7 días</option>
-                        <option value="ultimos-30-dias">Últimos 30 días</option>
-                        <option value="personalizado">Personalizado</option>
-                    </select>
-                </div>
-            </div>
+
             <div id="modal" class="modal">
                 <div class="modal-content">
                     <div class="card card-info">
@@ -137,29 +124,84 @@
                 </div>
             </div>
 
-            <div id="botones" style="max-height: 100px; margin-top: 10px; height: 100px; ">
+        </div>
+        <!-- /.sidebar-menu -->
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div id="posicionesSelect" style="max-height: 100px; height: 100px; color: white;">
+                    <div class="form-group">
+                        <label>Posiciones</label>
+                        <select id="filtroTiempo" class="custom-select">
+                            <option value="hoy">Hoy</option>
+                            <option value="ayer">Ayer</option>
+                            <option value="semana-actual">Semana Actual</option>
+                            <option value="mes-actual">Mes Actual</option>
+                            <option value="ultimos-7-dias">Últimos 7 días</option>
+                            <option value="ultimos-30-dias">Últimos 30 días</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;'>
+                        <button id="boton1" type="button" class="btn btn-block btn-primary">botn1</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;'>
+                        <button id="boton2" type="button" class="btn btn-block btn-primary">botn2</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;'>
+                        <button id="boton3" type="button" class="btn btn-block btn-primary">Boton3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-sm">
                 <div id="boton_menu" style="margin-top: 15px;">
                     <div style='margin-bottom: 5px; color: white; float: right;  text-align: right;' id="boton">
                         <button onclick='verUbicacion()' id="myUbicacion" type="button" class="btn btn-block btn-primary" style="display: none;">Localizar</button>
                     </div>
                 </div>
+            </div>
+            <div class="col-sm">
+                <div id="boton_menu" style="margin-top: 15px;">
+                    <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
+                        <button onclick='limpiarTabla()' id="limpiarTabla" type="button" class="btn btn-block btn-primary">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
                 <div id="boton_menu" style="margin-top: 15px;">
                     <div style='margin-bottom: 5px; color: white; float: right;' id="boton">
                         <button onclick='posiciones()' id="myPosiciones" type="button" class="btn btn-block btn-primary" style="display: bloc;">Posiciones</button>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
-
-
-
-
-        <!-- /.sidebar-menu -->
-    </div>
-
+    </div> -->
     <!-- /.sidebar -->
 </aside>

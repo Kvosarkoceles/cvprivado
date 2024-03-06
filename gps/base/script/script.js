@@ -546,7 +546,7 @@ function funcionUltimos7Dias() {
   dateInicial = fechaSieteDiasAntesFormateada;
   dateFinal = fechaActualFormateada;
  
-  posiciones();
+  li();
 }
 
 function funcionUltimos30Dias() {
