@@ -11,7 +11,7 @@ var filas = '';
 
 function posiciones() {
 
-// console.log(posicionesFull)
+    // console.log(posicionesFull)
 
     var resultadoFiltrado = recorrerEntreFechas(posicionesFull, dateInicial, dateFinal);
 
@@ -33,7 +33,7 @@ function posiciones() {
             velMax = calcularVelocidadMaxima(item);
             const distanciaRecorrida = calcularDistanciaRecorrida(item);
             const distancia = distanciaRecorrida.toFixed(2);
-            addTablaInfo(item[0], item[item.length - 1], velMax, distancia, item, index);    
+            addTablaInfo(item[0], item[item.length - 1], velMax, distancia, item, index);
         }
     });
 
@@ -94,14 +94,14 @@ function dibujarPolilineasRuta(datos) {
     polylines.push(polyline);
 
 
-      // Opciones de las flechas
+    // Opciones de las flechas
     //   var arrowHead = L.divIcon({
     //     className: 'arrow-icon',
     //     iconSize: [10, 10],
     //     html: '<div style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 10px solid red;"></div>'
     //   });
 
-        // Añadir flechas a la polilínea
+    // Añadir flechas a la polilínea
     // L.polylineDecorator(polyline, {
     //     patterns: [
     //       { offset: '0%', repeat: '20%', symbol: arrowHead }
@@ -118,8 +118,16 @@ function dibujarPolilineasRuta(datos) {
     // const startPoint = L.marker(datos[0]).addTo(mymap);
     // const endPoint = L.marker(datos[datos.length - 1]).addTo(mymap);
 
-    addMarkerposicionRuta(datos[0], "Inicio");
-    addMarkerposicionRuta(datos[datos.length - 1], "Fin");
+    const distancia = ((datos[datos.length - 1].distancia) - (datos[0].distancia)) / 1000;
+    console.log(distancia)
+
+    timpoInicial = datos[0].data_gps_br;
+    tiempoFinal = datos[datos.length - 1].data_gps_br;
+
+    const tiempo = ("tiempo");
+    console.log(tiempo)
+    addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia);
+    addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia);
 
 
 
@@ -214,16 +222,36 @@ function addMarkerposicion(data) {
             "<b>velocidad: </b> " + data.veloc + "<br>");
 }
 
-function addMarkerposicionRuta(data, tipo) {
+function addMarkerposicionRuta(data, tipo, distancia) {
     console.log("addMarkerposicionRuta");
     console.log(data);
+
+
     L.marker([data.latitude, data.longitude])
         .addTo(mymap)
-        .bindPopup( "<br>" +
-        "<b>"+ tipo+ "</b> "+ "<br>"+
-        
-        "<b>Fecha: </b> " + data.data_gps_br + "<br>" +
-            "<b>Distancia: </b> " + data.distancia + "<br>");
+        .bindPopup(
+            "<div style='margin-bottom: 5px; text-align: center;'>" +
+            "<span style='font-weight: bold; text-align: center;'>" +
+            tipo +
+            "</span>" +
+            "</div>" +
+
+
+
+            "<div style='margin-bottom: 5px;'>" +
+            "<span style='font-weight: bold;'>Fecha:</span> " +
+            data.data_gps_br +
+            "</div>" +
+            "<div style='margin-bottom: 5px;'>" +
+            "<span style='font-weight: bold;'>Distancia:</span> " +
+            distancia + " km" +
+            "</div>" +
+            "<div style='margin-bottom: 5px; text-align: center;'>" +
+            "<button onclick='rutaInfo()' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
+            "</div>"
+
+
+        );
 }
 // function addTableData(data) {
 //     // alert(JSON.stringify(data));
@@ -282,7 +310,7 @@ function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, rut
     }
 
     data.tiempoRecorrido = calcularTiempoRecorrido(inicial, final);
-//    console.log(data);
+    //    console.log(data);
 
     var fila =
         '<tr data-widget="expandable-table" aria-expanded="false">' +
@@ -381,18 +409,18 @@ function centrarPosicion(lat, lot) {
 
 
 
-  }
+}
 
-  function centrarMapaEnMarcador(latitud, longitud, zoom) {
+function centrarMapaEnMarcador(latitud, longitud, zoom) {
     mymap.setView([latitud, longitud], zoom);
-  }
+}
 
-  function verRuta(params) {
+function verRuta(params) {
     console.log(params);
     console.log(posicionesRutas);
     console.log(posicionesRutas[params]);
     eliminarPolilineas();
-     eliminarTodosLosMarcadores();
+    eliminarTodosLosMarcadores();
     dibujarPolilineasRuta(posicionesRutas[params]);
-    
-  }
+
+}
