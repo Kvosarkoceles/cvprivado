@@ -63,6 +63,9 @@
 
     gtag('config', 'G-NKX94EJELJ');
   </script>
+
+<!-- 
+<script src="<?php echo base_url(); ?>base/leafletjs/leaflet.polylineDecorator.js"></script> -->
 </head>
 
 <body class="hold-transition sidebar-mini">
