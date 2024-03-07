@@ -316,7 +316,7 @@ function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, rut
         '<td>Fin: '+horaFinal+'</td>' +      
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="verRuta(' + ruta + ')">' +
-        '<td>Ver Viaje</td>' +
+        '<td id="miTdBotones" style="display: flex; justify-content: space-around;"><button class="btn btn-primary" onclick="verRuta('+ruta+')"><i class="fa-solid fa-route"></i></button><button class="btn btn-secondary" onclick="funcion2()"><i class="fa-solid fa-star"></i></button><button class="btn btn-success" onclick="funcion3()"><i class="fa-solid fa-check"></i></button></td>' +
        
         '</tr>' +
         '</tbody>' +
@@ -409,6 +409,7 @@ function verRuta(params) {
 function limpiarTabla() {
 
     $('#filtroTiempo').off('change');
+    $('#miTdBotones').off('click');
     var cardBody = document.querySelector(".card-body.p-0");    
     cardBody.innerHTML = '<table class="table table-hover tablaPosiciones" id="tablaPosiciones"><tbody id="bodyTablaPosiciones"></tbody></table>';
     posicionesRutas =[];
