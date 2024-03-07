@@ -292,7 +292,10 @@ function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, rut
 
     data.tiempoRecorrido = calcularTiempoRecorrido(inicial, final);
     //    console.log(data);
-
+    var fechaOriginal = data.posicionInicial.data_gps_br;
+    var horaInicial = fechaOriginal.split(' ')[1];
+    var fechaOriginalFinal = data.posicionFinal.data_gps_br;
+    var horaFinal = fechaOriginalFinal.split(' ')[1];
     var fila =
         '<tr data-widget="expandable-table" aria-expanded="false">' +
         '<td>' +
@@ -306,16 +309,15 @@ function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, rut
         '<table class="table table-hover">' +
         '<tbody>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + data.posicionInicial.latitude + ',' + data.posicionInicial.longitude + ')">' +
-        '<td>Latitude ' + data.posicionInicial.latitude + '</td>' +
-        '<td>Longitude' + data.posicionInicial.longitude + '</td>' +
+        '<td> Inicion: '+horaInicial+'</td>' +
+        
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + data.posicionFinal.latitude + ',' + data.posicionFinal.longitude + ')">' +
-        '<td>Latitude ' + data.posicionFinal.latitude + '</td>' +
-        '<td>Longitude' + data.posicionFinal.longitude + '</td>' +
+        '<td>Fin: '+horaFinal+'</td>' +      
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="verRuta(' + ruta + ')">' +
-        '<td>Ver Ruta</td>' +
-        '<td>Ver Ruta</td>' +
+        '<td>Ver Viaje</td>' +
+       
         '</tr>' +
         '</tbody>' +
         '</table>' +
