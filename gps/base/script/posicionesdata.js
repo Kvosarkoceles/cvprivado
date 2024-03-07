@@ -6,32 +6,57 @@ var posicionesRutas = "";
 
 var filas = '';
 
-
+var eventosFull = '';
+var eventosRutas = [];
 
 
 function posiciones() {
+    // console.log("dateInicial: "+ dateInicial);
+    // console.log("dateFinal: "+ dateFinal);
+
     var resultadoFiltrado = recorrerEntreFechas(posicionesFull, dateInicial, dateFinal);
+    // console.log("posicionesFull");
+    // console.log(posicionesFull);
+    
+    eventosRutas = [];
     eliminarTodosLosMarcadores();
     eliminarPolilineas();
-    cealPosi(resultadoFiltrado);      
+ 
+
+    cealPosi(resultadoFiltrado, dateInicial, dateFinal);
     $.each(posicionesRutas, function (index, item) {
         // console.log("posicionesRutas");
         // console.log(index);
         if (item.length > 1) {
-            console.log(item.length);
+            // console.log(item.length);
             dibujarPolilineas(item)
             velMax = calcularVelocidadMaxima(item);
             const distanciaRecorrida = calcularDistanciaRecorrida(item);
             const distancia = distanciaRecorrida.toFixed(2);
             addTablaInfo(item[0], item[item.length - 1], velMax, distancia, item, index);
         }
-    });  
+    });
     $('#tablaPosiciones tbody').append(filas);
-       var informe = document.getElementById('informe');
+    var informe = document.getElementById('informe');
     informe.style.display = 'none';
 
     var posicionesCard = document.getElementById('posicionesCard');
-    posicionesCard.style.display = 'block';   
+    posicionesCard.style.display = 'block';
+
+
+    // addMarkerEvento();
+   
+    $.each(eventosRutas, function (index, item) {
+        //  console.log("Eventos Ruta:");
+        //  console.log(item);
+         addMarkerEvento(item);
+        // if (item.length > 1) {
+        //     // console.log(item.length);
+        //     console.log(item)
+        //     alert("addMarkerEvento");
+        //      addMarkerEvento(item);
+        // }
+    });
 
 }
 let polylines = [];
@@ -99,13 +124,13 @@ function dibujarPolilineasRuta(datos) {
     // const endPoint = L.marker(datos[datos.length - 1]).addTo(mymap);
 
     const distancia = ((datos[datos.length - 1].distancia) - (datos[0].distancia)) / 1000;
-    console.log(distancia)
+    // console.log(distancia)
 
     timpoInicial = datos[0].data_gps_br;
     tiempoFinal = datos[datos.length - 1].data_gps_br;
 
-    const tiempo = ("tiempo");
-    console.log(tiempo)
+    // const tiempo = ("tiempo");
+    // console.log(tiempo)
     addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia);
     addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia);
 
@@ -124,6 +149,7 @@ function dibujarPolilineasRuta(datos) {
 function recorrerEntreFechas(arreglo, fechaInicial, fechaFinal) {
     // console.log(typeof arreglo);
     // console.log(arreglo);
+  
     var resultado = [];
     var fechaInicio = new Date(fechaInicial.substring(0, 10));
     var fechaFin = new Date(fechaFinal.substring(0, 10));
@@ -132,14 +158,18 @@ function recorrerEntreFechas(arreglo, fechaInicial, fechaFinal) {
         var fechaObjeto = new Date(objeto.data_gps_br.substring(0, 10));
         var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
 
+        // console.log("limit");
         // console.log(limit);
-        //    console.log("fechaObjeto"+fechaObjeto);
-        //    console.log("fechaInicio" + fechaInicio);
-        //    console.log("fechaFin"+fechaFin);
+        // console.log("fecha Objeto" + fechaObjeto);
+        // console.log("fecha Inicio" + fechaInicio);
+        // console.log("fech Fin" + fechaFin);
 
 
-        if (fechaInicio <= fechaObjeto) {
+        if (limit) {
+            //  if (fechaObjeto  <=   fechaFin) {
             resultado.push(objeto);
+            //  }
+
             //    console.log(fechaInicio);
             // resultado.push(objeto);
         }
@@ -183,9 +213,65 @@ async function getPosiciones(date1, date2) {
 }
 
 
+async function getEventos(date1, date2) {
+    var data = {
+        ID_disp: 1970000012,
+        f1: date1,
+        f2: date2,
+        lgw_id: 133,
+        db: "awsdev",
+        dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
+
+
+    };
+
+    var url =
+        "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/index.php/wsapi/getEventsMob";
+
+    await $.ajax({
+        url: url,
+        method: "POST",
+        data: data,
+        success: function (response) {
+
+
+            eventosFull = JSON.parse(response);
+
+            // console.log("eventosFull: ", eventosFull);
+
+
+
+        },
+        error: function (xhr, status, error) {
+            console.error(status, error); // Manejar cualquier error aquí
+        },
+    });
+}
+
+
+function recorrerEventosEntreFechas(arreglo, fechaInicial, fechaFinal) {   
+   
+    var fechaInicio = new Date(fechaInicial.substring(0, 10));
+    var fechaFin = new Date(fechaFinal.substring(0, 10));
+    arreglo.forEach(function (objeto) {
+        var fechaObjeto = new Date(objeto.data_gps_br.substring(0, 10));
+        var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
+        if (limit) {          
+            if (objeto.tab === "ev") {
+                eventosRutas.push(objeto);            
+            }           
+        }
+       
+    });
+    // console.log(eventosRutas);  
+   
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     funcionUltimos30Dias();
     getPosiciones(dateInicial, dateFinal);
+    getEventos(dateInicial, dateFinal);
 });
 
 function mismaPosicion(coordenadas1, coordenadas2) {
@@ -203,8 +289,8 @@ function addMarkerposicion(data) {
 }
 
 function addMarkerposicionRuta(data, tipo, distancia) {
-    console.log("addMarkerposicionRuta");
-    console.log(data);
+    // console.log("addMarkerposicionRuta");
+    // console.log(data);
 
 
     L.marker([data.latitude, data.longitude])
@@ -233,16 +319,32 @@ function addMarkerposicionRuta(data, tipo, distancia) {
 
         );
 }
+
+function addMarkerEvento(data) {
+    // console.log("addMarkerposicionRuta");
+    // console.log(data);
+    
+    console.log("addMarkerEvento");
+    console.log(data);
+    L.marker([data.latitude, data.longitude])
+    .addTo(mymap)
+    .bindPopup("<b>Velocidad: </b> " + data.veloc + "<br>" +
+        "<b>Evento Date: </b> " + data.data_gps_br + "<br>");
+}
 // function addTableData(data) {
 //     // alert(JSON.stringify(data));
 // }
 
-function cealPosi(datos) {
+function cealPosi(datos, dateInicial, dateFinal) {
+    // console.log("datos");
+    // console.log(datos)
+    recorrerEventosEntreFechas(eventosFull.positions, dateInicial, dateFinal)
+
     let subArrays = [];
     let subArray = [];
     posicionesRutas = [];
     for (let i = 0; i < datos.length; i++) {
-        if (datos[i].ignicao === "0") {
+        if (datos[i].ignicao === "0" && datos[i].veloc !== "1") {
             if (subArray.length > 0) {
                 subArrays.push(subArray);
                 subArray = [];
@@ -258,7 +360,7 @@ function cealPosi(datos) {
 }
 
 function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, ruta) {
-   
+
 
     const data = {
         posicionInicial: {
@@ -309,15 +411,15 @@ function addTablaInfo(inicial, final, velMax, distanciaRecorrida, recorrido, rut
         '<table class="table table-hover">' +
         '<tbody>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + data.posicionInicial.latitude + ',' + data.posicionInicial.longitude + ')">' +
-        '<td> Inicion: '+horaInicial+'</td>' +
-        
+        '<td> Inicion: ' + horaInicial + '</td>' +
+
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + data.posicionFinal.latitude + ',' + data.posicionFinal.longitude + ')">' +
-        '<td>Fin: '+horaFinal+'</td>' +      
+        '<td>Fin: ' + horaFinal + '</td>' +
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false" onclick="verRuta(' + ruta + ')">' +
-        '<td id="miTdBotones" style="display: flex; justify-content: space-around;"><button class="btn btn-primary" onclick="verRuta('+ruta+')"><i class="fa-solid fa-route"></i></button><button class="btn btn-secondary" onclick="funcion2()"><i class="fa-solid fa-star"></i></button><button class="btn btn-success" onclick="funcion3()"><i class="fa-solid fa-check"></i></button></td>' +
-       
+        '<td id="miTdBotones" style="display: flex; justify-content: space-around;"><button class="btn btn-primary" onclick="verRuta(' + ruta + ')"><i class="fa-solid fa-route"></i></button><button class="btn btn-secondary" onclick="funcion2()"><i class="fa-solid fa-star"></i></button><button class="btn btn-success" onclick="funcion3()"><i class="fa-solid fa-check"></i></button></td>' +
+
         '</tr>' +
         '</tbody>' +
         '</table>' +
@@ -396,9 +498,9 @@ function centrarMapaEnMarcador(latitud, longitud, zoom) {
 }
 
 function verRuta(params) {
-    console.log(params);
-    console.log(posicionesRutas);
-    console.log(posicionesRutas[params]);
+    // console.log(params);
+    // console.log(posicionesRutas);
+    // console.log(posicionesRutas[params]);
     eliminarPolilineas();
     eliminarTodosLosMarcadores();
     dibujarPolilineasRuta(posicionesRutas[params]);
@@ -410,34 +512,35 @@ function limpiarTabla() {
 
     $('#filtroTiempo').off('change');
     $('#miTdBotones').off('click');
-    var cardBody = document.querySelector(".card-body.p-0");    
+    var cardBody = document.querySelector(".card-body.p-0");
     cardBody.innerHTML = '<table class="table table-hover tablaPosiciones" id="tablaPosiciones"><tbody id="bodyTablaPosiciones"></tbody></table>';
-    posicionesRutas =[];
-    filas="";
-    console.log(posicionesRutas);
+    posicionesRutas = [];
+    filas = "";
+    // console.log(posicionesRutas);
     posiciones();
-    $('#filtroTiempo').change(function() {
+    $('#filtroTiempo').change(function () {
         // Obtener el valor seleccionado
         var seleccionado = $(this).val();
-        if (seleccionado!= "personalizado") {
+        if (seleccionado != "personalizado") {
             limpiarTabla();
+           
             // alert("Seleccionado: " + seleccionado);
         }
-       
+
         // Mostrar un alerta con el valor seleccionado
-        
+
 
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#boton1').hide();
     $('#boton2').hide();
     // Seleccionar el botón por su ID
     $('#boton3').text('Viajes');
     $('#tituloTabla').text('Viajes');
     $('#posicionesSelect label').text('Selecionar');
-    $('#boton3').click(function() {
+    $('#boton3').click(function () {
         // Cambiar la función a mostrarPosiciones()
         limpiarTabla();
     });

@@ -386,7 +386,7 @@ function funcionAyer() {
   if (mesAyer < 10) {
     mesAyer = '0' + mesAyer;
   }
-  var fechaAyerFormateada = añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "00:00:00";
+  var fechaInicialFormateada= añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "00:00:00";
   var diaActual = fechaActual.getDate();
   var mesActual = fechaActual.getMonth() + 1; // Los meses comienzan desde 0
   var añoActual = fechaActual.getFullYear();
@@ -396,10 +396,11 @@ function funcionAyer() {
   if (mesActual < 10) {
     mesActual = '0' + mesActual;
   }
-  var fechaActualFormateada = añoActual + '-' + mesActual + '-' + diaActual + " " + "23:59:59";
-  dateInicial = fechaAyerFormateada;
-  dateFinal = fechaActualFormateada;
- 
+  var fechaFinalFormateada = añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "23:59:59";
+  dateInicial = fechaInicialFormateada;
+  dateFinal = fechaFinalFormateada;
+//  console.log("fechaActualFormateada "  + dateInicial)
+//  console.log("fechaAyerFormateada " + dateFinal)
 }
 
 function funcionSemanaActual() {
