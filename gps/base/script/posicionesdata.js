@@ -8,20 +8,23 @@ var filas = '';
 
 var eventosFull = '';
 var eventosRutas = [];
+var eventosPosicionesFull = [];
+
 
 
 function posiciones() {
     // console.log("dateInicial: "+ dateInicial);
     // console.log("dateFinal: "+ dateFinal);
 
-    var resultadoFiltrado = recorrerEntreFechas(posicionesFull, dateInicial, dateFinal);
+    var resultadoFiltrado = recorrerEntreFechas(eventosPosicionesFull, dateInicial, dateFinal);
     // console.log("posicionesFull");
     // console.log(posicionesFull);
-    
+
     eventosRutas = [];
     eliminarTodosLosMarcadores();
     eliminarPolilineas();
- 
+    //Unir arrelos y ordenar
+
 
     cealPosi(resultadoFiltrado, dateInicial, dateFinal);
     $.each(posicionesRutas, function (index, item) {
@@ -45,11 +48,11 @@ function posiciones() {
 
 
     // addMarkerEvento();
-   
+
     $.each(eventosRutas, function (index, item) {
         //  console.log("Eventos Ruta:");
         //  console.log(item);
-         addMarkerEvento(item);
+        addMarkerEvento(item);
         // if (item.length > 1) {
         //     // console.log(item.length);
         //     console.log(item)
@@ -57,6 +60,9 @@ function posiciones() {
         //      addMarkerEvento(item);
         // }
     });
+
+
+
 
 }
 let polylines = [];
@@ -149,7 +155,7 @@ function dibujarPolilineasRuta(datos) {
 function recorrerEntreFechas(arreglo, fechaInicial, fechaFinal) {
     // console.log(typeof arreglo);
     // console.log(arreglo);
-  
+
     var resultado = [];
     var fechaInicio = new Date(fechaInicial.substring(0, 10));
     var fechaFin = new Date(fechaFinal.substring(0, 10));
@@ -202,14 +208,26 @@ async function getPosiciones(date1, date2) {
             posicionesFull = JSON.parse(response);
 
             // console.log("posicionesFull: ", posicionesFull);
+            // console.log("eventosFull: ", eventosFull);
+            // console.log("posicionesFull: ", posicionesFull);
+            eventosPosicionesFull = posicionesFull;
+            eventosFull.positions.forEach(function (objeto) {
+                //   console.log(objeto)
+                if (objeto.tab === "ev") {
+                    eventosPosicionesFull.push(objeto);
+                }
 
 
-
+            });
+            // console.log("eventosPosicionesFull")
+            // console.log(eventosPosicionesFull)
+            odenarEventosPosiciones();
         },
         error: function (xhr, status, error) {
             console.error(status, error); // Manejar cualquier error aquí
         },
     });
+
 }
 
 
@@ -237,8 +255,8 @@ async function getEventos(date1, date2) {
 
             eventosFull = JSON.parse(response);
 
-            // console.log("eventosFull: ", eventosFull);
-
+            // console.log("eventosFull: ", eventosFull.positions);
+            //    console.log("posicionesFull: ", posicionesFull);
 
 
         },
@@ -249,22 +267,22 @@ async function getEventos(date1, date2) {
 }
 
 
-function recorrerEventosEntreFechas(arreglo, fechaInicial, fechaFinal) {   
-   
+function recorrerEventosEntreFechas(arreglo, fechaInicial, fechaFinal) {
+
     var fechaInicio = new Date(fechaInicial.substring(0, 10));
     var fechaFin = new Date(fechaFinal.substring(0, 10));
     arreglo.forEach(function (objeto) {
         var fechaObjeto = new Date(objeto.data_gps_br.substring(0, 10));
         var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
-        if (limit) {          
+        if (limit) {
             if (objeto.tab === "ev") {
-                eventosRutas.push(objeto);            
-            }           
+                eventosRutas.push(objeto);
+            }
         }
-       
+
     });
     // console.log(eventosRutas);  
-   
+
 }
 
 
@@ -272,6 +290,11 @@ document.addEventListener('DOMContentLoaded', function () {
     funcionUltimos30Dias();
     getPosiciones(dateInicial, dateFinal);
     getEventos(dateInicial, dateFinal);
+    // console.log("Eventos y Posiciones");
+    // console.log(dateInicial);
+    // console.log(dateFinal);
+    // console.log(posicionesFull)
+
 });
 
 function mismaPosicion(coordenadas1, coordenadas2) {
@@ -323,28 +346,28 @@ function addMarkerposicionRuta(data, tipo, distancia) {
 function addMarkerEvento(data) {
     // console.log("addMarkerposicionRuta");
     // console.log(data);
-    
-    console.log("addMarkerEvento");
-    console.log(data);
+
+    // console.log("addMarkerEvento");
+    // console.log(data);
     L.marker([data.latitude, data.longitude])
-    .addTo(mymap)
-    .bindPopup("<b>Velocidad: </b> " + data.veloc + "<br>" +
-        "<b>Evento Date: </b> " + data.data_gps_br + "<br>");
+        .addTo(mymap)
+        .bindPopup("<b>Velocidad: </b> " + data.veloc + "<br>" +
+            "<b>Evento Date: </b> " + data.data_gps_br + "<br>");
 }
 // function addTableData(data) {
 //     // alert(JSON.stringify(data));
 // }
 
 function cealPosi(datos, dateInicial, dateFinal) {
-    // console.log("datos");
-    // console.log(datos)
+    //  console.log("datos");
+    //  console.log(datos)
     recorrerEventosEntreFechas(eventosFull.positions, dateInicial, dateFinal)
 
     let subArrays = [];
     let subArray = [];
     posicionesRutas = [];
     for (let i = 0; i < datos.length; i++) {
-        if (datos[i].ignicao === "0" && datos[i].veloc !== "1") {
+        if (datos[i].tab === "ev") {
             if (subArray.length > 0) {
                 subArrays.push(subArray);
                 subArray = [];
@@ -356,6 +379,7 @@ function cealPosi(datos, dateInicial, dateFinal) {
         subArrays.push(subArray);
     }
     posicionesRutas = subArrays;
+    // console.log("posicionesRutas");
     // console.log(posicionesRutas);
 }
 
@@ -523,7 +547,7 @@ function limpiarTabla() {
         var seleccionado = $(this).val();
         if (seleccionado != "personalizado") {
             limpiarTabla();
-           
+
             // alert("Seleccionado: " + seleccionado);
         }
 
@@ -545,3 +569,28 @@ $(document).ready(function () {
         limpiarTabla();
     });
 });
+
+function odenarEventosPosiciones() {
+
+    // console.log("eventosPosicionesFull");
+    // console.log(eventosPosicionesFull);
+    // alert("ordenar array");
+    eventosPosicionesFull.sort(compararPorFecha);
+    // console.log(eventosPosicionesFull);
+}
+
+// Función de comparación
+function compararPorFecha(a, b) {
+    // Convierte las fechas a objetos Date para comparar
+    var fechaA = new Date(a.data_gps_br);
+    var fechaB = new Date(b.data_gps_br);
+    
+    // Compara las fechas y devuelve el resultado de la comparación
+    if (fechaA < fechaB) {
+        return -1;
+    }
+    if (fechaA > fechaB) {
+        return 1;
+    }
+    return 0;
+}
