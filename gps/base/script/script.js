@@ -225,7 +225,7 @@ function start() {
   $('#informe').show();
   $('#boton1').hide();
 
-  
+
   $.ajax({
     url: url,
     method: "POST",
@@ -263,6 +263,7 @@ function localizar() {
   $('#posicionesCard').hide();
   $('#boton1').hide();
   $('#informe').show();
+  eliminarPolilineas();
   start();
   intervalID = setInterval(start, 10000);
 }
