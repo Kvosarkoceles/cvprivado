@@ -15,6 +15,9 @@ var eventosPosicionesFull = [];
 function posiciones() {
     // console.log("dateInicial: "+ dateInicial);
     // console.log("dateFinal: "+ dateFinal);
+    
+     clearTimeout(intervalID);
+    console.log(intervalID);
 
     var resultadoFiltrado = recorrerEntreFechas(eventosPosicionesFull, dateInicial, dateFinal);
     // console.log("posicionesFull");
@@ -40,8 +43,8 @@ function posiciones() {
         }
     });
     $('#tablaPosiciones tbody').append(filas);
-    var informe = document.getElementById('informe');
-    informe.style.display = 'none';
+    var informePosiciones= document.getElementById('informe');
+    informePosiciones.style.display = 'none';
 
     var posicionesCard = document.getElementById('posicionesCard');
     posicionesCard.style.display = 'block';
@@ -534,6 +537,8 @@ function verRuta(params) {
 
 function limpiarTabla() {
 
+    $('#boton1').show();
+  
     $('#filtroTiempo').off('change');
     $('#miTdBotones').off('click');
     var cardBody = document.querySelector(".card-body.p-0");
@@ -558,7 +563,8 @@ function limpiarTabla() {
 }
 
 $(document).ready(function () {
-    $('#boton1').hide();
+
+    $('#boton1').text('Localizar');
     $('#boton2').hide();
     // Seleccionar el botón por su ID
     $('#boton3').text('Viajes');
@@ -567,6 +573,13 @@ $(document).ready(function () {
     $('#boton3').click(function () {
         // Cambiar la función a mostrarPosiciones()
         limpiarTabla();
+    });
+
+
+    $('#boton1').click(function () {
+
+        // Cambiar la función a mostrarPosiciones()
+        localizar();
     });
 });
 

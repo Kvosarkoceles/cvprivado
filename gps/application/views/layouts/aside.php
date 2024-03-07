@@ -9,7 +9,7 @@
     <div class="sidebar">
 
         <div style="height: 400px; max-height: 400px;" id="Areainformes">
-            <div id="informe" style="height: 400px; display: bloc;">
+            <div id="informe" style="height: 400px;">
                 <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                     <span style='font-weight: bold;' id="label"></span>
                 </div>
@@ -69,7 +69,7 @@
                     </table>
                 </div>
             </div>
-            <div id="posicionesCard" style=" max-height: 200px; margin-top: 15px; height: 400px; display: none; ">
+            <div id="posicionesCard" style=" max-height: 200px; margin-top: 15px; height: 400px;">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title" id="tituloTabla">Posiciones</h3>

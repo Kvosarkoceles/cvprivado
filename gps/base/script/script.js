@@ -25,6 +25,7 @@ var velocidad = "";
 var dataVeiculo;
 
 informacion();
+intervalID = setInterval(start, 10000);
 
 
 async function informacion() {
@@ -216,14 +217,15 @@ async function informacion() {
 }
 
 function start() {
-  // alert("datosVehiculos");
-  var posicionesCard = document.getElementById('posicionesCard');
 
-  // Mostrar el botón
-  posicionesCard.style.display = 'none';
 
   eliminarTodosLosMarcadores();
 
+  $('#posicionesCard').hide();
+  $('#informe').show();
+  $('#boton1').hide();
+
+  
   $.ajax({
     url: url,
     method: "POST",
@@ -255,6 +257,15 @@ function start() {
   });
 }
 
+function localizar() {
+  console.log("Localizar")
+  
+  $('#posicionesCard').hide();
+  $('#boton1').hide();
+  $('#informe').show();
+  start();
+  intervalID = setInterval(start, 10000);
+}
 
 function eliminarTodosLosMarcadores() {
   mymap.eachLayer(function (layer) {
@@ -374,7 +385,7 @@ function funcionHoy() {
 }
 
 function funcionAyer() {
-   var fechaActual = new Date();
+  var fechaActual = new Date();
   var fechaAyer = new Date(fechaActual);
   fechaAyer.setDate(fechaActual.getDate() - 1);
   var diaAyer = fechaAyer.getDate();
@@ -386,7 +397,7 @@ function funcionAyer() {
   if (mesAyer < 10) {
     mesAyer = '0' + mesAyer;
   }
-  var fechaInicialFormateada= añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "00:00:00";
+  var fechaInicialFormateada = añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "00:00:00";
   var diaActual = fechaActual.getDate();
   var mesActual = fechaActual.getMonth() + 1; // Los meses comienzan desde 0
   var añoActual = fechaActual.getFullYear();
@@ -399,8 +410,8 @@ function funcionAyer() {
   var fechaFinalFormateada = añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "23:59:59";
   dateInicial = fechaInicialFormateada;
   dateFinal = fechaFinalFormateada;
-//  console.log("fechaActualFormateada "  + dateInicial)
-//  console.log("fechaAyerFormateada " + dateFinal)
+  //  console.log("fechaActualFormateada "  + dateInicial)
+  //  console.log("fechaAyerFormateada " + dateFinal)
 }
 
 function funcionSemanaActual() {
@@ -497,8 +508,8 @@ function funcionMesActual() {
   // Imprimir las fechas
   dateInicial = fechaInicioMesFormateada;
   dateFinal = fechaActualFormateada;
-  
-  
+
+
 }
 
 function funcionUltimos7Dias() {
@@ -546,7 +557,7 @@ function funcionUltimos7Dias() {
 
   dateInicial = fechaSieteDiasAntesFormateada;
   dateFinal = fechaActualFormateada;
- 
+
   li();
 }
 
@@ -606,6 +617,7 @@ function funcionPersonalizado() {
   // fechasFormulario.style.display = 'bloc';
   abrirModal();
   console.log("Personalizado seleccionado");
+
 }
 
 
