@@ -151,21 +151,21 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col">
                 <div style="margin-top: 15px;">
                     <div style='margin-bottom: 5px; color: white; float: right;'>
                         <button id="boton1" type="button" class="btn btn-block btn-primary">botn1</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col">
                 <div style="margin-top: 15px;">
                     <div style='margin-bottom: 5px; color: white; float: right;'>
                         <button id="boton2" type="button" class="btn btn-block btn-primary">botn2</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col">
                 <div style="margin-top: 15px;">
                     <div style='margin-bottom: 5px; color: white; float: right;'>
                         <button id="boton3" type="button" class="btn btn-block btn-primary">Boton3</button>

@@ -23,7 +23,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', { foo: '
 // alert(datosVehiculos);
 var velocidad = "";
 var dataVeiculo;
-
+var UltimaPosiciónDia = "";
 informacion();
 intervalID = setInterval(start, 10000);
 
@@ -247,19 +247,72 @@ function start() {
 
       $('#detenido').text(dataVeiculo.detenido);
       $('#movimiento').text(dataVeiculo.movimiento);
+      // console.log(UltimaPosiciónDia);
 
-      addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo);
+      addMarker(objeto[1].latitude, objeto[1].longitude, dataVeiculo,UltimaPosiciónDia);
       centrarMapaEnMarcador(objeto[1].latitude, objeto[1].longitude, 15);
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
     },
   });
+
+
+  ultimaPosicion();
 }
 
+async function ultimaPosicion() {
+  // alert("dateInicial "+dateInicial);
+  // alert("dateFinal "+dateFinal)
+
+  var data = {
+    ID_disp: 1970000012,
+    f1: dateInicial,
+    f2: dateFinal,
+    lgw_id: 133,
+    db: "awsdev",
+    dbip: "imovit.cx0btphnat72.us-east-1.rds.amazonaws.com",
+
+
+  };
+
+  var url =
+    "https://awsdev.imovit.net/plataforma/DeviceTrackerWS/wsapi/getPositionsFast";
+
+  await $.ajax({
+    url: url,
+    method: "POST",
+    data: data,
+    success: function (response) {
+      var objeto = JSON.parse(response);
+
+      // console.log(objeto[objeto.length - 1])
+      UltimaPosiciónDia = objeto[objeto.length - 1];
+      // console.log("posicionesFull: ", posicionesFull);
+      // console.log("eventosFull: ", eventosFull);
+      // console.log("posicionesFull: ", posicionesFull);
+      // eventosPosicionesFull = posicionesFull;
+      // eventosFull.positions.forEach(function (objeto) {
+      //     //   console.log(objeto)
+      //     if (objeto.tab === "ev") {
+      //         eventosPosicionesFull.push(objeto);
+      //     }
+
+
+      // });
+      // console.log("eventosPosicionesFull")
+      // console.log(eventosPosicionesFull)
+      // odenarEventosPosiciones();
+    },
+    error: function (xhr, status, error) {
+      console.error(status, error); // Manejar cualquier error aquí
+    },
+  });
+
+}
 function localizar() {
-  console.log("Localizar")
-  
+  // console.log("Localizar")
+
   $('#posicionesCard').hide();
   $('#boton1').hide();
   $('#informe').show();
@@ -277,7 +330,8 @@ function eliminarTodosLosMarcadores() {
 }
 
 
-function addMarker(latitude, longitude, dataVeiculo) {
+function addMarker(latitude, longitude, dataVeiculo,Ultima) {
+  // alert(Ultima);
   var myIcon = L.icon({
     iconUrl: "546.svg",
     shadowUrl: "marker-shadow.png",
@@ -300,8 +354,12 @@ function addMarker(latitude, longitude, dataVeiculo) {
       "<span style='font-weight: bold;'>Velocidad:</span> " +
       dataVeiculo.velocidad +
       "</div>" +
+      "<div style='margin-bottom: 5px;'>" +
+      "<span style='font-weight: bold;'>Bateria:</span> " +
+      Ultima.tensao +
+      "</div>" +
       "<div style='margin-bottom: 5px; text-align: center;'>" +
-      "<button onclick='posicionesDate()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
+      "<button onclick='limpiarTabla()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
       "</div>"
 
     );
