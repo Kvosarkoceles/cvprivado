@@ -162,6 +162,7 @@
   <script src="<?php echo base_url(); ?>base/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <script src="<?php echo base_url(); ?>base/script/datos/informacion.js"></script>
   <script src="<?php echo base_url(); ?>base/script/datos/procesdata.js"></script>
+  <script src="<?php echo base_url(); ?>base/script/tracking/mapa.js"></script>
 </body>
 
 </html>
