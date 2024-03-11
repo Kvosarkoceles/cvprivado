@@ -31,12 +31,13 @@ class Prueba extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('/prueba/ejemplouno');
+		$this->load->view('/prueba/ejemplodos');
 	
 	}
 	public function dos()
 	{
-		$this->load->view('/prueba/ejemplodos');
+		$this->load->view('/prueba/ejemplouno');
+		
 	
 	}
 

@@ -31,16 +31,10 @@ class Rastreo extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('/layouts/header');
-		$this->load->view('/layouts/aside');
-		$this->load->view('/layouts/mapa');
-		$this->load->view('/layouts/footer');
+		$this->load->view('/rastreo/layouts/header');
+		$this->load->view('/rastreo/layouts/aside');
+		$this->load->view('/rastreo/mapa');
+		$this->load->view('/rastreo/layouts/footer');
 	}
-	public function init()
-	{
-		$this->load->view('/layouts/header');
-		$this->load->view('/layouts/aside');
-		$this->load->view('/layouts/mapa');
-		$this->load->view('/layouts/footer');
-	}
+	
 }

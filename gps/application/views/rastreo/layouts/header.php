@@ -1,10 +1,11 @@
-<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MOTO-GPS | Moto</title>
+  <!-- Axiox -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- iconos -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- modal -->
@@ -70,8 +71,62 @@
 <script src="<?php echo base_url(); ?>base/leafletjs/leaflet.polylineDecorator.js"></script> -->
 </head>
 
+<script>
+  // Función para activar la animación
+  function iniciarRotacion() {
+    $('#wrapper').hide();
+  }
+
+  // Función para detener la animación
+  function detenerRotacion() {
+        $('#wrapper').show();
+        $('#animated-div').hide();
+        
+ 
+    // document.body.classList.remove('rotating');
+  }
+
+  // Llamar a la función para iniciar la rotación
+
+
+  // Llamar a la función para detener la rotación después de 5 segundos (por ejemplo)
+  
+</script>
+<style>
+    /* Definición de la animación */
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Estilo del div con animación */
+    .animated-div {
+      width: 200px;
+      height: 200px;
+      background-color: #00b8de;
+      color: white;
+      padding: 20px;
+      animation: rotate 3s linear infinite; /* Cambia la duración y el estilo según lo necesites */
+      /* Centrar el div */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* Hacer el div circular */
+      border-radius: 50%;
+    }
+  </style>
+
 <body class="hold-transition sidebar-mini">
-  <div class="wrapper">
+<div class="animated-div">
+   espere ...
+  </div>
+
+  <div class="wrapper" id="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->

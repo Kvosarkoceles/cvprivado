@@ -8,8 +8,8 @@
     <!-- Sidebar -->
     <div class="sidebar">
 
-        <div style="height: 400px; max-height: 400px;" id="Areainformes">
-            <div id="informe" style="height: 400px;">
+        <div style="height: 350px; max-height: 350px;" id="Areainformes">
+            <div id="informe" style="height: 350px;">
                 <div style='margin-bottom: 5px; margin-top: 15px; text-align: center; color: white;'>
                     <span style='font-weight: bold;' id="label"></span>
                 </div>
@@ -119,6 +119,56 @@
                             </div>
                             <!-- /.card-footer -->
                         </form>
+                    </div>
+                    <!-- <button class="close-button">Cerrar</button> -->
+                </div>
+            </div>
+
+            <div id="modalRutas" class="modal">
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Viajes</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Inicio</th>
+                                        <th>Fin</th>
+                                        <th>Distancia</th>
+                                        <th>Tiempo</th>
+                                        <th>Velocidad Maxima</th>
+                                        <th># Eventos</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>183</td>
+                                        <td>John Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="tag tag-success">Approved</span></td>
+                                        <td>Bacon.</td>
+                                        <td>Bacon.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
                     <!-- <button class="close-button">Cerrar</button> -->
                 </div>

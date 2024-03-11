@@ -162,8 +162,8 @@
   <script src="<?php echo base_url(); ?>base/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 
-  <script src="<?php echo base_url(); ?>base/script/script.js"></script>
-  <script src="<?php echo base_url(); ?>base/script/posicionesdata.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>base/script/script.js"></script>
+  <script src="<?php echo base_url(); ?>base/script/posicionesdata.js"></script> -->
 </body>
 
 </html>

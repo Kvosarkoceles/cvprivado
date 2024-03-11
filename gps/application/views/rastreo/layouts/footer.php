@@ -163,6 +163,8 @@
   <script src="<?php echo base_url(); ?>base/script/datos/informacion.js"></script>
   <script src="<?php echo base_url(); ?>base/script/datos/procesdata.js"></script>
   <script src="<?php echo base_url(); ?>base/script/tracking/mapa.js"></script>
+  <script src="<?php echo base_url(); ?>base/script/datos/viajes.js"></script>
+  <script src="<?php echo base_url(); ?>base/script/datos/mapa.js"></script>
 </body>
 
 </html>

@@ -2,23 +2,116 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log("Procesa informacion la informacion");
-  // init()
+  const selectElement = document.getElementById('filtroTiempo');
+  function observar() {
+    const selectedValue = selectElement.value;
+    console.log(selectedValue);
+  }
+  selectElement.addEventListener('change', observar);
+  
+  
 });
 
 // function init() {
 
 // }
+var dataTemp = {
+  posiciones: [],
+  eventos: [],
+  informacionMoto: {
+    PlacaVeic: "",
+    evento: "",
+    evento_id: "",
+    ignicao: "",
+    latitude: "",
+    longitude: "",
+    origen: "",
+    veic_rotulo: "",
+    ultimaPosicion: "",
+    data_gps_br: "",
+  },
+  igniciones: [],
+  cars: [],
+  dateInicion: "",
+  dateFin: "",
+  viajes: []
+}
 
+function filtarViajes(fechas, fechaInicial, fechaFinal) {
+
+
+  // Convertir las fechas inicial y final a objetos Date
+  var fechaInicialObjeto = new Date(fechaInicial);
+  var fechaFinalObjeto = new Date(fechaFinal);
+
+  // Array para almacenar las fechas entre la fecha inicial y final
+  var fechasFiltradas = [];
+
+  // Recorrer el array de fechas
+  for (var i = 0; i < fechas.length; i++) {
+    // Convertir la fecha del array a un objeto Date
+    var fecha = new Date(fechas[i]);
+    // console.log(fecha)
+    // Verificar si la fecha está entre la fecha inicial y final
+    if (fecha >= fechaInicialObjeto && fecha <= fechaFinalObjeto) {
+      // Agregar la fecha al array de fechas filtradas
+      fechasFiltradas.push(fechas[i]);
+    }
+  }
+
+  return fechasFiltradas;
+}
+function filtraData(data, Inicion, Fin) {
+  objeto = recorrerEntreFechas(data, Inicion, Fin);
+  return objeto;
+}
+
+function recorrerEntreFechas(arreglo, fechaInicial, fechaFinal) {
+  var resultado = [];
+  var fechaInicio = new Date(fechaInicial.substring(0, 10));
+  var fechaFin = new Date(fechaFinal.substring(0, 10));
+
+  arreglo.forEach(function (objeto) {
+    var fechaObjeto = new Date(objeto.data_gps_br.substring(0, 10));
+    var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
+
+    if (limit) {
+      resultado.push(objeto);
+
+    }
+  });
+  return resultado;
+}
+function recorrerEntrehoras(arreglo, fechaInicial, fechaFinal) {
+  var resultado = [];
+  var fechaInicio = new Date(fechaInicial);
+  var fechaFin = new Date(fechaFinal);
+
+  arreglo.forEach(function (objeto) {
+    var fechaObjeto = new Date(objeto.data_gps_br);
+    var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
+
+    if (limit) {
+      resultado.push(objeto);
+
+    }
+  });
+  return resultado;
+}
 function ultimaPosicion(data1, data2) {
 
-  var fecha1 = new Date(data1.data_gps_br);
-    var fecha2 = new Date(data2.data_gps_br);
 
-    if (fecha1 > fecha2) {
-        return data1;
-    } else {
-        return data2;
-    }
+  // console.log(data1.data_gps_br)
+  // console.log(data2.data_gps_br)
+
+  var fecha1 = new Date(data1.data_gps_br);
+  var fecha2 = new Date(data2.data_gps_br);
+
+  if (fecha1 > fecha2) {
+    return data1;
+  } else {
+    return data2;
+  }
 }
 
 function funcionHoy() {
@@ -44,9 +137,14 @@ function funcionHoy() {
   var fechaActualFormateada = año + '-' + mes + '-' + dia + " " + "00:00:00";
   var fechaActualFormateada2 = año + '-' + mes + '-' + dia + " " + "23:59:59";
   // Imprimir la fecha actual
-  dateInicial = fechaActualFormateada;
-  dateFinal = fechaActualFormateada2;
-  // alert("De: " + dateInicial + "  A: " + dateFinal);
+
+  dataInfo.dateInicion = fechaActualFormateada;
+  dataInfo.dateFin = fechaActualFormateada2;
+
+  console.log("hoy");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+
+
 }
 
 function funcionAyer() {
@@ -73,13 +171,17 @@ function funcionAyer() {
     mesActual = '0' + mesActual;
   }
   var fechaFinalFormateada = añoAyer + '-' + mesAyer + '-' + diaAyer + " " + "23:59:59";
-  dateInicial = fechaInicialFormateada;
-  dateFinal = fechaFinalFormateada;
+  dataInfo.dateInicion = fechaInicialFormateada;
+  dataInfo.dateFin = fechaFinalFormateada;
   //  console.log("fechaActualFormateada "  + dateInicial)
   //  console.log("fechaAyerFormateada " + dateFinal)
+  console.log("Ayer: ");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+
 }
 
 function funcionSemanaActual() {
+
   // Obtener la fecha actual
   var fechaActual = new Date();
 
@@ -126,8 +228,11 @@ function funcionSemanaActual() {
   var fechaActualFormateada = añoActual + '-' + mesActual + '-' + diaActual + " " + "23:59:59";
 
   // Imprimir las fechas
-  dateInicial = fechaInicioSemanaFormateada;
-  dateFinal = fechaActualFormateada;
+  dataInfo.dateInicion = fechaInicioSemanaFormateada;
+  dataInfo.dateFin = fechaActualFormateada;
+
+  console.log("Semana Actual");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin)
 
 }
 
@@ -171,9 +276,12 @@ function funcionMesActual() {
   var fechaActualFormateada = añoActual + '-' + mesActual + '-' + diaActual + " " + "23:59:59";
 
   // Imprimir las fechas
-  dateInicial = fechaInicioMesFormateada;
-  dateFinal = fechaActualFormateada;
+  dataInfo.dateInicion = fechaInicioMesFormateada;
+  dataInfo.dateFin = fechaActualFormateada;
 
+
+  console.log("Mes Actual");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin)
 
 }
 
@@ -220,10 +328,14 @@ function funcionUltimos7Dias() {
 
   // Imprimir las fechas
 
-  dateInicial = fechaSieteDiasAntesFormateada;
-  dateFinal = fechaActualFormateada;
+  dataInfo.dateInicion = fechaSieteDiasAntesFormateada;
+  dataInfo.dateFin = fechaActualFormateada;
 
-  li();
+  console.log("ultimos 7 dias");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin)
+
+
+
 }
 
 function funcionUltimos30Dias() {
@@ -273,6 +385,11 @@ function funcionUltimos30Dias() {
   dataInfo.dateFin = fechaActualFormateada;
 
 
+
+  console.log("ultimos 30 dias");
+  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin)
+
+
 }
 
 function funcionUltimos100Dias() {
@@ -314,7 +431,7 @@ function funcionUltimos100Dias() {
   }
 
   // Formatear la fecha actual como texto
- var fechaActualFormateada = añoActual + '-' + mesActual + '-' + diaActual + " " + "23:59:59";
+  var fechaActualFormateada = añoActual + '-' + mesActual + '-' + diaActual + " " + "23:59:59";
 
   // Imprimir las fechas
 
@@ -323,3 +440,5 @@ function funcionUltimos100Dias() {
 
 
 }
+
+

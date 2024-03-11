@@ -357,6 +357,8 @@ function addMarkerEvento(data) {
         .bindPopup("<b>Velocidad: </b> " + data.veloc + "<br>" +
             "<b>Evento Date: </b> " + data.data_gps_br + "<br>");
 }
+
+
 // function addTableData(data) {
 //     // alert(JSON.stringify(data));
 // }
@@ -523,6 +525,7 @@ function centrarPosicion(lat, lot) {
 function centrarMapaEnMarcador(latitud, longitud, zoom) {
     mymap.setView([latitud, longitud], zoom);
 }
+
 
 function verRuta(params) {
     // console.log(params);
