@@ -131,7 +131,6 @@ function centrarPosicion(lat, lot) {
     centrarMapaEnMarcador(lat, lot, 17);
 }
 
-
 function addMarker(latitude, longitude,Popup) {   
     L.marker([latitude, longitude])
     .addTo(mymap)

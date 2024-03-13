@@ -5,7 +5,13 @@
  */
 async function viajes() {
     await getData();
+    // Obtener el select
+    var filtroTiempoSelect = document.getElementById("filtroTiempo");
 
+    // Llamar a la función viajes cuando cambie el valor del select
+    filtroTiempoSelect.addEventListener("change", viajes);
+
+    ;
 
 }
 var filas = "";
@@ -80,12 +86,19 @@ function obtenerFechas(arrayFechas, fechaInicio, fechaFin) {
  */
 async function muestraViajes() {
     limpiarTabla()
+    // $('#boton3').hide();
     dataTemp.viajes.rutas = [];
-    $('#boton1').text('Localizar');
-    $('#boton1').show();
-    $('#boton1').click(function () {
-        localizar();
-    });
+//    $('#boton3').text('Localizar');
+    
+    // var boton3 = document.getElementById("boton3");
+  
+    // boton3.removeEventListener("change", viajes);
+
+
+    // $('#boton3').click(function () {
+    //     localizar();
+    // });
+    // $('#boton3').hide();
     $('#informe').hide();
     $('#posicionesCard').show();
 
@@ -315,9 +328,13 @@ async function verDireccio(a, b, c) {
 
 function localizar() {
     // console.log("Localizar")
+    var filtroTiempoSelect = document.getElementById("filtroTiempo");
+  
+    filtroTiempoSelect.removeEventListener("change", viajes);
+
 
     $('#posicionesCard').hide();
-    $('#boton1').hide();
+    // $('#boton1').hide();
     $('#informe').show();
     eliminarPolilineas();
     eliminarTodosLosMarcadores();

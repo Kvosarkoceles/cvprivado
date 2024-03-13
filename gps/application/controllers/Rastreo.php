@@ -39,8 +39,20 @@ class Rastreo extends CI_Controller
 
 	public function report()
 	{
-	
-		$this->load->view('/rastreo/tabla');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/header');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/aside');
+		$this->load->view('/rastreo/layouts/dasboard/tabla');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/footer');
+		
+	}
+
+	public function mapa()
+	{
+		$this->load->view('/rastreo/layouts/dasboard/layouts/header');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/aside');
+		$this->load->view('/rastreo/layouts/dasboard/mapa');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/footer');
+
 		
 	}
 	

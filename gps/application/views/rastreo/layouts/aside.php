@@ -186,56 +186,6 @@
                 </div>
                 <!-- /.modal-dialog -->
             </div>
-
-            <!-- <div id="modalRutaCompleta" class="modal">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Viajes</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick='cerrarModalRutaCompleta()'>
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped" id="tabla-datos">
-                                    <thead>
-                                        <tr>
-                                            <th>Fecha de Inicio:</th>
-                                            <th>Fecha de Finalizacion:</th>
-                                            <th>Direcion Inicial</th>
-                                            <th>Direcion Final</th>
-                                            <th>Distancia Recorrida:</th>
-                                            <th>Tiempo de Viaje:</th>
-                                            <th>Velocidad Maxima:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button onclick='cerrarModalRutaCompleta()' type="button" class="btn btn-default float-right">Cerrar</button>
-                        </div>
-                    </div>
-                  
-                </div>
-             
-            </div> -->
-
-
-
-
         </div>
         <!-- /.sidebar-menu -->
     </div>
