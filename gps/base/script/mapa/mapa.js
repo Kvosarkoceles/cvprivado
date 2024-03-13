@@ -19,11 +19,11 @@ function dibujarPolilineasRuta(datos, tipo) {
         timpoInicial = datos[0].data_gps_br;
         tiempoFinal = datos[datos.length - 1].data_gps_br;
         if (tipo !=0) {
-            alert("es ruta completa")
+            // alert("es ruta completa")
             addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,0);
             addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,0);
         } else {
-            alert("es ruta")
+            // alert("es ruta")
             addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,1);
             addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,1);
         }

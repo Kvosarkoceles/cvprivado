@@ -170,3 +170,42 @@
       </ul>
     </nav>
     <!-- /.navbar -->
+
+
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="card card-info">
+        <div class="card-header" style="text-align: center;">
+          <h3 class="card-title">Posiciones</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-4 col-form-label">Fecha Inicial</label>
+              <div class="col-sm-8">
+                <input type="datetime-local" value="2024-07-23T11:00" min="2024-03-23T11:00" max="2024-11-23T11:00" step="3600">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-4 col-form-label">Fecha Final</label>
+              <div class="col-sm-8">
+                <input type="datetime-local" value="2024-07-23T11:00" min="2024-03-23T11:00" max="2024-11-23T11:00" step="3600">
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <!-- <button onclick='cerrarModal()' id="cerrar" type="button" class="btn btn-block btn-primary">cerrar</button> -->
+            <button onclick='enviarPosiciones()' type="button" class="btn btn-info">Sign in</button>
+            <button onclick='cerrarModal()' type="button" class="btn btn-default float-right">Cancel</button>
+          </div>
+          <!-- /.card-footer -->
+        </form>
+      </div>
+      <!-- <button class="close-button">Cerrar</button> -->
+    </div>
+  </div>

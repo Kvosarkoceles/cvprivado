@@ -54,7 +54,7 @@
 <script src="<?php echo base_url(); ?>base/script/mapa/informacion.js"></script>
 <script src="<?php echo base_url(); ?>base/script/mapa/procesdata.js"></script>
 <script src="<?php echo base_url(); ?>base/script/mapa/mapa.js"></script>
-<script src="<?php echo base_url(); ?>base/script/datos/viajes.js"></script>
+<script src="<?php echo base_url(); ?>base/script/mapa/viajes.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="<?php echo base_url(); ?>base/dist/js/pages/dashboard2.js"></script> -->
 <!-- <script src="<?php echo base_url(); ?>base/dist/js/pages/dashboard2.js"></script> -->

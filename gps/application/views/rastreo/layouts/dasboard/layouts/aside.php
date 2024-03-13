@@ -70,7 +70,7 @@
       </div>
       <style>
         /* Estilo para la barra lateral */
-     
+
 
         /* Estilo para el área de posiciones */
         #posicionesCard {
@@ -132,7 +132,6 @@
     </div>
   </div>
   <!-- /.sidebar -->
-
 
 
 

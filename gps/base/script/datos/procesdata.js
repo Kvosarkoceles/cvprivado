@@ -88,22 +88,23 @@ function recorrerEntreFechas(arreglo, fechaInicial, fechaFinal) {
   });
   return resultado;
 }
-function recorrerEntrehoras(arreglo, fechaInicial, fechaFinal) {
-  var resultado = [];
-  var fechaInicio = new Date(fechaInicial);
-  var fechaFin = new Date(fechaFinal);
+// function recorrerEntrehoras(arreglo, fechaInicial, fechaFinal) {
+//   console.log("recorrerEntrehoras")
+//   var resultado = [];
+//   var fechaInicio = new Date(fechaInicial);
+//   var fechaFin = new Date(fechaFinal);
 
-  arreglo.forEach(function (objeto) {
-    var fechaObjeto = new Date(objeto.data_gps_br);
-    var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
+//   arreglo.forEach(function (objeto) {
+//     var fechaObjeto = new Date(objeto.data_gps_br);
+//     var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
 
-    if (limit) {
-      resultado.push(objeto);
+//     if (limit) {
+//       resultado.push(objeto);
 
-    }
-  });
-  return resultado;
-}
+//     }
+//   });
+//   return resultado;
+// }
 function ultimaPosicion(data1, data2) {
 
 

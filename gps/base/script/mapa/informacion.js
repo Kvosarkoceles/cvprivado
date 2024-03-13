@@ -169,10 +169,7 @@ async function posiciones(date1, date2) {
       // console.log(data)
       dataInfo.posiciones = objeto;
 
-      console.log("objeto posiciones")
-      console.log(objeto[objeto.length - 1])
-      console.log("objeto Eventos")
-      console.log(dataInfo.eventos[dataInfo.eventos.length - 1])
+      
 
       var objetoMasReciente = ultimaPosicion(objeto[objeto.length - 1], dataInfo.eventos[dataInfo.eventos.length - 1])
 
@@ -232,8 +229,7 @@ async function eventos() {
     data: data,
     success: function (response) {
       // objeto = JSON.parse(response);
-      console.log("eventos")
-      console.log(response.data)
+      
       dataInfo.eventos = response.data;
 
 
@@ -263,9 +259,8 @@ async function getCar() {
       objeto = JSON.parse(response);
       dataInfo.cars = objeto;
 
-      console.log("getCars")
 
-      console.log(objeto)
+     
       dataInfo.informacionMoto.latitude = objeto[1].latitude,
         dataInfo.informacionMoto.longitude = objeto[1].longitude,
         dataInfo.informacionMoto.origen = objeto[1].origen,
@@ -303,8 +298,7 @@ async function Igniciones(date1, date2) {
     success: function (response) {
       objeto = JSON.parse(response);
       dataInfo.igniciones = objeto;
-      console.log("igniciones")
-      console.log(objeto)
+    
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -325,8 +319,6 @@ async function accionamientos() {
       });
       dataInfo.accionamientos = objetosFiltrados
 
-      console.log("accionamientos")
-      console.log(objeto)
       // Aquí puedes manejar la respuesta como desees
     },
     error: function (xhr, status, error) {
