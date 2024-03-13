@@ -61,6 +61,8 @@ async function ejecutarFuncionesAsincronas() {
 
     $('#boton3').text('Viajes');
     $('#boton3').show();
+    $('#ReporteViajes').hide();
+    
 
     $('#boton3').click(function () {
       // Cambiar la función a mostrarPosiciones()

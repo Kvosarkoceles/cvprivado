@@ -5,8 +5,7 @@
  */
 async function viajes() {
     await getData();
-    console.log(dataInfo);
-    console.log(dataTemp);
+
 
 }
 var filas = "";
@@ -81,7 +80,7 @@ function obtenerFechas(arrayFechas, fechaInicio, fechaFin) {
  */
 async function muestraViajes() {
     limpiarTabla()
-    dataTemp.viajes = [];
+    dataTemp.viajes.rutas = [];
     $('#boton1').text('Localizar');
     $('#boton1').show();
     $('#boton1').click(function () {
@@ -89,21 +88,13 @@ async function muestraViajes() {
     });
     $('#informe').hide();
     $('#posicionesCard').show();
-    // limpiarTabla();
+
     $.each(dataTemp.igniciones.data_gps_br, function (index, item) {
-        // console.log("Inicio");
-        // console.log(item);
-        // console.log("Fin");
-        // console.log(dataTemp.igniciones.nextdataInfo[index]);
         var posiciones = recorrerEntrehoras(dataTemp.posiciones, item, dataTemp.igniciones.nextdataInfo[index]);
         var distancia = calduladistancia(posiciones[0].distancia, posiciones[posiciones.length - 1].distancia)
         var coordenadasInicio = [parseFloat(posiciones[0].latitude), parseFloat(posiciones[0].longitude)];
         var coordenadasFinales = [parseFloat(posiciones[posiciones.length - 1].latitude), parseFloat(posiciones[posiciones.length - 1].latitude)];
-        // distancia= (parseInt(posiciones[posiciones.length-1].distancia) - parseInt(posiciones[0].distancia)) / 1000;
-
-
-
-        //  direccionFinal =  getDireccion(coordenadasFinales);
+        distancia = (parseInt(posiciones[posiciones.length - 1].distancia) - parseInt(posiciones[0].distancia)) / 1000;
 
         viaje = {
             inicio: { date: item, coordenadas: coordenadasInicio, direccion: "" },
@@ -111,18 +102,19 @@ async function muestraViajes() {
             posiciones: posiciones,
             distancia: distancia
         }
-
-        dataTemp.viajes.push(viaje);
-
-
+        dataTemp.viajes.rutas.push(viaje);
 
         addTablaInfo(item, dataTemp.igniciones.nextdataInfo[index], index)
     });
     $('#tablaPosiciones tbody').append(filas);
-
+    if (dataTemp.viajes.rutas.length != 0) {
+        dataTemp.viajes.inicio = dataTemp.viajes.rutas[0].inicio;
+        dataTemp.viajes.fin = dataTemp.viajes.rutas[dataTemp.viajes.rutas.length - 1].fin;
+    }
+    dataTemp.viajes.inicio.direccion = direccion;
     verFullRuta()
-
 }
+
 
 /**
  * Calcula la distancia entre dos puntos dados.
@@ -146,6 +138,10 @@ function calduladistancia(inicio, fin) {
  */
 function addTablaInfo(incio, fin, index) {
 
+
+    var ruta = recorrerEntrehoras(dataTemp.posiciones, incio, fin)
+
+
     var fila =
         '<tr data-widget="expandable-table" aria-expanded="false">' +
         '<td>' +
@@ -158,10 +154,10 @@ function addTablaInfo(incio, fin, index) {
         '<div class="p-0" style="">' +
         '<table class="table table-hover">' +
         '<tbody>' +
-        '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + "data.posicionInicial.latitude" + ',' + "data.posicionInicial.longitude" + ')">' +
-        '<td> Inicion: ' + incio.match(/\d{2}:\d{2}:\d{2}/)[0] + '</td>' +
+        '<tr data-widget="expandable-table" aria-expanded="false" onclick="verRuta(' + index + '),centrarPosicion(' + ruta[0].latitude + ',' + ruta[0].longitude + ')">' +
+        '<td>Inicio: ' + incio.match(/\d{2}:\d{2}:\d{2}/)[0] + '</td>' +
         '</tr>' +
-        '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + "data.posicionFinal.latitude" + ',' + "data.posicionFinal.longitude" + ')">' +
+        '<tr data-widget="expandable-table" aria-expanded="false" onclick="centrarPosicion(' + ruta[ruta.length - 1].latitude + ',' + ruta[ruta.length - 1].longitude + ')">' +
         '<td>Fin: ' + fin.match(/\d{2}:\d{2}:\d{2}/)[0] + '</td>' +
         '</tr>' +
         '<tr data-widget="expandable-table" aria-expanded="false"s>' +
@@ -210,7 +206,7 @@ function verFullRuta() {
     // console.log(posicionesRutas[params]);
     eliminarPolilineas();
     eliminarTodosLosMarcadores();
-    dibujarPolilineasRuta(ruta);
+    dibujarPolilineasRuta(ruta, 1);
 
 }
 /**
@@ -220,17 +216,20 @@ function verFullRuta() {
  * @returns {void}
  */
 function verRuta(index) {
-    // console.log("funcion ver Ruta");
+    console.log("funcion ver Ruta");
     var inicio = dataTemp.igniciones.data_gps_br[index]
     var fin = dataTemp.igniciones.nextdataInfo[index]
+
     // console.log(inicio, fin);
     var ruta = recorrerEntrehoras(dataTemp.posiciones, inicio, fin)
-    // console.log(ruta)
+    console.log(ruta)
 
     // console.log(posicionesRutas[params]);
     eliminarPolilineas();
     eliminarTodosLosMarcadores();
-    dibujarPolilineasRuta(ruta);
+    dibujarPolilineasRuta(ruta, 0);
+
+
 
 }
 function rutaDate(inicio, fin) {
@@ -247,20 +246,23 @@ function rutaDate(inicio, fin) {
 
 async function getDireccion(array) {
     var address = "";
-    latitude = array[0];
-    longitude = array[1];
-
+    latitude = parseFloat(array[0]);
+    longitude = parseFloat(array[1]);
+    console.log("getDireccion")
+    console.log(latitude);
+    console.log(longitude);
     await axios.get('https://nominatim.openstreetmap.org/reverse?lat=' + latitude + '&lon=' + longitude + '&format=json')
         .then(function (response) {
             // Procesar respuesta
+            console.log(response)
             address = response.data.display_name;
             return address;
             // document.getElementById("direccion").innerText = address;
         })
         .catch(function (error) {
 
-            console.log(error);
-            return "";
+            console.error(error);
+
         });
 
 }
@@ -328,10 +330,130 @@ function localizar() {
  * 
  * @returns {void}
  */
-function rutaInfo() {
-    // $("#mapid").hide();
-    $("#modalRutas").show();
+function rutaInfo(incio, fin, tipo) {
+
+    if (tipo != 0) {
+        console.log(incio)
+        console.log(fin)
+        var ruta = recorrerEntrehoras(dataTemp.posiciones, incio, fin)
+        console.log("rutaInfo")
+        console.log(ruta)
+        // $("#mapid").hide();
+        $("#modalRutas").show();
+        console.log(dataTemp)
+        $('#modalRutasInicio').text(ruta[0].data_gps_br);
+        $('#modalRutasFin').text(ruta[ruta.length - 1].data_gps_br);
+        $('#modalRutasDistancia').text(((ruta[ruta.length - 1].distancia) - (ruta[0].distancia)) / 1000 + " km");
+        $('#modalRutasTiempo').text("Tiempo");
+        $('#modalRutasVmax').text("Velocidad máxima");
+        $('#modalRutasEventos').text("Eventos");
+
+        var velmaximaRuta = calcularVelocidadMaxima(ruta);
+
+        $('#modalRutasVmax').text(velmaximaRuta + " km/h");
+
+        verDireccio(ruta[0].latitude, ruta[0].longitude, "modalRutasDireccionInicial");
+        verDireccio(ruta[ruta.length - 1].latitude, ruta[ruta.length - 1].longitude, "modalRutasDireccionFin");
+        alert("es ruta ")
+        console.log(ruta[0].data_gps_br)
+        console.log(ruta[ruta.length - 1].data_gps_br)
+        var tiempo = calcularTiempoRecorrido(ruta[0].data_gps_br, ruta[ruta.length - 1].data_gps_br)
+        console.log(tiempo)
+        $('#modalRutasTiempo').text("horas:" + tiempo.horas + "  minutos:" + tiempo.minutos + " segundos:" + tiempo.segundos);
+        // addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,0);
+        // addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,0);
+    } else {
+        console.log("es ruta completa")
+        var datos = [
+            // Puedes agregar más objetos con datos aquí si es necesario
+        ];
+        console.log(dataTemp.viajes)
+        var datos2 = dataTemp.viajes.rutas;
+
+
+        console.log(datos2)
+
+        datos2.forEach(function (dato) {
+
+            var rut = {
+                inicio: dato.inicio.date,
+                finalizacion: dato.fin.date,
+                direccionInicial: 'Inicio A',
+                direccionFinal: 'Final B',
+                distancia: '100 km',
+                tiempo: '2 horas',
+                velocidad: '50 km/h'
+            }
+            // console.log("Fecha de inicio:", inicio);
+            // console.log("Fecha de finalización:", fin);
+            datos.push(rut);
+        });
+
+
+
+
+
+        function llenarTabla() {
+            var tabla = document.getElementById('example1').getElementsByTagName('tbody')[0];
+
+            // Limpiar tabla antes de agregar nuevos datos
+            tabla.innerHTML = '';
+
+            // Iterar sobre los datos y agregar filas a la tabla
+            datos.forEach(function (dato) {
+                var fila = tabla.insertRow();
+
+                // Insertar celdas con los valores de cada propiedad
+                fila.insertCell().textContent = dato.inicio;
+                fila.insertCell().textContent = dato.finalizacion;
+                fila.insertCell().textContent = dato.direccionInicial;
+                fila.insertCell().textContent = dato.direccionFinal;
+                fila.insertCell().textContent = dato.distancia;
+                fila.insertCell().textContent = dato.tiempo;
+                fila.insertCell().textContent = dato.velocidad;
+            });
+        }
+
+        // Llenar la tabla al cargar la página
+        llenarTabla();
+
+        // $("#modalRutaCompleta").show();
+        $("#ReporteViajes").show();
+        $("#mapid").hide();
+
+
+
+
+        // addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,1);
+        // addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,1);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
 
+
+function cerrarModalViajes() {
+    $("#modalRutas").hide();
+}
+
+function cerrarModalRutaCompleta() {
+    $("#modalRutaCompleta").hide();
+}
+
+
+function direccion() {
+
+}

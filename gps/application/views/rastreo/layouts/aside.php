@@ -125,54 +125,116 @@
             </div>
 
             <div id="modalRutas" class="modal">
-                <div class="modal-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Viajes</h3>
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ruta</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick='cerrarModalViajes()'>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Dato</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Fecha de Inicio:</th>
+                                            <td id="modalRutasInicio"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha de Finalizacion:</th>
+                                            <td id="modalRutasFin"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Direcion Inicial</th>
+                                            <td id="modalRutasDireccionInicial"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Direcion Final</th>
+                                            <td id="modalRutasDireccionFin"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Distancia Recorrida:</th>
+                                            <td id="modalRutasDistancia"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tiempo de Viaje:</th>
+                                            <td id="modalRutasTiempo"><span class="tag tag-success"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Velocidad Maxima:</th>
+                                            <td id="modalRutasVmax"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button onclick='cerrarModalRutaCompleta()' type="button" class="btn btn-default float-right">Cerrar</button>
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+            <!-- <div id="modalRutaCompleta" class="modal">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Viajes</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick='cerrarModalRutaCompleta()'>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped" id="tabla-datos">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha de Inicio:</th>
+                                            <th>Fecha de Finalizacion:</th>
+                                            <th>Direcion Inicial</th>
+                                            <th>Direcion Final</th>
+                                            <th>Distancia Recorrida:</th>
+                                            <th>Tiempo de Viaje:</th>
+                                            <th>Velocidad Maxima:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Inicio</th>
-                                        <th>Fin</th>
-                                        <th>Distancia</th>
-                                        <th>Tiempo</th>
-                                        <th>Velocidad Maxima</th>
-                                        <th># Eventos</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>183</td>
-                                        <td>John Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="tag tag-success">Approved</span></td>
-                                        <td>Bacon.</td>
-                                        <td>Bacon.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="modal-footer">
+                            <button onclick='cerrarModalRutaCompleta()' type="button" class="btn btn-default float-right">Cerrar</button>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- <button class="close-button">Cerrar</button> -->
+                  
                 </div>
-            </div>
+             
+            </div> -->
+
+
+
 
         </div>
         <!-- /.sidebar-menu -->

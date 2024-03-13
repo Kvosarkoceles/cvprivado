@@ -1,15 +1,15 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log("Procesa informacion la informacion");
+  console.log("Procesa informacion la informacion ...");
   const selectElement = document.getElementById('filtroTiempo');
   function observar() {
     const selectedValue = selectElement.value;
-    console.log(selectedValue);
+    // console.log(selectedValue);
   }
   selectElement.addEventListener('change', observar);
-  
-  
+
+
 });
 
 // function init() {
@@ -34,7 +34,13 @@ var dataTemp = {
   cars: [],
   dateInicion: "",
   dateFin: "",
-  viajes: []
+  viajes: {
+    rutas: [],
+    inicio:"",
+    fin:"",
+    distancia:"",
+    tiempo:""
+  }
 }
 
 function filtarViajes(fechas, fechaInicial, fechaFinal) {
@@ -141,8 +147,8 @@ function funcionHoy() {
   dataInfo.dateInicion = fechaActualFormateada;
   dataInfo.dateFin = fechaActualFormateada2;
 
-  console.log("hoy");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+  // console.log("hoy");
+  // console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
 
 
 }
@@ -175,8 +181,8 @@ function funcionAyer() {
   dataInfo.dateFin = fechaFinalFormateada;
   //  console.log("fechaActualFormateada "  + dateInicial)
   //  console.log("fechaAyerFormateada " + dateFinal)
-  console.log("Ayer: ");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+  // console.log("Ayer: ");
+  // console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
 
 }
 
@@ -441,4 +447,33 @@ function funcionUltimos100Dias() {
 
 }
 
+function calcularVelocidadMaxima(posiciones) {
+  let velocidadMaxima = 0;
+  posiciones.forEach(posicion => {
+      const velocidadActual = parseFloat(posicion.veloc);
+      if (!isNaN(velocidadActual) && velocidadActual > velocidadMaxima) {
+          velocidadMaxima = velocidadActual;
+      }
+  });
+  return velocidadMaxima;
+}
 
+function calcularTiempoRecorrido(posicionInicial, posicionFinal) {
+  console.log(posicionInicial)
+  console.log(posicionFinal)
+  const fechaInicial = new Date(posicionInicial);
+  const fechaFinal = new Date(posicionFinal);
+
+  console.log(posicionInicial)
+  console.log(posicionFinal)
+  const tiempoTranscurridoMs = fechaFinal - fechaInicial;
+  const segundosTranscurridos = tiempoTranscurridoMs / 1000;
+
+  const horas = Math.floor(segundosTranscurridos / 3600);
+  const minutos = Math.floor((segundosTranscurridos % 3600) / 60);
+  const segundos = Math.floor(segundosTranscurridos % 60);
+  console.log(horas)
+  console.log(minutos)
+  console.log(segundos)
+  return { horas, minutos, segundos };
+}

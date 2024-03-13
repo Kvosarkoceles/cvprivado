@@ -6,19 +6,34 @@ let polylines = [];
  * @returns {void}
  */
 
-function dibujarPolilineasRuta(datos) {    
-    const color = '#' + Math.floor(Math.random() * 16777215).toString(16); // Genera un color aleatorio
-    const coordenadas = datos.map(({ latitude, longitude }) => [parseFloat(latitude), parseFloat(longitude)]);
-    const polyline = L.polyline(coordenadas, { color: "red" }).addTo(mymap);
-    polylines.push(polyline);
+function dibujarPolilineasRuta(datos, tipo) {    
+    if (datos.length !=0) {
+      
+        const color = '#' + Math.floor(Math.random() * 16777215).toString(16); // Genera un color aleatorio
+        const coordenadas = datos.map(({ latitude, longitude }) => [parseFloat(latitude), parseFloat(longitude)]);
+        const polyline = L.polyline(coordenadas, { color: "red" }).addTo(mymap);
+        polylines.push(polyline);
+    
+        const distancia = ((datos[datos.length - 1].distancia) - (datos[0].distancia)) / 1000;   
+    
+        timpoInicial = datos[0].data_gps_br;
+        tiempoFinal = datos[datos.length - 1].data_gps_br;
+        if (tipo !=0) {
+            alert("es ruta completa")
+            addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,0);
+            addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,0);
+        } else {
+            alert("es ruta")
+            addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia,datos,timpoInicial,tiempoFinal,1);
+            addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia,datos,timpoInicial,tiempoFinal,1);
+        }
+     
+    
+        centrarPosicion(datos[0].latitude, datos[0].longitude)
+    }
 
-    const distancia = ((datos[datos.length - 1].distancia) - (datos[0].distancia)) / 1000;   
-
-    timpoInicial = datos[0].data_gps_br;
-    tiempoFinal = datos[datos.length - 1].data_gps_br;
+  
  
-    addMarkerposicionRuta(datos[0], "Punto de Inicio", distancia);
-    addMarkerposicionRuta(datos[datos.length - 1], "Punto Final", distancia);
 }
 
 /**
@@ -57,9 +72,8 @@ function eliminarTodosLosMarcadores() {
  * @returns {Promise<void>}
  */
 
-async function addMarkerposicionRuta(data, tipo, distancia) {
-    console.log("addMarkerposicionRuta");
-    console.log(data);
+async function addMarkerposicionRuta(posicion, tipo, distancia,ruta,timpoInicial,tiempoFinal, tipoRuta) {
+
     // Hacer solicitud a Nominatim
 
     // await axios.get('https://nominatim.openstreetmap.org/reverse?lat=' + data.latitude + '&lon=' + data.longitude + '&format=json')
@@ -75,7 +89,7 @@ async function addMarkerposicionRuta(data, tipo, distancia) {
     //         console.log(error);
     //     });
 
-    await L.marker([data.latitude, data.longitude])
+    await L.marker([posicion.latitude, posicion.longitude])
         .addTo(mymap)
         .bindPopup(
             "<div style='margin-bottom: 5px; text-align: center;'>" +
@@ -85,7 +99,7 @@ async function addMarkerposicionRuta(data, tipo, distancia) {
             "</div>" +
             "<div style='margin-bottom: 5px;'>" +
             "<span style='font-weight: bold;'>Fecha:</span> " +
-            data.data_gps_br +
+            posicion.data_gps_br +
             "</div>" +
             "<div style='margin-bottom: 5px;'>" +
             "<span style='font-weight: bold;'>Distancia:</span> " +
@@ -93,11 +107,12 @@ async function addMarkerposicionRuta(data, tipo, distancia) {
             "</div>" +
             "<div style='margin-bottom: 5px;'>" +
             "<span style='font-weight: bold;'>Direccion:</span> " +
-            '<a href="#" id="' + data.nsu_posicoes + '" onclick="verDireccio(' + data.latitude + ',' + data.longitude + ',' + data.nsu_posicoes + ')">Ver Dirección</a>' +
+            '<a href="#" id="' + posicion.nsu_posicoes + '" onclick="verDireccio(' + posicion.latitude + ',' + posicion.longitude + ',' + posicion.nsu_posicoes + ')">Ver Dirección</a>' +
             "</div>" +
 
             "<div style='margin-bottom: 5px; text-align: center;'>" +
-            "<button onclick='rutaInfo()' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
+            "<button onclick='rutaInfo(\""+timpoInicial+"\",\""+tiempoFinal+"\",\""+tipoRuta+"\")' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>"
++
             "</div>"
 
 

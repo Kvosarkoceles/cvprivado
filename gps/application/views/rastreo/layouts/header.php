@@ -9,7 +9,7 @@
   <!-- iconos -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- modal -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/modal.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/modal.css"> -->
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
