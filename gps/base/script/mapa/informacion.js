@@ -49,7 +49,7 @@ async function ejecutarFuncionesAsincronas() {
     togglePreloader('show');
     await funcionHoy();
     // dataTemp = dataInfo;
-
+    getAlertas();
     var posiOy = await filtraData(dataInfo.posiciones, dataInfo.dateInicion, dataInfo.dateFin);
 
     dataTemp.posiciones = posiOy;
