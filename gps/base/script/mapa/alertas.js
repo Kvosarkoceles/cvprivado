@@ -1,6 +1,6 @@
 function getAlertas() {
-  console.log("getAlertas");
-  console.log(dataInfo);
+  // console.log("getAlertas");
+  // console.log(dataInfo);
   // https://siad.imovit.net/files/icons/actions/25.svg
   // agregarNotificacion("fa-users", "8 friend requests", "69 hours");
   // agregarNotificacion("fa-users", "8 friend requests", "69 hours");
@@ -11,10 +11,10 @@ function getAlertas() {
 
   dataInfo.eventos.slice(0, 10).forEach(function (eventos) {
     // Aquí puedes hacer lo que necesites con cada elemento "eventos"
-    console.log(eventos);
-    console.log(eventos.acionamento_id); // Por ejemplo, imprimir el accionamiento en la consola
-    console.log(eventos.desc);
-    console.log(eventos.icon);
+    // console.log(eventos);
+    // console.log(eventos.acionamento_id); // Por ejemplo, imprimir el accionamiento en la consola
+    // console.log(eventos.desc);
+    // console.log(eventos.icon);
     // Ejemplo de uso:
     var tiempo = calcularTiempoTranscurrido(eventos.data_gps_br);
     console.log(tiempo);
@@ -113,11 +113,11 @@ function agregarNotificacion(svgUrl, notificationText, timeText) {
 
 
 function verAlertas() {
-  console.log("dataInfo")
-  console.log(dataInfo.posiciones)
+  // console.log("dataInfo")
+  // console.log(dataInfo.posiciones)
   // alert(dataInfo.eventos.length)
   dataInfo.eventos.forEach(function (eventos) {  
-    console.log(typeof eventos.data_gps_br)
+    // console.log(typeof eventos.data_gps_br)
   //  alert(eventos.data_gps_br)
     var fechaBuscada = eventos.data_gps_br;
     var posicionEncontrada = buscarPosicionPorFecha(fechaBuscada);
@@ -133,10 +133,10 @@ function verAlertas() {
     //   console.log("No se encontró ninguna posición con la fecha buscada.");
     // }
     // // Aquí puedes hacer lo que necesites con cada elemento "accionamiento"
-    console.log(eventos.data_gps_br);
-    console.log(eventos.acionamento_id); // Por ejemplo, imprimir el accionamiento en la consola
-    console.log(eventos.desc);
-    console.log(eventos.icon);
+    // console.log(eventos.data_gps_br);
+    // console.log(eventos.acionamento_id); // Por ejemplo, imprimir el accionamiento en la consola
+    // console.log(eventos.desc);
+    // console.log(eventos.icon);
 
     var poppup = "<div style='margin-bottom: 5px; text-align: center;'>" +
       "<span style='font-weight: bold; text-align: center;'>" +
@@ -160,14 +160,14 @@ function verAlertas() {
       "<button onclick='limpiarTabla()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
       "</div>";
       if (posicionEncontrada) {
-        console.log("Se encontró la posición:");
-        console.log(posicionEncontrada);
-        alert(JSON.stringify(posicionEncontrada.latitude))
+        // console.log("Se encontró la posición:");
+        // console.log(posicionEncontrada);
+        // alert(JSON.stringify(posicionEncontrada.latitude))
          var lat = parseFloat(posicionEncontrada.latitude)
         var log = parseFloat(posicionEncontrada.longitude)
         addMarker(lat, log, poppup);
       } else {
-        console.log("No se encontró ninguna posición con la fecha buscada.");
+        // console.log("No se encontró ninguna posición con la fecha buscada.");
       }
    
     // addMarker(lat, log, poppup);
