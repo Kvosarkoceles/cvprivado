@@ -329,7 +329,7 @@ function verRuta(index, centrar) {
 
   togglePreloader("hide");
 }
-function rutaDate(inicio, fin) {}
+function rutaDate(inicio, fin) { }
 
 /**
  * Obtiene la dirección correspondiente a las coordenadas geográficas proporcionadas.
@@ -348,10 +348,10 @@ async function getDireccion(array) {
   await axios
     .get(
       "https://nominatim.openstreetmap.org/reverse?lat=" +
-        latitude +
-        "&lon=" +
-        longitude +
-        "&format=json"
+      latitude +
+      "&lon=" +
+      longitude +
+      "&format=json"
     )
     .then(function (response) {
       // Procesar respuesta
@@ -381,10 +381,10 @@ async function verDireccio(a, b, c) {
   await axios
     .get(
       "https://nominatim.openstreetmap.org/reverse?lat=" +
-        a +
-        "&lon=" +
-        b +
-        "&format=json"
+      a +
+      "&lon=" +
+      b +
+      "&format=json"
     )
     .then(function (response) {
       // Procesar respuesta
@@ -425,10 +425,13 @@ function localizar() {
   $("#informe").show();
   eliminarPolilineas();
   eliminarTodosLosMarcadores();
-  // start();
-  // intervalID = setInterval(start, 10000);
+  ubicarMapa();
+  intervalID = setInterval(ubicarMapa, 10000);
 }
 
+function ubicarMapa() {
+  getCar();
+}
 /**
  * Muestra el modal que contiene información adicional sobre la ruta.
  *
@@ -445,13 +448,13 @@ function rutaInfo(incio, fin, tipo) {
     console.log("Abre el menu para informe de ruta parcial");
     console.log("Calula el informe de ruta parcial");
     console.log("Muestra los datos calculados en la tabla");
-    
+
   } else {
     console.log("Ruta completa");
     console.log("Abre el menu para informe de ruta completa");
     console.log("Calula el informe de ruta completa");
     console.log("Muestra los datos calculados en la tabla completa");
-    
+
 
   }
   // if (tipo != 0) {
@@ -572,4 +575,4 @@ function cerrarModalRutaCompleta() {
   $("#modalRutaCompleta").hide();
 }
 
-function direccion() {}
+function direccion() { }

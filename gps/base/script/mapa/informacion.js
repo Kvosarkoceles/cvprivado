@@ -189,7 +189,7 @@ async function posiciones(date1, date2) {
 
       $('#label').text(dataInfo.informacionMoto.veic_rotulo);
       $('#odometro').text(distancia + " km");
-      $('#conductor').text("Miuel MEndoza");
+      $('#conductor').text("Miguel Mendoza");
       $('#fecha').text(fecha);
       $('#hora').text(hora);
       $('#recorrido').text(objetoMasReciente.veloc + " km");
