@@ -48,12 +48,12 @@ class Rastreo extends CI_Controller
 
 	public function mapa()
 	{
-		// $this->load->view('/rastreo/layouts/dasboard/layouts/header');
-		// $this->load->view('/rastreo/layouts/dasboard/layouts/aside');
-		// $this->load->view('/rastreo/layouts/dasboard/mapa');
-		// $this->load->view('/rastreo/layouts/dasboard/layouts/footer');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/header');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/aside');
+		$this->load->view('/rastreo/layouts/dasboard/mapa');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/footer');
 
-		$this->load->view('/rastreo/layouts/dasboard/mapa2');
+		// $this->load->view('/rastreo/layouts/dasboard/mapa2');
 	}
 	
 }

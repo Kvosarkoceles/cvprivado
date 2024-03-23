@@ -337,7 +337,7 @@ function rutaDate(inicio, fin) {}
  * @param {Array} array - Un array que contiene las coordenadas geográficas [latitud, longitud].
  * @returns {Promise<string>} - Una promesa que se resuelve con la dirección obtenida.
  */
-ruta;
+
 async function getDireccion(array) {
   var address = "";
   latitude = parseFloat(array[0]);

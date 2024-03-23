@@ -60,22 +60,12 @@
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header" id="numeroEventoTitulo">15 Notifications</span>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
+           
+           
+           
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            <a href="#" class="dropdown-item dropdown-footer" onclick="verAlertas()">See All Notifications</a>
+
           </div>
         </li>
       </ul>
@@ -228,7 +218,7 @@
 
         /* Altura del mapa */
         background-color: #ffffff;
-        height: 600px;
+        height: 490px;
         /* Fondo blanco */
       }
 
@@ -247,6 +237,8 @@
         width: 100vw;
       }
     </style>
+
+    
     <div class="content-wrapper">
       <div id="mapid">
 
@@ -412,7 +404,7 @@
     .openPopup();
 </script> -->
 
-  <script>
+  <!-- <script>
     function actualizarMensajes(mensajes) {
       alert(JSON.stringify(mensajes));
       var messageList = document.getElementById("messageList");
@@ -470,7 +462,7 @@
 
     // Actualizar los mensajes
     actualizarMensajes(mensajes);
-  </script>
+  </script> -->
 
   <script>
     $(function() {

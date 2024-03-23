@@ -228,8 +228,9 @@ async function eventos() {
     method: "POST",
     data: data,
     success: function (response) {
-      // objeto = JSON.parse(response);
       
+    //  objeto = JSON.parse(response.data);
+    
       dataInfo.eventos = response.data;
 
 

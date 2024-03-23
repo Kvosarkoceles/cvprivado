@@ -31,7 +31,16 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		 $this->load->view('login');
+		//  $this->load->view('login');
+		//  $this->load->view('/rastreo/layouts/dasboard/mapa2');
+
+
+		$this->load->view('/rastreo/layouts/dasboard/layouts/header');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/aside');
+		$this->load->view('/rastreo/layouts/dasboard/mapa');
+		$this->load->view('/rastreo/layouts/dasboard/layouts/footer');
+
+		
 		// $this->load->view('/layouts/aside');
 		// $this->load->view('/layouts/mapa');
 		// $this->load->view('/layouts/footer');
