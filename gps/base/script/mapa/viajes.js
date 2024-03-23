@@ -5,7 +5,7 @@
  */
 async function viajes() {
   await getData();
-  // clearInterval(intervalID);
+  clearInterval(intervalID);
   var filtroTiempoSelect = document.getElementById("filtroTiempo");
   filtroTiempoSelect.addEventListener("change", viajes);
   $("#boton3").hide();
