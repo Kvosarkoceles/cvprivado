@@ -77,7 +77,7 @@ async function ejecutarFuncionesAsincronas() {
 
 
     
-
+localizar();
 
     //   $(document).on('change', '#filtroTiempo', function (event) {
 
@@ -113,36 +113,7 @@ function init() {
 }
 // intervalID = setInterval(init, 10000);
 
-function addMarkerUtimaPosicion() {
-  inf = dataInfo.informacionMoto;
 
-  var poppup = "<div style='margin-bottom: 5px; text-align: center;'>" +
-    "<span style='font-weight: bold; text-align: center;'>" +
-    dataInfo.informacionMoto.latitude +
-    "</span>" +
-    "</div>" +
-    "<div style='margin-bottom: 5px; text-align: center;'>" +
-    "<span style='font-weight: bold; text-align: center;'>" +
-    dataInfo.informacionMoto.longitude +
-    "</span>" +
-    "</div>" +
-    "<div style='margin-bottom: 5px;'>" +
-    "<span style='font-weight: bold;'>Velocidad:</span> " +
-    dataInfo.informacionMoto.veic_rotulo +
-    "</div>" +
-    "<div style='margin-bottom: 5px;'>" +
-    "<span style='font-weight: bold;'>Bateria:</span> " +
-    dataInfo.informacionMoto.origen +
-    "</div>" +
-    "<div style='margin-bottom: 5px; text-align: center;'>" +
-    "<button onclick='limpiarTabla()' class='btn btn-block btn-outline-primary btn-sm'>Posiciones</button>" +
-    "</div>";
-
-  var lat = parseFloat(dataInfo.informacionMoto.latitude)
-  var log = parseFloat(dataInfo.informacionMoto.longitude)
-  addMarker(lat, log, poppup);
-
-}
 
 
 async function posiciones(date1, date2) {
@@ -257,9 +228,12 @@ async function getCar() {
     method: "POST",
     data: data,
     success: function (response) {
+      console.log("getCar")
+      console.log(response)
+
       objeto = JSON.parse(response);
       dataInfo.cars = objeto;
-
+    
 
      
       dataInfo.informacionMoto.latitude = objeto[1].latitude,
@@ -270,7 +244,7 @@ async function getCar() {
         dataInfo.informacionMoto.ignicao = objeto[1].ignicao,
         dataInfo.informacionMoto.PlacaVeic = objeto[1].PlacaVeic,
         dataInfo.informacionMoto.veic_rotulo = objeto[1].veic_rotulo
-      addMarkerUtimaPosicion();
+      // addMarkerUtimaPosicion();
 
     },
     error: function (xhr, status, error) {

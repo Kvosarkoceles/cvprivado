@@ -5,7 +5,7 @@
  */
 async function viajes() {
   await getData();
-
+  clearInterval(intervalID);
   var filtroTiempoSelect = document.getElementById("filtroTiempo");
   filtroTiempoSelect.addEventListener("change", viajes);
   $("#boton3").hide();
@@ -430,7 +430,9 @@ function localizar() {
 }
 
 function ubicarMapa() {
+  eliminarTodosLosMarcadores();
   getCar();
+  addMarkerUtimaPosicion();
 }
 /**
  * Muestra el modal que contiene información adicional sobre la ruta.
