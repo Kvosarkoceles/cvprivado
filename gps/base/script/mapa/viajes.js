@@ -240,7 +240,7 @@ function verRuta(index, centrar) {
   console.clear();
   console.log("Data Temp");
   console.log(dataTemp);
-cerrarTabla()
+  cerrarTabla()
   // Caso 1: El array existe y está vacío
   if (dataTemp.viajes && dataTemp.viajes.length === 0) {
     console.log("El array existe y está vacío.");
@@ -429,7 +429,7 @@ function localizar() {
   ubicarMapa();
   intervalID = setInterval(ubicarMapa, 20000);
 
-  cerrarTabla()
+  // cerrarTabla()
 }
 
 function ubicarMapa() {
@@ -454,7 +454,7 @@ function rutaInfo(incio, fin, tipo) {
     console.log("Calula el informe de ruta parcial");
     console.log("Muestra los datos calculados en la tabla");
 
-    abrirTabla(1)
+    abrirTabla(2)
 
   } else {
     abrirTabla(3)
@@ -582,17 +582,58 @@ function cerrarModalViajes() {
 function cerrarModalRutaCompleta() {
   $("#modalRutaCompleta").hide();
 }
-function abrirTabla() {
-  $("#tablaRutaCompleta").show();
-   $("#mapid").hide();
+function abrirTabla(tabla) {
+  var screenWidth = $(window).width();
+  var screenHeight = $(window).height();
+  
+  // Mostrar el tamaño de la pantalla en consola
+
+  console.log("Abrir Tabla: " + tabla);
+  switch (tabla) {
+    case 1:
+      console.log("Abrir Tabla Ultima Posicion");
+      // cerrarTabla();
+      $("#mapid").hide();
+      $("#tablaUltimaPosicion").show();
+      tablaUltimaPosicion();
+      break;
+    case 2:
+      console.log("Abrir Tabla Ruta");
+      cerrarTabla();
+      $("#mapid").hide();
+      $("#tablaRuta").show();
+      break;
+      break;
+    case 3:
+      console.log("Abrir Tabla Ruta Completa");
+      cerrarTabla();
+      $("#mapid").hide();
+      $("#tablaRutaCompleta").show();
+
+      break;
+    case 4:
+      console.log("Abrir Tabla Alertas");
+      break;
+
+
+  }
+
 }
 
 
 
 
-function cerrarTabla() {
+function cerrarTabla(tabla) {
+  // alert(tabla)
+  
+  if (tabla===1) {
+    $("#tablaUltimaPosicion").hide();
+  }
+  $("#mapid").show();
 
-  $("#tablaRutaCompleta").hide();
-  $("#mapid").show();  
+ 
+  // $("#tablaRutaCompleta").hide();
+  // $("#tablaAlertas").hide();
+ 
 }
 function direccion() { }

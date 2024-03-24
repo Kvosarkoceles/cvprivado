@@ -64,7 +64,7 @@
            
            
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer" onclick="verAlertas()">See All Notifications</a>
+            <a href="#" class="dropdown-item dropdown-footer" onclick="abrirTabla(4)">See All Notifications</a>
 
           </div>
         </li>

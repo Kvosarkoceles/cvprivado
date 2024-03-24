@@ -151,6 +151,28 @@
         "searching": false,
       })
 
+      $("#example2").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "pageLength": 5,
+        "searching": false,
+      })
+      $("#example3").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "pageLength": 5,
+        "searching": false,
+      })
+      $("#example4").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "pageLength": 5,
+        "searching": false,
+      })
+
     });
   </script>
 

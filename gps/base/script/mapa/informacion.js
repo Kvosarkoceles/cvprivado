@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function ejecutarFuncionesAsincronas() {
   try {
 
-    cerrarTabla();
+    // cerrarTabla();
     togglePreloader('show');
     await funcionUltimos100Dias();
     togglePreloader('show');
@@ -76,8 +76,8 @@ async function ejecutarFuncionesAsincronas() {
     $('#ReporteViajes').hide();
 
 
-    
-localizar();
+
+    localizar();
 
     //   $(document).on('change', '#filtroTiempo', function (event) {
 
@@ -89,6 +89,10 @@ localizar();
     // console.log(dataInfo)
     // console.log("dataTemp")
     // console.log(dataTemp)
+
+
+
+    cerrarTabla(1);
   } catch (error) {
     console.error(error);
   }
@@ -140,7 +144,7 @@ async function posiciones(date1, date2) {
       // console.log(data)
       dataInfo.posiciones = objeto;
 
-      
+
 
       var objetoMasReciente = ultimaPosicion(objeto[objeto.length - 1], dataInfo.eventos[dataInfo.eventos.length - 1])
 
@@ -199,9 +203,9 @@ async function eventos() {
     method: "POST",
     data: data,
     success: function (response) {
-      
-    //  objeto = JSON.parse(response.data);
-    
+
+      //  objeto = JSON.parse(response.data);
+
       dataInfo.eventos = response.data;
 
 
@@ -233,9 +237,9 @@ async function getCar() {
 
       objeto = JSON.parse(response);
       dataInfo.cars = objeto;
-    
 
-     
+
+
       dataInfo.informacionMoto.latitude = objeto[1].latitude,
         dataInfo.informacionMoto.longitude = objeto[1].longitude,
         dataInfo.informacionMoto.origen = objeto[1].origen,
@@ -273,7 +277,7 @@ async function Igniciones(date1, date2) {
     success: function (response) {
       objeto = JSON.parse(response);
       dataInfo.igniciones = objeto;
-    
+
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -327,4 +331,42 @@ function togglePreloader(action) {
     // Acción no válida
     console.error('Acción no válida para togglePreloader. Debe ser "show" o "hide".');
   }
+}
+
+
+
+function tablaUltimaPosicion() {
+  console.log("tabla Ultima Posicion")
+  console.log(dataInfo.informacionMoto.ultimaPosicion)
+  $("#fechaUltimaPosicion").text(dataInfo.informacionMoto.ultimaPosicion.data_gps_br);
+  var direcion = verDireccio(19.30922, -99.2601, "direccionUltimaPosicion");
+  $("#direccionUltimaPosicion").text(direcion);
+  var velocidad = dataInfo.informacionMoto.ultimaPosicion.veloc + " km/h"
+  $("#velocidadUltimaPosicion").text(velocidad);
+
+ 
+  var odometro = Math.round((dataInfo.informacionMoto.ultimaPosicion.distancia) / 1000) + " km/h"
+  $("#odometroUltimaPosicion").text(odometro);
+  var ignicao = dataInfo.informacionMoto.ultimaPosicion.ignicao
+  $("#ignicionUltimaPosicion").text(ignicao);
+
+  var Origen = dataInfo.informacionMoto.ultimaPosicion.origen
+
+  $("#origenUltimaPosicion").text(Origen);
+
+  var Satelites = dataInfo.informacionMoto.ultimaPosicion.satelites
+
+  $("#satelitesUltimaPosicion").text(Satelites);
+
+  var bateria = dataInfo.informacionMoto.ultimaPosicion.bateriabackup
+
+  // alert(bateria)
+   $("#bateriaUltimaPosicion").text(bateria);
+
+
+  
+
+
+
+
 }

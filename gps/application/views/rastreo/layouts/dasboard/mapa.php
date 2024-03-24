@@ -28,11 +28,28 @@
   </div>
 </div> -->
 <style>
+  @media only screen and (max-height: 800px) {
+    #mapid {
+      background-color: #ffffff;
+      height: 650px;
+      /* Ajusta la altura del mapa para dispositivos móviles */
+    }
+
+    #tablaUltimaPosicion {
+      background-color: #ffffff;
+      height: 650px;
+      /* Ajusta la altura del mapa para dispositivos móviles */
+    }
+
+
+    
+  }
+
   #mapid {
 
     /* Altura del mapa */
     background-color: #ffffff;
-    height: 490px;
+    /* height: 490px; */
     /* Fondo blanco */
   }
 
@@ -53,9 +70,8 @@
 </style>
 
 
-<div class="content-wrapper" id="ContenMapa">
+<div class="content-wrapper">
   <div id="mapid">
-
   </div>
   <style>
     .modal {
@@ -176,49 +192,57 @@
       </table>
     </div> 
   </div> -->
+  <div id="tablaUltimaPosicion">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Ultima Posicion</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Fecha</th>             
+              <th>Direcion</th>
+              <th>Velocidad</th>
+              <th>Odometro</th>
+              <th>Ignicion</th>
+              <th>Origen</th>
+              <th>Satelites</th>
+              <th>Bateria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="fechaUltimaPosicion">Fecha de Inicio </td>            
+              <td id="direccionUltimaPosicion">Direcion</td>
+              <td id="velocidadUltimaPosicion">Velocidad</td>
+              <td id="odometroUltimaPosicion">Odometro</td>
+              <td id="ignicionUltimaPosicion">Ignicion</td>
+              <td id="origenUltimaPosicion">Origen</td>
+              <td id="satelitesUltimaPosicion">Satelites</td>
+              <td id="bateriaUltimaPosicion">Bateria</td>
 
-  <div class="card"  id="tablaRutaCompleta">
-    <div class="card-header">
-      <h3 class="card-title">DataTable with default features</h3>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Fecha</th>        
+              <th>Direcion</th>
+              <th>Velocidad</th>
+              <th>Odometro</th>
+              <th>Ignicion</th>
+              <th>Origen</th>
+              <th>Satelites</th>
+              <th>Bateria</th>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="col-sm text-right"> <!-- Alineación a la derecha -->
+          <button id="boton3" type="button" class="btn btn-sm btn-primary" onclick="cerrarTabla(1)">Cerrar</button> <!-- Clase btn-sm para hacerlo pequeño -->
+        </div>
+
+      </div>
     </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Fecha de Inicio </th>
-            <th>Fecha de Finalizacion</th>
-            <th>Direcion Inicial</th>
-            <th>Direcion Final</th>
-            <th>Distancia Recorrida</th>
-            <th>Tiempo de Viaje</th>
-            <th>Velocidad Maxima</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fecha de Inicio </td>
-            <td>Fecha de Finalizacion</td>
-            <td>Direcion Inicial</td>
-            <td>Direcion Final</td>
-            <td>Distancia Recorrida</td>
-            <td>Tiempo de Viaje</td>
-            <td>Velocidad Maxima</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Fecha de Inicio </th>
-            <th>Fecha de Finalizacion</th>
-            <th>Direcion Inicial</th>
-            <th>Direcion Final</th>
-            <th>Distancia Recorrida</th>
-            <th>Tiempo de Viaje</th>
-            <th>Velocidad Maxima</th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    <!-- /.card-body -->
   </div>
+
 </div>
