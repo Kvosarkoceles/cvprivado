@@ -53,7 +53,7 @@
 </style>
 
 
-<div class="content-wrapper">
+<div class="content-wrapper" id="ContenMapa">
   <div id="mapid">
 
   </div>
@@ -134,7 +134,50 @@
     </div>
   </div>
 
-  <div class="card" id="tablaRutaCompleta" style="display: none;">
+  <!-- <div class="card" id="tablaRutaCompleta" style="display: none;">
+    <div class="card-header">
+      <h3 class="card-title">DataTable with default features</h3>
+    </div>
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Fecha de Inicio </th>
+            <th>Fecha de Finalizacion</th>
+            <th>Direcion Inicial</th>
+            <th>Direcion Final</th>
+            <th>Distancia Recorrida</th>
+            <th>Tiempo de Viaje</th>
+            <th>Velocidad Maxima</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fecha de Inicio </td>
+            <td>Fecha de Finalizacion</td>
+            <td>Direcion Inicial</td>
+            <td>Direcion Final</td>
+            <td>Distancia Recorrida</td>
+            <td>Tiempo de Viaje</td>
+            <td>Velocidad Maxima</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Fecha de Inicio </th>
+            <th>Fecha de Finalizacion</th>
+            <th>Direcion Inicial</th>
+            <th>Direcion Final</th>
+            <th>Distancia Recorrida</th>
+            <th>Tiempo de Viaje</th>
+            <th>Velocidad Maxima</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div> 
+  </div> -->
+
+  <div class="card"  id="tablaRutaCompleta">
     <div class="card-header">
       <h3 class="card-title">DataTable with default features</h3>
     </div>

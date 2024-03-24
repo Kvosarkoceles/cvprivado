@@ -584,7 +584,7 @@ function cerrarModalRutaCompleta() {
 }
 function abrirTabla() {
   $("#tablaRutaCompleta").show();
-  $("#mapid").hide();
+   $("#mapid").hide();
 }
 
 
@@ -593,7 +593,6 @@ function abrirTabla() {
 function cerrarTabla() {
 
   $("#tablaRutaCompleta").hide();
-  $("#mapid").show();
-  
+  $("#mapid").show();  
 }
 function direccion() { }

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function ejecutarFuncionesAsincronas() {
   try {
 
-
+    cerrarTabla();
     togglePreloader('show');
     await funcionUltimos100Dias();
     togglePreloader('show');
