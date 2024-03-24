@@ -1,29 +1,12 @@
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MOTO-GPS | Moto</title>
-  <!-- Axiox -->
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- iconos -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- modal -->
-  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>base/style/modal.css"> -->
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
-
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/leafletjs/leaflet.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/dist/css/adminlte.min.css">
-
 
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -31,119 +14,62 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/fontawesome-free/css/all.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/daterangepicker/daterangepicker.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <!-- Bootstrap4 Duallistbox -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
-  <!-- BS Stepper -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/bs-stepper/css/bs-stepper.min.css">
-  <!-- dropzonejs -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/dropzone/min/dropzone.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>base/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>base/dist/css/adminlte.min.css">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKX94EJELJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-NKX94EJELJ');
-  </script>
-
-  <!-- 
-<script src="<?php echo base_url(); ?>base/leafletjs/leaflet.polylineDecorator.js"></script> -->
 </head>
 
-<script>
-  // Función para activar la animación
-  function iniciarRotacion() {
-    $('#wrapper').hide();
-  }
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <div class="wrapper">
 
-  // Función para detener la animación
-  function detenerRotacion() {
-        $('#wrapper').show();
-        $('#animated-div').hide();
-        
- 
-    // document.body.classList.remove('rotating');
-  }
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center" id="preloader">
+      <img class="animation__wobble" src="<?php echo base_url(); ?>base/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
 
-  // Llamar a la función para iniciar la rotación
-
-
-  // Llamar a la función para detener la rotación después de 5 segundos (por ejemplo)
-  
-</script>
-<style>
-    /* Definición de la animación */
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Estilo del div con animación */
-    .animated-div {
-      width: 200px;
-      height: 200px;
-      background-color: #00b8de;
-      color: white;
-      padding: 20px;
-      animation: rotate 3s linear infinite; /* Cambia la duración y el estilo según lo necesites */
-      /* Centrar el div */
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* Hacer el div circular */
-      border-radius: 50%;
-    }
-  </style>
-
-<body class="hold-transition sidebar-mini">
-<div class="animated-div">
-   espere ...
-  </div>
-
-  <div class="wrapper" id="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url(); ?>" class="nav-link">Posiciones</a>
+          <a href="#" class="nav-link">Posiciones</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url(); ?>" class="nav-link">Viajes</a>
+          <a href="#" class="nav-link">Viajes</a>
         </li>
       </ul>
 
       <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto"> <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge" id="numeroEventos">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header" id="numeroEventoTitulo">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+           
+           
+           
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer" onclick="abrirTabla(4)">See All Notifications</a>
 
+          </div>
+        </li>
       </ul>
     </nav>
+    <!-- /.navbar -->
+
+

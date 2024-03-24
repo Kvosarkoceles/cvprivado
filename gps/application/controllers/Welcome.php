@@ -35,10 +35,10 @@ class Welcome extends CI_Controller
 		//  $this->load->view('/rastreo/layouts/dasboard/mapa2');
 
 
-		$this->load->view('/rastreo/layouts/dasboard/layouts/header');
-		$this->load->view('/rastreo/layouts/dasboard/layouts/aside');
-		$this->load->view('/rastreo/layouts/dasboard/mapa');
-		$this->load->view('/rastreo/layouts/dasboard/layouts/footer');
+		$this->load->view('/rastreo/layouts/header');
+		$this->load->view('/rastreo/layouts/aside');
+		$this->load->view('/rastreo/mapa');
+		$this->load->view('/rastreo/layouts/footer');
 
 		
 		// $this->load->view('/layouts/aside');
