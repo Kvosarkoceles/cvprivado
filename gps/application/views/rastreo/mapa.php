@@ -36,8 +36,8 @@
     }
 
     #tablaUltimaPosicion {
-      background-color: #ffffff;
-      height: 650px;
+      background-color: #31373d;
+      /* height: 650px; */
       /* Ajusta la altura del mapa para dispositivos móviles */
     }
 
@@ -45,11 +45,16 @@
     
   }
 
+  #tablaUltimaPosicion {
+      background-color: #31373d;
+      /* height: 480px; */
+      /* Ajusta la altura del mapa para dispositivos móviles */
+    }
   #mapid {
 
     /* Altura del mapa */
     background-color: #ffffff;
-    /* height: 490px; */
+    height: 490px; 
     /* Fondo blanco */
   }
 
@@ -201,7 +206,39 @@
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Fecha</th>             
+              <th>Fecha</th>    
+              <th>Ultimo Evento</th>            
+              <th>Direcion</th>
+              <th>Velocidad</th>
+              <th>Odometro</th>
+              <th>Ignicion</th>
+              <th>Origen</th>
+              <th>Satelites</th>
+              <th>Bateria</th>
+            </tr>
+          </thead>
+          <tbody>           
+          </tbody>         
+        </table>
+        <div class="col-sm text-right"> <!-- Alineación a la derecha -->
+          <button id="boton3" type="button" class="btn btn-sm btn-primary" onclick="cerrarTabla(1)">Cerrar</button> <!-- Clase btn-sm para hacerlo pequeño -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="tablaRuta">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Ruta</h3>
+      </div>
+      <div class="card-body">
+        <table id="example2" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Fecha</th>    
+              <th>Evento</th>            
               <th>Direcion</th>
               <th>Velocidad</th>
               <th>Odometro</th>
@@ -213,7 +250,8 @@
           </thead>
           <tbody>
             <tr>
-              <td id="fechaUltimaPosicion">Fecha de Inicio </td>            
+              <td id="fechaUltimaPosicion">Fecha de Inicio </td>   
+              <td id="eventoUltimaPosicion">Evento</td>           
               <td id="direccionUltimaPosicion">Direcion</td>
               <td id="velocidadUltimaPosicion">Velocidad</td>
               <td id="odometroUltimaPosicion">Odometro</td>
@@ -226,7 +264,8 @@
           </tbody>
           <tfoot>
             <tr>
-              <th>Fecha</th>        
+              <th>Fecha</th>      
+              <th>Evento</th>    
               <th>Direcion</th>
               <th>Velocidad</th>
               <th>Odometro</th>
@@ -238,7 +277,7 @@
           </tfoot>
         </table>
         <div class="col-sm text-right"> <!-- Alineación a la derecha -->
-          <button id="boton3" type="button" class="btn btn-sm btn-primary" onclick="cerrarTabla(1)">Cerrar</button> <!-- Clase btn-sm para hacerlo pequeño -->
+          <button id="boton3" type="button" class="btn btn-sm btn-primary" onclick="cerrarTabla(2)">Cerrar</button> <!-- Clase btn-sm para hacerlo pequeño -->
         </div>
 
       </div>

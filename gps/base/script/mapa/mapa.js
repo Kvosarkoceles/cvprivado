@@ -153,7 +153,7 @@ function addMarkerUtimaPosicion() {
     } else {
         ignicion = "OFF"
     }
-    console.log(inf);
+    console.log(dataInfo);
     var poppup = "<div style='margin-bottom: 5px; text-align: center;'>" +
         "<span style='font-weight: bold; text-align: center;'>" +
         dataInfo.informacionMoto.origen +
@@ -181,7 +181,7 @@ function addMarkerUtimaPosicion() {
         '<a href="#" id="' + dataInfo.informacionMoto.ultimaPosicion.nsu_posicoes + '" onclick="verDireccio(' + dataInfo.informacionMoto.ultimaPosicion.latitude + ',' + dataInfo.informacionMoto.ultimaPosicion.longitude + ',' + dataInfo.informacionMoto.ultimaPosicion.nsu_posicoes + ')">Ver Dirección</a>' +
         "</div>" +
         "<div style='margin-bottom: 5px; text-align: center;'>" +
-        "<button onclick='abrirTabla(1)' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
+        "<button onclick='abrirTabla(1,"+")' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
         "</div>";
 
     var lat = parseFloat(dataInfo.informacionMoto.latitude)

@@ -47,7 +47,7 @@ async function ejecutarFuncionesAsincronas() {
     togglePreloader('show');
     await accionamientos();
     togglePreloader('show');
-    await funcionHoy();
+    funcionHoy();
     // dataTemp = dataInfo;
     getAlertas();
     var posiOy = await filtraData(dataInfo.posiciones, dataInfo.dateInicion, dataInfo.dateFin);
@@ -93,6 +93,7 @@ async function ejecutarFuncionesAsincronas() {
 
 
     cerrarTabla(1);
+    cerrarTabla(2);
   } catch (error) {
     console.error(error);
   }
@@ -232,24 +233,16 @@ async function getCar() {
     method: "POST",
     data: data,
     success: function (response) {
-      console.log("getCar")
-      console.log(response)
-
       objeto = JSON.parse(response);
       dataInfo.cars = objeto;
-
-
-
-      dataInfo.informacionMoto.latitude = objeto[1].latitude,
-        dataInfo.informacionMoto.longitude = objeto[1].longitude,
-        dataInfo.informacionMoto.origen = objeto[1].origen,
-        dataInfo.informacionMoto.evento = objeto[1].evento,
-        dataInfo.informacionMoto.evento_id = objeto[1].evento_id,
-        dataInfo.informacionMoto.ignicao = objeto[1].ignicao,
-        dataInfo.informacionMoto.PlacaVeic = objeto[1].PlacaVeic,
-        dataInfo.informacionMoto.veic_rotulo = objeto[1].veic_rotulo
-      // addMarkerUtimaPosicion();
-
+      dataInfo.informacionMoto.latitude = objeto[1].latitude;
+      dataInfo.informacionMoto.longitude = objeto[1].longitude;
+      dataInfo.informacionMoto.origen = objeto[1].origen;
+      dataInfo.informacionMoto.evento = objeto[1].evento;
+      dataInfo.informacionMoto.evento_id = objeto[1].evento_id;
+      dataInfo.informacionMoto.ignicao = objeto[1].ignicao;
+      dataInfo.informacionMoto.PlacaVeic = objeto[1].PlacaVeic;
+      dataInfo.informacionMoto.veic_rotulo = objeto[1].veic_rotulo;
     },
     error: function (xhr, status, error) {
       console.error(status, error); // Manejar cualquier error aquí
@@ -335,38 +328,111 @@ function togglePreloader(action) {
 
 
 
-function tablaUltimaPosicion() {
-  console.log("tabla Ultima Posicion")
-  console.log(dataInfo.informacionMoto.ultimaPosicion)
-  $("#fechaUltimaPosicion").text(dataInfo.informacionMoto.ultimaPosicion.data_gps_br);
-  var direcion = verDireccio(19.30922, -99.2601, "direccionUltimaPosicion");
-  $("#direccionUltimaPosicion").text(direcion);
-  var velocidad = dataInfo.informacionMoto.ultimaPosicion.veloc + " km/h"
-  $("#velocidadUltimaPosicion").text(velocidad);
+async function tablaUltimaPosicion() {
+  var ifo = [];
 
- 
-  var odometro = Math.round((dataInfo.informacionMoto.ultimaPosicion.distancia) / 1000) + " km/h"
-  $("#odometroUltimaPosicion").text(odometro);
-  var ignicao = dataInfo.informacionMoto.ultimaPosicion.ignicao
-  $("#ignicionUltimaPosicion").text(ignicao);
+  // console.log("tabla Ultima Posicion")
+  // console.log(dataInfo.informacionMoto.ultimaPosicion)
+  // $("#fechaUltimaPosicion").text(dataInfo.informacionMoto.ultimaPosicion.data_gps_br);
+  //  var direcion = verDireccio(19.30922, -99.2601, "direccionUltimaPosicion");
+  // $("#direccionUltimaPosicion").text(direcion);
+  var fechaUltimaPosicion = dataInfo.informacionMoto.ultimaPosicion.data_gps_br
+  ifo.push(fechaUltimaPosicion);
+  var ultimoEvento = dataInfo.eventos[0].desc + " " + dataInfo.eventos[0].data_gps_br
+  ifo.push(ultimoEvento);
 
-  var Origen = dataInfo.informacionMoto.ultimaPosicion.origen
-
-  $("#origenUltimaPosicion").text(Origen);
-
-  var Satelites = dataInfo.informacionMoto.ultimaPosicion.satelites
-
-  $("#satelitesUltimaPosicion").text(Satelites);
-
-  var bateria = dataInfo.informacionMoto.ultimaPosicion.bateriabackup
-
-  // alert(bateria)
-   $("#bateriaUltimaPosicion").text(bateria);
-
-
+  var direccion = "";
   
+  await axios
+    .get(
+      "https://nominatim.openstreetmap.org/reverse?lat=" +
+      dataInfo.informacionMoto.ultimaPosicion.latitude +
+      "&lon=" +
+      dataInfo.informacionMoto.ultimaPosicion.longitude +
+      "&format=json"
+    )
+    .then(function (response) {
+      // Procesar respuesta
+      direccion = response.data.display_name;
+      // console.log("address");
+      // console.log(response);
+      // console.log(response.data.display_name);
+      // if (response.data.address.state === "Tibesti") {
+      //     verDirecciooole(a, b, c)
+      // }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
+  ifo.push(direccion);
+  var velocidad = dataInfo.informacionMoto.ultimaPosicion.veloc + " km/h"
+  ifo.push(velocidad);
+  var odometro = Math.round((dataInfo.informacionMoto.ultimaPosicion.distancia) / 1000) + " km/h"
+  ifo.push(odometro);
+  var ignicao = "";
+  if (dataInfo.informacionMoto.ultimaPosicion.ignicao === "0") {
+    ignicao = "OFF";
+  } else {
+    ignicao = "ON";
+  }
+
+  ifo.push(ignicao);
+  var origen = dataInfo.informacionMoto.ultimaPosicion.origen
+  ifo.push(origen);
+  var satelites = dataInfo.informacionMoto.ultimaPosicion.satelites
+  ifo.push(satelites);
+  var tensao = dataInfo.informacionMoto.ultimaPosicion.tensao
+  ifo.push(tensao);
+
+
+  // $("#origenUltimaPosicion").text(Origen);
+
+  // var Satelites = dataInfo.informacionMoto.ultimaPosicion.satelites
+
+  // $("#satelitesUltimaPosicion").text(Satelites);
+
+  // var bateria = dataInfo.informacionMoto.ultimaPosicion.tensao
+
+  // // alert(bateria)
+  // $("#bateriaUltimaPosicion").text(bateria);
+  // console.log(dataInfo.accionamientos)
+  // var event = dataInfo.eventos[0].desc + " " + dataInfo.eventos[0].data_gps_br
+
+  // $("#eventoUltimaPosicion").text(event);
+
+
+
+
+
+  const table = new DataTable('#example1');
+  clearTable(table)
+
+
+  // Automatically add a first row of data
+  addNewRow(table, ifo);
 
 
 
 }
+
+function addNewRow(table, array) {
+
+  table.row
+    .add(array)
+    .draw(false);
+
+
+}
+function clearTable(table) {
+  table.clear().draw();
+}
+
+function obtenerDescripcionPorActId(id) {
+  let entrada = dataInfo.accionamientos.find(function (elemento) {
+    return elemento.acionamento_id === id;
+  });
+  return entrada ? entrada.acionamento_descr : "No se encontró la entrada con el ID especificado.";
+}
+
+

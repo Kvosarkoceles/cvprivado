@@ -149,14 +149,16 @@
         "autoWidth": false,
         "pageLength": 5,
         "searching": false,
+        "scrollX": true
       })
 
       $("#example2").DataTable({
-        "responsive": true,
+        "responsive": false,
         "lengthChange": false,
         "autoWidth": false,
         "pageLength": 5,
         "searching": false,
+        "scrollX": true
       })
       $("#example3").DataTable({
         "responsive": true,

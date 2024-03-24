@@ -427,7 +427,7 @@ function localizar() {
   eliminarPolilineas();
   eliminarTodosLosMarcadores();
   ubicarMapa();
-  intervalID = setInterval(ubicarMapa, 20000);
+  intervalID = setInterval(ubicarMapa, 60000);
 
   // cerrarTabla()
 }
@@ -591,15 +591,17 @@ function abrirTabla(tabla) {
   console.log("Abrir Tabla: " + tabla);
   switch (tabla) {
     case 1:
-      console.log("Abrir Tabla Ultima Posicion");
-      // cerrarTabla();
+      console.log("Abrir Tabla Ultima Posicion");   
+      cerrarTabla();
+      clearInterval(intervalID);
       $("#mapid").hide();
       $("#tablaUltimaPosicion").show();
-      tablaUltimaPosicion();
+      tablaUltimaPosicion();    
       break;
     case 2:
-      console.log("Abrir Tabla Ruta");
+      console.log("Abrir Tabla Ruta");      
       cerrarTabla();
+      clearInterval(intervalID);
       $("#mapid").hide();
       $("#tablaRuta").show();
       break;
@@ -607,8 +609,8 @@ function abrirTabla(tabla) {
     case 3:
       console.log("Abrir Tabla Ruta Completa");
       cerrarTabla();
-      $("#mapid").hide();
-      $("#tablaRutaCompleta").show();
+      // $("#mapid").hide();
+      // $("#tablaRutaCompleta").show();
 
       break;
     case 4:
@@ -628,8 +630,12 @@ function cerrarTabla(tabla) {
   
   if (tabla===1) {
     $("#tablaUltimaPosicion").hide();
-  }
+    localizar();
+  }else if(tabla===2){
+    $("#tablaRuta").hide();
+  } 
   $("#mapid").show();
+
 
  
   // $("#tablaRutaCompleta").hide();
