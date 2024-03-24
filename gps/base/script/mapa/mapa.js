@@ -181,7 +181,7 @@ function addMarkerUtimaPosicion() {
         '<a href="#" id="' + dataInfo.informacionMoto.ultimaPosicion.nsu_posicoes + '" onclick="verDireccio(' + dataInfo.informacionMoto.ultimaPosicion.latitude + ',' + dataInfo.informacionMoto.ultimaPosicion.longitude + ',' + dataInfo.informacionMoto.ultimaPosicion.nsu_posicoes + ')">Ver Dirección</a>' +
         "</div>" +
         "<div style='margin-bottom: 5px; text-align: center;'>" +
-        "<button onclick='limpiarTabla()' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
+        "<button onclick='abrirTabla(1)' class='btn btn-block btn-outline-primary btn-sm'>Detalles</button>" +
         "</div>";
 
     var lat = parseFloat(dataInfo.informacionMoto.latitude)

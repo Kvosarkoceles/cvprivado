@@ -8,6 +8,7 @@ async function viajes() {
   clearInterval(intervalID);
   var filtroTiempoSelect = document.getElementById("filtroTiempo");
   filtroTiempoSelect.addEventListener("change", viajes);
+  cerrarTabla()
   $("#boton3").hide();
   $("#boton1").text("Localizar");
   $("#boton1").show();
@@ -239,7 +240,7 @@ function verRuta(index, centrar) {
   console.clear();
   console.log("Data Temp");
   console.log(dataTemp);
-
+cerrarTabla()
   // Caso 1: El array existe y está vacío
   if (dataTemp.viajes && dataTemp.viajes.length === 0) {
     console.log("El array existe y está vacío.");
@@ -426,7 +427,9 @@ function localizar() {
   eliminarPolilineas();
   eliminarTodosLosMarcadores();
   ubicarMapa();
-  intervalID = setInterval(ubicarMapa, 10000);
+  intervalID = setInterval(ubicarMapa, 20000);
+
+  cerrarTabla()
 }
 
 function ubicarMapa() {
@@ -451,7 +454,10 @@ function rutaInfo(incio, fin, tipo) {
     console.log("Calula el informe de ruta parcial");
     console.log("Muestra los datos calculados en la tabla");
 
+    abrirTabla(1)
+
   } else {
+    abrirTabla(3)
     console.log("Ruta completa");
     console.log("Abre el menu para informe de ruta completa");
     console.log("Calula el informe de ruta completa");
@@ -576,5 +582,18 @@ function cerrarModalViajes() {
 function cerrarModalRutaCompleta() {
   $("#modalRutaCompleta").hide();
 }
+function abrirTabla() {
+  $("#tablaRutaCompleta").show();
+  $("#mapid").hide();
+}
 
+
+
+
+function cerrarTabla() {
+
+  $("#tablaRutaCompleta").hide();
+  $("#mapid").show();
+  
+}
 function direccion() { }
