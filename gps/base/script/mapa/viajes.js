@@ -5,7 +5,7 @@
  */
 async function viajes() {
   await getData();
-  clearInterval(intervalID);
+  intervaloLocalizar(0)
   var filtroTiempoSelect = document.getElementById("filtroTiempo");
   filtroTiempoSelect.addEventListener("change", viajes);
   cerrarTabla()
@@ -23,7 +23,7 @@ var filas = "";
  * @returns {void}
  */
 async function getData() {
-  console.log("getData");
+
   var valorSeleccionado = $("#filtroTiempo").val();
 
   switch (valorSeleccionado) {
@@ -51,21 +51,18 @@ async function getData() {
     default:
     // Acción por defecto, si es necesario
   }
-  console.log("Calacula las fechas");
+
   const fechasDeseadas = await obtenerFechas(
     dataInfo.igniciones.data_gps_br,
     dataInfo.dateInicion,
     dataInfo.dateFin
   );
-  console.log("fechasDeseadas");
-  console.log(fechasDeseadas);
+
   posocop = await filtraData(
     dataInfo.posiciones,
     dataInfo.dateInicion,
     dataInfo.dateFin
   );
-  console.log("Posiciones");
-  console.log(posocop);
   dataTemp.posiciones = posocop;
 
   var vai = await filtarViajes(
@@ -73,8 +70,6 @@ async function getData() {
     dataInfo.dateInicion,
     dataInfo.dateFin
   );
-  console.log("igniciones Inicio");
-  console.log(vai);
   dataTemp.igniciones.data_gps_br = vai;
 
   var vai2 = await filtarViajes(
@@ -82,10 +77,7 @@ async function getData() {
     dataInfo.dateInicion,
     dataInfo.dateFin
   );
-  console.log("igniciones Termino");
-  console.log(vai2);
   dataTemp.igniciones.nextdataInfo = vai2;
-
   muestraViajes();
 }
 
@@ -122,7 +114,7 @@ async function muestraViajes() {
   $.each(dataTemp.igniciones.data_gps_br, function (index, item) {
     addTablaInfo(item, dataTemp.igniciones.nextdataInfo[index], index);
   });
-  console.log(dataTemp);
+
 
   $("#tablaPosiciones tbody").append(filas);
   // if (dataTemp.viajes.length != 0) {
@@ -152,12 +144,6 @@ function calduladistancia(inicio, fin) {
  * @returns {void}
  */
 function addTablaInfo(incio, fin, index) {
-  console.log("addTablaInfo"); //
-  console.log("index", index); //
-  console.log("incio", incio); //
-  console.log("fin", fin); //
-  // var ruta = recorrerEntrehoras(dataTemp.posiciones, incio, fin);
-
   var fila =
     '<tr data-widget="expandable-table" aria-expanded="false">' +
     "<td>" +
@@ -330,6 +316,44 @@ function verRuta(index, centrar) {
 
   togglePreloader("hide");
 }
+function calcularRutas(index) {
+
+  ;
+
+  // Caso 1: El array existe y está vacío
+  if (dataTemp.viajes && dataTemp.viajes.length === 0) {
+
+    dataTemp.igniciones.data_gps_br.forEach(function (ignicion, index) {
+      inicio = dataTemp.igniciones.data_gps_br[index];
+      var ruta = recorrerEntrehoras(
+        dataTemp.posiciones,
+        dataTemp.igniciones.data_gps_br[index],
+        dataTemp.igniciones.nextdataInfo[index]
+      );
+      dataTemp.viajes.push(ruta);
+
+      // Por ejemplo, si 'ignicion' es un objeto con propiedades como 'fecha', 'estado', etc., puedes acceder a ellas así: ignicion.fecha, ignicion.estado, etc.
+    });
+  }
+
+  // Caso 2: El array existe y no está vacío
+  else if (dataTemp.viajes && dataTemp.viajes.length > 0) {
+    console.log("El array existe y no está vacío.");
+    console.log("1.- Muestra la ruta");
+  }
+
+  // Caso 3: El array no existe
+  else {
+    console.log("El array no existe.");
+    console.log("1.- Calcula las rutas");
+    console.log("2.- salva las rutas");
+    console.log("3.- Muestra la ruta");
+  }
+
+
+
+
+}
 function rutaDate(inicio, fin) { }
 
 /**
@@ -427,12 +451,30 @@ function localizar() {
   eliminarPolilineas();
   eliminarTodosLosMarcadores();
   ubicarMapa();
-  intervalID = setInterval(ubicarMapa, 60000);
+
+  intervaloLocalizar(1)
+  // intervalID = setInterval(ubicarMapa, 60000);
 
   // cerrarTabla()
 }
+let intervalLocalizar = null; // Inicializar la variable globalmente
+
+function intervaloLocalizar(condition) {
+  // Verificar si el intervalo debe iniciarse
+  if (condition === 1 && !intervalLocalizar) {
+    intervalLocalizar = setInterval(ubicarMapa, 5000);    
+  } 
+  // Verificar si el intervalo debe detenerse
+  else if (condition === 0 && intervalLocalizar) {
+    clearInterval(intervalLocalizar);
+    intervalLocalizar = null; // Restablecer la variable
+  }
+}
+
 
 function ubicarMapa() {
+
+  console.log("ubicar Mapa")
   eliminarTodosLosMarcadores();
   getCar();
   addMarkerUtimaPosicion();
@@ -454,7 +496,7 @@ function rutaInfo(incio, fin, tipo) {
     console.log("Calula el informe de ruta parcial");
     console.log("Muestra los datos calculados en la tabla");
 
-    abrirTabla(2)
+    abrirTabla(3)
 
   } else {
     abrirTabla(3)
@@ -585,23 +627,23 @@ function cerrarModalRutaCompleta() {
 function abrirTabla(tabla) {
   var screenWidth = $(window).width();
   var screenHeight = $(window).height();
-  
+
   // Mostrar el tamaño de la pantalla en consola
 
   console.log("Abrir Tabla: " + tabla);
   switch (tabla) {
     case 1:
-      console.log("Abrir Tabla Ultima Posicion");   
+      console.log("Abrir Tabla Ultima Posicion");
       cerrarTabla();
-      clearInterval(intervalID);
+      intervaloLocalizar(0);
       $("#mapid").hide();
       $("#tablaUltimaPosicion").show();
-      tablaUltimaPosicion();    
+      tablaUltimaPosicion();
       break;
     case 2:
-      console.log("Abrir Tabla Ruta");      
+      console.log("Abrir Tabla Ruta");
       cerrarTabla();
-      clearInterval(intervalID);
+      intervaloLocalizar(0);
       $("#mapid").hide();
       $("#tablaRuta").show();
       break;
@@ -609,6 +651,11 @@ function abrirTabla(tabla) {
     case 3:
       console.log("Abrir Tabla Ruta Completa");
       cerrarTabla();
+      intervaloLocalizar(0);
+      $("#mapid").hide();
+      $("#tablaRutaCompleta").show();
+
+      tablaRutaCompleta()
       // $("#mapid").hide();
       // $("#tablaRutaCompleta").show();
 
@@ -627,19 +674,25 @@ function abrirTabla(tabla) {
 
 function cerrarTabla(tabla) {
   // alert(tabla)
-  
-  if (tabla===1) {
+
+  if (tabla === 1) {
     $("#tablaUltimaPosicion").hide();
     localizar();
-  }else if(tabla===2){
+  } else if (tabla === 2) {
     $("#tablaRuta").hide();
-  } 
+  }
+  else if (tabla === 3) {
+    $("#tablaRutaCompleta").hide();
+  }
   $("#mapid").show();
 
 
- 
+
   // $("#tablaRutaCompleta").hide();
   // $("#tablaAlertas").hide();
- 
+
 }
+// function tablaRutaCompleta() {
+//   console.log(dataInfo.posiciones)
+// }
 function direccion() { }

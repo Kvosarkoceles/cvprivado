@@ -94,6 +94,8 @@ async function ejecutarFuncionesAsincronas() {
 
     cerrarTabla(1);
     cerrarTabla(2);
+    cerrarTabla(3);
+
   } catch (error) {
     console.error(error);
   }
@@ -342,7 +344,7 @@ async function tablaUltimaPosicion() {
   ifo.push(ultimoEvento);
 
   var direccion = "";
-  
+
   await axios
     .get(
       "https://nominatim.openstreetmap.org/reverse?lat=" +
@@ -415,6 +417,175 @@ async function tablaUltimaPosicion() {
 
 
 }
+
+async function tablaRutaCompleta() {
+  var ifo = []; 
+  var fechaRutaCompletaInicio = dataTemp.posiciones[0].data_gps_br
+  ifo.push(fechaRutaCompletaInicio);
+  var direccionInicial = "";
+  await axios
+    .get(
+      "https://nominatim.openstreetmap.org/reverse?lat=" +
+      dataTemp.posiciones[0].latitude +
+      "&lon=" +
+      dataTemp.posiciones[0].longitude +
+      "&format=json"
+    )
+    .then(function (response) {
+
+      // Procesar respuesta
+      direccionInicial = response.data.display_name;
+      // console.log("address");
+      // console.log(response);
+      // console.log(response.data.display_name);
+      // if (response.data.address.state === "Tibesti") {
+      //     verDirecciooole(a, b, c)
+      // }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  ifo.push(direccionInicial);
+  // var ultimoEvento = dataInfo.eventos[0].desc + " " + dataInfo.eventos[0].data_gps_br
+  // ifo.push(ultimoEvento);
+  var fechaRutaCompletaFin = dataTemp.posiciones[dataTemp.posiciones.length - 1].data_gps_br
+  ifo.push(fechaRutaCompletaFin);
+  var direccionFinal = "";
+  await axios
+    .get(
+      "https://nominatim.openstreetmap.org/reverse?lat=" +
+      dataTemp.posiciones[dataTemp.posiciones.length - 1].latitude +
+      "&lon=" +
+      dataTemp.posiciones[dataTemp.posiciones.length - 1].longitude +
+      "&format=json"
+    )
+    .then(function (response) {
+      // Procesar respuesta
+      direccionFinal = response.data.display_name;
+      // console.log("address");
+      // console.log(response);
+      // console.log(response.data.display_name);
+      // if (response.data.address.state === "Tibesti") {
+      //     verDirecciooole(a, b, c)
+      // }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  ifo.push(direccionFinal);
+  var odometroInicial = Math.round(((dataTemp.posiciones[dataTemp.posiciones.length - 1].distancia) - (dataTemp.posiciones[0].distancia)) / 1000) + " km/h"
+  ifo.push(odometroInicial); 
+  var velocidadMaxima = calcularVelocidadMaxima(dataTemp.posiciones) + " km/h"
+  ifo.push(velocidadMaxima);
+  var posiciones = dataTemp;
+  var calculoDeRecorrido = {
+    "horas": 0,
+    "minutos": 0,
+    "segundos": 0
+  };
+  if (dataTemp.igniciones.data_gps_br.length > 0) {
+    console.log("igniciones SI AY")
+    await calcularRutas(0);
+    for (let i = 0; i < dataTemp.viajes.length; i++) {
+      inicio = dataTemp.viajes[i][0].data_gps_br;
+      fin = dataTemp.viajes[i][dataTemp.viajes[i].length - 1].data_gps_br;
+      calculoDeRecorrido = sumarTiempoObejo(calculoDeRecorrido, calcularTiempoRecorrido(inicio, fin));
+      console.log(inicio)
+      console.log(fin)
+      console.log(calculoDeRecorrido);
+    }
+  } else {
+    console.clear()
+    console.log("igniciones NO AY")
+    console.log(dataTemp.igniciones.length)
+    console.log(posiciones)
+    console.log(calculoDeRecorrido)
+  }
+
+
+
+  // console.log("Tiempo total recorrido:");
+  // console.log("Horas:", horas);
+  // console.log("Minutos:", minutos);
+  // console.log("Segundos:", segundos);
+
+  ifo.push(calculoDeRecorrido.horas + ":" + calculoDeRecorrido.minutos + ":" + calculoDeRecorrido.segundos)
+
+
+
+
+
+  const table = new DataTable('#example3');
+  clearTable(table)
+
+
+  // Automatically add a first row of data
+  addNewRow(table, ifo);
+
+
+
+}
+
+async function tablaRutaCompletanew() {
+  var ifo = []; 
+  var fechaRutaCompletaInicio = dataTemp.posiciones[0].data_gps_br;
+  ifo.push(fechaRutaCompletaInicio);
+  
+  var direccionInicial = "Dirección inicial"; // Puedes asignar aquí la dirección inicial o implementar tu propia lógica
+  ifo.push(direccionInicial);
+  
+  var fechaRutaCompletaFin = dataTemp.posiciones[dataTemp.posiciones.length - 1].data_gps_br;
+  ifo.push(fechaRutaCompletaFin);
+  
+  var direccionFinal = "Dirección final"; // Puedes asignar aquí la dirección final o implementar tu propia lógica
+  ifo.push(direccionFinal);
+  
+  var odometroInicial = Math.round(((dataTemp.posiciones[dataTemp.posiciones.length - 1].distancia) - (dataTemp.posiciones[0].distancia)) / 1000) + " km/h";
+  ifo.push(odometroInicial); 
+  
+  var velocidadMaxima = calcularVelocidadMaxima(dataTemp.posiciones) + " km/h";
+  ifo.push(velocidadMaxima);
+  
+  var posiciones = dataTemp;
+  
+  var calculoDeRecorrido = {
+      "horas": 0,
+      "minutos": 0,
+      "segundos": 0
+  };
+  
+  if (dataTemp.igniciones.data_gps_br.length > 0) {
+      console.log("igniciones SI AY");
+      await calcularRutas(0); // Espera a que calcularRutas se complete antes de continuar
+      for (let i = 0; i < dataTemp.viajes.length; i++) {
+          inicio = dataTemp.viajes[i][0].data_gps_br;
+          fin = dataTemp.viajes[i][dataTemp.viajes[i].length - 1].data_gps_br;
+          calculoDeRecorrido = sumarTiempoObejo(calculoDeRecorrido, calcularTiempoRecorrido(inicio, fin));
+          console.log(inicio)
+          console.log(fin)
+          console.log(calculoDeRecorrido);
+      }
+  } else {
+      console.clear();
+      console.log("igniciones NO AY");
+      console.log(dataTemp.igniciones.length);
+      console.log(posiciones);
+      console.log(calculoDeRecorrido);
+  }
+  
+  // Aquí podrías calcular el tiempo total de recorrido
+  // y agregarlo al objeto calculoDeRecorrido
+  
+  // Luego, podrías agregar el tiempo total de recorrido a ifo
+  
+  const table = new DataTable('#example3');
+  clearTable(table);
+  
+  // Automatically add a first row of data
+  addNewRow(table, ifo);
+}
+
 
 function addNewRow(table, array) {
 

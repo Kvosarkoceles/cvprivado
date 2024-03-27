@@ -163,9 +163,11 @@
       $("#example3").DataTable({
         "responsive": true,
         "lengthChange": false,
-        "autoWidth": false,
+        "autoWidth": true,
         "pageLength": 5,
         "searching": false,
+        "paging": false 
+        
       })
       $("#example4").DataTable({
         "responsive": true,

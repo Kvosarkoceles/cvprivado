@@ -86,7 +86,7 @@ function recorrerEntrehoras(arreglo, fechaInicial, fechaFinal) {
     var limit = fechaObjeto >= fechaInicio && fechaObjeto <= fechaFin;
 
     // console.log("limit")
-    console.log(limit);
+  
 
     if (limit) {
       // console.log("objeto");
@@ -96,7 +96,7 @@ function recorrerEntrehoras(arreglo, fechaInicial, fechaFinal) {
     }
   });
 
-  console.log(resultado.length);
+
   return resultado;
 }
 function ultimaPosicion(data1, data2) {
@@ -138,8 +138,6 @@ function funcionHoy() {
   dataInfo.dateInicion = fechaActualFormateada;
   dataInfo.dateFin = fechaActualFormateada2;
 
-  console.log("hoy");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
 }
 
 function funcionAyer() {
@@ -172,8 +170,7 @@ function funcionAyer() {
   dataInfo.dateFin = fechaFinalFormateada;
   //  console.log("fechaActualFormateada "  + dateInicial)
   //  console.log("fechaAyerFormateada " + dateFinal)
-  console.log("Ayer: ");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+
 }
 
 function funcionSemanaActual() {
@@ -234,8 +231,7 @@ function funcionSemanaActual() {
   dataInfo.dateInicion = fechaInicioSemanaFormateada;
   dataInfo.dateFin = fechaActualFormateada;
 
-  console.log("Semana Actual");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+ 
 }
 
 function funcionMesActual() {
@@ -287,8 +283,7 @@ function funcionMesActual() {
   dataInfo.dateInicion = fechaInicioMesFormateada;
   dataInfo.dateFin = fechaActualFormateada;
 
-  console.log("Mes Actual");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+
 }
 
 function funcionUltimos7Dias() {
@@ -342,10 +337,8 @@ function funcionUltimos7Dias() {
   // Imprimir las fechas
 
   dataInfo.dateInicion = fechaSieteDiasAntesFormateada;
-  dataInfo.dateFin = fechaActualFormateada;
+  dataInfo.dateFin = fechaActualFormateada
 
-  console.log("ultimos 7 dias");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
 }
 
 function funcionUltimos30Dias() {
@@ -399,10 +392,7 @@ function funcionUltimos30Dias() {
   // Imprimir las fechas
 
   dataInfo.dateInicion = fechaTreintaDiasAntesFormateada;
-  dataInfo.dateFin = fechaActualFormateada;
-
-  console.log("ultimos 30 dias");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+  dataInfo.dateFin = fechaActualFormateada; 
 }
 
 function funcionUltimos100Dias() {
@@ -458,8 +448,7 @@ function funcionUltimos100Dias() {
   dataInfo.dateInicion = fechaTreintaDiasAntesFormateada;
   dataInfo.dateFin = fechaActualFormateada;
 
-  console.log("ultimos 100 dias");
-  console.log("De: " + dataInfo.dateInicion + "  A: " + dataInfo.dateFin);
+ 
 }
 
 function calcularVelocidadMaxima(posiciones) {
@@ -492,6 +481,114 @@ function calcularTiempoRecorrido(posicionInicial, posicionFinal) {
   console.log(segundos);
   return { horas, minutos, segundos };
 }
+
+// Suponiendo que tienes un arreglo llamado 'datos' que contiene tus objetos
+
+function calcularTiempoRecorridoDatos(datos) {
+  // Ordena los datos por la fecha y hora
+ 
+  // datos.sort((a, b) => new Date(a.data_gps_br) - new Date(b.data_gps_br));
+
+  let primerEncendido = null;
+  let segundoEncendido = null;
+
+  // Encuentra el primer punto donde la ignición está encendida
+  for (let i = 0; i < datos.length; i++) {
+      if (datos[i].ignicao === "1") {
+          primerEncendido = i;
+          break;
+      }
+  }
+
+  // Encuentra el siguiente punto donde la ignición está encendida después del primer punto
+  for (let i = primerEncendido + 1; i < datos.length; i++) {
+      if (datos[i].ignicao === "1") {
+          segundoEncendido = i;
+          break;
+      }
+  }
+
+  // Calcula la diferencia de tiempo si se encontraron dos puntos de encendido
+  if (primerEncendido !== null && segundoEncendido !== null) {
+    console.log("primerEncendido")
+    console.log(primerEncendido)
+    console.log("segundoEncendido")
+    console.log(segundoEncendido)
+    
+      const tiempoInicio = new Date(datos[primerEncendido].data_gps_br);
+      const tiempoFin = new Date(datos[segundoEncendido].data_gps_br);
+      const tiempoRecorrido = tiempoFin - tiempoInicio;
+      // Convertir la diferencia de tiempo de milisegundos a segundos
+      const segundosRecorridos = tiempoRecorrido / 1000;
+      return segundosRecorridos;
+  } else {
+      return "No se encontraron dos puntos con ignición encendida consecutivos.";
+  }
+}
+
+// Suponiendo que tienes un arreglo llamado 'datos' que contiene tus objetos
+
+// Suponiendo que tienes un arreglo llamado 'datos' que contiene tus objetos
+
+// Suponiendo que tienes un arreglo llamado 'datos' que contiene tus objetos
+
+// Suponiendo que tienes un arreglo llamado 'datos' que contiene tus objetos
+
+function calcularTiempoRecorrido2(datos) {
+  let primerEncendido = null;
+  let segundoEncendido = null;
+
+  // Encuentra el primer punto donde la ignición está encendida
+  for (let i = 0; i < datos.length; i++) {
+      if (datos[i].ignicao === "1") {
+          if (primerEncendido === null) {
+              primerEncendido = i;
+          } else {
+              segundoEncendido = i;
+              break;
+          }
+      }
+  }
+
+  // Si se encontraron dos puntos de encendido, calcula el tiempo recorrido y el subarray restante
+  if (primerEncendido !== null && segundoEncendido !== null) {
+      const tiempoInicio = new Date(datos[primerEncendido].data_gps_br);
+      const tiempoFin = new Date(datos[segundoEncendido].data_gps_br);
+      const tiempoRecorrido = tiempoFin - tiempoInicio;
+      // Convertir la diferencia de tiempo de milisegundos a segundos
+      const segundosRecorridos = tiempoRecorrido / 1000;
+
+      // Crear el subarray restante
+      const subArrayRestante = datos.slice(segundoEncendido);
+
+      return {
+          tiempoRecorrido: segundosRecorridos,
+          subArrayRestante: subArrayRestante
+      };
+  } else {
+      return null; // Si no se encontraron dos puntos consecutivos con ignición encendida
+  }
+}
+
+// Llamada a la función repetidamente hasta que el tamaño del subarray retornado sea cero
+
+
+
+
+// Llamada a la función y mostrar el resultado
+
+
+// Llamada inicial a la función
+// calcularTiempoRecorridoRecursivo(datos, -1); // Empieza desde el primer punto, por eso el índice inicial es -1
+
+// Llamada inicial a la función
+ // Empieza desde el primer punto, por eso el índice inicial es -1
+
+// Llamada a la función y mostrar el resultado
+// const tiempoRecorrido = calcularTiempoRecorrido(datos);
+// console.log("Tiempo recorrido (segundos):", tiempoRecorrido);
+
+
 
 function funcionPersonalizado() {
   // Tu lógica para la opción 'Personalizado'
@@ -553,3 +650,51 @@ function convertirDateIso(date) {
     seconds;
   return fechaFormateada;
 }
+
+
+
+const objeto1 = {
+  "horas": 0,
+  "minutos": 30,
+  "segundos": 50
+};
+
+const objeto2 = {
+  "horas": 0,
+  "minutos": 28,
+  "segundos": 6
+};
+
+function sumarTiempoObejo(objeto1, objeto2) {
+  let sumaHoras = objeto1.horas + objeto2.horas;
+  let sumaMinutos = objeto1.minutos + objeto2.minutos;
+  let sumaSegundos = objeto1.segundos + objeto2.segundos;
+
+  // Verificar si los segundos o los minutos superan 60 y ajustar en consecuencia
+  if (sumaSegundos >= 60) {
+      sumaMinutos += Math.floor(sumaSegundos / 60);
+      sumaSegundos %= 60;
+  }
+  if (sumaMinutos >= 60) {
+      sumaHoras += Math.floor(sumaMinutos / 60);
+      sumaMinutos %= 60;
+  }
+
+  // Verificar si las horas superan 24 y ajustar en consecuencia
+  let diasExtra = 0;
+  if (sumaHoras >= 24) {
+      diasExtra = Math.floor(sumaHoras / 24);
+      sumaHoras %= 24;
+  }
+
+  return {
+      "dias": diasExtra,
+      "horas": sumaHoras,
+      "minutos": sumaMinutos,
+      "segundos": sumaSegundos
+  };
+}
+
+
+
+
